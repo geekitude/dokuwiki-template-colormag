@@ -1,11 +1,11 @@
 <?php
 /**
- * DokuWiki Default Template 2012
- *
- * @link     http://dokuwiki.org/template
- * @author   Anika Henke <anika@selfthinker.org>
- * @author   Clarence Lee <clarencedglee@gmail.com>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * Dokuwiki ColorMag template
+ * Original Wordpress theme URI: https://themegrill.com/themes/colormag/
+ * 
+ * @link    https://www.dokuwiki.org/template:spacious
+ * @author  Simon DELAGE <sdelage@gmail.com>
+ * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
@@ -13,7 +13,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 ?><!DOCTYPE html>
-<html lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
+<html id="dokuwiki__top" lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>
     <meta charset="utf-8" />
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
@@ -24,7 +24,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body>
+<body class="<?php print colormag_bodyclasses(); ?>>
     <div id="dokuwiki__site">
         <div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
