@@ -13,7 +13,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 ?><!DOCTYPE html>
-<html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
+<html lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>
     <meta charset="utf-8" />
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
