@@ -45,6 +45,36 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * Context logo Lighbox effect uses [Lity - 2.3.1](https://sorgalla.com/lity/), distributed under [MIT License](https://en.wikipedia.org/wiki/MIT_License)
 * ToC scrollspy effect is provided by [Gumshoe - 5.1.2](https://github.com/cferdinandi/gumshoe), distributed under [MIT License](https://en.wikipedia.org/wiki/MIT_License)
 
+## Conversion todo
+
+* [ ] Start with Starter template
+* [ ] Basic HTML/PHP
+  * [ ] Meta elements
+  * [ ] Site containers
+  * [ ] Header
+  * [ ] Content area
+  * [ ] Footer
+  * [ ] Sidebar
+  * [ ] WP vs. DW functions
+* [ ] Basic CSS
+  * [ ] style.css
+  * [ ] rtl.css
+  * [ ] print.css
+  * [ ] Necessary changes
+* [ ] JS
+* [ ] Further HTML/PHP
+  * [ ] Other layouts
+  * [ ] Special DW elements
+  * [ ] Other actions
+* [ ] Further CSS
+  * [ ] style.ini
+  * [ ] WP vs. DW classes
+* [ ] Rename IDs
+* [ ] Support specific custom WP theme functionality
+  * [ ] Custom colours
+  * [ ] Custom background
+* [ ] Further Reading
+
 ## Main features
 
 * [ ] Namespace dependent CSS (for colors and fonts)
