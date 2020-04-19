@@ -1,0 +1,7 @@
+base     colormag
+author   Simon Delage
+email    sdelage@gmail.com
+date     2020-04-29
+name     ColorMag Template
+desc     Porting ColorMag Wordpress theme (https://themegrill.com/themes/colormag/) to DokuWiki
+url      https://www.dokuwiki.org/template:colormag
