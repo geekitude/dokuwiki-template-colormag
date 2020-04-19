@@ -47,7 +47,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ## Conversion todo
 
-* [ ] Start with Starter template
+* [x] Start with ~~Starter~~ Default template (don't wan't to struggle with complex items like pagetools)
 * [ ] Basic HTML/PHP
   * [ ] Meta elements
   * [ ] Site containers
