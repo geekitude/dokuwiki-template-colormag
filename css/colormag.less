@@ -14,6 +14,7 @@
  * Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
  * along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/ and Blueprint http://www.blueprintcss.org/
 */
+
 /* =Reset
 -------------------------------------------------------------- */
 
@@ -4218,6 +4219,70 @@ a#scroll-up:hover {
 }
 [dir] .page-template-page-builder #primary {
 	float: none;
+}
+
+    
+/*--------------------------------------------------------------
+DW SPECIFIC
+--------------------------------------------------------------*/
+
+/* Section highlighting */
+
+.dokuwiki div.section_highlight { /* negative side margin = side padding + side border */
+}
+
+[dir] .dokuwiki div.section_highlight {
+    margin: 0 -.8rem;
+    padding: 0 .3rem;
+    border-width: 0 .5rem;
+    border-color: @ini_yellow_color;
+    border-style: solid;
+}
+
+/* More obvious dbg() result */
+
+[dir] pre.dbg {
+    background-color: gold;
+}
+
+/* Move tpl_indexerWebBug() out of the way */
+
+#colormag__housekeeper {
+    position: fixed;
+    top: 0;
+}
+
+/* Hide mobile tools by default */
+
+div.mobileTools {
+    /*display:none;*/
+}
+
+/* Images alignment */
+
+[dir=ltr] .medialeft {
+	float: left;
+}
+
+[dir=rtl] .medialeft {
+    float: right;
+}
+[dir=ltr] .mediaright {
+	float: right;
+}
+[dir=rtl] .mediaright {
+    float: left;
+}
+.mediacenter {
+    display: block;
+}
+[dir=ltr] .mediacenter {
+	margin-left: auto;
+	margin-right: auto;
+}
+[dir=rtl] .mediacenter {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /*--------------------------------------------------------------
