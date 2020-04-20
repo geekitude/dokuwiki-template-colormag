@@ -49,8 +49,8 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 * [x] Start with ~~Starter~~ Default template (don't wan't to struggle with complex items like pagetools)
 * [ ] Basic HTML/PHP
-  * [ ] Meta elements
-  * [ ] Site containers
+  * [x] Meta elements
+  * [x] Site containers
   * [ ] Header
   * [ ] Content area
   * [ ] Footer
