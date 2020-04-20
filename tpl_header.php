@@ -103,6 +103,16 @@ if (!defined('DOKU_INC')) die();
                                     <?php tpl_searchform(); ?>
                                 </div>
                             </li>
+                            <?php if (($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) : ?>
+                                <li class="menu-item menu-item-has-children">
+                                    <a href="/doku.php?id=<?php print $ID; ?>&do=admin" title="<?php print $lang['btn_admin'] ?>"><?php print $colormag['glyphs']['admin'] ?>
+                                        <span><?php print $lang['btn_admin'] ?></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <?php colormag_admin(); ?>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
                         </ul><!-- /#colormag__menu-tools -->
                     </div><!-- /.menu-primary-container -->
                 </div><!-- /.inner-wrap -->
