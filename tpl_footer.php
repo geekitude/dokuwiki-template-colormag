@@ -12,8 +12,59 @@ if (!defined('DOKU_INC')) die();
     <div class="footer-widgets-wrapper">
         <div class="inner-wrap">
             <div class="footer-widgets-area clearfix">
-                <aside id="text-3" class="widget widget_text clearfix">
-                    <h3 class="widget-title"><span>About Us</span></h3>
+                <?php if ($conf['useacl'] && $ACT != "login" && $ACT != "denied"): ?>
+                    <aside id="colormag__userwidget" class="widget">
+                        <?php
+                            //if (($conf['useacl']) and (empty($_SERVER['REMOTE_USER'])) and (strpos(tpl_getConf('widgets'), 'footer_login') !== false))
+                            if (($conf['useacl']) && (empty($_SERVER['REMOTE_USER']))) {
+                                //<!-- LOGIN FORM -->
+                                colormag_loginform('widget');
+                            //} elseif ($spacious['show']['tools']) {
+                            } else {
+                                print '<h6 class="widget-title title-block-wrap group"><span class="label">'.$lang['profile'].'</span></h6>';
+                                if ($spacious['images']['avatar']['target'] != null) {
+                                    if (strpos($spacious['images']['avatar']['target'], "debug") !== false) {
+                                        print '<a href="/doku.php?id='.$ID.'&amp;do=media&amp;ns='.tpl_getConf('avatars').'&amp;tab_files=upload" title="'.tpl_getLang('upload_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['target'].'" title="'.tpl_getLang('upload_avatar').'" alt="*'.tpl_getLang('upload_avatar').'*" width="64px" height="100%" /></a>';
+                                    } else {
+                                        if ($spacious['images']['avatar']['thumbnail'] != null) {
+                                            print '<a href="'.$spacious['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['thumbnail'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                                        } else {
+                                            print '<a href="'.$spacious['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['target'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                                        }
+                                    }
+                                }
+                                print '<ul>';
+                                    print '<li>'.$lang['fullname'].' : <em>'.$INFO['userinfo']['name'].'</em></li>'; 
+                                    print '<li>'.$lang['user'].' : <em>'.$_SERVER['REMOTE_USER'].'</em></li>'; 
+                                    print '<li>'.$lang['email'].' : <em>'.$INFO['userinfo']['mail'].'</em></li>'; 
+                                print '</ul>';
+                                echo '<p class="user">';
+                                    // If user has public page ID but no private space ID (most likely because UserHomePage plugin is not available)
+                                    //if (($spacious['user']['private'] == null) && ($spacious['user']['public']['link'] != null)) {
+                                    if (($spacious['user']['public']['id'] != null) && ($spacious['user']['private']['id'] != null)) {
+dbg("vérifier ces liens");
+                                        tpl_link(wl($spacious['user']['private']['id']),'<span>'.$spacious['user']['private']['title'].'</span>','title="'.$spacious['user']['private']['title'].'" class="'.$spacious['user']['private']['classes'].'"');
+                                        print " - ";
+                                        tpl_link(wl($spacious['user']['public']['id']),'<span>'.$spacious['user']['public']['title'].'</span>','title="'.$spacious['user']['public']['title'].'" class="'.$spacious['user']['public']['classes'].'"');
+                                    } elseif (($spacious['user']['public']['id'] != null) && ($spacious['user']['private'] == null)) {
+                                        print '<span title="'.$spacious['user']['public']['title'].'">'.$spacious['user']['public']['string'].'</span>';
+                                    // If user has both public page ID and private space ID
+                                    // In any other case, use DW's default function
+                                    //} else {
+                                    //    print $lang['loggedinas'].' '.userlink(); /* 'Logged in as ...' */
+                                    }
+                                echo '</p>';
+                                echo '<p class="profile">';
+                                    //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.spacious_glyph("profile", true).'</a>';
+                                    print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span></a>';
+                                echo '</p>';
+                            }
+                        ?>
+                    </aside><!-- /#spacious__usertools -->
+                <?php endif; ?>
+
+                <aside id="colormag__licensewidget" class="widget clearfix">
+                    <h6 class="widget-title"><span><?php print tpl_getLang('license'); ?></span></h6>
                     <div class="textwidget">
                         <?php tpl_license(''); // license text ?>
                     </div>
@@ -25,7 +76,7 @@ if (!defined('DOKU_INC')) die();
         <div class="inner-wrap">
             <div class="footer-socket-area">
                 <div class="footer-socket-right-section">
-                    <div class="social-links clearfix">
+                    <div class="buttons clearfix">
                         <ul>
                             <li>
                                 <?php

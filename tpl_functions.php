@@ -44,3 +44,53 @@ function colormag_bodyclasses() {
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));
 }/* /colormag_bodyclasses */
+
+/**
+ * The loginform
+ * adapted from html_login() because colormag doesn't need autofocus on username input
+ *
+ * See original function in inc/html.php for details
+ */
+function colormag_loginform($context = "null") {
+    global $lang;
+    global $conf;
+    global $ID;
+    global $INPUT;
+
+    if ($context == "widget") {
+        $tmp = explode("</h1>", p_locale_xhtml('login'));
+        $title = explode(">", $tmp[0])[1];
+        $tmp = str_replace("! ", "!<br />", $tmp[1]);
+        $tmp = str_replace(". ", ".<br />", $tmp);
+        print '<h6 class="widget-title title-block-wrap clearfix"><span class="label">';
+            print $title;
+        print '</span></h6>';
+        print $tmp;
+    } else {
+        print p_locale_xhtml('login');
+    }
+    print '<div>'.NL;
+
+    $form = new Doku_Form(array('id' => 'dw__login'));
+    $form->startFieldset($lang['btn_login']);
+    $form->addHidden('id', $ID);
+    $form->addHidden('do', 'login');
+    $form->addElement(form_makeTextField('u', ((!$INPUT->bool('http_credentials')) ? $INPUT->str('u') : ''), $lang['user'], 'username', 'block'));
+    $form->addElement(form_makePasswordField('p', $lang['pass'], '', 'block'));
+    if($conf['rememberme']) {
+        $form->addElement(form_makeCheckboxField('r', '1', $lang['remember'], 'remember__me', 'simple'));
+    }
+    $form->addElement(form_makeButton('submit', '', $lang['btn_login']));
+    $form->endFieldset();
+
+    if(actionOK('register')){
+        $form->addElement('<p>'.explode("?", $lang['reghere'])[0].'? '.tpl_actionlink('register','','','',true).'.</p>');
+    }
+
+    if (actionOK('resendpwd')) {
+        $form->addElement('<p>'.explode("?", $lang['pwdforget'])[0].'? '.tpl_actionlink('resendpwd','','','',true).'.</p>');
+    }
+
+    html_form('login', $form);
+    print '</div>'.NL;
+}/* /colormag_loginform */
