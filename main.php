@@ -28,7 +28,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
-    <div id="colormag__main" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?> clearfix">
+    <div id="colormag__page" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?> clearfix">
 
         <?php include('tpl_header.php') ?>
         <div class="tools group">
@@ -64,51 +64,53 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             </div><!-- /.breadcrumbs -->
         <?php endif ?>
 
-        <div class="inner-wrap clearfix">
+        <div id="colormag__main" class="clearfix">
+            <div class="inner-wrap clearfix">
 
-            <?php if($showSidebar): ?>
-                <!-- ********** ASIDE ********** -->
-                <div id="colormag__secondary">
-                    <div class="pad aside include group">
-                        <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                        <div class="content">
-                            <div class="group">
-                                <?php tpl_flush() ?>
-                                <?php tpl_includeFile('sidebarheader.html') ?>
-                                <?php tpl_include_page($conf['sidebar'], true, true) ?>
-                                <?php tpl_includeFile('sidebarfooter.html') ?>
-                            </div><!-- /.group -->
-                        </div><!-- /.content -->
-                    </div><!-- /.pad.aside.include.group -->
-                </div><!-- /#colormag__secondary -->
-            <?php endif; ?>
+                <?php if($showSidebar): ?>
+                    <!-- ********** ASIDE ********** -->
+                    <div id="colormag__secondary">
+                        <div class="pad aside include group">
+                            <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+                            <div class="content">
+                                <div class="group">
+                                    <?php tpl_flush() ?>
+                                    <?php tpl_includeFile('sidebarheader.html') ?>
+                                    <?php tpl_include_page($conf['sidebar'], true, true) ?>
+                                    <?php tpl_includeFile('sidebarfooter.html') ?>
+                                </div><!-- /.group -->
+                            </div><!-- /.content -->
+                        </div><!-- /.pad.aside.include.group -->
+                    </div><!-- /#colormag__secondary -->
+                <?php endif; ?>
 
-            <!-- ********** CONTENT ********** -->
-            <div id="colormag__primary">
-                <div id="colormag__content" class="clearfix">
+                <!-- ********** CONTENT ********** -->
+                <div id="colormag__primary">
+                    <div id="colormag__content" class="clearfix">
 
-                    <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                        <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
-                    <div class="page group">
+                        <div class="page group">
+                            <?php tpl_flush() ?>
+                            <?php tpl_includeFile('pageheader.html') ?>
+                            <!-- wikipage start -->
+                            <?php tpl_content() ?>
+                            <!-- wikipage stop -->
+                            <?php tpl_includeFile('pagefooter.html') ?>
+                        </div><!-- /.page.group -->
+
+                        <div class="docInfo"><?php tpl_pageinfo() ?></div>
+
                         <?php tpl_flush() ?>
-                        <?php tpl_includeFile('pageheader.html') ?>
-                        <!-- wikipage start -->
-                        <?php tpl_content() ?>
-                        <!-- wikipage stop -->
-                        <?php tpl_includeFile('pagefooter.html') ?>
-                    </div><!-- /.page.group -->
+                    </div><!-- /#colormag__content -->
+                </div><!-- /#colormag__primary -->
 
-                    <div class="docInfo"><?php tpl_pageinfo() ?></div>
-
-                    <?php tpl_flush() ?>
-                </div><!-- /#colormag__content -->
-            </div><!-- /#colormag__primary -->
-
-        </div><!-- /.inner-wrap.clearfix -->
+            </div><!-- /.inner-wrap.clearfix -->
+        </div><!-- /#colormag__main -->
 
         <?php include('tpl_footer.php') ?>
 
-    </div><!-- /#colormag__main -->
+    </div><!-- /#colormag__page -->
 
                 <div class="wrapper group">
 
