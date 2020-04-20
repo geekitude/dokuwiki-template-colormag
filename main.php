@@ -26,7 +26,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
     <?php if (tpl_getConf('dark')): ?>
-        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/src/colormag.dark.css">
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
 </head>
 
