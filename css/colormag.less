@@ -836,19 +836,20 @@ img#wpstats {
 	color: #cccccc;
 }
 
-[dir] .social-links {
+[dir] .social-links, [dir] .buttons {
 	text-align: center;
 }
 
-[dir=ltr] .social-links {
+[dir=ltr] .social-links, [dir=ltr] .buttons {
 	float: right;
 }
 
-[dir=rtl] .social-links {
+[dir=rtl] .social-links, [dir=rtl] .buttons {
 	float: left;
 }
 
-.social-links ul li {
+.social-links ul li,
+.buttons ul li {
 	display: inline;
 }
 
@@ -1703,7 +1704,7 @@ li.default-menu {
 	margin-bottom: 1.5rem;
 }
 
-[dir] #colophon .wp-caption {
+[dir] #colormag__colophon .wp-caption {
 	border: 1px solid #444444;
 }
 
@@ -2157,26 +2158,26 @@ li.default-menu {
 
 /* =WIDGETS
 ----------------------------------------------- */
-#colormag__secondary .widget ul li, #colophon .widget ul li {
+#colormag__secondary .widget ul li, #colormag__colophon .widget ul li {
 	line-height: 1.5;
 }
-[dir] #colormag__secondary .widget ul li, [dir] #colophon .widget ul li {
+[dir] #colormag__secondary .widget ul li, [dir] #colormag__colophon .widget ul li {
 	padding: 5px 0;
 }
 
-[dir] #colophon .widget ul li {
+[dir] #colormag__colophon .widget ul li {
 	border-bottom: 1px solid #444444;
 }
 
-[dir] #colormag__secondary .widget ul li li, [dir] #colophon .widget ul li li {
+[dir] #colormag__secondary .widget ul li li, [dir] #colormag__colophon .widget ul li li {
 	border-bottom: none;
 }
 
-[dir=ltr] #colormag__secondary .widget ul ul, [dir=ltr] #colophon .widget ul ul {
+[dir=ltr] #colormag__secondary .widget ul ul, [dir=ltr] #colormag__colophon .widget ul ul {
 	padding-left: 10px;
 }
 
-[dir=rtl] #colormag__secondary .widget ul ul, [dir=rtl] #colophon .widget ul ul {
+[dir=rtl] #colormag__secondary .widget ul ul, [dir=rtl] #colormag__colophon .widget ul ul {
 	padding-right: 10px;
 }
 
@@ -2351,11 +2352,11 @@ li.default-menu {
 	color: #289dcc;
 }
 
-[dir] #colophon .widget {
+[dir] #colormag__colophon .widget {
 	margin-bottom: 40px;
 }
 
-#colophon, #colophon p {
+#colormag__colophon, #colormag__colophon p {
 	font-size: 14px;
 	line-height: 1.4;
 }
@@ -4517,7 +4518,7 @@ Responsive Structure
 		float: none;
 		text-align: center;
 	}
-	[dir] .footer-socket-area .social-links {
+	[dir] .footer-socket-area .social-links, [dir] .footer-socket-area .buttons {
 		float: none;
 	}
 	.gallery-columns-4 .gallery-item,

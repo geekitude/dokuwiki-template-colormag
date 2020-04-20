@@ -112,17 +112,17 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <div class="wrapper group">
 
-            <hr class="a11y" />
+                    <hr class="a11y" />
 
-            <!-- PAGE ACTIONS -->
-            <div id="dokuwiki__pagetools">
-                <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
-                <div class="tools">
-                    <ul>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                    </ul>
-                </div><!-- /.tools -->
-            </div><!-- /#dokuwiki__pagetools -->
+                    <!-- PAGE ACTIONS -->
+                    <div id="dokuwiki__pagetools">
+                        <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+                        <div class="tools">
+                            <ul>
+                                <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                            </ul>
+                        </div><!-- /.tools -->
+                    </div><!-- /#dokuwiki__pagetools -->
 
                 </div><!-- /.wrapper.group -->
 

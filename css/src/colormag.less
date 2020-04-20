@@ -665,12 +665,14 @@ body {
 	color: #cccccc;
 }
 
-.social-links {
+.social-links,
+.buttons {
 	text-align: center;
 	float: right;
 }
 
-.social-links ul li {
+.social-links ul li,
+.buttons ul li {
 	display: inline;
 }
 
@@ -1312,7 +1314,7 @@ li.default-menu {
 	max-width: 100%;
 }
 
-#colophon .wp-caption {
+#colormag__colophon .wp-caption {
 	border: 1px solid #444444;
 }
 
@@ -1659,20 +1661,20 @@ li.default-menu {
 
 /* =WIDGETS
 ----------------------------------------------- */
-#colormag__secondary .widget ul li, #colophon .widget ul li {
+#colormag__secondary .widget ul li, #colormag__colophon .widget ul li {
 	line-height: 1.5;
 	padding: 5px 0;
 }
 
-#colophon .widget ul li {
+#colormag__colophon .widget ul li {
 	border-bottom: 1px solid #444444;
 }
 
-#colormag__secondary .widget ul li li, #colophon .widget ul li li {
+#colormag__secondary .widget ul li li, #colormag__colophon .widget ul li li {
 	border-bottom: none;
 }
 
-#colormag__secondary .widget ul ul, #colophon .widget ul ul {
+#colormag__secondary .widget ul ul, #colormag__colophon .widget ul ul {
 	padding-left: 10px;
 }
 
@@ -1788,11 +1790,11 @@ li.default-menu {
 	color: #289dcc;
 }
 
-#colophon .widget {
+#colormag__colophon .widget {
 	margin-bottom: 40px;
 }
 
-#colophon, #colophon p {
+#colormag__colophon, #colormag__colophon p {
 	font-size: 14px;
 	line-height: 1.4;
 }
@@ -3295,7 +3297,8 @@ Responsive Structure
 		max-width: 100%;
 		text-align: center;
 	}
-	.footer-socket-area .social-links {
+	.footer-socket-area .social-links,
+    .footer-socket-area .buttons {
 		float: none;
 	}
 	.gallery-columns-4 .gallery-item,
