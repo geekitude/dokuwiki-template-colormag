@@ -28,18 +28,20 @@ if (!defined('DOKU_INC')) die();
         <div class="inner-wrap clearfix">
             <div id="colormag__header-text-nav-wrap" class="clearfix">
                 <div id="colormag__header-left-section">
-                    <h1><?php
-                        // get logo either out of the template images folder or data/media folder
-                        $logoSize = array();
-                        $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+                    <h1>
+                        <?php
+                            // get logo either out of the template images folder or data/media folder
+                            $logoSize = array();
+                            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
 
-                        // display logo and wiki title in a link to the home page
-                        tpl_link(
-                            wl(),
-                            '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                            'accesskey="h" title="[H]"'
-                        );
-                    ?></h1>
+                            // display logo and wiki title in a link to the home page
+                            tpl_link(
+                                wl(),
+                                '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+                                'accesskey="h" title="[H]"'
+                            );
+                        ?>
+                    </h1>
                     <?php if ($conf['tagline']): ?>
                         <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
                     <?php endif ?>
@@ -49,9 +51,6 @@ if (!defined('DOKU_INC')) die();
                         *BANNER*
                     </div>
                     <div id="colormag__header-right-sidebar" class="clearfix">
-                        <aside id="search-3" class="widget widget_search clearfix" style="background-color:linen;">
-                            *old search*<?php //tpl_searchform(); ?>
-                        </aside>
                         <div class="tools group">
                             <!-- SITE TOOLS -->
                             <div id="colormag__sitetools">
