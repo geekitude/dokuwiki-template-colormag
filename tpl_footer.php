@@ -62,7 +62,12 @@ dbg("vérifier ces liens");
                         ?>
                     </aside><!-- /#spacious__usertools -->
                 <?php endif; ?>
-
+                <?php if (page_findnearest(tpl_getConf('links'), $useacl)): ?>
+                    <aside id="colormag__linkswidget" class="widget">
+                        <h6 class="widget-title"><span class="label"><?php print tpl_getLang('links'); ?></span></h6>
+                        <?php tpl_include_page(tpl_getConf('links'), true, true, true); /* includes the links wiki page */ ?>
+                    </aside>
+                <?php endif; ?>
                 <aside id="colormag__licensewidget" class="widget clearfix">
                     <h6 class="widget-title"><span><?php print tpl_getLang('license'); ?></span></h6>
                     <div class="textwidget">
