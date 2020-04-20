@@ -79,7 +79,7 @@ if (!defined('DOKU_INC')) die();
                 <div class="inner-wrap clearfix">
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
-                            <li class="menu-item"><a href="#" title="Home">Home</a></li>
+                            <li class="menu-item"><a href="<?php print wl() ?>" title="Home">Home</a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1">Blah1</a>
                                 <ul class="sub-menu">
