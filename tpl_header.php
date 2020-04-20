@@ -49,8 +49,8 @@ if (!defined('DOKU_INC')) die();
                         *BANNER*
                     </div>
                     <div id="colormag__header-right-sidebar" class="clearfix">
-                        <aside id="search-3" class="widget widget_search clearfix">
-                            <?php tpl_searchform(); ?>
+                        <aside id="search-3" class="widget widget_search clearfix" style="background-color:linen;">
+                            *old search*<?php //tpl_searchform(); ?>
                         </aside>
                         <div class="tools group">
                             <!-- SITE TOOLS -->
@@ -73,6 +73,42 @@ if (!defined('DOKU_INC')) die();
             <!-- ALERTS -->
             <?php html_msgarea() ?>
         </aside>
+
+        <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
+            <nav id="colormag__site-navigation" class="main-navigation clearfix" role="navigation">
+                <div class="inner-wrap clearfix">
+                    <div class="menu-primary-container">
+                        <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
+                            <li><a href="#" title="Home">Home</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
+                                <a href="#" title="Blah1">Blah1</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" title="Blah blah 1">Blah blah 1</a></li>
+                                    <li><a href="#" title="Blah blah 2">Blah blah 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-175"><a href="#" title="Blah2">Blah2</a></li>
+                        </ul><!-- /#colormag__menu-primary -->
+                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
+                                <a href="#" title="Blah1">Blah1</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" title="Blah blah 1">Blah blah 1</a></li>
+                                    <li><a href="#" title="Blah blah 2">Blah blah 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="top-search-wrap">
+                                <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
+                                <label for="colormag__searchcheck01">Search</label>
+                                <div class="search-form-top">
+                                    <?php tpl_searchform(); ?>
+                                </div>
+                            </li>
+                        </ul><!-- /#colormag__menu-tools -->
+                    </div><!-- /.menu-primary-container -->
+                </div><!-- /.inner-wrap -->
+            </nav><!-- /#colormag__site-navigation -->
+        </div><!-- /#colormag__site-navigation-sticky-wrapper -->
 
     </div><!-- #colormag__header-text-nav-container -->
 

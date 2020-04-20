@@ -1087,17 +1087,17 @@ nav li > ol {
 	margin: 0;
 }
 
-#site-navigation {
+#colormag__site-navigation {
 	position: relative;
 }
 
-[dir] #site-navigation {
+[dir] #colormag__site-navigation {
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
 	background-color: #232323;
 	border-top: 4px solid #289dcc;
 }
 
-#site-navigation .inner-wrap {
+#colormag__site-navigation .inner-wrap {
 	position: relative;
 }
 
@@ -1148,7 +1148,8 @@ nav li > ol {
 	float: right;
 }
 
-.main-navigation a {
+.main-navigation a,
+.main-navigation label {
 	color: #ffffff;
 	display: block;
 	font-size: 14px;
@@ -1156,7 +1157,7 @@ nav li > ol {
 	text-transform: uppercase;
 }
 
-[dir] .main-navigation a {
+[dir] .main-navigation a, [dir] .main-navigation label {
 	float: none;
 	padding: 10px 12px;
 }
@@ -1377,6 +1378,28 @@ li.default-menu {
 
 .main-navigation select {
 	display: none;
+}
+
+/* =MAIN NAV SEARCH
+----------------------------------------------- */
+
+/*hide the inputs/checkmarks and submenu*/
+#colormag__searchcheck01, div.search-form-top {
+  display: none;
+}
+
+/*position the label*/
+label {
+  position: relative;
+  display: block;
+}
+[dir] label {
+  cursor: pointer;
+}
+
+/*show the submenu when input is checked*/
+#colormag__searchcheck01:checked~div.search-form-top {
+  display: block;
 }
 
 /* =RESPONSIVE MENU
@@ -2398,19 +2421,19 @@ li.default-menu {
 	width: 100%;
 }
 
-[dir=ltr] .footer-socket-right-section {
+[dir=ltr] .menu-primary-container-right-section, [dir=ltr] .footer-socket-right-section {
 	float: right;
 }
 
-[dir=rtl] .footer-socket-right-section {
+[dir=rtl] .menu-primary-container-right-section, [dir=rtl] .footer-socket-right-section {
 	float: left;
 }
 
-[dir=ltr] .footer-socket-left-section {
+[dir=ltr] .menu-primary-container-left-section, [dir=ltr] .footer-socket-left-section {
 	float: left;
 }
 
-[dir=rtl] .footer-socket-left-section {
+[dir=rtl] .menu-primary-container-left-section, [dir=rtl] .footer-socket-left-section {
 	float: right;
 }
 
@@ -4208,7 +4231,7 @@ a#scroll-up:hover {
 	text-align: center;
 }
 
-#site-navigation {
+#colormag__site-navigation {
 	z-index: 999;
 }
 
@@ -4445,7 +4468,7 @@ Responsive Structure
 }
 
 @media screen and (max-width: 600px) {
-	.logged-in #colormag__header #site-navigation {
+	.logged-in #colormag__header #colormag__site-navigation {
 		top: 0 !important;
 	}
 	[dir] .news-bar {
@@ -4773,61 +4796,61 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	font-size: 21px;
 }
 
-#colormag__header.colormag-header-clean #site-navigation {
+#colormag__header.colormag-header-clean #colormag__site-navigation {
 	position: relative;
 	z-index: 999;
 }
 
-[dir] #colormag__header.colormag-header-clean #site-navigation {
+[dir] #colormag__header.colormag-header-clean #colormag__site-navigation {
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0) inset;
 	background-color: transparent;
 	border-top: 0 solid transparent;
 }
 
-[dir] #colormag__header.colormag-header-clean #site-navigation .inner-wrap {
+[dir] #colormag__header.colormag-header-clean #colormag__site-navigation .inner-wrap {
 	background-color: #212529;
 }
 
-#colormag__header.colormag-header-clean #site-navigation .fa.search-top {
+#colormag__header.colormag-header-clean #colormag__site-navigation .fa.search-top {
 	line-height: 26px;
 	position: relative;
 }
 
-[dir] #colormag__header.colormag-header-clean #site-navigation .fa.search-top {
+[dir] #colormag__header.colormag-header-clean #colormag__site-navigation .fa.search-top {
 	padding: 20px;
 }
 
-[dir=ltr] #colormag__header.colormag-header-clean #site-navigation .fa.search-top {
+[dir=ltr] #colormag__header.colormag-header-clean #colormag__site-navigation .fa.search-top {
 	float: right;
 	right: 0;
 }
 
-[dir=rtl] #colormag__header.colormag-header-clean #site-navigation .fa.search-top {
+[dir=rtl] #colormag__header.colormag-header-clean #colormag__site-navigation .fa.search-top {
 	float: left;
 	left: 0;
 }
 
-#colormag__header.colormag-header-clean #site-navigation .random-post {
+#colormag__header.colormag-header-clean #colormag__site-navigation .random-post {
 	position: relative;
 }
 
-[dir=ltr] #colormag__header.colormag-header-clean #site-navigation .random-post {
+[dir=ltr] #colormag__header.colormag-header-clean #colormag__site-navigation .random-post {
 	float: right;
 }
 
-[dir=rtl] #colormag__header.colormag-header-clean #site-navigation .random-post {
+[dir=rtl] #colormag__header.colormag-header-clean #colormag__site-navigation .random-post {
 	float: left;
 }
 
-#colormag__header.colormag-header-clean #site-navigation .search-form-top {
+#colormag__header.colormag-header-clean #colormag__site-navigation .search-form-top {
 	top: 100%;
 }
 
-#colormag__header.colormag-header-clean #site-navigation .menu-toggle {
+#colormag__header.colormag-header-clean #colormag__site-navigation .menu-toggle {
 	line-height: 26px;
 }
 
-[dir] #colormag__header.colormag-header-clean #site-navigation .menu-toggle::before {
+[dir] #colormag__header.colormag-header-clean #colormag__site-navigation .menu-toggle::before {
 	padding: 20px;
 }
 
@@ -4976,67 +4999,67 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	padding-left: 0;
 }
 
-#colormag__header.colormag-header-classic #site-navigation {
+#colormag__header.colormag-header-classic #colormag__site-navigation {
 	position: relative;
 	z-index: 999;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation {
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0) inset;
 	background-color: transparent;
 	border-top: 0 solid transparent;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .inner-wrap {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .inner-wrap {
 	background-color: transparent;
 }
 
-#colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+#colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 	color: #343a40;
 	font-size: 16px;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 	padding: 15px;
 }
 
-[dir=ltr] #colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+[dir=ltr] #colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 	float: right;
 }
 
-[dir=rtl] #colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+[dir=rtl] #colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 	float: left;
 }
 
-#colormag__header.colormag-header-classic #site-navigation .fa.search-top:hover {
+#colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top:hover {
 	color: #289dcc;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .fa.search-top:hover {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top:hover {
 	background: transparent;
 }
 
-#colormag__header.colormag-header-classic #site-navigation .menu-toggle {
+#colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle {
 	line-height: 26px;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .menu-toggle {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle {
 	border: 1px solid #343a40;
 }
 
-#colormag__header.colormag-header-classic #site-navigation .menu-toggle::before {
+#colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle::before {
 	color: #343a40;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .menu-toggle::before {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle::before {
 	padding: 20px;
 }
 
-[dir] #colormag__header.colormag-header-classic #site-navigation .menu-toggle:hover {
+[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle:hover {
 	border-color: #289dcc;
 }
 
-#colormag__header.colormag-header-classic #site-navigation .menu-toggle:hover::before {
+#colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle:hover::before {
 	color: #fff;
 }
 
@@ -5235,7 +5258,7 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	color: #fff;
 }
 
-[dir] #colormag__header.colormag-header-classic .is-sticky #site-navigation {
+[dir] #colormag__header.colormag-header-classic .is-sticky #colormag__site-navigation {
 	background-color: #fff;
 	box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
 }
@@ -5250,7 +5273,7 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	#colormag__header .main-small-navigation li:hover > .sub-toggle i, #colormag__header .main-small-navigation li.current-page-ancestor > .sub-toggle i, #colormag__header .main-small-navigation li.current-menu-ancestor > .sub-toggle i, #colormag__header .main-small-navigation li.current-page-item > .sub-toggle i, #colormag__header .main-small-navigation li.current-menu-item > .sub-toggle i {
 		color: #289dcc;
 	}
-	[dir] #colormag__header.colormag-header-clean #menu-primary {
+	[dir] #colormag__header.colormag-header-clean #colormag__menu-primary {
 		background-color: #ffffff;
 	}
 	[dir] #colormag__header.colormag-header-clean .date-in-header, [dir] #colormag__header.colormag-header-clean .social-links {
@@ -5271,10 +5294,10 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	[dir] #colormag__header.colormag-header-clean #colormag__header-left-section, [dir] #colormag__header.colormag-header-clean #header-logo-image {
 		margin-bottom: 0;
 	}
-	[dir] #colormag__header.colormag-header-clean #site-navigation .random-post a {
+	[dir] #colormag__header.colormag-header-clean #colormag__site-navigation .random-post a {
 		padding: 20px;
 	}
-	[dir] #colormag__header.colormag-header-clean #site-navigation .menu-toggle::before, [dir] #colormag__header.colormag-header-clean #site-navigation .fa.search-top {
+	[dir] #colormag__header.colormag-header-clean #colormag__site-navigation .menu-toggle::before, [dir] #colormag__header.colormag-header-clean #colormag__site-navigation .fa.search-top {
 		padding: 20px;
 	}
 	[dir] #colormag__header.colormag-header-clean .main-small-navigation .home-icon a {
@@ -5286,7 +5309,7 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	[dir] #colormag__header.colormag-header-clean .main-small-navigation .random-post a {
 		padding: 15px;
 	}
-	[dir] #colormag__header.colormag-header-classic #menu-primary {
+	[dir] #colormag__header.colormag-header-classic #colormag__menu-primary {
 		background-color: #ffffff;
 	}
 	#colormag__header.colormag-header-classic .date-in-header,
@@ -5311,20 +5334,20 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 	[dir] #colormag__header.colormag-header-classic .main-small-navigation .random-post a {
 		padding: 15px;
 	}
-	[dir] #colormag__header.colormag-header-classic #site-navigation .random-post a {
+	[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .random-post a {
 		padding: 15px;
 	}
-	#colormag__header.colormag-header-classic #site-navigation .menu-toggle::before,
-	#colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+	#colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle::before,
+	#colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 		line-height: 26px;
 	}
-	[dir] #colormag__header.colormag-header-classic #site-navigation .menu-toggle::before, [dir] #colormag__header.colormag-header-classic #site-navigation .fa.search-top {
+	[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .menu-toggle::before, [dir] #colormag__header.colormag-header-classic #colormag__site-navigation .fa.search-top {
 		padding: 15px;
 	}
-	#colormag__header.colormag-header-classic #site-navigation .home-icon a {
+	#colormag__header.colormag-header-classic #colormag__site-navigation .home-icon a {
 		line-height: 26px;
 	}
-	[dir] #colormag__header.colormag-header-classic #site-navigation .home-icon a {
+	[dir] #colormag__header.colormag-header-classic #colormag__site-navigation .home-icon a {
 		padding: 15px;
 	}
 	.breaking-news {
