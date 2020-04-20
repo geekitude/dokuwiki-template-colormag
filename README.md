@@ -48,14 +48,14 @@ The copyright notice at the very bottom of page shouldn't be removed.
 ## Conversion todo
 
 * [x] Start with ~~Starter~~ Default template (don't wan't to struggle with complex items like pagetools)
-* [ ] Basic HTML/PHP
+* [x] Basic HTML/PHP
   * [x] Meta elements
   * [x] Site containers
   * [x] Header
   * [x] Content area
   * [x] Footer
   * [x] Sidebar
-  * [ ] WP vs. DW functions
+  * [x] WP vs. DW functions
 * [ ] Basic CSS
   * [ ] style.css
   * [ ] rtl.css

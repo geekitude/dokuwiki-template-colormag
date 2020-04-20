@@ -41,7 +41,7 @@ if (!defined('DOKU_INC')) die();
                         );
                     ?></h1>
                     <?php if ($conf['tagline']): ?>
-                        <p class="claim"><?php echo $conf['tagline']; ?></p>
+                        <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
                     <?php endif ?>
                 </div>
                 <div id="colormag__header-right-section">
