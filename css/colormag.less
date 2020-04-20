@@ -3949,11 +3949,13 @@ a#scroll-up:hover {
 	display: none;
 }
 
-.news-bar {
+.news-bar,
+.breadcrumbs {
 	font-size: 14px;
+    position: relative;
 }
 
-[dir] .news-bar {
+[dir] .news-bar, [dir] .breadcrumbs {
 	background-color: #ffffff;
 	padding: 8px 0 4px;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
@@ -4550,7 +4552,7 @@ Responsive Structure
 	.logged-in #colormag__header #colormag__site-navigation {
 		top: 0 !important;
 	}
-	[dir] .news-bar {
+	[dir] .news-bar, [dir] .breadcrumbs {
 		text-align: center;
 	}
 	.date-in-header,

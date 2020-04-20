@@ -74,9 +74,9 @@ function colormag_init() {
 //    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
-    foreach ($colormag['social'] as $key => $value) {
-        $colormag['glyphs'][$key] = $key;
-    }
+//    foreach ($colormag['social'] as $key => $value) {
+//        $colormag['glyphs'][$key] = $key;
+//    }
     foreach ($colormag['glyphs'] as $key => $value) {
         /*if (is_file(DOKU_CONF."svg/".$key.".svg")) {*/
         /*if (is_file(tpl_incdir().'images/svg/custom/'.$key.'.svg')) {*/

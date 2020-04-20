@@ -37,37 +37,19 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <div id="colormag__page" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?> clearfix">
 
         <?php include('tpl_header.php') ?>
-        <div class="tools group">
-            <!-- USER TOOLS -->
-            <?php if ($conf['useacl']): ?>
-                <div id="dokuwiki__usertools">
-                    <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
-                    <ul>
-                        <?php
-                            if (!empty($_SERVER['REMOTE_USER'])) {
-                                echo '<li class="user">';
-                                tpl_userinfo(); /* 'Logged in as ...' */
-                                echo '</li>';
-                            }
-                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
-                        ?>
-                    </ul>
-                </div><!-- /#dokuwiki__usertools -->
-            <?php endif ?>
-
-
-        </div><!-- /.tools.group -->
 
         <!-- BREADCRUMBS -->
         <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <div class="breadcrumbs">
-                <?php if($conf['youarehere']): ?>
-                    <div class="youarehere"><?php tpl_youarehere() ?></div>
-                <?php endif ?>
-                <?php if($conf['breadcrumbs']): ?>
-                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                <?php endif ?>
-            </div><!-- /.breadcrumbs -->
+            <div id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs group<?php print (strpos(tpl_getConf('neutralize'), 'breadcrumbs') !== false) ? " neu" : "" ?>">
+                <div class="inner-wrap clearfix">
+                    <?php if($conf['youarehere']): ?>
+                        <div class="youarehere"><?php tpl_youarehere() ?></div>
+                    <?php endif ?>
+                    <?php if($conf['breadcrumbs']): ?>
+                        <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                    <?php endif ?>
+                </div>
+            </div><!-- /#spacious__topbar-wrapper -->
         <?php endif ?>
 
         <div id="colormag__main" class="clearfix">
