@@ -79,25 +79,25 @@ if (!defined('DOKU_INC')) die();
                 <div class="inner-wrap clearfix">
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
-                            <li><a href="#" title="Home">Home</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
+                            <li class="menu-item"><a href="#" title="Home">Home</a></li>
+                            <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1">Blah1</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#" title="Blah blah 1">Blah blah 1</a></li>
-                                    <li><a href="#" title="Blah blah 2">Blah blah 2</a></li>
+                                    <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1</a></li>
+                                    <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 2</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-175"><a href="#" title="Blah2">Blah2</a></li>
+                            <li class="menu-item"><a href="#" title="Blah2">Blah2</a></li>
                         </ul><!-- /#colormag__menu-primary -->
                         <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section">
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
+                            <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1">Blah1</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#" title="Blah blah 1">Blah blah 1</a></li>
-                                    <li><a href="#" title="Blah blah 2">Blah blah 2</a></li>
+                                    <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1</a></li>
+                                    <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 2</a></li>
                                 </ul>
                             </li>
-                            <li class="top-search-wrap">
+                            <li class="menu-item top-search-wrap">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
                                 <label for="colormag__searchcheck01">Search</label>
                                 <div class="search-form-top">
