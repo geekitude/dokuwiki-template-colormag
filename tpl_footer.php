@@ -80,6 +80,12 @@ dbg("vérifier ces liens");
     <div class="footer-socket-wrapper clearfix">
         <div class="inner-wrap">
             <div class="footer-socket-area">
+                <div class="footer-socket-left-section">
+                    <div class="copyright">
+                        Copyright &copy; 2020 <a href="https://demo.themegrill.com/colormag/" title="ColorMag" ><span>ColorMag</span></a> All rights reserved.<br />
+                        A <a href="https://wordpress.org/" title="WordPress"><span>WordPress</span></a> theme by <a href="https://themegrill.com/" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a> ported to <a href="https://dokuwiki.org/" title="DokuWiki"><span>DokuWiki</span></a>.
+                    </div><!-- /.copyright -->
+                </div><!-- /.footer-socket-left-section -->
                 <div class="footer-socket-right-section">
                     <div class="buttons clearfix">
                         <ul>
@@ -123,12 +129,6 @@ dbg("vérifier ces liens");
                     </div><!-- /.buttons -->
                 </div><!-- /.footer-socket-right-section -->
             </div><!-- /.footer-socket-area -->
-                <div class="footer-socket-left-section">
-                    <div class="copyright">
-                        Copyright &copy; 2020 <a href="https://demo.themegrill.com/colormag/" title="ColorMag" ><span>ColorMag</span></a> All rights reserved.<br />
-                        A <a href="https://wordpress.org/" title="WordPress"><span>WordPress</span></a> theme by <a href="https://themegrill.com/" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a> ported to DokuWiki.
-                    </div><!-- /.copyright -->
-                </div><!-- /.footer-socket-left-section -->
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-socket-wrapper -->
 </footer>
