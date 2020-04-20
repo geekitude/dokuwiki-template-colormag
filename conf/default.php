@@ -14,3 +14,4 @@ $conf['topbar']             = 'date,newsticker,socialnetworks';
 $conf['sidebarpos']         = 'left';
 $conf['links']              = 'links';
 $conf['dark']               = 0;
+$conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';

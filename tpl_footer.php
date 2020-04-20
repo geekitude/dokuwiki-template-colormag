@@ -8,7 +8,7 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** FOOTER ********** -->
-<footer id="colormag__colophon" class="clearfix">
+<footer id="colormag__colophon" class="clearfix<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
     <div class="footer-widgets-wrapper">
         <div class="inner-wrap">
             <div class="footer-widgets-area clearfix">

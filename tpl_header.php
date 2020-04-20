@@ -8,7 +8,7 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<header id="colormag__header" class="site-header clearfix">
+<header id="colormag__header" class="site-header clearfix<?php print (strpos(tpl_getConf('print'), 'siteheader') !== false) ? '' : ' noprint' ?>">
 
     <div id="colormag__skip" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>skip group">
         <a href="#colormag__main"><?php print $lang['skip_to_content'] ?></a>

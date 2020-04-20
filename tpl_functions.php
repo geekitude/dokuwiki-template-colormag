@@ -39,7 +39,7 @@ function colormag_init() {
 function colormag_bodyclasses() {
     $classes = array();
 
-    array_push($classes, tpl_getConf('sidebarpos').'-sidebar', (tpl_getConf('dark')) ? 'dark-skin' : '');
+    array_push($classes, tpl_getConf('sidebarpos').'-sidebar', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '');
 //dbg($classes);
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));

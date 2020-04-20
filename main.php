@@ -102,7 +102,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div><!-- /.page.group -->
 
-                        <div class="docInfo"><?php tpl_pageinfo() ?></div>
+                        <div class="docInfo<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?>"><?php tpl_pageinfo() ?></div>
 
                         <?php tpl_flush() ?>
                     </div><!-- /#colormag__content -->
