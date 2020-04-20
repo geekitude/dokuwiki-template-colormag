@@ -51,7 +51,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Basic HTML/PHP
   * [x] Meta elements
   * [x] Site containers
-  * [ ] Header
+  * [x] Header
   * [ ] Content area
   * [ ] Footer
   * [ ] Sidebar

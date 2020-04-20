@@ -8,79 +8,66 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<div id="dokuwiki__header">
-    <div class="pad group">
+<header id="colormag__header" class="site-header clearfix">
 
-        <?php tpl_includeFile('header.html') ?>
+    <div id="colormag__skip" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>skip group">
+        <a href="#colormag__main"><?php print $lang['skip_to_content'] ?></a>
+    </div>
 
-        <div class="headings group">
-            <ul class="a11y skip">
-                <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-            </ul>
+    <div id="colormag__header-text-nav-container" class="clearfix">
 
-            <h1><?php
-                // get logo either out of the template images folder or data/media folder
-                $logoSize = array();
-                $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+        <?php tpl_includeFile('headertop.html') ?>
 
-                // display logo and wiki title in a link to the home page
-                tpl_link(
-                    wl(),
-                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                    'accesskey="h" title="[H]"'
-                );
-            ?></h1>
-            <?php if ($conf['tagline']): ?>
-                <p class="claim"><?php echo $conf['tagline']; ?></p>
-            <?php endif ?>
-        </div><!-- /.headings.group -->
-
-        <div class="tools group">
-            <!-- USER TOOLS -->
-            <?php if ($conf['useacl']): ?>
-                <div id="dokuwiki__usertools">
-                    <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
-                    <ul>
-                        <?php
-                            if (!empty($_SERVER['REMOTE_USER'])) {
-                                echo '<li class="user">';
-                                tpl_userinfo(); /* 'Logged in as ...' */
-                                echo '</li>';
-                            }
-                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
-                        ?>
-                    </ul>
-                </div><!-- /#dokuwiki__usertools -->
-            <?php endif ?>
-
-            <!-- SITE TOOLS -->
-            <div id="dokuwiki__sitetools">
-                <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-                <?php tpl_searchform(); ?>
-                <div class="mobileTools">
-                    <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-                </div><!-- /.mobiletools -->
-                <ul>
-                    <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-                </ul>
-            </div><!-- /#dokuwiki__sitetools -->
-
-        </div><!-- /.tools.group -->
-
-        <!-- BREADCRUMBS -->
-        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <div class="breadcrumbs">
-                <?php if($conf['youarehere']): ?>
-                    <div class="youarehere"><?php tpl_youarehere() ?></div>
-                <?php endif ?>
-                <?php if($conf['breadcrumbs']): ?>
-                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                <?php endif ?>
-            </div><!-- /.breadcrumbs -->
+        <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
+            <div id="spacious__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('neutralize'), 'topbar') !== false) ? " neu" : "" ?>">
+                <div class="inner-wrap clearfix">
+                    *DATE* *NEWSTICKER* *SOCIAL?*
+                </div>
+            </div><!-- /#spacious__topbar-wrapper -->
         <?php endif ?>
+        <div class="inner-wrap clearfix">
+            <div id="colormag__header-text-nav-wrap" class="clearfix">
+                <div id="colormag__header-left-section">
+                    <h1><?php
+                        // get logo either out of the template images folder or data/media folder
+                        $logoSize = array();
+                        $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
 
+                        // display logo and wiki title in a link to the home page
+                        tpl_link(
+                            wl(),
+                            '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+                            'accesskey="h" title="[H]"'
+                        );
+                    ?></h1>
+                    <?php if ($conf['tagline']): ?>
+                        <p class="claim"><?php echo $conf['tagline']; ?></p>
+                    <?php endif ?>
+                </div>
+                <div id="colormag__header-right-section">
+                    <div class="advertisement-content widget clearfix">
+                        *BANNER*
+                    </div>
+                    <div id="colormag__header-right-sidebar" class="clearfix">
+                        <aside id="search-3" class="widget widget_search clearfix">
+                            <?php tpl_searchform(); ?>
+                        </aside>
+                        <div class="tools group">
+                            <!-- SITE TOOLS -->
+                            <div id="colormag__sitetools">
+                                <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+                                <div class="mobileTools">
+                                    <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+                                </div><!-- /.mobiletools -->
+                                <ul>
+                                    <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+                                </ul>
+                            </div><!-- /#colormag__sitetools -->
+                        </div><!-- /.tools -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- .inner-wrap -->
+    </div><!-- #colormag__header-text-nav-container -->
 
-
-        <hr class="a11y" />
-    </div><!-- /.pad.group -->
-</div><!-- /#dokuwiki__header -->
+</header><!-- /#colormag__header -->

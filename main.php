@@ -25,10 +25,42 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body class="<?php print colormag_bodyclasses(); ?>>
+<body class="<?php print colormag_bodyclasses(); ?>">
     <div id="dokuwiki__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('tpl_header.php') ?>
+        <div class="tools group">
+            <!-- USER TOOLS -->
+            <?php if ($conf['useacl']): ?>
+                <div id="dokuwiki__usertools">
+                    <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
+                    <ul>
+                        <?php
+                            if (!empty($_SERVER['REMOTE_USER'])) {
+                                echo '<li class="user">';
+                                tpl_userinfo(); /* 'Logged in as ...' */
+                                echo '</li>';
+                            }
+                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+                        ?>
+                    </ul>
+                </div><!-- /#dokuwiki__usertools -->
+            <?php endif ?>
+
+
+        </div><!-- /.tools.group -->
+
+        <!-- BREADCRUMBS -->
+        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+            <div class="breadcrumbs">
+                <?php if($conf['youarehere']): ?>
+                    <div class="youarehere"><?php tpl_youarehere() ?></div>
+                <?php endif ?>
+                <?php if($conf['breadcrumbs']): ?>
+                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                <?php endif ?>
+            </div><!-- /.breadcrumbs -->
+        <?php endif ?>
 
         <div class="wrapper group">
 
