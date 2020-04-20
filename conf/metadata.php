@@ -11,3 +11,4 @@
  */
 
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
+$meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));

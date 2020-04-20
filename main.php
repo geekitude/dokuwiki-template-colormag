@@ -11,6 +11,8 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
+colormag_init();
+
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 ?><!DOCTYPE html>
@@ -26,7 +28,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
-    <div id="dokuwiki__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+    <div id="colormag__main" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?> clearfix">
 
         <?php include('tpl_header.php') ?>
         <div class="tools group">
@@ -62,11 +64,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             </div><!-- /.breadcrumbs -->
         <?php endif ?>
 
-        <div class="wrapper group">
+        <div class="inner-wrap clearfix">
 
             <?php if($showSidebar): ?>
                 <!-- ********** ASIDE ********** -->
-                <div id="dokuwiki__aside">
+                <div id="colormag__secondary">
                     <div class="pad aside include group">
                         <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
                         <div class="content">
@@ -78,13 +80,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             </div><!-- /.group -->
                         </div><!-- /.content -->
                     </div><!-- /.pad.aside.include.group -->
-                </div><!-- /#dokuwiki__aside -->
+                </div><!-- /#colormag__secondary -->
             <?php endif; ?>
 
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content">
-                <div class="pad group">
-                    <?php html_msgarea() ?>
+            <div id="colormag__primary">
+                <div id="colormag__content" class="clearfix">
 
                     <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
@@ -100,8 +101,16 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <div class="docInfo"><?php tpl_pageinfo() ?></div>
 
                     <?php tpl_flush() ?>
-                </div><!-- /.pad.group -->
-            </div><!-- /#dokuwiki__content -->
+                </div><!-- /#colormag__content -->
+            </div><!-- /#colormag__primary -->
+
+        </div><!-- /.inner-wrap.clearfix -->
+
+        <?php include('tpl_footer.php') ?>
+
+    </div><!-- /#colormag__main -->
+
+                <div class="wrapper group">
 
             <hr class="a11y" />
 
@@ -114,10 +123,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     </ul>
                 </div><!-- /.tools -->
             </div><!-- /#dokuwiki__pagetools -->
-        </div><!-- /.wrapper.group -->
 
-        <?php include('tpl_footer.php') ?>
-    </div><!-- /#dokuwiki__site -->
+                </div><!-- /.wrapper.group -->
 
     <div id="colormag__housekeeper" class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>

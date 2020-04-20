@@ -52,7 +52,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] Meta elements
   * [x] Site containers
   * [x] Header
-  * [ ] Content area
+  * [x] Content area
   * [ ] Footer
   * [ ] Sidebar
   * [ ] WP vs. DW functions

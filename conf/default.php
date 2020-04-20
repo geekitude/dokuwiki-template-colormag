@@ -11,3 +11,4 @@
  */
 
 $conf['topbar']             = 'date,newsticker,socialnetworks';
+$conf['sidebarpos']         = 'left';

@@ -22,10 +22,25 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
+
+    // DEBUG
+    // Adding test alerts if debug is enabled
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == "alerts")) {
+        msg("This is an error [-1] alert with a <a href='#'>dummy link</a>", -1);
+        msg("This is an info [0] message with a <a href='#'>dummy link</a>", 0);
+        msg("This is a success [1] message with a <a href='#'>dummy link</a>", 1);
+        msg("This is a notification [2] with a <a href='#'>dummy link</a>", 2);
+    }
 }/* /colormag_init */
 
 /**
  * Returns body classes according to settings
  */
 function colormag_bodyclasses() {
+    $classes = array();
+
+    array_push($classes, tpl_getConf('sidebarpos').'-sidebar');
+//dbg($classes);
+    /* TODO: better home detection than core */
+    return rtrim(join(' ', array_filter($classes)));
 }/* /colormag_bodyclasses */

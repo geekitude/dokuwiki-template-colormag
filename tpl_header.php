@@ -68,6 +68,12 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
         </div><!-- .inner-wrap -->
+
+        <aside id="colormag__alerts">
+            <!-- ALERTS -->
+            <?php html_msgarea() ?>
+        </aside>
+
     </div><!-- #colormag__header-text-nav-container -->
 
 </header><!-- /#colormag__header -->
