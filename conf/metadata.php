@@ -13,3 +13,4 @@
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');
+$meta['dark']               = array('onoff');

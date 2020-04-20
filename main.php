@@ -25,6 +25,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
+    <?php if (tpl_getConf('dark')): ?>
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/src/colormag.dark.css">
+    <?php endif ?>
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
@@ -72,14 +75,14 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <div id="colormag__secondary">
                         <div class="pad aside include group">
                             <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                            <div class="content">
+                            <div id="colormag__content" class="content clearfix">
                                 <div class="group">
                                     <?php tpl_flush() ?>
                                     <?php tpl_includeFile('sidebarheader.html') ?>
                                     <?php tpl_include_page($conf['sidebar'], true, true) ?>
                                     <?php tpl_includeFile('sidebarfooter.html') ?>
                                 </div><!-- /.group -->
-                            </div><!-- /.content -->
+                            </div><!-- /#colormag__content -->
                         </div><!-- /.pad.aside.include.group -->
                     </div><!-- /#colormag__secondary -->
                 <?php endif; ?>
