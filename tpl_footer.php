@@ -19,17 +19,17 @@ if (!defined('DOKU_INC')) die();
                             if (($conf['useacl']) && (empty($_SERVER['REMOTE_USER']))) {
                                 //<!-- LOGIN FORM -->
                                 colormag_loginform('widget');
-                            //} elseif ($spacious['show']['tools']) {
+                            //} elseif ($colormag['show']['tools']) {
                             } else {
                                 print '<h6 class="widget-title title-block-wrap group"><span class="label">'.$lang['profile'].'</span></h6>';
-                                if ($spacious['images']['avatar']['target'] != null) {
-                                    if (strpos($spacious['images']['avatar']['target'], "debug") !== false) {
-                                        print '<a href="/doku.php?id='.$ID.'&amp;do=media&amp;ns='.tpl_getConf('avatars').'&amp;tab_files=upload" title="'.tpl_getLang('upload_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['target'].'" title="'.tpl_getLang('upload_avatar').'" alt="*'.tpl_getLang('upload_avatar').'*" width="64px" height="100%" /></a>';
+                                if ($colormag['images']['avatar']['target'] != null) {
+                                    if (strpos($colormag['images']['avatar']['target'], "debug") !== false) {
+                                        print '<a href="/doku.php?id='.$ID.'&amp;do=media&amp;ns='.tpl_getConf('avatars').'&amp;tab_files=upload" title="'.tpl_getLang('upload_avatar').'"><img id="colormag__user-avatar" src="'.$colormag['images']['avatar']['target'].'" title="'.tpl_getLang('upload_avatar').'" alt="*'.tpl_getLang('upload_avatar').'*" width="64px" height="100%" /></a>';
                                     } else {
-                                        if ($spacious['images']['avatar']['thumbnail'] != null) {
-                                            print '<a href="'.$spacious['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['thumbnail'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                                        if ($colormag['images']['avatar']['thumbnail'] != null) {
+                                            print '<a href="'.$colormag['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="colormag__user-avatar" src="'.$colormag['images']['avatar']['thumbnail'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
                                         } else {
-                                            print '<a href="'.$spacious['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="spacious__user-avatar" src="'.$spacious['images']['avatar']['target'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                                            print '<a href="'.$colormag['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="colormag__user-avatar" src="'.$colormag['images']['avatar']['target'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
                                         }
                                     }
                                 }
@@ -40,14 +40,14 @@ if (!defined('DOKU_INC')) die();
                                 print '</ul>';
                                 echo '<p class="user">';
                                     // If user has public page ID but no private space ID (most likely because UserHomePage plugin is not available)
-                                    //if (($spacious['user']['private'] == null) && ($spacious['user']['public']['link'] != null)) {
-                                    if (($spacious['user']['public']['id'] != null) && ($spacious['user']['private']['id'] != null)) {
+                                    //if (($colormag['user']['private'] == null) && ($colormag['user']['public']['link'] != null)) {
+                                    if (($colormag['user']['public']['id'] != null) && ($colormag['user']['private']['id'] != null)) {
 dbg("vérifier ces liens");
-                                        tpl_link(wl($spacious['user']['private']['id']),'<span>'.$spacious['user']['private']['title'].'</span>','title="'.$spacious['user']['private']['title'].'" class="'.$spacious['user']['private']['classes'].'"');
+                                        tpl_link(wl($colormag['user']['private']['id']),'<span>'.$colormag['user']['private']['title'].'</span>','title="'.$colormag['user']['private']['title'].'" class="'.$colormag['user']['private']['classes'].'"');
                                         print " - ";
-                                        tpl_link(wl($spacious['user']['public']['id']),'<span>'.$spacious['user']['public']['title'].'</span>','title="'.$spacious['user']['public']['title'].'" class="'.$spacious['user']['public']['classes'].'"');
-                                    } elseif (($spacious['user']['public']['id'] != null) && ($spacious['user']['private'] == null)) {
-                                        print '<span title="'.$spacious['user']['public']['title'].'">'.$spacious['user']['public']['string'].'</span>';
+                                        tpl_link(wl($colormag['user']['public']['id']),'<span>'.$colormag['user']['public']['title'].'</span>','title="'.$colormag['user']['public']['title'].'" class="'.$colormag['user']['public']['classes'].'"');
+                                    } elseif (($colormag['user']['public']['id'] != null) && ($colormag['user']['private'] == null)) {
+                                        print '<span title="'.$colormag['user']['public']['title'].'">'.$colormag['user']['public']['string'].'</span>';
                                     // If user has both public page ID and private space ID
                                     // In any other case, use DW's default function
                                     //} else {
@@ -55,12 +55,12 @@ dbg("vérifier ces liens");
                                     }
                                 echo '</p>';
                                 echo '<p class="profile">';
-                                    //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.spacious_glyph("profile", true).'</a>';
+                                    //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.colormag_glyph("profile", true).'</a>';
                                     print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span></a>';
                                 echo '</p>';
                             }
                         ?>
-                    </aside><!-- /#spacious__usertools -->
+                    </aside><!-- /#colormag__usertools -->
                 <?php endif; ?>
                 <?php if (page_findnearest(tpl_getConf('links'), $useacl)): ?>
                     <aside id="colormag__linkswidget" class="widget">
