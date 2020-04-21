@@ -97,6 +97,76 @@ function colormag_init() {
     }
 //dbg($colormag['glyphs']);
 
+    // CURRENT NS AND PATH
+    // Get current namespace and corresponding path (resulting path will correspond to namespace's pages, media or conf files)
+//    //$colormag['currentNs'] = getNS(cleanID($id));
+    $colormag['ns']['current'] = $INFO['namespace'];
+////dbg($colormag['currentNs']);
+////    if ((isset($colormag['trans']['parts'][1])) and ($colormag['trans']['parts'][1] != null)) {
+//////dbg($colormag['trans']['parts']);
+////        if (strpos($conf['plugin']['translation']['translations'], $conf['lang']) !== false) {
+//////dbg("ici? ".$conf['lang']);
+////            $colormag['untranslatedNs'] = $conf['lang'].":".getNS(cleanID($colormag['trans']['parts'][1]));
+////        } else {
+//////dbg("là?");
+////            $colormag['untranslatedNs'] = getNS(cleanID($colormag['trans']['parts'][1]));
+////        }
+////    } else {
+////        $colormag['untranslatedNs'] = $colormag['currentNs'];
+////    }
+//////dbg($colormag['baseNs']);
+////    if ($colormag['currentNs'] != null) {
+////        $colormag['currentPath'] = "/".str_replace(":", "/", $colormag['currentNs']);
+////    } else {
+////        $colormag['currentPath'] = "/";
+////    }
+//dbg($colormag['ns']['current']);
+
+    // CURRENT NS' PARENTS
+    $colormag['parents'] = array();
+    $parts = explode(":", $ID);
+//dbg($parts);
+    $tmp = null;
+    if (count($parts) >= 1) {
+//dbg($parts);
+        for ($i = 0; $i < count($parts) - 1; $i++) {
+            $tmp .= ":".$parts[$i];
+            if (ltrim($tmp.":".$conf['start'], ":") != $ID) {
+                array_push($colormag['parents'], ltrim($tmp.":".$conf['start'], ":"));
+            }
+        }
+    }
+    // Add `start` at begining of $colormag['parents'] array if needed
+    if ($colormag['parents'][0] != $conf['start']) {
+        array_unshift($colormag['parents'], $conf['start']);
+    }
+//dbg($colormag['parents']);
+
+    // BUILD LAST CHANGES LIST
+//    if ((strpos(tpl_getConf('topbar'), 'newsticker') !== false) and ($ID != $conf['start'])) {
+    if (strpos(tpl_getConf('topbar'), 'newsticker') !== false) {
+    // Retrieve number of last changes to show from digit at the end of setting ("other" field)
+        $colormag['recents'] = array();
+        $showLastChanges = intval(end(explode(',', tpl_getConf('newsticker'))));
+        $flags = 0;
+        if (strpos(tpl_getConf('newsticker'), 'skip_deleted') !== false) {
+            $flags = RECENTS_SKIP_DELETED;
+        }
+        if (strpos(tpl_getConf('newsticker'), 'skip_minors') !== false) {
+            $flags += RECENTS_SKIP_MINORS;
+        }
+        if (strpos(tpl_getConf('newsticker'), 'skip_subspaces') !== false) {
+            $flags += RECENTS_SKIP_SUBSPACES;
+        }
+        if ((strpos(tpl_getConf('newsticker'), 'pages') !== false) and (strpos(tpl_getConf('newsticker'), 'media') !== false)) {
+            $flags += RECENTS_MEDIA_PAGES_MIXED;
+        } if ((strpos(tpl_getConf('newsticker'), 'pages') === false) and (strpos(tpl_getConf('newsticker'), 'media') !== false)) {
+            $flags += RECENTS_MEDIA_CHANGES;
+        }
+        $colormag['recents'] = getRecents(0,$showLastChanges,$colormag['ns']['current'],$flags);
+//dbg($colormag['recents']);
+    }
+
     // DEBUG
     // Adding test alerts if debug is enabled
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "alerts")) {
@@ -342,5 +412,92 @@ function colormag_date($type = "long", $timestamp = null, $clock = false, $retur
     } else {
         print $result;
         return 1;
+    }
+}
+
+/**
+ * PRINT LAST CHANGES LIST
+ * 
+ * Print an <ul> loaded with @param last changes.
+ *
+ * @param integer   $n number of last changes to show in the list
+ */
+function colormag_newsticker($context = null) {
+    global $colormag, $conf, $lang;
+//dbg($colormag['recents']);
+
+    $mediaPath = str_replace("/pages", "/media", $conf['datadir']);
+    if (count($colormag['recents']) > 1) {
+        print '<ul class="js-lastchanges">';
+    }
+    $i = 0;
+    foreach ($colormag['recents'] as $key => $value) {
+        $details = null;
+        if ($value['sum'] != null) {
+            //$details = ucfirst(trim($value['sum'], "."));
+            $details = ucfirst(trim($value['sum'], "."));
+        } else {
+            $details = ucfirst(trim(str_replace(":", "", $lang['mail_changed']), chr(0xC2).chr(0xA0)));
+        }
+        if ($value['date'] != null) {
+            $details .= " (".colormag_date("long", $value['date'], false, true).")";
+        }
+        if ($context == "landing") {
+            $details .= ".";
+        }
+        //print '<li title="'.$value['id'].'">';
+        if (count($colormag['recents']) > 1) {
+            print '<li title="'.$details.'">';
+        } else {
+            print '<span title="'.$details.'">';
+        }
+            if ($value['media']) {
+                if (is_file($mediaPath."/".str_replace(":", "/", $value['id']))) {
+                    $exist = "wikilink1";
+                } else {
+                    $exist = "wikilink2";
+                }
+            } else {
+                if (page_exists($value['id'])) {
+                    $exist = "wikilink1";
+                } else {
+                    $exist = "wikilink2";
+                }
+            }
+            if (($context == null) or ($conf['useheading'] == 0) or (p_get_first_heading($value['id']) == null)) {
+                $pageName = $value['id'];
+            } else {
+                $pageName = p_get_first_heading($value['id']);
+            }
+            if ($value['media']) {
+                tpl_link(
+                    ml($value['id'],'',false),
+                    $pageName,
+                    'class="'.$exist.' medialink"'
+                );
+            } else {
+                tpl_link(
+                    wl($value['id']),
+                    $pageName,
+                    'class="'.$exist.'"'
+                );
+            }
+            $by = null;
+            if ($value['user'] != null) {
+                $by = " ".$lang['by']." ";
+            }
+            if ($context == null) {
+                //print '<span class="display-none xs-display-initial md-display-none wd-display-initial">'.$by.'<span class="text-capitalize"><bdi>'.$value['user'].'</bdi></span></span>';
+                print '<span class="display-none xs-display-initial">'.$by.'<span class="text-capitalize"><bdi>'.$value['user'].'</bdi></span></span>';
+            }
+            $i++;
+        if (count($colormag['recents']) > 1) {
+            print '</li>';
+        } else {
+            print '</span>';
+        }
+    }
+    if (count($colormag['recents']) > 1) {
+        print '</ul>';
     }
 }

@@ -14,6 +14,7 @@ $conf['datelocale']         = 'fra';
 $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
 $conf['topbar']             = 'date,newsticker,socialnetworks';
+$conf['newsticker']         = 'skip_minors,pages,media,5';
 $conf['sidebarpos']         = 'left';
 $conf['links']              = 'links';
 $conf['dark']               = 0;

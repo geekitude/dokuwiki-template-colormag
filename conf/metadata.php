@@ -14,6 +14,7 @@ $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
+$meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');
 $meta['dark']               = array('onoff');
