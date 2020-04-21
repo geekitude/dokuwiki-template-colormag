@@ -13,3 +13,7 @@ $lang['__phone_width__']        = 'Below screensizes of this width, the site swi
 $lang['__theme_color__']        = 'Theme color of the web app';
 $lang['license']                = 'License';
 $lang['links']                  = 'Usefull Links';
+$lang['cache']              = 'Cache';
+$lang['purgepagecache']     = 'Remove current page from cache';
+$lang['purgejscache']       = 'Purge JavaScript cache';
+$lang['purgecsscache']      = 'Purge CSS cache';

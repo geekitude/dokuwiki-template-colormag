@@ -22,6 +22,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
+    global $colormag;
 
     // GLYPHS
     // Search for default or custum default SVG glyphs
@@ -40,8 +41,8 @@ function colormag_init() {
     $colormag['glyphs']['hide'] = 'eye-off';
     $colormag['glyphs']['home'] = 'home';
     $colormag['glyphs']['locked'] = 'lock';
-//    $colormag['glyphs']['login'] = 'login';
-//    $colormag['glyphs']['logout'] = 'logout';
+    $colormag['glyphs']['login'] = 'login';
+    $colormag['glyphs']['logout'] = 'logout';
     $colormag['glyphs']['lastmod'] = 'calendar-clock';
     $colormag['glyphs']['link'] = 'web';
     $colormag['glyphs']['locked'] = 'lock';
@@ -71,7 +72,7 @@ function colormag_init() {
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';
     $colormag['glyphs']['upgrade'] = 'cloud-download';
-//    $colormag['glyphs']['user'] = 'account';
+    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
 //    foreach ($colormag['social'] as $key => $value) {
@@ -87,6 +88,8 @@ function colormag_init() {
         } else {
             //$colormag['glyphs'][$key] = inlineSVG('.'.tpl_basedir().'images/svg/'.$value.'.svg', 2048);
             $colormag['glyphs'][$key] = DOKU_INC.tpl_basedir().'images/svg/'.$value.'.svg';
+            $colormag['glyphs'][$key] = DOKU_INC.'lib/tpl/colormag/images/svg/'.$value.'.svg';
+            //$colormag['glyphs'][$key] = tpl_basedir().'images/svg/'.$value.'.svg';
         //} else {
         //    $colormag['glyphs'][$key] = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
         }
@@ -117,14 +120,17 @@ function colormag_bodyclasses() {
 function colormag_glyph($glyph, $return = false) {
     global $colormag;
 //dbg($glyph);
-
+//if (file_exists($glyph)) {
+//    dbg("bingo!");
+//}
     if (isset($colormag['social'][$glyph])) {
         $maxsize = 4096;
     } else {
         $maxsize = 2048;
     }
-    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
-        $result = inlineSVG($colormag['glyphs'][$glyph], $maxsize);
+//    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
+    if (file_exists($glyph)) {
+        $result = inlineSVG($glyph, $maxsize);
 //dbg("ici?");
     } else {
         $result = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
@@ -210,7 +216,7 @@ function colormag_admin() {
         if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
         $class = 'action '.$task;
         if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.$colormag['glyphs'][$task].'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
+        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.colormag_glyph($colormag['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
     }
     $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
     $line = fgets($f);
@@ -230,13 +236,11 @@ function colormag_admin() {
             if($label == null) { $label = ucfirst($task); }
             $class = 'action '.$task;
             if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.$colormag['glyphs'][$task].'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.colormag_glyph($colormag['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
         }
     }
     echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-    echo '<li><a href="';
-        echo wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true"));
-    echo '">'.tpl_getLang('purgepagecache').$colormag['glyphs']["recycle"].'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').$colormag['glyphs']["refresh"].'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').$colormag['glyphs']["refresh"].'</a></li>';
-}
+    echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').colormag_glyph($colormag['glyphs']["recycle"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').colormag_glyph($colormag['glyphs']["refresh"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').colormag_glyph($colormag['glyphs']["refresh"], true).'</a></li>';
+}/* colormag_admin */
