@@ -79,17 +79,17 @@ function colormag_init() {
 //        $colormag['glyphs'][$key] = $key;
 //    }
     foreach ($colormag['glyphs'] as $key => $value) {
-        /*if (is_file(DOKU_CONF."svg/".$key.".svg")) {*/
-        /*if (is_file(tpl_incdir().'images/svg/custom/'.$key.'.svg')) {*/
-        if (($key != "ellipsis") && (is_file(DOKU_CONF.'svg/'.$key.'.svg'))) {
-            //$colormag['glyphs'][$key] = inlineSVG(DOKU_CONF.'svg/'.$key.'.svg', 2048);
-            $colormag['glyphs'][$key] = DOKU_CONF.'svg/'.$key.'.svg';
-        //} elseif (is_file('.'.tpl_basedir().'images/svg/'.$value.'.svg')) {
+        /*if (is_file(DOKU_CONF."glyphs/".$key.".svg")) {*/
+        /*if (is_file(tpl_incdir().'images/glyphs/custom/'.$key.'.svg')) {*/
+        if (($key != "ellipsis") && (is_file(DOKU_CONF.'glyphs/'.$key.'.svg'))) {
+            //$colormag['glyphs'][$key] = inlineSVG(DOKU_CONF.'glyphs/'.$key.'.svg', 2048);
+            $colormag['glyphs'][$key] = DOKU_CONF.'glyphs/'.$key.'.svg';
+        //} elseif (is_file('.'.tpl_basedir().'images/glyphs/'.$value.'.svg')) {
         } else {
-            //$colormag['glyphs'][$key] = inlineSVG('.'.tpl_basedir().'images/svg/'.$value.'.svg', 2048);
-            $colormag['glyphs'][$key] = DOKU_INC.tpl_basedir().'images/svg/'.$value.'.svg';
-            $colormag['glyphs'][$key] = DOKU_INC.'lib/tpl/colormag/images/svg/'.$value.'.svg';
-            //$colormag['glyphs'][$key] = tpl_basedir().'images/svg/'.$value.'.svg';
+            //$colormag['glyphs'][$key] = inlineSVG('.'.tpl_basedir().'images/glyphs/'.$value.'.svg', 2048);
+            $colormag['glyphs'][$key] = DOKU_INC.tpl_basedir().'images/glyphs/'.$value.'.svg';
+            $colormag['glyphs'][$key] = DOKU_INC.'lib/tpl/colormag/images/glyphs/'.$value.'.svg';
+            //$colormag['glyphs'][$key] = tpl_basedir().'images/glyphs/'.$value.'.svg';
         //} else {
         //    $colormag['glyphs'][$key] = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
         }

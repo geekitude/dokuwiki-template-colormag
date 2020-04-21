@@ -89,9 +89,10 @@ if (!defined('DOKU_INC')) die();
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
                         </ul><!-- /#colormag__menu-primary -->
                         <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section">
+                            <!-- SEARCH -->
                             <li class="menu-item top-search-wrap">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
-                                <label for="colormag__searchcheck01"><?php colormag_glyph($colormag['glyphs']['search']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Search</span></label>
+                                <label for="colormag__searchcheck01" title="<?php print $lang['btn_search']; ?>"><?php colormag_glyph($colormag['glyphs']['search']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['btn_search']; ?></span></label>
                                 <div class="search-form-top">
                                     <?php tpl_searchform(); ?>
                                 </div>
