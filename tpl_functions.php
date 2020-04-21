@@ -78,6 +78,7 @@ function colormag_init() {
 //    foreach ($colormag['social'] as $key => $value) {
 //        $colormag['glyphs'][$key] = $key;
 //    }
+//dbg($colormag['glyphs']);
     foreach ($colormag['glyphs'] as $key => $value) {
         /*if (is_file(DOKU_CONF."glyphs/".$key.".svg")) {*/
         /*if (is_file(tpl_incdir().'images/glyphs/custom/'.$key.'.svg')) {*/
@@ -94,6 +95,7 @@ function colormag_init() {
         //    $colormag['glyphs'][$key] = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
         }
     }
+//dbg($colormag['glyphs']);
 
     // DEBUG
     // Adding test alerts if debug is enabled
@@ -304,3 +306,41 @@ function colormag_admindropdown() {
     echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').colormag_glyph($colormag['glyphs']["refresh"], true).'</a></li>';
     echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').colormag_glyph($colormag['glyphs']["refresh"], true).'</a></li>';
 }/* colormag_admin */
+
+/**
+ * RETURN A DATE
+ * 
+ * @param string    $type "long" for long date based on 'dateString' setting, "short" for numeric
+ * @param integer   $timestamp timestamp to use (null for current server time)
+ * @param bool      $clock if true, add hour to the result
+ * @param bool      $print if true, print the result instead of returning it
+ */
+function colormag_date($type = "long", $timestamp = null, $clock = false, $return = false) {
+    global $conf;
+    $datelocale = tpl_getConf('datelocale');
+    if ($datelocale != null) {
+        if (strpos($datelocale, ',') !== false) {
+            $datelocale = explode(",", $datelocale)[1];
+        }
+        setlocale(LC_TIME, $datelocale);
+    }
+    if ($type == "short") {
+        $format = tpl_getConf('shortdatestring');
+    } else {
+        $format = tpl_getConf('longdatestring');
+    }
+    if ($clock) {
+        $format .= ' %H:%M';
+    }
+    if ($timestamp == null) {
+        $result = utf8_encode(ucwords(strftime($format)));
+    } else {
+        $result = utf8_encode(ucwords(strftime($format, $timestamp)));
+    }
+    if ($return) {
+        return $result;
+    } else {
+        print $result;
+        return 1;
+    }
+}

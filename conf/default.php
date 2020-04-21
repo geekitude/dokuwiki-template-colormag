@@ -10,6 +10,9 @@
  * Default configuration settings
  */
 
+$conf['datelocale']         = 'fra';
+$conf['longdatestring']     = '%A %d %B %Y';
+$conf['shortdatestring']    = '%d/%m/%Y';
 $conf['topbar']             = 'date,newsticker,socialnetworks';
 $conf['sidebarpos']         = 'left';
 $conf['links']              = 'links';

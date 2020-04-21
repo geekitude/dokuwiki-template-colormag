@@ -10,6 +10,9 @@
  * Configuration metadata
  */
 
+$meta['datelocale']         = array('string');
+$meta['longdatestring']     = array('string');
+$meta['shortdatestring']    = array('string');
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');

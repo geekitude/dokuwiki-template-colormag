@@ -21,6 +21,12 @@ if (!defined('DOKU_INC')) die();
         <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
             <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('neutralize'), 'topbar') !== false) ? " neu" : "" ?>">
                 <div class="inner-wrap clearfix">
+                    <?php
+                        if (strpos(tpl_getConf('topbar'), 'date') !== false) {
+                            $date = colormag_date("long", null, false, true);
+                            print '<div id="colormag__topbar-date" title="'.$date.'">'.colormag_glyph($colormag['glyphs']['date'], true).'<span>'.$date.'</span></div>';
+                        }
+                    ?>
                     *DATE* *NEWSTICKER* *SOCIAL?*
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
