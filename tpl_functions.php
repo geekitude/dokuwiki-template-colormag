@@ -28,7 +28,7 @@ function colormag_init() {
     // Search for default or custum default SVG glyphs
 //    $colormag['glyphs']['about'] = 'help';
     $colormag['glyphs']['acl'] = 'key-variant';
-    $colormag['glyphs']['admin'] = 'settings';
+//    $colormag['glyphs']['admin'] = 'settings';
     $colormag['glyphs']['config'] = 'tune';
 //    $colormag['glyphs']['discussion'] = 'comment-text-multiple';
     $colormag['glyphs']['date'] = 'calendar-month';
@@ -41,8 +41,8 @@ function colormag_init() {
     $colormag['glyphs']['hide'] = 'eye-off';
     $colormag['glyphs']['home'] = 'home';
     $colormag['glyphs']['locked'] = 'lock';
-    $colormag['glyphs']['login'] = 'login';
-    $colormag['glyphs']['logout'] = 'logout';
+//    $colormag['glyphs']['login'] = 'login';
+//    $colormag['glyphs']['logout'] = 'logout';
     $colormag['glyphs']['lastmod'] = 'calendar-clock';
     $colormag['glyphs']['link'] = 'web';
     $colormag['glyphs']['locked'] = 'lock';
@@ -72,7 +72,7 @@ function colormag_init() {
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';
     $colormag['glyphs']['upgrade'] = 'cloud-download';
-    $colormag['glyphs']['user'] = 'account';
+//    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
 //    foreach ($colormag['social'] as $key => $value) {
@@ -194,10 +194,70 @@ function colormag_loginform($context = "null") {
     print '</div>'.NL;
 }/* /colormag_loginform */
 
+function colormag_usertools() {
+    global $ID, $ACT, $lang, $INFO;
+
+    $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
+    $object =  (array) $objects;
+    foreach ($object as $key => $value) {
+        $field = (array) $value;
+//        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y') or (tpl_getConf('headertoolsIcons') == 0)) {
+        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
+            $class = null;
+            $icon = null;
+        } else {
+            $class = ' class="a11y"';
+            $icon = $field["\0*\0svg"];
+        }
+        if ($field["\0*\0type"] == "login") {
+            if ($ACT == "denied") {
+                print '<li class="menu-item action login"><a href="#colormag__content" rel="nofollow" title="'.$lang['btn_login'].'"><span'.$class.'>'.$lang['btn_login'].'</span>'.inlineSVG($icon).'</a></li>';
+            } else {
+                print '<li class="menu-item action login"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['btn_login'].'"><span'.$class.'>'.$lang['btn_login'].'</span>'.inlineSVG($icon).'</a></li>';
+            }
+        } elseif (($field["\0*\0type"] == "register") && ($ACT != "register")) {
+            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'"><span'.$class.'>'.$lang['btn_register'].'</span>'.inlineSVG($icon).'</a></li>';
+        } elseif ($field["\0*\0type"] == "profile") {
+            //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'"><span class="a11y">'.$lang['profile'].'</span>'.inlineSVG($field["\0*\0svg"]).'</a></li>';
+            print '<li class="menu-item action profile"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'"><span'.$class.'>'.$lang['profile'].'</span>'.inlineSVG($icon).'</a></li>';
+
+            //PAGES PERSOS MANQUANTES
+            // Custom UserTools
+            //if ($uhp['private']['id']) {
+            //    print '<li>';
+            //        tpl_link(wl($uhp['private']['id']),$uhp['private']['string'].inlineSVG($colormag['glyphs']['private']),' title="'.$uhp['private']['id'].'"');
+            //    print '</li>';
+            //}
+            //if ($uhp['public']['id']) {
+            //    print '<li>';
+            //        tpl_link(wl($uhp['public']['id']),$uhp['public']['string'].inlineSVG($colormag['glyphs']['public']),' title="'.$uhp['public']['id'].'"');
+            //    print '</li>';
+            //}
+
+        } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
+            print '<li class="menu-item menu-item-has-children action admin">';
+                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'"><span'.$class.'>'.$lang['btn_admin'].'</span>'.inlineSVG($icon).'</a>';
+                print '<ul class="sub-menu">';
+                    colormag_admindropdown();
+                print '</ul>';
+            print '</li><!-- .action.admin -->';
+        } elseif ($field["\0*\0type"] == "logout") {
+            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'"><span'.$class.'>'.$lang['btn_logout'].'</span>'.inlineSVG($icon).'</a></li>';
+        } else {
+            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'"><span'.$class.'>'.$field["\0*\0type"].'</span>'.inlineSVG($icon).'</a></li>';
+//dbg($field["\0*\0type"]);
+//dbg($field["\0*\0type"]);
+//dbg($field["\0*\0svg"]);
+//dbg($lang['btn_'.$field["\0*\0type"]]);
+//dbg($field);
+        }
+    }
+}/* /colormag_usertools */
+
 /**
  * Adapted from tpl_admin.php file of Bootstrap3 template by Giuseppe Di Terlizzi <giuseppe.diterlizzi@gmail.com>
  */
-function colormag_admin() {
+function colormag_admindropdown() {
     global $ID, $ACT, $auth, $conf, $colormag;
 
     $admin_plugins = plugin_list('admin');

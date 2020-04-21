@@ -78,6 +78,7 @@ if (!defined('DOKU_INC')) die();
                 <div class="inner-wrap clearfix">
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
+                            <!-- HOME -->
                             <li class="menu-item"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
@@ -98,68 +99,11 @@ if (!defined('DOKU_INC')) die();
                                 </div>
                             </li>
                             <!-- USERTOOLS -->
-                            <?php if ($conf['useacl']): ?>
-                                <li id="dokuwiki__usertools" class="navavatar tools usertools menu-item-has-children">
-                                    <!-- <a title="<?php //print $lang['user_tools'] ?>"> -->
-                                    <a title="<?php print $_SERVER['REMOTE_USER'] ? $INFO['userinfo']['name'].' ('.$_SERVER['REMOTE_USER'].')' : $lang['user_tools'] ?>">
-                                        <?php 
-                                            if ($_SERVER['REMOTE_USER'] != NULL) {
-                                                if ($colormag['images']['userAvatar']['img']) {
-                                                    print $colormag['images']['userAvatar']['img'];
-                                                } else {
-                                                    print colormag_glyph($colormag['glyphs']['user'], true);
-                                                }
-                                            } else {
-                                                print colormag_glyph($colormag['glyphs']['user'], true);
-                                            }
-                                            if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
-                                                $class = "";
-                                            } else {
-                                                $class = " class='a11y'";
-                                            }
-                                            print "<span$class>".$lang['user_tools']."</span>";
-                                        ?>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <?php
-                                            // Custom UserTools
-                                            if ($uhp['private']['id']) {
-                                                print '<li>';
-                                                    tpl_link(wl($uhp['private']['id']),$uhp['private']['string'].inlineSVG($colormag['glyphs']['private']),' title="'.$uhp['private']['id'].'"');
-                                                print '</li>';
-                                            }
-                                            if ($uhp['public']['id']) {
-                                                print '<li>';
-                                                    tpl_link(wl($uhp['public']['id']),$uhp['public']['string'].inlineSVG($colormag['glyphs']['public']),' title="'.$uhp['public']['id'].'"');
-                                                print '</li>';
-                                            }
-                                            // DW UserTools
-                                            tpl_toolsevent('usertools', array(
-                                                tpl_action("profile", true, 'li', true, "", "", $lang['btn_profile'].colormag_glyph($colormag['glyphs']['profile'], true)),
-                                                tpl_action("register", true, 'li', true, "", "", $lang['btn_register'].colormag_glyph($colormag['glyphs']['register'], true))
-                                            ));
-                                            // "logout" is a DW's action but uses same action name than "login" while Colormag needs to make a difference to serve correct glyph
-                                            if ($_SERVER['REMOTE_USER'] != NULL) {
-                                                $subAction = "logout";
-                                            } else {
-                                                $subAction = "login";
-                                            }
-                                            tpl_action("login", true, 'li', false, "", "", $lang['btn_'.$subAction].colormag_glyph($colormag['glyphs'][$subAction], true));
-                                        ?>
-                                    </ul><!-- .sub-menu -->
-                                </li><!-- #dokuwiki__usertools .navicon.tools.usertools -->
-                            <?php endif ?>
-                            <!-- ADMINTOOLS -->
-                            <?php if (($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) : ?>
-                                <li class="menu-item menu-item-has-children">
-                                    <a href="/doku.php?id=<?php print $ID; ?>&do=admin" title="<?php print $lang['btn_admin'] ?>"><?php colormag_glyph($colormag['glyphs']['admin']) ?>
-                                        <span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['btn_admin'] ?></span>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <?php colormag_admin(); ?>
-                                    </ul>
-                                </li>
-                            <?php endif; ?>
+                            <?php
+                                if ($conf['useacl']) {
+                                    colormag_usertools();
+                                }
+                            ?>
                         </ul><!-- /#colormag__menu-tools -->
                     </div><!-- /.menu-primary-container -->
                 </div><!-- /.inner-wrap -->
