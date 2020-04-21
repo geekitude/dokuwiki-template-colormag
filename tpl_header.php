@@ -78,7 +78,7 @@ if (!defined('DOKU_INC')) die();
                 <div class="inner-wrap clearfix">
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
-                            <li class="menu-item"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span>Home</span></a></li>
+                            <li class="menu-item"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
                                 <ul class="sub-menu">
@@ -91,7 +91,7 @@ if (!defined('DOKU_INC')) die();
                         <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section">
                             <li class="menu-item top-search-wrap">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
-                                <label for="colormag__searchcheck01"><?php colormag_glyph($colormag['glyphs']['search']) ?><span>Search</span></label>
+                                <label for="colormag__searchcheck01"><?php colormag_glyph($colormag['glyphs']['search']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Search</span></label>
                                 <div class="search-form-top">
                                     <?php tpl_searchform(); ?>
                                 </div>
@@ -111,7 +111,12 @@ if (!defined('DOKU_INC')) die();
                                             } else {
                                                 print colormag_glyph($colormag['glyphs']['user'], true);
                                             }
-                                            print '<span>'.$lang['user_tools'].'</span>';
+                                            if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
+                                                $class = "";
+                                            } else {
+                                                $class = " class='a11y'";
+                                            }
+                                            print "<span$class>".$lang['user_tools']."</span>";
                                         ?>
                                     </a>
                                     <ul class="sub-menu">
@@ -143,10 +148,11 @@ if (!defined('DOKU_INC')) die();
                                     </ul><!-- .sub-menu -->
                                 </li><!-- #dokuwiki__usertools .navicon.tools.usertools -->
                             <?php endif ?>
+                            <!-- ADMINTOOLS -->
                             <?php if (($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) : ?>
                                 <li class="menu-item menu-item-has-children">
                                     <a href="/doku.php?id=<?php print $ID; ?>&do=admin" title="<?php print $lang['btn_admin'] ?>"><?php colormag_glyph($colormag['glyphs']['admin']) ?>
-                                        <span><?php print $lang['btn_admin'] ?></span>
+                                        <span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['btn_admin'] ?></span>
                                     </a>
                                     <ul class="sub-menu">
                                         <?php colormag_admin(); ?>
