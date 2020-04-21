@@ -1349,6 +1349,12 @@ li.default-menu {
 	right: 100%;
 }
 
+/* making sure focus isn't lost when passing from main to sub menu */
+[dir] .sub-menu li:first-child {
+    border-top: 1px solid transparent;
+    margin-top: -1px;
+}
+
 [dir=ltr] #colormag__menu-tools .sub-menu {
 	right: 0;
 }

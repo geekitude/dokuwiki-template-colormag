@@ -80,7 +80,7 @@ if (!defined('DOKU_INC')) die();
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
                             <li class="menu-item"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span>Home</span></a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" title="Blah1"><span>Blah1</span></a>
+                                <a href="#" title="Blah1">Blah1</a>
                                 <ul class="sub-menu">
                                     <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1</a></li>
                                     <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 2</a></li>
