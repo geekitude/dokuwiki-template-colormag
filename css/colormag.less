@@ -1180,6 +1180,12 @@ nav li > ol {
 	position: relative;
 }
 
+#colormag__site-navigation svg {
+    fill: #ffffff;
+    vertical-align: -7px;
+    max-height: 23px;
+}
+
 [dir=ltr] .home-icon {
 	float: left;
 }
@@ -1343,14 +1349,22 @@ li.default-menu {
 	right: 100%;
 }
 
-.main-navigation ul li ul {
-	position: absolute;
-	width: 200px;
-	top: 42px;
+[dir=ltr] #colormag__menu-tools .sub-menu {
+	right: 0;
+}
+
+[dir=rtl] #colormag__menu-tools .sub-menu {
+    left: 0;
 }
 
 [dir] .main-navigation ul li ul li {
 	float: none;
+}
+
+.main-navigation ul li ul {
+	position: absolute;
+	width: 200px;
+	top: 43px;
 }
 
 [dir] .main-navigation ul li ul li a {

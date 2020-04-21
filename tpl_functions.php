@@ -28,7 +28,7 @@ function colormag_init() {
     // Search for default or custum default SVG glyphs
 //    $colormag['glyphs']['about'] = 'help';
     $colormag['glyphs']['acl'] = 'key-variant';
-//    $colormag['glyphs']['admin'] = 'settings';
+    $colormag['glyphs']['admin'] = 'settings';
     $colormag['glyphs']['config'] = 'tune';
 //    $colormag['glyphs']['discussion'] = 'comment-text-multiple';
     $colormag['glyphs']['date'] = 'calendar-month';
