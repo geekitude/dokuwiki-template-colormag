@@ -1,3 +1,7 @@
+if (JSINFO.LoadNewsTicker) {
+    /* DOKUWIKI:include js/jquery.newsTicker.min.js */
+}
+
 /**
  *  We handle several device classes based on browser width.
  *
@@ -9,31 +13,34 @@
 var device_class = ''; // not yet known
 var device_classes = 'desktop mobile tablet phone';
 
-function tpl_dokuwiki_mobile(){
+function js_dokuwiki_resize(){
 
     // the z-index in mobile.css is (mis-)used purely for detecting the screen mode here
-    var screen_mode = jQuery('#screen__mode').css('z-index') + '';
+    var screen_mode = jQuery('#colormag__helper').css('z-index') + '';
 
     // determine our device pattern
     // TODO: consider moving into dokuwiki core
     switch (screen_mode) {
-        case '1':
-            if (device_class.match(/tablet/)) return;
-            device_class = 'mobile tablet';
-            break;
-        case '2':
+        case '1001':
             if (device_class.match(/phone/)) return;
             device_class = 'mobile phone';
+            //console.log(device_class);
+            break;
+        case '2001':
+            if (device_class.match(/tablet/)) return;
+            device_class = 'mobile tablet';
+            //console.log(device_class);
             break;
         default:
             if (device_class == 'desktop') return;
             device_class = 'desktop';
+            //console.log(device_class);
     }
 
     jQuery('html').removeClass(device_classes).addClass(device_class);
 
     // handle some layout changes based on change in device
-    var $handle = jQuery('#dokuwiki__aside h3.toggle');
+    var $handle = jQuery('#colormag__secondary h3.toggle');
     var $toc = jQuery('#dw__toc h3');
 
     if (device_class == 'desktop') {
@@ -58,20 +65,35 @@ function tpl_dokuwiki_mobile(){
     }
 }
 
-jQuery(function(){
-    var resizeTimer;
-    dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
 
-    tpl_dokuwiki_mobile();
+jQuery(function(){
+
+    var resizeTimer;
+    dw_page.makeToggle('#colormag__secondary h3.toggle','#colormag__secondary div.content');
+
+    js_dokuwiki_resize();
     jQuery(window).on('resize',
         function(){
             if (resizeTimer) clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
+            resizeTimer = setTimeout(js_dokuwiki_resize,200);
         }
     );
 
+    // Last changes ticker
+    if (JSINFO.LoadNewsTicker) {
+        jQuery('.js-lastchanges').newsTicker({
+            max_rows: 1,
+            row_height: parseFloat(jQuery("#colormag__topbar-newsticker").css("font-size")) + 4,
+            speed: 600,
+            direction: 'up',
+            duration: 4000,
+            autostart: 1,
+            pauseOnHover: 1
+        });
+    }
+
     // increase sidebar length to match content (desktop mode only)
-    var sidebar_height = jQuery('.desktop #dokuwiki__aside').height();
+    var sidebar_height = jQuery('.desktop #colormag__secondary').height();
     var pagetool_height = jQuery('.desktop #dokuwiki__pagetools ul:first').height();
     // pagetools div has no height; ul has a height
     var content_min = Math.max(sidebar_height || 0, pagetool_height || 0);

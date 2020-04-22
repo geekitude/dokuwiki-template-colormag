@@ -117,6 +117,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 </div><!-- /.wrapper.group -->
 
     <div id="colormag__housekeeper" class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
+    <div id="colormag__helper" class="no">Window width: <span>.</span></div><?php /* helper to detect CSS media query in script.js and eventually display it if adding `&debug=1` to url*/ ?>
 </body>
 </html>

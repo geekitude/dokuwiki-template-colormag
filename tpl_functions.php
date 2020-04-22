@@ -22,7 +22,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
-    global $colormag;
+    global $colormag, $JSINFO;
 
     // GLYPHS
     // Search for default or custum default SVG glyphs
@@ -167,6 +167,27 @@ function colormag_init() {
 //dbg($colormag['recents']);
     }
 
+    // JSINFO
+    // Store options into $JSINFO for later use
+    if ((strpos(tpl_getConf('topbar'), 'newsticker') !== false) and ($colormag['recents'] != null) and is_array($colormag['recents'])) {
+        $JSINFO['LoadNewsTicker'] = true;
+    } else {
+        $JSINFO['LoadNewsTicker'] = false;
+    }
+//    if (strpos(tpl_getConf('stickies'), 'pageheader') !== false) {
+//        $JSINFO['StickyPageheader'] = true;
+//    } else {
+//        $JSINFO['StickyPageheader'] = false;
+//    }
+//    if (tpl_getConf('scrollspyToC')) {
+//        $JSINFO['LoadGumshoe'] = true;
+//    } else {
+//        $JSINFO['LoadGumshoe'] = false;
+//    }
+//    $JSINFO['Animate'] = tpl_getConf('animate');
+//$JSINFO['ScrollspyToc'] = tpl_getConf('scrollspyToc');
+//dbg($JSINFO);
+
     // DEBUG
     // Adding test alerts if debug is enabled
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "alerts")) {
@@ -201,7 +222,7 @@ function colormag_bodyclasses() {
         $sidebar = "no-sidebar";
     }
 
-    array_push($classes, $sidebar, (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '');
+    array_push($classes, $sidebar, (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //dbg($classes);
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));

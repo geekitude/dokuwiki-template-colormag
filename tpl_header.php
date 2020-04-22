@@ -33,7 +33,7 @@ if (!defined('DOKU_INC')) die();
                             <?php colormag_newsticker(); ?>
                         </div>
                     <?php endif ?>
-                    *NEWSTICKER* *SOCIAL?*
+                    *SOCIAL?*
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>

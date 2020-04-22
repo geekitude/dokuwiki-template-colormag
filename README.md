@@ -61,7 +61,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * ~~[ ] rtl.css~~ (shouldn't be needed, thanks to Grunt)
   * [ ] print.css
   * [x] Necessary changes
-* [ ] JS
+* [x] JS
 * [ ] Further HTML/PHP
   * [ ] Other layouts
   * [ ] Special DW elements
