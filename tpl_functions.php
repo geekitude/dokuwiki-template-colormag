@@ -181,9 +181,27 @@ function colormag_init() {
  * Returns body classes according to settings
  */
 function colormag_bodyclasses() {
+    global $showSidebar;
+
     $classes = array();
 
-    array_push($classes, tpl_getConf('sidebarpos').'-sidebar', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '');
+    if ($showSidebar) {
+        if (tpl_getConf('sidebarpos') == "left") {
+            $sidebar = "left-sidebar";
+        } else {
+            $sidebar = "right-sidebar";
+        }
+        if (strpos(tpl_getConf('stickies'), 'sidebar') !== false) {
+            $sidebar .= " sticky-sidebar";
+        }
+        if ((strpos(tpl_getConf('extractible'), 'sidebar') !== false) and ((tpl_getConf('layout') == "boxed") or (tpl_getConf('layout') == "mix") or (tpl_getConf('layout') == "box2full")) and (tpl_getConf('sidebarPos') == "left")) {
+            $sidebar .= " extractible-sidebar";
+        }
+    } else {
+        $sidebar = "no-sidebar";
+    }
+
+    array_push($classes, $sidebar, (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '');
 //dbg($classes);
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));

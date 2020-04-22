@@ -11,7 +11,7 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
-global $colormag;
+global $colormag, $showSidebar;
 // Reset $colormag to make sure we don't inherit any value from previous page
 $colormag = array();
 colormag_init();
