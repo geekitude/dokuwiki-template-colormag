@@ -69,6 +69,9 @@
 * Responsive Structure
 * *****************************************************************
 * Classic Layout
+* *****************************************************************
+* DEBUG
+* *****************************************************************
 */
 
 /* =Reset
@@ -4452,12 +4455,6 @@ div.info, div.notify, div.success, div.error {
     border-style: solid;
 }
 
-/* More obvious dbg() result */
-
-[dir] pre.dbg {
-    background-color: gold;
-}
-
 /* Move tpl_indexerWebBug() out of the way */
 
 #colormag__housekeeper {
@@ -4501,6 +4498,12 @@ div.mobileTools {
 /*--------------------------------------------------------------
 Responsive Structure
 --------------------------------------------------------------*/
+
+@media screen and (max-width: @ini_site_width + 60px) {
+	body.box-layout #colormag__page {
+		width: 97%;
+	}
+}
 
 @media screen and (max-width: @ini_site_width) {
 	[dir=ltr] .no-sidebar-full-width .alignwide {
@@ -5572,4 +5575,66 @@ Classic Layout
 
 [dir] .colormag-footer--classic .footer-socket-wrapper {
 	background-color: #252730;
+}
+    
+/*--------------------------------------------------------------
+DEBUG
+--------------------------------------------------------------*/
+
+/* Helper */
+
+#colormag__helper {
+    position: fixed;
+    top: 0;
+    z-index: 1003;
+    visibility: hidden;
+    color: gold;
+}
+
+[dir] #colormag__helper {
+    background: @ini_highlight;
+    background-color: black;
+}
+#colormag__helper span::before {
+    content: "desktop (>800px)";
+}
+body.debug #colormag__helper {
+    visibility: visible;
+}
+
+/* More obvious dbg() result */
+
+[dir] pre.dbg {
+    background-color: gold;
+}
+
+
+@media screen and (max-width: @ini_site_width + 60px) {
+    [dir] body.debug {
+        background-color: lightyellow;
+    }
+}
+
+@media screen and (max-width: @ini_site_width) {
+    [dir] body.debug {
+        background-color: bisque;
+    }
+}
+
+@media screen and (max-width: @ini_tablet_width) {
+    [dir] body.debug {
+        background-color: burlywood;
+    }
+}
+
+@media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    [dir] body.debug {
+        background-color: darkgoldenrod;
+    }
+}
+
+@media screen and (max-width: @ini_phone_width) {
+    [dir] body.debug {
+        background-color: chocolate;
+    }
 }
