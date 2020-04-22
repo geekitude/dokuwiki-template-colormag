@@ -781,6 +781,42 @@ body {
 	background-color: #ffffff;
 }
 
+/*
+.breaking-news div {
+	display: none;
+}
+*/
+
+#colormag__topbar-newsticker strong {
+	/*color: linen;*/
+	/*margin-right: 0;*/
+	position: relative;
+	/*vertical-align: top;*/
+}
+
+[dir] #colormag__topbar-newsticker strong {
+	margin-top: 0;
+}
+
+/* The HTML list gets replaced with a single div,
+   which contains the active ticker item, so you
+   can easily style that as well */
+.breaking-news div {
+	display: inline-block;
+	word-wrap: break-word;
+}
+
+.js-lastchanges {
+	display: inline-block;
+	/*padding-left: 0;*/
+	overflow: hidden;
+	/*height: 2rem;*/
+	height: 1.6rem;
+    /*vertical-align: -3px;*/
+    vertical-align: text-bottom;
+}
+
+
 [dir] #colormag__header-text-nav-container {
 	background-color: #ffffff;
 }
@@ -4476,7 +4512,7 @@ Responsive Structure
 	}
 }
 
-@media screen and (max-width: 1190px) {
+@media screen and (max-width: @ini_site_width) {
 	#colormag__page {
 		width: 97%;
 	}
@@ -4486,9 +4522,14 @@ Responsive Structure
 	.inner-wrap {
 		width: 94%;
 	}
+    /* Override newsticker label's a11y class if screen is larger than @ini_site_width */
+    #colormag__topbar-newsticker strong {
+        display: initial !important;
+        position: initial !important;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: @ini_tablet_width) {
 	[dir] #colormag__header-text-nav-wrap {
 		padding: 10px 0;
 	}
@@ -4697,7 +4738,7 @@ Responsive Structure
 	}
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: @ini_phone_width) {
 	.widget_featured_posts .first-post,
 	.widget_featured_posts .following-post {
 		width: 100%;
@@ -4754,14 +4795,6 @@ Responsive Structure
 	[dir=rtl] .widget_highlighted_posts .single-article {
 		margin-left: 0;
 	}
-}
-
-/* Override newsticker label's a11y class if screen is larger than @ini_site_width */
-@media all and (min-width: @ini_site_width + 21px) {
-    #colormag__topbar-newsticker strong {
-        display: initial !important;
-        position: initial !important;
-    }
 }
 
 /* search result tile hide */
