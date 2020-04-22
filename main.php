@@ -34,7 +34,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
-    <div id="colormag__page" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?> clearfix">
+    <div id="colormag__page" class="site clearfix <?php echo tpl_classes(); ?>">
 
         <?php include('tpl_header.php') ?>
 
