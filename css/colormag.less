@@ -4442,6 +4442,23 @@ div.info, div.notify, div.success, div.error {
     background-color: @ini_color_red;
 }
 
+/* ToC container */
+#dw__toc {
+    width: @ini_toc_width;
+    color: inherit;
+}
+[dir] #dw__toc {
+    background-color: @ini_background_alt;
+}
+[dir=ltr] #dw__toc {
+	float: right;
+	margin: 0 0 1.4em 1.4em;
+}
+[dir=rtl] #dw__toc {
+    float: left;
+    margin: 0 1.4em 1.4em 0;
+}
+
 /* Section highlighting */
 
 .dokuwiki div.section_highlight { /* negative side margin = side padding + side border */
