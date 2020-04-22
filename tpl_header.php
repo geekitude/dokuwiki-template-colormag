@@ -37,7 +37,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
-        <div class="inner-wrap clearfix">
+        <div class="inner-wrap narrow-mix clearfix">
             <div id="colormag__header-text-nav-wrap" class="clearfix">
                 <div id="colormag__header-left-section">
                     <h1>

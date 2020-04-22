@@ -53,7 +53,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php endif ?>
 
         <div id="colormag__main" class="clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
-            <div class="inner-wrap clearfix">
+            <div class="inner-wrap narrow-mix clearfix">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->

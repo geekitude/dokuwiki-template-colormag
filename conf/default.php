@@ -10,6 +10,7 @@
  * Default configuration settings
  */
 
+$conf['layout']             = 'box';
 $conf['datelocale']         = 'fra';
 $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';

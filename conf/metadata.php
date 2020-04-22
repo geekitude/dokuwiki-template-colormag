@@ -10,6 +10,7 @@
  * Configuration metadata
  */
 
+$meta['layout']             = array('multichoice','_choices' => array('box','mix','wide','box2wide'));
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');

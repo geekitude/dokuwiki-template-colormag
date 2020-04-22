@@ -753,13 +753,17 @@ body {
 	background-size: cover;
 }
 
-#colormag__page {
+[dir] #colormag__page {
+    background-color: @ini_background;
+}
+
+body.box-layout #colormag__page,
+body.box2wide-layout #colormag__page {
     max-width: @ini_site_width;
 }
 
-[dir] #colormag__page {
+[dir] body.box-layout #colormag__page, [dir] body.box2wide-layout #colormag__page {
 	margin: 10px auto;
-    background-color: @ini_background;
 }
 
 [dir] .wide {
@@ -771,12 +775,18 @@ body {
 	max-width: 100%;
 }
 
-.inner-wrap {
-	max-width: 1140px;
-}
-
 [dir] .inner-wrap {
 	margin: 0 auto;
+}
+
+/* 80px to keep space on each side (at least for pagetools) */
+body.box-layout .inner-wrap,
+body.box2wide-layout .inner-wrap,
+body.mix-layout .inner-wrap.narrow-mix {
+	max-width: (@ini_site_width - 80px);
+}
+[dir] body.wide-layout .inner-wrap, [dir] body.mix-layout .inner-wrap:not(.narrow-mix) {
+	margin: 0 40px;
 }
 
 /* =HEADER
@@ -5246,6 +5256,19 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width) {
+    body.box2wide-layout #colormag__page {
+        max-width: 100%;
+        width: 100%;
+    }
+    [dir] body.box2wide-layout #colormag__page {
+        margin: 0;
+    }
+    [dir] body {
+        background-color: pink !important;
+    }
+    [dir] body.box2wide-layout .inner-wrap {
+        margin: 0 40px !important;
+    }
 	[dir] #colormag__header-text-nav-wrap {
 		padding: 10px 0;
 	}
