@@ -830,10 +830,11 @@ body.mix-layout .inner-wrap.narrow-mix {
     vertical-align: text-bottom;
 }
 
-
-[dir] #colormag__header-text-nav-container {
+/*
+#colormag__header-text-nav-container {
 	background-color: #ffffff;
 }
+*/
 
 [dir] #colormag__header-text-nav-wrap {
 	padding: 20px 0 25px;
@@ -1686,10 +1687,13 @@ label {
 	display: block;
 }
 
+#colormag__main {
+	/*background-color: #ffffff;*/
+}
+
 [dir] #colormag__main {
 	padding-top: 30px;
 	padding-bottom: 20px;
-	background-color: #ffffff;
 }
 
 /* =POST FORMAT
@@ -5308,9 +5312,11 @@ Responsive Structure
 	[dir=rtl] .menu-toggle {
 		float: right;
 	}
+    /*
 	.main-navigation ul {
 		display: none;
 	}
+    */
 	[dir] .main-navigation .home-icon a {
 		padding: 7px 10px;
 	}
@@ -5671,7 +5677,7 @@ body.debug #colormag__helper {
 
 
 @media screen and (max-width: @ini_site_width + 60px) {
-    [dir] body.debug {
+    [dir] body.debug #colormag__page {
         background-color: lightyellow;
     }
     #colormag__helper span::before {
@@ -5680,7 +5686,7 @@ body.debug #colormag__helper {
 }
 
 @media screen and (max-width: @ini_site_width) {
-    [dir] body.debug {
+    [dir] body.debug #colormag__page {
         background-color: bisque;
     }
     #colormag__helper span::before {
@@ -5689,7 +5695,7 @@ body.debug #colormag__helper {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    [dir] body.debug {
+    [dir] body.debug #colormag__page {
         background-color: burlywood;
     }
     #colormag__helper {
@@ -5704,7 +5710,7 @@ body.debug #colormag__helper {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    [dir] body.debug {
+    [dir] body.debug #colormag__page {
         background-color: darkgoldenrod;
     }
     #colormag__helper span::before {
@@ -5713,7 +5719,7 @@ body.debug #colormag__helper {
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    [dir] body.debug {
+    [dir] body.debug #colormag__page {
         background-color: chocolate;
     }
     #colormag__helper {

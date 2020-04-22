@@ -703,10 +703,11 @@ body.mix-layout .inner-wrap:not(.narrow-mix) {
     vertical-align: text-bottom;
 }
 
-
+/*
 #colormag__header-text-nav-container {
 	background-color: #ffffff;
 }
+*/
 
 #colormag__header-text-nav-wrap {
 	padding: 20px 0 25px;
@@ -1358,7 +1359,7 @@ label {
 #colormag__main {
 	padding-top: 30px;
 	padding-bottom: 20px;
-	background-color: #ffffff;
+	/*background-color: #ffffff;*/
 }
 
 /* =POST FORMAT
@@ -3947,9 +3948,11 @@ Responsive Structure
 		display: block;
 		float: left;
 	}
+    /*
 	.main-navigation ul {
 		display: none;
 	}
+    */
 	.main-navigation .home-icon a {
 		padding: 7px 10px;
 	}
@@ -4240,7 +4243,7 @@ pre.dbg {
 
 
 @media screen and (max-width: @ini_site_width + 60px) {
-    body.debug {
+    body.debug #colormag__page {
         background-color: lightyellow;
     }
     #colormag__helper span::before {
@@ -4249,7 +4252,7 @@ pre.dbg {
 }
 
 @media screen and (max-width: @ini_site_width) {
-    body.debug {
+    body.debug #colormag__page {
         background-color: bisque;
     }
     #colormag__helper span::before {
@@ -4258,7 +4261,7 @@ pre.dbg {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    body.debug {
+    body.debug #colormag__page {
         background-color: burlywood;
     }
     #colormag__helper {
@@ -4273,7 +4276,7 @@ pre.dbg {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    body.debug {
+    body.debug #colormag__page {
         background-color: darkgoldenrod;
     }
     #colormag__helper span::before {
@@ -4282,7 +4285,7 @@ pre.dbg {
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    body.debug {
+    body.debug #colormag__page {
         background-color: chocolate;
     }
     #colormag__helper {
