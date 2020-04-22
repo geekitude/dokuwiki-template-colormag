@@ -77,7 +77,7 @@ dbg("vérifier ces liens");
             </div><!-- /.footer-widgets-area.clearfix -->
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-widgets-wrapper -->
-    <div class="footer-socket-wrapper clearfix">
+    <div class="footer-socket-wrapper clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'footersocket') !== false) ? " uicolor" : "" ?>">
         <div class="inner-wrap">
             <div class="footer-socket-area">
                 <div class="footer-socket-left-section">

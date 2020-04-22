@@ -4445,10 +4445,6 @@ div.info, div.notify, div.success, div.error {
 /* ToC container */
 #dw__toc {
     width: @ini_toc_width;
-    color: inherit;
-}
-[dir] #dw__toc {
-    background-color: @ini_background_alt;
 }
 [dir=ltr] #dw__toc {
 	float: right;
@@ -4510,6 +4506,24 @@ div.mobileTools {
 [dir=rtl] .mediacenter {
     margin-right: auto;
     margin-left: auto;
+}
+
+/* UI colors */
+
+body.neu-ui .uicolor,
+body.neu-ui #colormag__main.uicolor-toc #dw__toc {
+    color: @ini_text_neu;
+}
+
+[dir] body.neu-ui .uicolor, [dir] body.neu-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_neu;
+}
+body.alt-ui .uicolor,
+body.alt-ui #colormag__main.uicolor-toc #dw__toc {
+    color: @ini_text_alt;
+}
+[dir] body.alt-ui .uicolor, [dir] body.alt-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_alt;
 }
 
 /*--------------------------------------------------------------

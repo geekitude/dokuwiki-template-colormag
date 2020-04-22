@@ -3289,8 +3289,6 @@ div.error {
     float: right;
     margin: 0 0 1.4em 1.4em;
     width: @ini_toc_width;
-    background-color: @ini_background_alt;
-    color: inherit;
 }
 
 /* Section highlighting */
@@ -3328,6 +3326,19 @@ div.mobileTools {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* UI colors */
+
+body.neu-ui .uicolor,
+body.neu-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_neu;
+    color: @ini_text_neu;
+}
+body.alt-ui .uicolor,
+body.alt-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_alt;
+    color: @ini_text_alt;
 }
 
 /*--------------------------------------------------------------

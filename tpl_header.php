@@ -19,7 +19,7 @@ if (!defined('DOKU_INC')) die();
         <?php tpl_includeFile('headertop.html') ?>
 
         <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
-            <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('neutralize'), 'topbar') !== false) ? " neu" : "" ?>">
+            <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('uicolorize'), 'topbar') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap clearfix">
                     <?php
                         if (strpos(tpl_getConf('topbar'), 'date') !== false) {

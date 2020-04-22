@@ -40,7 +40,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <!-- BREADCRUMBS -->
         <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <div id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs group<?php print (strpos(tpl_getConf('neutralize'), 'breadcrumbs') !== false) ? " neu" : "" ?>">
+            <div id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs group<?php print (strpos(tpl_getConf('uicolorize'), 'breadcrumbs') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap clearfix">
                     <?php if($conf['youarehere']): ?>
                         <div class="youarehere"><?php tpl_youarehere() ?></div>
@@ -52,12 +52,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             </div><!-- /#spacious__topbar-wrapper -->
         <?php endif ?>
 
-        <div id="colormag__main" class="clearfix">
+        <div id="colormag__main" class="clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
             <div class="inner-wrap clearfix">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->
-                    <div id="colormag__secondary">
+                    <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
                         <div class="pad aside include group">
                             <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
                             <div id="colormag__content" class="content clearfix">
@@ -87,7 +87,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div><!-- /.page.group -->
 
-                        <div class="docInfo<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?>"><?php tpl_pageinfo() ?></div>
+                        <div class="docInfo<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?><?php print (strpos(tpl_getConf('uicolorize'), 'docinfo') !== false) ? " uicolor" : "" ?>"><?php tpl_pageinfo() ?></div>
 
                         <?php tpl_flush() ?>
                     </div><!-- /#colormag__content -->
