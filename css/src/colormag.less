@@ -3429,7 +3429,7 @@ Responsive Structure
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
 	.logged-in #colormag__header #colormag__site-navigation {
 		top: 0 !important;
 	}
