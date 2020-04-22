@@ -3331,6 +3331,14 @@ Responsive Structure
 	}
 }
 
+@media screen and (min-width: @ini_site_width + 1px) {
+    /* Override newsticker label's a11y class if screen is larger than @ini_site_width */
+    #colormag__topbar-newsticker strong {
+        display: initial !important;
+        position: initial !important;
+    }
+}
+
 @media screen and (max-width: @ini_site_width) {
 	.no-sidebar-full-width .alignwide {
 		margin-left: -10px;
@@ -3345,11 +3353,6 @@ Responsive Structure
 	.inner-wrap {
 		width: 94%;
 	}
-    /* Override newsticker label's a11y class if screen is larger than @ini_site_width */
-    #colormag__topbar-newsticker strong {
-        display: initial !important;
-        position: initial !important;
-    }
 }
 
 @media screen and (max-width: @ini_tablet_width) {
