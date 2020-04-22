@@ -5589,7 +5589,7 @@ DEBUG
 #colormag__helper {
     position: fixed;
     top: 0;
-    z-index: 1003;
+    z-index: 3001;
     visibility: hidden;
     color: gold;
 }
@@ -5599,7 +5599,10 @@ DEBUG
     background-color: black;
 }
 #colormag__helper span::before {
-    content: "desktop (>800px)";
+    content: "desktop (>@ini_site_width + 60px)";
+}
+#colormag__helper span::after {
+    content: "Z-index: 3001.";
 }
 body.debug #colormag__helper {
     visibility: visible;
@@ -5616,11 +5619,17 @@ body.debug #colormag__helper {
     [dir] body.debug {
         background-color: lightyellow;
     }
+    #colormag__helper span::before {
+        content: "desktop (>@ini_site_width)";
+    }
 }
 
 @media screen and (max-width: @ini_site_width) {
     [dir] body.debug {
         background-color: bisque;
+    }
+    #colormag__helper span::before {
+        content: "desktop (<@ini_site_width)";
     }
 }
 
@@ -5628,16 +5637,37 @@ body.debug #colormag__helper {
     [dir] body.debug {
         background-color: burlywood;
     }
+    #colormag__helper {
+        z-index: 2001;
+    }
+    #colormag__helper span::before {
+        content: "tablet (<@ini_tablet_width)";
+    }
+    #colormag__helper span::after {
+        content: "Z-index: 2001.";
+    }
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
     [dir] body.debug {
         background-color: darkgoldenrod;
     }
+    #colormag__helper span::before {
+        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
+    }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     [dir] body.debug {
         background-color: chocolate;
+    }
+    #colormag__helper {
+        z-index: 1001;
+    }
+    #colormag__helper span::before {
+        content: "phone (<@ini_phone_width)";
+    }
+    #colormag__helper span::after {
+        content: "Z-index: 1001.";
     }
 }
