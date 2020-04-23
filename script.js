@@ -85,7 +85,7 @@ jQuery(function(){
             max_rows: 1,
             row_height: parseFloat(jQuery("#colormag__topbar-newsticker").css("font-size")) + 4,
             speed: 600,
-            direction: 'up',
+            direction: 'down',
             duration: 4000,
             autostart: 1,
             pauseOnHover: 1
