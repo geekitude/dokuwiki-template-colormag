@@ -8,10 +8,10 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** FOOTER ********** -->
-<footer id="colormag__colophon" class="clearfix<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
+<footer id="colormag__colophon" class="group<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
     <div class="footer-widgets-wrapper">
         <div class="inner-wrap">
-            <div class="footer-widgets-area clearfix">
+            <div class="footer-widgets-area group">
                 <?php if ($conf['useacl'] && $ACT != "login" && $ACT != "denied"): ?>
                     <aside id="colormag__userwidget" class="widget">
                         <?php
@@ -68,16 +68,16 @@ dbg("vérifier ces liens");
                         <?php tpl_include_page(tpl_getConf('links'), true, true, true); /* includes the links wiki page */ ?>
                     </aside>
                 <?php endif; ?>
-                <aside id="colormag__licensewidget" class="widget clearfix">
+                <aside id="colormag__licensewidget" class="widget group">
                     <h6 class="widget-title"><span><?php print tpl_getLang('license'); ?></span></h6>
                     <div class="textwidget">
                         <?php tpl_license(''); // license text ?>
                     </div>
                 </aside>
-            </div><!-- /.footer-widgets-area.clearfix -->
+            </div><!-- /.footer-widgets-area.group -->
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-widgets-wrapper -->
-    <div class="footer-socket-wrapper clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'footersocket') !== false) ? " uicolor" : "" ?>">
+    <div class="footer-socket-wrapper group<?php print (strpos(tpl_getConf('uicolorize'), 'footersocket') !== false) ? " uicolor" : "" ?>">
         <div class="inner-wrap">
             <div class="footer-socket-area">
                 <div class="footer-socket-left-section">
@@ -87,7 +87,7 @@ dbg("vérifier ces liens");
                     </div><!-- /.copyright -->
                 </div><!-- /.footer-socket-left-section -->
                 <div class="footer-socket-right-section">
-                    <div class="buttons clearfix">
+                    <div class="buttons group">
                         <ul>
                             <li>
                                 <?php

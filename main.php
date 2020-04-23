@@ -34,12 +34,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
-    <div id="colormag__page" class="site clearfix <?php echo tpl_classes(); ?>">
+    <div id="colormag__page" class="site group <?php echo tpl_classes(); ?>">
 
         <?php include('tpl_header.php') ?>
 
         <header id="colormag__page-navigation-sticky-wrapper" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
-            <div class="inner-wrap clearfix">
+            <div class="inner-wrap group">
                 <!-- PAGEID -->
                 <div class="pageId alignleft"><span><?php echo hsc($ID) ?></span></div>
                 <!-- BREADCRUMBS -->
@@ -56,15 +56,15 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             </div>
         </header><!-- /#colormag__main -->
 
-        <div id="colormag__main" class="clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
-            <div class="inner-wrap narrow-mix clearfix">
+        <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
+            <div class="inner-wrap narrow-mix group">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->
                     <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
                         <div class="pad aside include group">
                             <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                            <div id="colormag__content" class="content clearfix">
+                            <div id="colormag__content" class="content group">
                                 <div class="group">
                                     <?php tpl_flush() ?>
                                     <?php tpl_includeFile('sidebarheader.html') ?>
@@ -78,7 +78,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <!-- ********** CONTENT ********** -->
                 <div id="colormag__primary">
-                    <div id="colormag__content" class="clearfix">
+                    <div id="colormag__content" class="group">
 
                         <div class="page group">
                             <?php tpl_flush() ?>
@@ -95,7 +95,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     </div><!-- /#colormag__content -->
                 </div><!-- /#colormag__primary -->
 
-            </div><!-- /.inner-wrap.clearfix -->
+            </div><!-- /.inner-wrap.group -->
         </div><!-- /#colormag__main -->
 
         <?php include('tpl_footer.php') ?>

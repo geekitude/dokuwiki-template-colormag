@@ -8,19 +8,19 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<header id="colormag__header" class="site-header clearfix<?php print (strpos(tpl_getConf('print'), 'siteheader') !== false) ? '' : ' noprint' ?>">
+<header id="colormag__header" class="site-header group<?php print (strpos(tpl_getConf('print'), 'siteheader') !== false) ? '' : ' noprint' ?>">
 
     <div id="colormag__skip" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>skip group">
         <a href="#colormag__main"><?php print $lang['skip_to_content'] ?></a>
     </div>
 
-    <div id="colormag__header-text-nav-container" class="clearfix">
+    <div id="colormag__header-text-nav-container" class="group">
 
         <?php tpl_includeFile('headertop.html') ?>
 
         <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
             <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('uicolorize'), 'topbar') !== false) ? " uicolor" : "" ?>">
-                <div class="inner-wrap clearfix">
+                <div class="inner-wrap group">
                     <?php
                         if (strpos(tpl_getConf('topbar'), 'date') !== false) {
                             $date = colormag_date("long", null, false, true);
@@ -37,8 +37,8 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
-        <div class="inner-wrap narrow-mix clearfix">
-            <div id="colormag__header-text-nav-wrap" class="clearfix">
+        <div class="inner-wrap narrow-mix group">
+            <div id="colormag__header-text-nav-wrap" class="group">
                 <div id="colormag__header-left-section">
                     <h1 id="site-title">
                         <?php
@@ -59,10 +59,10 @@ if (!defined('DOKU_INC')) die();
                     <?php endif ?>
                 </div>
                 <div id="colormag__header-right-section">
-                    <div class="advertisement-content widget clearfix">
+                    <div class="advertisement-content widget group">
                         *BANNER*
                     </div>
-                    <div id="colormag__header-right-sidebar" class="clearfix">
+                    <div id="colormag__header-right-sidebar" class="group">
                         <div class="tools group">
                             <!-- SITE TOOLS -->
                             <div id="colormag__sitetools">
@@ -86,14 +86,14 @@ if (!defined('DOKU_INC')) die();
         </aside>
 
         <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
-            <div id="colormag__site-navigation-titles" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>clearfix">
-                <div class="inner-wrap clearfix">
+            <div id="colormag__site-navigation-titles" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>group">
+                <div class="inner-wrap group">
                     <h6 class="widget-title alignleft"><span><?php print tpl_getLang('contools'); ?><span></h6>
                     <h6 class="widget-title alignright"><span><?php print $lang['user_tools']; ?></span></h6>
                 </div>
             </div>
-            <nav id="colormag__site-navigation" class="main-navigation clearfix" role="navigation">
-                <div class="inner-wrap clearfix">
+            <nav id="colormag__site-navigation" class="main-navigation group" role="navigation">
+                <div class="inner-wrap group">
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
