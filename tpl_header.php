@@ -80,7 +80,7 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div><!-- .inner-wrap -->
 
-        <aside id="colormag__alerts">
+        <aside id="colormag__alerts" class="group">
             <!-- ALERTS -->
             <?php html_msgarea() ?>
         </aside>
