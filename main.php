@@ -38,19 +38,23 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <?php include('tpl_header.php') ?>
 
-        <!-- BREADCRUMBS -->
-        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <nav id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?><?php print (strpos(tpl_getConf('uicolorize'), 'breadcrumbs') !== false) ? " uicolor" : "" ?>">
-                <div class="inner-wrap clearfix">
-                    <?php if($conf['youarehere']): ?>
-                        <ul class="youarehere"><?php colormag_youarehere() ?></ul>
-                    <?php endif ?>
-                    <?php if($conf['breadcrumbs']): ?>
-                        <ul class="trace"><?php colormag_trace() ?></ul>
-                    <?php endif ?>
-                </div>
-            </nav><!-- /#colormag__breadcrumbs-wrapper -->
-        <?php endif ?>
+        <header id="colormag__page-navigation-sticky-wrapper" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
+            <div class="inner-wrap clearfix">
+                <!-- PAGEID -->
+                <div class="pageId alignleft"><span><?php echo hsc($ID) ?></span></div>
+                <!-- BREADCRUMBS -->
+                <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                    <nav id="colormag__breadcrumbs-wrapper" class="alignright breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
+                            <?php if($conf['youarehere']): ?>
+                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                            <?php endif ?>
+                            <?php if($conf['breadcrumbs']): ?>
+                                <ul class="trace"><?php colormag_trace() ?></ul>
+                            <?php endif ?>
+                    </nav><!-- /#colormag__breadcrumbs-wrapper -->
+                <?php endif ?>
+            </div>
+        </header><!-- /#colormag__main -->
 
         <div id="colormag__main" class="clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
             <div class="inner-wrap narrow-mix clearfix">
@@ -75,8 +79,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 <!-- ********** CONTENT ********** -->
                 <div id="colormag__primary">
                     <div id="colormag__content" class="clearfix">
-
-                        <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
                         <div class="page group">
                             <?php tpl_flush() ?>

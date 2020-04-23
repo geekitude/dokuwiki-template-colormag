@@ -19,7 +19,7 @@ $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_d
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','pills'));
 $meta['breadcrumbsglyphs']  = array('onoff'); /* add glyphs to breadcrumbs to distinguish home, user public page, user home private ns, translated pages (note there will allways be a glyph for home in hierarchical trace) */
-$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','breadcrumbs','sidebar','toc','docinfo','footersocket'));
+$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
 $meta['links']              = array('string');
 $meta['dark']               = array('onoff');
