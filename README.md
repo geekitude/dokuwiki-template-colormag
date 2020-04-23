@@ -69,11 +69,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [x] Further CSS
   * [x] style.ini
   * [x] WP vs. DW classes
-* [ ] Rename IDs
+* [x] Rename IDs
 * [ ] Support specific custom WP theme functionality
-  * [ ] Custom colours
+  * [x] Custom colours
   * [ ] Custom background
-* [ ] Further Reading
+* [x] Further Reading
 
 ## Main features
 
