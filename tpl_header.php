@@ -97,7 +97,7 @@ if (!defined('DOKU_INC')) die();
                     <div class="menu-primary-container">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
-                            <li class="menu-item"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
+                            <li class="menu-item action home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
                                 <ul class="sub-menu">
