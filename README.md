@@ -64,10 +64,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [x] JS
 * [ ] Further HTML/PHP
   * [ ] Other layouts
-  * [ ] Special DW elements
+  * [x] Special DW elements
   * [ ] Other actions
 * [ ] Further CSS
-  * [ ] style.ini
+  * [x] style.ini
   * [ ] WP vs. DW classes
 * [ ] Rename IDs
 * [ ] Support specific custom WP theme functionality

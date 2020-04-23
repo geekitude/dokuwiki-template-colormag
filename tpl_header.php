@@ -40,7 +40,7 @@ if (!defined('DOKU_INC')) die();
         <div class="inner-wrap narrow-mix clearfix">
             <div id="colormag__header-text-nav-wrap" class="clearfix">
                 <div id="colormag__header-left-section">
-                    <h1>
+                    <h1 id="site-title">
                         <?php
                             // get logo either out of the template images folder or data/media folder
                             $logoSize = array();
