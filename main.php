@@ -106,7 +106,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                     <!-- PAGE ACTIONS -->
                     <div id="dokuwiki__pagetools">
-                        <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
                         <div class="tools">
                             <ul>
                                 <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>

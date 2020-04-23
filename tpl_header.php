@@ -66,7 +66,7 @@ if (!defined('DOKU_INC')) die();
                         <div class="tools group">
                             <!-- SITE TOOLS -->
                             <div id="colormag__sitetools">
-                                <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+                                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
                                 <div class="mobileTools">
                                     <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                 </div><!-- /.mobiletools -->
@@ -86,6 +86,12 @@ if (!defined('DOKU_INC')) die();
         </aside>
 
         <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
+            <div id="colormag__site-navigation-titles" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>clearfix">
+                <div class="inner-wrap clearfix">
+                    <h6 class="widget-title alignleft"><span><?php print tpl_getLang('contools'); ?><span></h6>
+                    <h6 class="widget-title alignright"><span><?php print $lang['user_tools']; ?></span></h6>
+                </div>
+            </div>
             <nav id="colormag__site-navigation" class="main-navigation clearfix" role="navigation">
                 <div class="inner-wrap clearfix">
                     <div class="menu-primary-container">
@@ -101,7 +107,7 @@ if (!defined('DOKU_INC')) die();
                             </li>
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
                         </ul><!-- /#colormag__menu-primary -->
-                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section">
+                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget">
                             <!-- SEARCH -->
                             <li class="menu-item top-search-wrap">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
