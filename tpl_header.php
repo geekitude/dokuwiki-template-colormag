@@ -71,7 +71,7 @@ if (!defined('DOKU_INC')) die();
                                     <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                 </div><!-- /.mobiletools -->
                                 <ul>
-                                    <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+                                    <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
                                 </ul>
                             </div><!-- /#colormag__sitetools -->
                         </div><!-- /.tools -->
