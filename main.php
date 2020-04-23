@@ -3,7 +3,7 @@
  * Dokuwiki ColorMag template
  * Original Wordpress theme URI: https://themegrill.com/themes/colormag/
  * 
- * @link    https://www.dokuwiki.org/template:spacious
+ * @link    https://www.dokuwiki.org/template:colormag
  * @author  Simon DELAGE <sdelage@gmail.com>
  * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
  */
@@ -40,16 +40,16 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <!-- BREADCRUMBS -->
         <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <div id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs group<?php print (strpos(tpl_getConf('uicolorize'), 'breadcrumbs') !== false) ? " uicolor" : "" ?>">
+            <nav id="colormag__breadcrumbs-wrapper" class="news-bar breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?><?php print (strpos(tpl_getConf('uicolorize'), 'breadcrumbs') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap clearfix">
                     <?php if($conf['youarehere']): ?>
-                        <div class="youarehere"><?php tpl_youarehere() ?></div>
+                        <ul class="youarehere"><?php colormag_youarehere() ?></ul>
                     <?php endif ?>
                     <?php if($conf['breadcrumbs']): ?>
-                        <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                        <ul class="trace"><?php colormag_trace() ?></ul>
                     <?php endif ?>
                 </div>
-            </div><!-- /#spacious__topbar-wrapper -->
+            </nav><!-- /#colormag__breadcrumbs-wrapper -->
         <?php endif ?>
 
         <div id="colormag__main" class="clearfix<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">

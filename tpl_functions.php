@@ -540,3 +540,107 @@ function colormag_newsticker($context = null) {
         print '</ul>';
     }
 }
+
+/**
+ * PRINT HIERARCHICAL BREADCRUMBS, adapted from core (template.php) to use a CSS separator solution and respect existing/non-existing page link colors
+ *
+ * This code was suggested as replacement for the usual breadcrumbs.
+ * It only makes sense with a deep site structure.
+ *
+ * @return bool
+ */
+function colormag_youarehere() {
+    global $conf, $ID, $lang, $colormag;
+
+    // check if enabled
+    if(!$conf['youarehere']) return false;
+
+    $parts = explode(':', $ID);
+    $count = count($parts);
+//dbg($parts);
+    print '<li class="label"><span title="'.rtrim($lang['youarehere'], ':').'">'.$lang['youarehere'].'</span></li>';
+    // print the startpage unless we're in translated namespace (in wich case trace will start with current language start page)
+//dbg($colormag['trans']);
+    //if ((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) {
+    if (((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) or ((!plugin_isdisabled('translation')) and (strpos($conf['plugin']['translation']['translations'], $colormag['trans']['defaultlang']) === false)) or (plugin_isdisabled('translation'))) {
+        print '<li>'.tpl_pagelink(':'.$conf['start'], null, true).'</li>';
+    }
+    // print intermediate namespace links
+    $part = '';
+    for($i = 0; $i < $count - 1; $i++) {
+        $part .= $parts[$i].':';
+//dbg($part);
+        $page = $part;
+        print "<li>";
+            if (p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle') != null) {
+                tpl_pagelink($page, p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle'));
+            } else {
+//dbg("eh ben?".$page);
+                tpl_pagelink($page);
+            }
+        print "</li>";
+    }
+
+    // print current page, skipping start page, skipping for namespace index
+    resolve_pageid('', $page, $exists);
+    if(isset($page) && $page == $part.$parts[$i]) {
+        return true;
+    }
+    $page = $part.$parts[$i];
+    if ($page == $conf['start']) {
+        return true;
+    }
+    print "<li>";
+        if (p_get_metadata($page, 'plugin_croissant_bctitle') != null) {
+            tpl_pagelink($page, p_get_metadata($page, 'plugin_croissant_bctitle'));
+        } else {
+            tpl_pagelink($page);
+        }
+    print "</li>";
+    return true;
+}/* /colormag_youarehere */
+
+/**
+ * PRINT TRACE BREADCRUMBS, adapted from core (template.php) to use a CSS separator solution and respect existing/non-existing page link colors
+ *
+ * @return bool
+ */
+function colormag_trace() {
+    global $lang, $conf, $ID;
+
+    //check if enabled
+    if(!$conf['breadcrumbs']) return false;
+
+    $crumbs = breadcrumbs(); //setup crumb trace
+//dbg($crumbs);
+    // Make sure current page crumb is last in list (this also occurs with 'dokuwiki' template so it seems to be a core code minor bug)
+    // COULD BE FIXED WITH FOLLOWING LINE BUT THIS BREAKS TWISTIENAV AS IT IS BASED ON CORE BREADCRUMBS()
+    //$value = $crumbs[$ID];
+    //unset($crumbs[$ID]);
+    //$crumbs = array_merge($crumbs); 
+    //$crumbs[$ID] = $value;
+//dbg($crumbs);
+
+
+    if (count($crumbs) > 0) {
+//dbg($crumbs);
+        //render crumbs, highlight the last one
+        print '<li class="label"><span title="'.rtrim($lang['breadcrumb'], ':').'">'.$lang['breadcrumb'].'</span></li>';
+        $last = count($crumbs);
+        $i    = 0;
+        foreach($crumbs as $target => $name) {
+            $i++;
+            print '<li>';
+                if (count(explode(":",$target)) == 1) { $target = ":".$target; }
+                if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
+                    tpl_pagelink($target, p_get_metadata($target, 'plugin_croissant_bctitle'));
+                } else {
+                    tpl_pagelink($target);
+                }
+            print '</li>';
+        }
+        return true;
+    } else {
+        return false;
+    }
+}/* /colormag_trace */

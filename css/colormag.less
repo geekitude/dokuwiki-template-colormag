@@ -42,7 +42,7 @@
 * CONTENT
 * POST FORMAT
 * 2,3,4 COLUMNS
-* NAVIGATION
+* PAGE NAVIGATION
 * WP PAGENAVI PLUGIN
 * PAGINATION
 * MEDIA
@@ -363,6 +363,10 @@ table {
 
 [dir] table {
 	margin: 0 0 1.5em;
+}
+
+span.curid {
+    font-weight: bold;
 }
 
 /* =SUPERCRIPT AND SUBSCRIPT
@@ -1779,8 +1783,64 @@ label {
 	float: left;
 }
 
-/* =NAVIGATION
+/* =PAGE NAVIGATION
 ----------------------------------------------- */
+
+#colormag__breadcrumbs-wrapper ul li {
+    display: inline list-item;
+}
+
+/*
+#colormag__breadcrumbs-wrapper.classic-look ul li {
+    margin-right: .6rem;
+}
+*/
+
+#colormag__breadcrumbs-wrapper.classic-look ul li.label {
+    color: @ini_text_neu;
+}
+
+#colormag__breadcrumbs-wrapper.pills-look ul li.label {
+    display: none;
+}
+
+
+
+#colormag__breadcrumbs-wrapper.classic-look ul li:after {
+    content: "\00a0";
+}
+
+#colormag__breadcrumbs-wrapper.classic-look ul.trace > li + li:before {
+    content: "/\00a0";
+}
+
+#colormag__breadcrumbs-wrapper.classic-look ul.youarehere > li + li:before {
+    content: "»\00a0";
+}
+
+/*
+body.classic-breadcrumbs .siblings ul > li + li:before,
+body.classic-breadcrumbs .translations ul > li + li:before {
+    content: "|\00a0";
+}
+
+#colormag__breadcrumbs-wrapper.classic-look ul.translations ul > li:nth-child(2):before,
+#colormag__breadcrumbs-wrapper.classic-look ul.trace ul > li:nth-child(2):before,
+#colormag__breadcrumbs-wrapper.classic-look ul.youarehere ul > li:nth-child(2):before,
+#colormag__breadcrumbs-wrapper.classic-look ul.siblings ul > li:nth-child(2):before,
+#colormag__breadcrumbs-wrapper.classic-look ul.siblings ul li.tools:before {
+    content: "";
+}
+*/
+
+#colormag__breadcrumbs-wrapper.classic-look ul.trace > li:nth-child(2):before,
+#colormag__breadcrumbs-wrapper.classic-look ul.youarehere > li:nth-child(2):before {
+    content: "";
+}
+
+
+
+
 [dir] .default-wp-page {
 	clear: both;
 }
@@ -3957,12 +4017,12 @@ a#scroll-up:hover {
 
 .news-bar,
 .breadcrumbs {
+	/*background-color: #ffffff;*/
 	font-size: 14px;
     position: relative;
 }
 
 [dir] .news-bar, [dir] .breadcrumbs {
-	background-color: #ffffff;
 	padding: 8px 0 4px;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
