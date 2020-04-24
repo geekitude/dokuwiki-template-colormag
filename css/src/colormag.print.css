@@ -15,11 +15,14 @@
 }
 
 /* general */
-* { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
-*:not(#spacious__pageheader) { box-shadow:none !important; }
 body {
+    /*background-color: transparent !important;*/
     /*border: 2px black solid;*/
 }
+/** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
+* { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+*:not(#colormage__pageheader) { box-shadow:none !important; }
+#colormag__page { margin: 0 !important; }
 h1,
 h2,
 h3,
@@ -29,6 +32,16 @@ caption,
 legend {
     clear: both;
 }
+/* a, */
+#colormag__content p {
+    color: black;
+}
+#colormag__colophon .footer-widgets-wrapper { background-color: transparent !important; }
+#colormag__colophon .footer-widgets-area { padding: 0; color: #000 !important; }
+#colormag__colophon li { border: none !important; }
+#colormag__colophon a { color: #000 !important; }
+/* Black prints faster: h5bp.com/s */
+
 /* prevent breaks directly after headings */
 h1, h2, h3, h4, h5 {
   page-break-after: avoid;
@@ -65,7 +78,7 @@ body.printhrefs a.urlextern:after,
 body.printhrefs a.interwiki:after,
 body.printhrefs a.mail:after {
     content: " [" attr(href) "]";
-    /*color: #ddd !important;*/
+    color: #ccc !important;
     /*vertical-align: 6px !important;*/
     font-size: 1.2rem;
     height: 0;
@@ -114,7 +127,17 @@ div.footnotes div.fn div.content {
     display: inline;
 }
 
-/* footer-socket-wrapper */
+/*--------------------------------------------------------------
+EXCLUDED
+--------------------------------------------------------------*/
+#colormag__skip,
+#colormag__topbar-wrapper,
+#colormag__header-right-sidebar .tools,
+#colormag__site-navigation-sticky-wrapper,
+#colormag__breadcrumbs-wrapper,
+#dw__toc .toggle strong,
+#colormag__userwidget,
+#dokuwiki__pagetools,
 div.footer-socket-wrapper {
-    display: none;
+    display: none !important;
 }
