@@ -81,22 +81,22 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Namespace dependent UI images (background pattern, logo, banner, widebanner and a potential sidebar header)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
-* [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
 * [ ] Test most common plugins
-* [ ] Dark color scheme (maybe)
+* [x] Dark color scheme (maybe)
 * [ ] Topbar with date, newsticker (based on current namespace and sub content) and social links
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
 * [ ] Hidable sidebar
-* [ ] Stickable pageheader, sidebar and docinfo
+* [ ] Stickable main navigation bar, pageheader, sidebar and docinfo
 * [ ] Dynamic navigation button (current NS home, parent NS start, home or "back to article")
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
+* [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
 * [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
 * [ ] Expanded debug mode to show some specific elements (sample code or images)
-  * [ ] *a11y* (visual accessibility helpers)
-  * [ ] *alerts*
+  * [x] *a11y* (visual accessibility helpers)
+  * [x] *alerts*
   * [ ] *banner*
   * [ ] *card* (sidebar namespace card image)
   * [ ] *conlogo* (namespace logo within page header aka context logo)
@@ -105,3 +105,32 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *logo*
   * [ ] *replace* (HTML replace hooks)
 
+## Settings
+
+* **layout** (*box*) : choose site layout
+  * `box` wastes a little space around content on narrow screens
+  * `wide` is incompatible with "scrollspy" ToC and will override that setting
+  * `box2wide` switches from `box` on large screens to `wide` on smaller ones
+  * `mix` aesthically ressembles `wide` layout but site header and main content are still limited to **style.ini** file's `site-width` value
+* **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
+* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu* or *alt*)
+* topbar (*nothing*) : choose topbar elements
+  * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
+  * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
+  * `socialnetworks` : list of social networks links (see [Topbar social links](https://github.com/geekitude/dokuwiki-template-spacious#topbar-social-links) below)
+* datelocale (*fra*) : language used for dates
+* longdatestring (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
+* shortdatestring (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
+* newsTicker (*skip_minors,pages,media,5*): options used to built last changes list
+  * `skip_deleted` : ignore deleted items
+  * `skip_minors` : ignore minor updates
+  * `skip_subspaces` : only consider elements from current namespace, not sub-namespaces
+  * `pages` : show or ignore pages in list
+  * `media` : show or ignore media files
+  * the number in text field is the number of elements to show (starting from most recent)
+* **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs
+* **breadcrumbsglyphs** (*ON*) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
+* **sidebarpos** (*left*) : left or right sidebar
+* **links** (*links*) : name of wiki page to use to feed footer links widget
+* **dark** (*OFF*) : switch to dark color skin
+* **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)

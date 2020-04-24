@@ -10,17 +10,17 @@
  * Configuration metadata
  */
 
-$meta['layout']             = array('multichoice','_choices' => array('box','mix','wide','box2wide'));
+$meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
+$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
+$meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
+$meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
-$meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
-$meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','pills'));
-$meta['breadcrumbsglyphs']  = array('onoff'); /* add glyphs to breadcrumbs to distinguish home, user public page, user home private ns, translated pages (note there will allways be a glyph for home in hierarchical trace) */
-$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
-$meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
+$meta['breadcrumbsglyphs']  = array('onoff');
+$meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');
 $meta['dark']               = array('onoff');
 $meta['print']              = array('multicheckbox', '_choices' => array('siteheader','docinfo','sitefooter','hrefs'));

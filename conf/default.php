@@ -11,16 +11,16 @@
  */
 
 $conf['layout']             = 'box';
+$conf['uicolorize']         = '';
+$conf['uicolor']            = 'neu';
+$conf['topbar']             = 'date,newsticker,socialnetworks';
 $conf['datelocale']         = 'fra';
 $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
-$conf['topbar']             = 'date,newsticker,socialnetworks';
 $conf['newsticker']         = 'skip_minors,pages,media,5';
-$conf['sidebarpos']         = 'left';
 $conf['breadcrumbslook']    = 'classic';
 $conf['breadcrumbsglyphs']  = 1;
-$conf['uicolorize']         = '';
-$conf['uicolor']            = 'neu';
-$conf['links']              = 'links';
+$conf['sidebarpos']         = 'left';
 $conf['dark']               = 0;
+$conf['links']              = 'links';
 $conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
