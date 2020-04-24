@@ -68,10 +68,9 @@
 * Classic Layout
 * *****************************************************************
 * DW SPECIFIC
+* DEBUG
 * *****************************************************************
 * Responsive Structure
-* *****************************************************************
-* DEBUG
 * *****************************************************************
 */
 
@@ -3877,10 +3876,47 @@ div.mobileTools {
 }
 
 /*--------------------------------------------------------------
+DEBUG
+--------------------------------------------------------------*/
+
+/* Helper */
+
+#colormag__helper {
+    position: absolute;
+    background: @ini_highlight;
+    top: 0;
+    z-index: 3001;
+    visibility: hidden;
+    background-color: black;
+    color: gold;
+}
+#colormag__helper span::before {
+    content: "desktop (>@ini_site_width + 60px)";
+}
+#colormag__helper span::after {
+    content: " Z-index: 3001.";
+}
+body.debug #colormag__helper {
+    visibility: visible;
+}
+
+/* More obvious dbg() result */
+
+pre.dbg {
+    background-color: gold;
+}
+
+/*--------------------------------------------------------------
 Responsive Structure
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width + 60px) {
+    body.debug #colormag__page {
+        background-color: lightyellow;
+    }
+    #colormag__helper span::before {
+        content: "desktop (>@ini_site_width)";
+    }
 	body.box-layout #colormag__page,
 	body.box2wide-layout #colormag__page {
 		width: 97%;
@@ -3899,6 +3935,12 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_site_width) {
+    body.debug #colormag__page {
+        background-color: bisque;
+    }
+    #colormag__helper span::before {
+        content: "desktop (<@ini_site_width)";
+    }
 	.no-sidebar-full-width .alignwide {
 		margin-left: -10px;
 		margin-right: -10px;
@@ -3918,6 +3960,18 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width) {
+    body.debug #colormag__page {
+        background-color: burlywood;
+    }
+    #colormag__helper {
+        z-index: 2001;
+    }
+    #colormag__helper span::before {
+        content: "tablet (<@ini_tablet_width)";
+    }
+    #colormag__helper span::after {
+        content: " Z-index: 2001.";
+    }
 	body.box2wide-layout #colormag__page {
 		width: 100%;
         margin: 0;
@@ -3993,6 +4047,12 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    body.debug #colormag__page {
+        background-color: darkgoldenrod;
+    }
+    #colormag__helper span::before {
+        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
+    }
     .inner-wrap {
         margin: 0 35px;
     }
@@ -4161,6 +4221,18 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_phone_width) {
+    body.debug #colormag__page {
+        background-color: chocolate;
+    }
+    #colormag__helper {
+        z-index: 1001;
+    }
+    #colormag__helper span::before {
+        content: "phone (<@ini_phone_width)";
+    }
+    #colormag__helper span::after {
+        content: " Z-index: 1001.";
+    }
     .inner-wrap {
         margin: 0 30px;
     }
@@ -4210,93 +4282,4 @@ Responsive Structure
 	#colormag__header.colormag-header-classic .breaking-news .newsticker, #colormag__header.colormag-header-clean .breaking-news .newsticker {
 		padding-left: 0;
 	}
-}
-    
-/*--------------------------------------------------------------
-DEBUG
---------------------------------------------------------------*/
-
-/* Helper */
-
-#colormag__helper {
-    position: absolute;
-    background: @ini_highlight;
-    top: 0;
-    z-index: 3001;
-    visibility: hidden;
-    background-color: black;
-    color: gold;
-}
-#colormag__helper span::before {
-    content: "desktop (>@ini_site_width + 60px)";
-}
-#colormag__helper span::after {
-    content: " Z-index: 3001.";
-}
-body.debug #colormag__helper {
-    visibility: visible;
-}
-
-/* More obvious dbg() result */
-
-pre.dbg {
-    background-color: gold;
-}
-
-
-@media screen and (max-width: @ini_site_width + 60px) {
-    body.debug #colormag__page {
-        background-color: lightyellow;
-    }
-    #colormag__helper span::before {
-        content: "desktop (>@ini_site_width)";
-    }
-}
-
-@media screen and (max-width: @ini_site_width) {
-    body.debug #colormag__page {
-        background-color: bisque;
-    }
-    #colormag__helper span::before {
-        content: "desktop (<@ini_site_width)";
-    }
-}
-
-@media screen and (max-width: @ini_tablet_width) {
-    body.debug #colormag__page {
-        background-color: burlywood;
-    }
-    #colormag__helper {
-        z-index: 2001;
-    }
-    #colormag__helper span::before {
-        content: "tablet (<@ini_tablet_width)";
-    }
-    #colormag__helper span::after {
-        content: " Z-index: 2001.";
-    }
-}
-
-@media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    body.debug #colormag__page {
-        background-color: darkgoldenrod;
-    }
-    #colormag__helper span::before {
-        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
-    }
-}
-
-@media screen and (max-width: @ini_phone_width) {
-    body.debug #colormag__page {
-        background-color: chocolate;
-    }
-    #colormag__helper {
-        z-index: 1001;
-    }
-    #colormag__helper span::before {
-        content: "phone (<@ini_phone_width)";
-    }
-    #colormag__helper span::after {
-        content: " Z-index: 1001.";
-    }
 }

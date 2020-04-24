@@ -68,10 +68,9 @@
 * Classic Layout
 * *****************************************************************
 * DW SPECIFIC
+* DEBUG
 * *****************************************************************
 * Responsive Structure
-* *****************************************************************
-* DEBUG
 * *****************************************************************
 */
 
@@ -5204,10 +5203,50 @@ div.mobileTools {
 }
 
 /*--------------------------------------------------------------
+DEBUG
+--------------------------------------------------------------*/
+
+/* Helper */
+
+#colormag__helper {
+    position: absolute;
+    top: 0;
+    z-index: 3001;
+    visibility: hidden;
+    color: gold;
+}
+
+[dir] #colormag__helper {
+    background: @ini_highlight;
+    background-color: black;
+}
+#colormag__helper span::before {
+    content: "desktop (>@ini_site_width + 60px)";
+}
+#colormag__helper span::after {
+    content: " Z-index: 3001.";
+}
+body.debug #colormag__helper {
+    visibility: visible;
+}
+
+/* More obvious dbg() result */
+
+[dir] pre.dbg {
+    background-color: gold;
+}
+
+/*--------------------------------------------------------------
 Responsive Structure
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width + 60px) {
+    [dir] body.debug #colormag__page {
+        background-color: lightyellow;
+    }
+    #colormag__helper span::before {
+        content: "desktop (>@ini_site_width)";
+    }
 	body.box-layout #colormag__page,
 	body.box2wide-layout #colormag__page {
 		width: 97%;
@@ -5226,6 +5265,12 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_site_width) {
+    [dir] body.debug #colormag__page {
+        background-color: bisque;
+    }
+    #colormag__helper span::before {
+        content: "desktop (<@ini_site_width)";
+    }
 	[dir=ltr] .no-sidebar-full-width .alignwide {
 		margin-left: -10px;
 		margin-right: -10px;
@@ -5251,6 +5296,18 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width) {
+    [dir] body.debug #colormag__page {
+        background-color: burlywood;
+    }
+    #colormag__helper {
+        z-index: 2001;
+    }
+    #colormag__helper span::before {
+        content: "tablet (<@ini_tablet_width)";
+    }
+    #colormag__helper span::after {
+        content: " Z-index: 2001.";
+    }
 	body.box2wide-layout #colormag__page {
 		width: 100%;
 	}
@@ -5357,6 +5414,12 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    [dir] body.debug #colormag__page {
+        background-color: darkgoldenrod;
+    }
+    #colormag__helper span::before {
+        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
+    }
     [dir] .inner-wrap {
         margin: 0 35px;
     }
@@ -5554,6 +5617,18 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_phone_width) {
+    [dir] body.debug #colormag__page {
+        background-color: chocolate;
+    }
+    #colormag__helper {
+        z-index: 1001;
+    }
+    #colormag__helper span::before {
+        content: "phone (<@ini_phone_width)";
+    }
+    #colormag__helper span::after {
+        content: " Z-index: 1001.";
+    }
     [dir] .inner-wrap {
         margin: 0 30px;
     }
@@ -5627,96 +5702,4 @@ Responsive Structure
 	[dir=rtl] #colormag__header.colormag-header-classic .breaking-news .newsticker, [dir=rtl] #colormag__header.colormag-header-clean .breaking-news .newsticker {
 		padding-right: 0;
 	}
-}
-    
-/*--------------------------------------------------------------
-DEBUG
---------------------------------------------------------------*/
-
-/* Helper */
-
-#colormag__helper {
-    position: absolute;
-    top: 0;
-    z-index: 3001;
-    visibility: hidden;
-    color: gold;
-}
-
-[dir] #colormag__helper {
-    background: @ini_highlight;
-    background-color: black;
-}
-#colormag__helper span::before {
-    content: "desktop (>@ini_site_width + 60px)";
-}
-#colormag__helper span::after {
-    content: " Z-index: 3001.";
-}
-body.debug #colormag__helper {
-    visibility: visible;
-}
-
-/* More obvious dbg() result */
-
-[dir] pre.dbg {
-    background-color: gold;
-}
-
-
-@media screen and (max-width: @ini_site_width + 60px) {
-    [dir] body.debug #colormag__page {
-        background-color: lightyellow;
-    }
-    #colormag__helper span::before {
-        content: "desktop (>@ini_site_width)";
-    }
-}
-
-@media screen and (max-width: @ini_site_width) {
-    [dir] body.debug #colormag__page {
-        background-color: bisque;
-    }
-    #colormag__helper span::before {
-        content: "desktop (<@ini_site_width)";
-    }
-}
-
-@media screen and (max-width: @ini_tablet_width) {
-    [dir] body.debug #colormag__page {
-        background-color: burlywood;
-    }
-    #colormag__helper {
-        z-index: 2001;
-    }
-    #colormag__helper span::before {
-        content: "tablet (<@ini_tablet_width)";
-    }
-    #colormag__helper span::after {
-        content: " Z-index: 2001.";
-    }
-}
-
-@media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    [dir] body.debug #colormag__page {
-        background-color: darkgoldenrod;
-    }
-    #colormag__helper span::before {
-        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
-    }
-}
-
-@media screen and (max-width: @ini_phone_width) {
-    [dir] body.debug #colormag__page {
-        background-color: chocolate;
-    }
-    #colormag__helper {
-        z-index: 1001;
-    }
-    #colormag__helper span::before {
-        content: "phone (<@ini_phone_width)";
-    }
-    #colormag__helper span::after {
-        content: " Z-index: 1001.";
-    }
 }
