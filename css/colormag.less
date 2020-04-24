@@ -817,30 +817,19 @@ body.box2wide-layout #colormag__page {
 }
 
 [dir] body.box-layout #colormag__page, [dir] body.box2wide-layout #colormag__page {
-	margin: 10px auto;
-}
-
-[dir] .wide {
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.wide #colormag__page {
-	max-width: 100%;
+	margin: 20px auto;
 }
 
 [dir] .inner-wrap {
-	margin: 0 auto;
+	margin: 0 40px;
 }
 
-/* 80px to keep space on each side (at least for pagetools) */
-body.box-layout .inner-wrap,
-body.box2wide-layout .inner-wrap,
 body.mix-layout .inner-wrap.narrow-mix {
 	max-width: (@ini_site_width - 80px);
 }
-[dir] body.wide-layout .inner-wrap, [dir] body.mix-layout .inner-wrap:not(.narrow-mix) {
-	margin: 0 40px;
+
+[dir] body.mix-layout .inner-wrap.narrow-mix {
+    margin: 0 auto !important;
 }
 
 /* =HEADER
@@ -5219,7 +5208,8 @@ Responsive Structure
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width + 60px) {
-	body.box-layout #colormag__page {
+	body.box-layout #colormag__page,
+	body.box2wide-layout #colormag__page {
 		width: 97%;
 	}
 }
@@ -5229,6 +5219,9 @@ Responsive Structure
     #colormag__topbar-newsticker strong {
         display: initial !important;
         position: initial !important;
+    }
+    [dir] .inner-wrap {
+        margin: 0 40px !important;
     }
 }
 
@@ -5241,28 +5234,29 @@ Responsive Structure
 		margin-right: -10px;
 		margin-left: -10px;
 	}
-	#colormag__page {
+	body.box-layout #colormag__page,
+	body.box2wide-layout #colormag__page {
 		width: 97%;
 	}
-	.wide #colormag__page {
+	body.wide-layout #colormag__page,
+	body.mix-layout #colormag__page {
 		width: 100%;
 	}
-	.inner-wrap {
-		width: 94%;
-	}
+    body.mix-layout .inner-wrap.narrow-mix {
+        max-width: unset;
+    }
+    [dir] body.mix-layout .inner-wrap.narrow-mix {
+        margin: 0 40px !important;
+    }
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    body.box2wide-layout #colormag__page {
-        max-width: 100%;
-        width: 100%;
-    }
-    [dir] body.box2wide-layout #colormag__page {
+	body.box2wide-layout #colormag__page {
+		width: 100%;
+	}
+	[dir] body.box2wide-layout #colormag__page {
         margin: 0;
-    }
-    [dir] body.box2wide-layout .inner-wrap {
-        margin: 0 40px !important;
-    }
+	}
 	[dir] #colormag__header-text-nav-wrap {
 		padding: 10px 0;
 	}
@@ -5305,11 +5299,6 @@ Responsive Structure
 	[dir=rtl] .menu-toggle {
 		float: right;
 	}
-    /*
-	.main-navigation ul {
-		display: none;
-	}
-    */
 	[dir] .main-navigation .home-icon a {
 		padding: 7px 10px;
 	}
@@ -5368,6 +5357,9 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    [dir] .inner-wrap {
+        margin: 0 35px;
+    }
 	.logged-in #colormag__header #colormag__site-navigation {
 		top: 0 !important;
 	}
@@ -5562,6 +5554,9 @@ Responsive Structure
 }
 
 @media screen and (max-width: @ini_phone_width) {
+    [dir] .inner-wrap {
+        margin: 0 30px;
+    }
 	.widget_featured_posts .first-post,
 	.widget_featured_posts .following-post {
 		width: 100%;
