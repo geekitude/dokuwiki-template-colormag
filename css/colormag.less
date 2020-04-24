@@ -5088,9 +5088,13 @@ div.skip a {
 }
 
 /* Alerts */
-
-[dir] #colormag__alerts > div:first-child {
-    margin-top: 1.5rem;
+/*
+#colormag__alerts > div:first-child {
+    margin-top: .5rem;
+}
+*/
+[dir] #colormag__alerts > div:last-child {
+    margin-bottom: 1.5rem;
 }
 #colormag__alerts a {
     color: @ini_color_theme_text;
@@ -5100,6 +5104,12 @@ div.info, div.notify, div.success, div.error {
 }
 [dir] div.info, [dir] div.notify, [dir] div.success, [dir] div.error {
     margin: .5rem auto;
+}
+[dir=ltr] div.info, [dir=ltr] div.notify, [dir=ltr] div.success, [dir=ltr] div.error {
+	padding: .5rem 1rem .5rem 3rem;
+}
+[dir=rtl] div.info, [dir=rtl] div.notify, [dir=rtl] div.success, [dir=rtl] div.error {
+    padding: .5rem 3rem .5rem 1rem;
 }
 [dir] div.info {
     background-color: @ini_color_blue;

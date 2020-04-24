@@ -3799,9 +3799,13 @@ div.skip a {
 }
 
 /* Alerts */
-
+/*
 #colormag__alerts > div:first-child {
-    margin-top: 1.5rem;
+    margin-top: .5rem;
+}
+*/
+#colormag__alerts > div:last-child {
+    margin-bottom: 1.5rem;
 }
 #colormag__alerts a {
     color: @ini_color_theme_text;
@@ -3809,6 +3813,7 @@ div.skip a {
 div.info, div.notify, div.success, div.error {
     width: 80%;
     margin: .5rem auto;
+    padding: .5rem 1rem .5rem 3rem;
 }
 div.info {
     background-color: @ini_color_blue;
