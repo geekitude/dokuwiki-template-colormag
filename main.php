@@ -92,31 +92,30 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div class="docInfo<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?><?php print (strpos(tpl_getConf('uicolorize'), 'docinfo') !== false) ? " uicolor" : "" ?>"><?php tpl_pageinfo() ?></div>
 
                         <?php tpl_flush() ?>
+
                     </div><!-- /#colormag__content -->
+
+                    <hr class="a11y" />
+
                 </div><!-- /#colormag__primary -->
 
             </div><!-- /.inner-wrap.group -->
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
+                <div class="tools">
+                    <ul>
+                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                    </ul>
+                </div><!-- /.tools -->
+            </div><!-- /#dokuwiki__pagetools -->
+
         </div><!-- /#colormag__main -->
 
         <?php include('tpl_footer.php') ?>
 
     </div><!-- /#colormag__page -->
-
-                <div class="wrapper group">
-
-                    <hr class="a11y" />
-
-                    <!-- PAGE ACTIONS -->
-                    <div id="dokuwiki__pagetools">
-                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
-                        <div class="tools">
-                            <ul>
-                                <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                            </ul>
-                        </div><!-- /.tools -->
-                    </div><!-- /#dokuwiki__pagetools -->
-
-                </div><!-- /.wrapper.group -->
 
     <div id="colormag__housekeeper" class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <div id="colormag__helper" class="no">Window width: <span>.</span></div><?php /* helper to detect CSS media query in script.js and eventually display it if adding `&debug=1` to url*/ ?>
