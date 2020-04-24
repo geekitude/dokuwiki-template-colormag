@@ -89,13 +89,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div><!-- /.page.group -->
 
+                        <hr <?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"' ?> />
+
                         <div class="docInfo<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?><?php print (strpos(tpl_getConf('uicolorize'), 'docinfo') !== false) ? " uicolor" : "" ?>"><?php tpl_pageinfo() ?></div>
 
                         <?php tpl_flush() ?>
 
                     </div><!-- /#colormag__content -->
-
-                    <hr class="a11y" />
 
                 </div><!-- /#colormag__primary -->
 
