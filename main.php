@@ -38,7 +38,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <?php include('tpl_header.php') ?>
 
-        <header id="colormag__page-navigation-sticky-wrapper" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
+        <header id="colormage__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
             <div class="inner-wrap group">
                 <!-- PAGEID -->
                 <div class="pageId alignleft"><span><?php echo hsc($ID) ?></span></div>
