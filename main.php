@@ -57,7 +57,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         </header><!-- /#colormag__main -->
 
         <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
-            <div class="inner-wrap narrow-mix group">
+            <div class="inner-wrap-left narrow-mix group flex row stretch">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->
@@ -99,17 +99,16 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 </div><!-- /#colormag__primary -->
 
+                <!-- PAGE ACTIONS -->
+                <div id="colormag__pagetools">
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
+                    <div class="tools">
+                        <ul>
+                            <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                        </ul>
+                    </div><!-- /.tools -->
+                </div><!-- /#dokuwiki__pagetools -->
             </div><!-- /.inner-wrap.group -->
-
-            <!-- PAGE ACTIONS -->
-            <div id="dokuwiki__pagetools">
-                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
-                <div class="tools">
-                    <ul>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                    </ul>
-                </div><!-- /.tools -->
-            </div><!-- /#dokuwiki__pagetools -->
 
         </div><!-- /#colormag__main -->
 

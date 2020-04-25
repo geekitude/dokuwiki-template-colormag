@@ -3,7 +3,7 @@
  * Original Wordpress theme URI: https://themegrill.com/themes/colormag/
  * Dokuwiki Template URI: http://www.dokuwiki.org/template:colormag
  * 
- * @link    https://www.dokuwiki.org/template:spacious
+ * @link    https://www.dokuwiki.org/template:colormag
  * @author  Simon DELAGE <sdelage@gmail.com>
  * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
  * 
@@ -17,6 +17,7 @@
 
 
 /**
+* Pagetools constants
 * Reset
 * GLOBAL
 * TEXT ELEMENTS
@@ -57,6 +58,7 @@
 * PRIMARY AND SECONDARY CONTENT AREA
 * LEFT SIDEBAR CONTENT LAYOUT
 * NO SIDEBAR CONTENT LAYOUT
+* Pagetools
 * POST CONTENT
 * FEATURED BLOG
 * FRONT PAGE WIDGET AREAS
@@ -73,6 +75,15 @@
 * Responsive Structure
 * *****************************************************************
 */
+
+/* =Pagetools constants
+-------------------------------------------------------------- */
+
+    @ico-width: 30px;
+    @ico-margin: 5px;
+    /*@item-width: (@ico-width + @ico-margin + @ico-margin);*/
+    /*@item-height: (@ico-width + @ico-margin);*/
+
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -820,14 +831,22 @@ body.box2wide-layout #colormag__page {
 }
 
 [dir] .inner-wrap {
-	margin: 0 40px;
+	margin: 0 (@ico-width + @ico-margin + @ico-margin);
 }
 
-body.mix-layout .inner-wrap.narrow-mix {
-	max-width: (@ini_site_width - 80px);
+[dir=ltr] .inner-wrap-left {
+	margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin);
 }
 
-[dir] body.mix-layout .inner-wrap.narrow-mix {
+[dir=rtl] .inner-wrap-left {
+	margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0;
+}
+
+body.mix-layout .narrow-mix {
+	max-width: (@ini_site_width - (2 * (@ico-width + @ico-margin + @ico-margin)));
+}
+
+[dir] body.mix-layout .inner-wrap.narrow-mix, [dir] body.mix-layout .inner-wrap-left.narrow-mix {
     margin: 0 auto !important;
 }
 
@@ -2879,6 +2898,116 @@ a#scroll-up:hover {
 .widget_featured_posts .article-content .below-entry-meta .byline a,
 .widget_featured_posts .article-content .below-entry-meta .comments a {
 	font-size: 12px;
+}
+
+/* =Pagetools
+-------------------------------------------------------------- */
+
+#colormag__pagetools .tools {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2rem;
+    width: (@ico-width + @ico-margin + @ico-margin);
+    min-height: 190px; /* 30 (= height of icons) x 6 (= maximum number of possible tools) + 2x5 */
+    height: auto;
+}
+
+#colormag__pagetools ul {
+    position: absolute;
+}
+
+[dir] #colormag__pagetools ul {
+    margin: 0;
+    padding: 0;
+}
+
+[dir=ltr] #colormag__pagetools ul {
+	right: 0 !important;
+	text-align: right;
+}
+
+[dir=rtl] #colormag__pagetools ul {
+    left: 0 !important;
+    text-align: left;
+}
+
+#colormag__pagetools ul li {
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: flex-end;
+}
+
+[dir=ltr] #colormag__pagetools ul li {
+	text-align: right;
+}
+
+[dir=rtl] #colormag__pagetools ul li {
+    text-align: left;
+}
+
+#colormag__pagetools ul li a {
+    display: block;
+    /* add transparent border to prevent jumping when proper border is added on focus */
+    white-space: nowrap;
+    vertical-align: middle;
+    height: (@ico-width + @ico-margin);
+}
+
+[dir] #colormag__pagetools ul li a {
+    border: 1px solid transparent;
+    padding: 4px 0;
+}
+
+#colormag__pagetools ul li a span {
+    display: none; // hide label until hover
+    margin: 0 @ico-margin;
+}
+
+#colormag__pagetools ul li a span {
+    display:none;
+}
+
+#colormag__pagetools ul li a svg {
+    width: @ico-width;
+    height: @ico-width;
+    display: inline-block;
+    vertical-align: middle;
+    fill: @ini_border;
+}
+
+[dir] #colormag__pagetools ul li a svg {
+    margin: 0 @ico-margin;
+}
+
+[dir] #colormag__pagetools ul:hover {
+    background: @ini_background;
+}
+
+#colormag__pagetools ul:hover li {
+    max-width: 100%;
+}
+
+[dir] #colormag__pagetools ul:hover li.sidevision button {
+    padding: 0 4px;
+}
+
+[dir] #colormag__pagetools ul:hover li.label {
+    padding: 0 8px;
+}
+
+[dir] #colormag__pagetools ul:hover li a, [dir] #colormag__pagetools ul:hover li button {
+    text-align: end;
+}
+
+#colormag__pagetools ul:hover li a span,
+#colormag__pagetools ul:hover li button span,
+#colormag__pagetools ul:hover li p span {
+    display: inline-block;
+}
+
+#colormag__pagetools ul:hover li.label span {
+    font-size: 1.5rem;
+    overflow-wrap: break-word;
 }
 
 /* =POST CONTENT
@@ -5236,6 +5365,50 @@ body.debug #colormag__helper {
     background-color: gold;
 }
 
+
+/*--------------------------------------------------------------
+FLEXBOX
+--------------------------------------------------------------*/
+
+.flex {
+    display: flex;
+    /*position: relative;*/
+    align-items: center;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.between {
+    justify-content: space-between;
+}
+.flex.evenly {
+    justify-content: space-evenly;
+}
+
+.flex.stretch {
+    align-items: stretch;
+}
+.flex.start {
+    align-items: flex-start;
+}
+.flex.end {
+    align-items: flex-end;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+/*
+.flex.nowrap {
+    flex-wrap: nowrap;
+}
+*/
+
 /*--------------------------------------------------------------
 Responsive Structure
 --------------------------------------------------------------*/
@@ -5260,7 +5433,13 @@ Responsive Structure
         position: initial !important;
     }
     [dir] .inner-wrap {
-        margin: 0 40px !important;
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) !important;
+    }
+    [dir=ltr] .inner-wrap-left {
+		margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin) !important;
+    }
+    [dir=rtl] .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0 !important;
     }
 }
 
@@ -5287,11 +5466,17 @@ Responsive Structure
 	body.mix-layout #colormag__page {
 		width: 100%;
 	}
-    body.mix-layout .inner-wrap.narrow-mix {
+    body.mix-layout .narrow-mix {
         max-width: unset;
     }
     [dir] body.mix-layout .inner-wrap.narrow-mix {
-        margin: 0 40px !important;
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) !important;
+    }
+    [dir=ltr] body.mix-layout .inner-wrap-left.narrow-mix {
+		margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin) !important;
+    }
+    [dir=rtl] body.mix-layout .inner-wrap-left.narrow-mix {
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0 !important;
     }
 }
 
@@ -5421,7 +5606,13 @@ Responsive Structure
         content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
     }
     [dir] .inner-wrap {
-        margin: 0 35px;
+        margin: 0 (@ico-width + @ico-margin);
+    }
+    [dir=ltr] .inner-wrap-left {
+		margin: 0 0 0 (@ico-width + @ico-margin);
+    }
+    [dir=rtl] .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin) 0 0;
     }
 	.logged-in #colormag__header #colormag__site-navigation {
 		top: 0 !important;
@@ -5630,7 +5821,13 @@ Responsive Structure
         content: " Z-index: 1001.";
     }
     [dir] .inner-wrap {
-        margin: 0 30px;
+        margin: 0 (@ico-width + @ico-margin);
+    }
+    [dir=ltr] .inner-wrap-left {
+		margin: 0 0 0 (@ico-width + @ico-margin);
+    }
+    [dir=rtl] .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin) 0 0;
     }
 	.widget_featured_posts .first-post,
 	.widget_featured_posts .following-post {
