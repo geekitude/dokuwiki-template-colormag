@@ -61,23 +61,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <div id="colormag__main-content" class="flex row stretch between">
 
-                    <?php if($showSidebar): ?>
-                        <!-- ********** ASIDE ********** -->
-                        <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
-                            <div class="pad aside include group">
-                                <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                                <div id="colormag__content" class="content group">
-                                    <div class="group">
-                                        <?php tpl_flush() ?>
-                                        <?php tpl_includeFile('sidebarheader.html') ?>
-                                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
-                                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                                    </div><!-- /.group -->
-                                </div><!-- /#colormag__content -->
-                            </div><!-- /.pad.aside.include.group -->
-                        </div><!-- /#colormag__secondary -->
-                    <?php endif; ?>
-
                     <!-- ********** CONTENT ********** -->
                     <div id="colormag__primary">
                         <div id="colormag__content" class="group">
@@ -99,6 +82,23 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </div><!-- /#colormag__content -->
 
                     </div><!-- /#colormag__primary -->
+
+                    <?php if($showSidebar): ?>
+                        <!-- ********** ASIDE ********** -->
+                        <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
+                            <div class="pad aside include group">
+                                <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+                                <div id="colormag__content" class="content group">
+                                    <div class="group">
+                                        <?php tpl_flush() ?>
+                                        <?php tpl_includeFile('sidebarheader.html') ?>
+                                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
+                                        <?php tpl_includeFile('sidebarfooter.html') ?>
+                                    </div><!-- /.group -->
+                                </div><!-- /#colormag__content -->
+                            </div><!-- /.pad.aside.include.group -->
+                        </div><!-- /#colormag__secondary -->
+                    <?php endif; ?>
 
                 </div><!-- /.inner-wrap.group -->
 

@@ -56,6 +56,7 @@
 * FOOTER SOCKET AREA
 * SCROLL UP
 * PRIMARY AND SECONDARY CONTENT AREA
+* RIGHT SIDEBAR CONTENT LAYOUT
 * LEFT SIDEBAR CONTENT LAYOUT
 * NO SIDEBAR CONTENT LAYOUT
 * Pagetools
@@ -2146,24 +2147,53 @@ a#scroll-up:hover {
 
 /* =PRIMARY AND SECONDARY CONTENT AREA
 ----------------------------------------------- */
+/*
 #colormag__primary {
 	float: left;
 	width: 70.17543859%;
 }
+*/
 
 #colormag__secondary {
-	float: right;
-	width: 27.19298245%;
+	/*float: right;*/
+	/*width: 27.19298245%;*/
+    min-width: @ini_sidebar_width;
+    width: @ini_sidebar_width;
+}
+
+
+/* =RIGHT SIDEBAR CONTENT LAYOUT
+-------------------------------------------------------------- */
+
+body.right-sidebar #colormag__primary {
+	order: 1;
+}
+
+body.right-sidebar #colormag__secondary {
+    margin: 0 0 0 20px;
+    order: 2;
 }
 
 /* =LEFT SIDEBAR CONTENT LAYOUT
 -------------------------------------------------------------- */
+
+/*
 .left-sidebar #colormag__primary {
 	float: right;
 }
 
 .left-sidebar #colormag__secondary {
 	float: left;
+}
+*/
+
+body.left-sidebar #colormag__primary {
+	order: 2;
+}
+
+body.left-sidebar #colormag__secondary {
+    margin: 0 20px 0 0;
+    order: 1;
 }
 
 /* =NO SIDEBAR CONTENT LAYOUT
@@ -4148,6 +4178,16 @@ Responsive Structure
 		width: 100%;
         margin: 0;
 	}
+    #colormag__main-content {
+        flex-direction: column;
+    }
+    #colormag__primary {
+        order: 2;
+    }
+    #colormag__secondary {
+        order: 1;
+        margin: 0 0 10px !important;
+    }
 	#colormag__header-text-nav-wrap {
 		padding: 10px 0;
 	}
