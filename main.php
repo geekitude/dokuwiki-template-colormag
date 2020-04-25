@@ -39,7 +39,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php include('tpl_header.php') ?>
 
         <header id="colormage__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
-            <div class="inner-wrap group">
+            <div class="inner-wrap flex row between">
                 <!-- PAGEID -->
                 <div class="pageId alignleft"><span><?php echo hsc($ID) ?></span></div>
                 <!-- BREADCRUMBS -->
