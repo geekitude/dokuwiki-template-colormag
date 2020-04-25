@@ -71,7 +71,7 @@ dbg("vérifier ces liens");
                 <aside id="colormag__licensewidget" class="widget group">
                     <h6 class="widget-title"><span><?php print tpl_getLang('license'); ?></span></h6>
                     <div class="textwidget">
-                        <?php tpl_license(''); // license text ?>
+                        <?php tpl_license(tpl_getConf('licensevisual')) /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
                     </div>
                 </aside>
             </div><!-- /.footer-widgets-area.group -->
@@ -89,12 +89,6 @@ dbg("vérifier ces liens");
                 <div class="footer-socket-right-section flex row">
                     <div class="buttons">
                         <ul>
-                            <li>
-                                <?php
-                                    tpl_license('button', true, false, false); // license button, no wrapper
-                                    $target = ($conf['target']['extern']) ? 'target="'.$conf['target']['extern'].'"' : '';
-                                ?>
-                            </li>
                             <li>
                                 <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>>
                                     <img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" />

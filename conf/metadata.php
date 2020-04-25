@@ -23,4 +23,5 @@ $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');
 $meta['dark']               = array('onoff');
+$meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['print']              = array('multicheckbox', '_choices' => array('siteheader','docinfo','sitefooter','hrefs'));

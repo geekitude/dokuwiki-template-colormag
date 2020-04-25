@@ -133,4 +133,5 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **sidebarpos** (*left*) : left or right sidebar
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **dark** (*OFF*) : switch to dark color skin
+* **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)

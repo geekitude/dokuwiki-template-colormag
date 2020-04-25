@@ -613,10 +613,6 @@ a:hover svg {
     fill: @ini_text_neu;
 }
 
-a:hover svg {
-    fill: @ini_text_neu;
-}
-
 /* =IMAGES
 ----------------------------------------------- */
 figure {
@@ -2091,6 +2087,10 @@ body.classic-breadcrumbs .translations ul > li + li:before {
 
 #colormag__licensewidget {
     max-width: 30%;
+}
+
+#colormag__licensewidget .license a {
+    display: block;
 }
 
 /* =FOOTER ADVERTISEMENT AREA
@@ -4055,6 +4055,12 @@ div.secedit.editbutton_section button {
     border-width: 0 .5rem;
     border-color: @ini_color_yellow;
     border-style: solid;
+}
+
+/* docInfo */
+
+#colormag__content .docInfo {
+    margin-top: 1rem;
 }
 
 /* Move tpl_indexerWebBug() out of the way */
