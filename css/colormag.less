@@ -682,15 +682,34 @@ a {
 	color: @ini_link;
 	text-decoration: none;
 }
+
+a:hover {
+	color: @ini_text_neu;
+	text-decoration: none;
+}
+
 a.wikilink1 {
 	color: @ini_color_green;
 }
+
 a.wikilink2 {
 	color: @ini_color_red;
 }
 
 a:focus, a:active, a:hover {
 	text-decoration: none;
+}
+
+a svg {
+    fill: @ini_border;
+}
+
+a:hover svg {
+    fill: @ini_text_neu;
+}
+
+a:hover svg {
+    fill: @ini_text_neu;
 }
 
 /* =IMAGES
@@ -2913,8 +2932,7 @@ a#scroll-up:hover {
 }
 
 #colormag__pagetools ul {
-    position: absolute;
-    /* add transparent border to prevent jumping when proper border is added on focus */
+    position: absolute; /* add transparent border to prevent jumping when proper border is added on focus */
     white-space: nowrap;
 }
 
@@ -2936,9 +2954,6 @@ a#scroll-up:hover {
 
 #colormag__pagetools ul li a {
     display: block;
-    /*vertical-align: middle;*/
-    /*height: (@ico-width + @ico-margin);*/
-    /*padding: 4px 0;*/
 }
 
 [dir] #colormag__pagetools ul li a {
@@ -2966,7 +2981,6 @@ a#scroll-up:hover {
     height: @ico-width;
     display: inline-block;
     vertical-align: middle;
-    fill: @ini_border;
 }
 
 [dir] #colormag__pagetools ul li a svg {
