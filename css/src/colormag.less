@@ -2248,42 +2248,33 @@ a#scroll-up:hover {
     position: sticky;
     top: 2rem;
     width: (@ico-width + @ico-margin + @ico-margin);
-    min-height: 190px; /* 30 (= height of icons) x 6 (= maximum number of possible tools) + 2x5 */
+    min-height: (6 * @ico-width) + (2* @ico-margin); /* 190px = 30 (= height of icons) x 6 (= maximum number of possible tools) + 2x5 */
     height: auto;
 }
 
 #colormag__pagetools ul {
     position: absolute;
-    right: 0 !important;
-    text-align: right;
-    margin: 0;
-    padding: 0;
+    right: 0;
+    /* add transparent border to prevent jumping when proper border is added on focus */
+    border: 1px solid transparent;
+    white-space: nowrap;
 }
 
 #colormag__pagetools ul li {
-    display: flex;
-    flex-direction: row-reverse;
-    align-content: flex-end;
-    text-align: right;
+    text-align: end;
 }
 
 #colormag__pagetools ul li a {
     display: block;
-    /* add transparent border to prevent jumping when proper border is added on focus */
-    border: 1px solid transparent;
-    white-space: nowrap;
-    vertical-align: middle;
-    height: (@ico-width + @ico-margin);
-    padding: 4px 0;
+    /*vertical-align: middle;*/
+    /*height: (@ico-width + @ico-margin);*/
+    /*padding: 4px 0;*/
+    padding: @ico-margin 0;
 }
 
 #colormag__pagetools ul li a span {
     display: none; // hide label until hover
     margin: 0 @ico-margin;
-}
-
-#colormag__pagetools ul li a span {
-    display:none;
 }
 
 #colormag__pagetools ul li a svg {
@@ -2297,34 +2288,29 @@ a#scroll-up:hover {
 
 #colormag__pagetools ul:hover {
     background: @ini_background;
-}
-
-#colormag__pagetools ul:hover li {
-    max-width: 100%;
-}
-
-#colormag__pagetools ul:hover li.sidevision button {
-    padding: 0 4px;
-}
-
-#colormag__pagetools ul:hover li.label {
-    padding: 0 8px;
-}
-
-#colormag__pagetools ul:hover li a,
-#colormag__pagetools ul:hover li button {
-    text-align: end;
+    border: 1px solid @ini_border;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 #colormag__pagetools ul:hover li a span,
 #colormag__pagetools ul:hover li button span,
 #colormag__pagetools ul:hover li p span {
-    display: inline-block;
+    display: initial;
 }
 
-#colormag__pagetools ul:hover li.label span {
-    font-size: 1.5rem;
-    overflow-wrap: break-word;
+#colormag__pagetools ul:hover li a svg {
+    fill: @ini_text_neu;
+}
+
+#colormag__pagetools ul li:hover a {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+#colormag__pagetools ul li:hover a svg {
+    fill: @ini_color_theme_text;
 }
 
 /* =POST CONTENT
