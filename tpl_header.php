@@ -20,19 +20,21 @@ if (!defined('DOKU_INC')) die();
 
         <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
             <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('uicolorize'), 'topbar') !== false) ? " uicolor" : "" ?>">
-                <div class="inner-wrap group">
-                    <?php
-                        if (strpos(tpl_getConf('topbar'), 'date') !== false) {
-                            $date = colormag_date("long", null, false, true);
-                            print '<div id="colormag__topbar-date" title="'.$date.'">'.colormag_glyph($colormag['glyphs']['date'], true).'<span>'.$date.'</span></div>';
-                        }
-                    ?>
-                    <?php if ((strpos(tpl_getConf('topbar'), 'newsticker') !== false) and ($colormag['recents'] != null) and is_array($colormag['recents'])) : ?>
-                        <div id="colormag__topbar-newsticker" class="breaking-news" title="<?php print $lang['btn_recent']; ?>">
-                            <?php colormag_glyph($colormag['glyphs']['news']) ?><strong<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : ' class="a11y"' ?>><?php print $lang['btn_recent']; ?>:</strong>
-                            <?php colormag_newsticker(); ?>
-                        </div>
-                    <?php endif ?>
+                <div class="inner-wrap flex row between">
+                    <div class="flex row">
+                        <?php
+                            if (strpos(tpl_getConf('topbar'), 'date') !== false) {
+                                $date = colormag_date("long", null, false, true);
+                                print '<div id="colormag__topbar-date" class="flex row" title="'.$date.'">'.colormag_glyph($colormag['glyphs']['date'], true).'<span>'.$date.'</span></div>';
+                            }
+                        ?>
+                        <?php if ((strpos(tpl_getConf('topbar'), 'newsticker') !== false) and ($colormag['recents'] != null) and is_array($colormag['recents'])) : ?>
+                            <div id="colormag__topbar-newsticker" class="breaking-news flex row" title="<?php print $lang['btn_recent']; ?>">
+                                <?php colormag_glyph($colormag['glyphs']['news']) ?><strong><?php print $lang['btn_recent']; ?>:</strong>
+                                <?php colormag_newsticker(); ?>
+                            </div>
+                        <?php endif ?>
+                    </div>
                     *SOCIAL?*
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->

@@ -56,10 +56,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] Footer
   * [x] Sidebar
   * [x] WP vs. DW functions
-* [ ] Basic CSS
+* [x] Basic CSS
   * [x] style.css
   * ~~[ ] rtl.css~~ (shouldn't be needed, thanks to Grunt)
-  * [ ] print.css
+  * [x] print.css
   * [x] Necessary changes
 * [x] JS
 * [ ] Further HTML/PHP

@@ -83,7 +83,7 @@ jQuery(function(){
     if (JSINFO.LoadNewsTicker) {
         jQuery('.js-lastchanges').newsTicker({
             max_rows: 1,
-            row_height: parseFloat(jQuery("#colormag__topbar-newsticker").css("font-size")) + 4,
+            row_height: parseFloat(jQuery("#colormag__topbar-newsticker").css("font-size")) + 8,
             speed: 600,
             direction: 'down',
             duration: 4000,
