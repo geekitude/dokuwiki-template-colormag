@@ -79,7 +79,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 <!-- ********** CONTENT ********** -->
                 <div id="colormag__primary">
                     <div id="colormag__content" class="group">
-
                         <div class="page group">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
@@ -101,9 +100,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <!-- PAGE ACTIONS -->
                 <div id="colormag__pagetools">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6>
                     <div class="tools">
                         <ul>
+                            <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6></li>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         </ul>
                     </div><!-- /.tools -->

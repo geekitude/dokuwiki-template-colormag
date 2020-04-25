@@ -2930,7 +2930,7 @@ a#scroll-up:hover {
     left: 0;
 }
 
-[dir] #colormag__pagetools ul li {
+[dir] #colormag__pagetools ul li a {
     text-align: end;
 }
 
@@ -2946,8 +2946,19 @@ a#scroll-up:hover {
 }
 
 #colormag__pagetools ul li a span {
-    display: none; // hide label until hover
+    display: none; /* hide label until hover */
+}
+
+#colormag__pagetools ul li h6 {
+    visibility: hidden;
+}
+
+[dir] #colormag__pagetools ul li a span {
     margin: 0 @ico-margin;
+}
+
+[dir] #colormag__pagetools ul li h6 {
+    margin: 0;
 }
 
 #colormag__pagetools ul li a svg {
@@ -2972,6 +2983,10 @@ a#scroll-up:hover {
 #colormag__pagetools ul:hover li button span,
 #colormag__pagetools ul:hover li p span {
     display: initial;
+}
+
+#colormag__pagetools ul:hover li h6 {
+    visibility: visible;
 }
 
 #colormag__pagetools ul:hover li a svg {
