@@ -79,15 +79,15 @@ dbg("vérifier ces liens");
     </div><!-- /.footer-widgets-wrapper -->
     <div class="footer-socket-wrapper group<?php print (strpos(tpl_getConf('uicolorize'), 'footersocket') !== false) ? " uicolor" : "" ?>">
         <div class="inner-wrap">
-            <div class="footer-socket-area">
+            <div class="footer-socket-area flex row between stretch">
                 <div class="footer-socket-left-section">
                     <div class="copyright">
                         Copyright &copy; 2020 <a href="https://demo.themegrill.com/colormag/" title="ColorMag" ><span>ColorMag</span></a> All rights reserved.<br />
                         A <a href="https://wordpress.org/" title="WordPress"><span>WordPress</span></a> theme by <a href="https://themegrill.com/" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a> ported to <a href="https://dokuwiki.org/" title="DokuWiki"><span>DokuWiki</span></a>.
                     </div><!-- /.copyright -->
                 </div><!-- /.footer-socket-left-section -->
-                <div class="footer-socket-right-section">
-                    <div class="buttons group">
+                <div class="footer-socket-right-section flex row">
+                    <div class="buttons">
                         <ul>
                             <li>
                                 <?php

@@ -2674,7 +2674,7 @@ body.classic-breadcrumbs .translations ul > li + li:before {
 /* =FOOTER SOCKET AREA
 ----------------------------------------------- */
 [dir] .footer-socket-wrapper {
-    padding: 20px 0px 50px;
+    padding: 20px 0px 20px;
     background-color: @ini_color_theme_dark;
 }
 
@@ -2721,6 +2721,22 @@ body.classic-breadcrumbs .translations ul > li + li:before {
 
 .footer-socket-wrapper .copyright a:hover {
     color: @ini_color_theme_text;
+}
+
+[dir] .footer-socket-wrapper .buttons a {
+    margin-bottom: 0;
+}
+
+[dir=ltr] .footer-socket-wrapper .buttons ul li:not(:last-child) a {
+    margin: 0 1rem 0 0;
+}
+
+[dir=rtl] .footer-socket-wrapper .buttons ul li:not(:last-child) a {
+    margin: 0 0 0 1rem;
+}
+
+[dir] .footer-socket-wrapper .buttons ul li img {
+    margin: 0;
 }
 
 [dir=ltr] .footer-socket-wrapper .small-menu {
