@@ -84,6 +84,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     </div><!-- /#colormag__primary -->
 
                     <?php if($showSidebar): ?>
+
+                        <div class="vr<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? " notvisibleifextracted" : " a11y" ?>"></div>
+
                         <!-- ********** ASIDE ********** -->
                         <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
                             <div class="pad aside include group">
