@@ -40,9 +40,9 @@ if (!defined('DOKU_INC')) die();
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
         <div class="inner-wrap narrow-mix group">
-            <div id="colormag__header-text-nav-wrap" class="group">
-                <div id="colormag__header-left-section">
-                    <h1 id="colormag__site-title">
+            <div id="colormag__header-text-nav-wrap" class="flex row stretch between">
+                <div id="colormag__header-left-section" class="flex row start">
+                    <div id="colormag__site-logo">
                         <?php
                             // get logo either out of the template images folder or data/media folder
                             $logoSize = array();
@@ -51,20 +51,32 @@ if (!defined('DOKU_INC')) die();
                             // display logo and wiki title in a link to the home page
                             tpl_link(
                                 wl(),
-                                '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+                                '<img src="'.$logo.'" '.$logoSize[3].' alt="" />',
                                 'accesskey="h" title="[H]"'
                             );
                         ?>
-                    </h1>
-                    <?php if ($conf['tagline']): ?>
-                        <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
-                    <?php endif ?>
+                    </div>
+                    <div class="flex column start">
+                        <h1 id="colormag__site-title">
+                            <?php
+                                // display logo and wiki title in a link to the home page
+                                tpl_link(
+                                    wl(),
+                                    '<span>'.$conf['title'].'</span>',
+                                    'accesskey="h" title="[H]"'
+                                );
+                            ?>
+                        </h1>
+                        <?php if ($conf['tagline']): ?>
+                            <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
+                        <?php endif ?>
+                    </div>
                 </div>
                 <div id="colormag__header-right-section">
                     <div class="advertisement-content widget group">
                         *BANNER*
                     </div>
-                    <div id="colormag__header-right-sidebar" class="group">
+                    <div id="colormag__header-right-sidebar" class="widget group">
                         <div class="tools group">
                             <!-- SITE TOOLS -->
                             <div id="colormag__sitetools">
@@ -72,7 +84,7 @@ if (!defined('DOKU_INC')) die();
                                 <div class="mobileTools">
                                     <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                 </div><!-- /.mobiletools -->
-                                <ul>
+                                <ul class="flex row between">
                                     <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
                                 </ul>
                             </div><!-- /#colormag__sitetools -->

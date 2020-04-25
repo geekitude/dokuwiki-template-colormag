@@ -779,17 +779,17 @@ body.mix-layout .inner-wrap-left.narrow-mix {
     float: left;
 }
 
-#header-logo-image {
-    float: left;
+#colormag__site-logo {
+    /*float: left;*/
     padding-right: 20px;
 }
 
-#header-logo-image img {
+#colormag__site-logo img {
     margin-bottom: 0;
 }
 
-#header-text {
-    float: left;
+#colormag__site-title {
+    /*float: left;*/
     padding-right: 20px;
 }
 
@@ -812,20 +812,36 @@ body.mix-layout .inner-wrap-left.narrow-mix {
 }
 
 #colormag__header-right-section {
-    float: right;
+    /*float: right;*/
 }
 
 #colormag__header-right-section .widget {
     text-align: right;
     color: @ini_text;
+    font-size: 2rem;
 }
 
+#colormag__header-right-section .widget ul li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+#colormag__header-right-section .widget ul li a {
+    display: flex;
+    align-items: center;
+}
+
+#colormag__header-right-section .widget ul li a span {
+    margin-right: .4rem;
+}
+
+/*
 #colormag__header-right-section .widget .widget-title {
     padding-bottom: 0;
     font-size: 18px;
     line-height: 1.2;
     padding-bottom: 5px;
 }
+*/
 
 .header-image {
     margin-bottom: 0;
@@ -3690,9 +3706,9 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
     text-align: center;
 }
 
-#colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #header-logo-image,
-#colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #header-text {
-    float: none;
+#colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #colormag__site-logo,
+#colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #colormag__site-title {
+    /*float: none;*/
     padding-right: 0;
 }
 
@@ -4193,14 +4209,14 @@ Responsive Structure
         float: none;
         margin-bottom: 10px;
     }
-    #header-logo-image {
-        float: none;
-        text-align: center;
+    #colormag__site-logo {
+        /*float: none;*/
+        /*text-align: center;*/
         padding-right: 0;
     }
-    #header-text {
-        float: none;
-        text-align: center;
+    #colormag__site-title {
+        /*float: none;*/
+        /*text-align: center;*/
         padding-right: 0;
     }
     #colormag__header-right-section {
@@ -4385,7 +4401,7 @@ Responsive Structure
         padding: 0 0 20px;
     }
     #colormag__header.colormag-header-clean #colormag__header-left-section,
-    #colormag__header.colormag-header-clean #header-logo-image {
+    #colormag__header.colormag-header-clean #colormag__site-logo {
         margin-bottom: 0;
     }
     #colormag__header.colormag-header-clean #colormag__site-navigation .random-post a {
@@ -4418,7 +4434,7 @@ Responsive Structure
         padding: 0;
     }
     #colormag__header.colormag-header-classic #colormag__header-left-section,
-    #colormag__header.colormag-header-classic #header-logo-image {
+    #colormag__header.colormag-header-classic #colormag__site-logo {
         margin-bottom: 0;
     }
     #colormag__header.colormag-header-classic .main-small-navigation .menu-toggle {
