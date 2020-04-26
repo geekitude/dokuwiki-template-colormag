@@ -11,6 +11,7 @@
  */
 
 $conf['layout']             = 'box';
+$conf['flexflip']           = '';
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
 $conf['navcolors']          = 0;
@@ -20,10 +21,8 @@ $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
 $conf['newsticker']         = 'skip_minors,pages,media,5';
 $conf['headerflexalign']    = 'start';
-$conf['bannerflexorder']    = '1';
 $conf['breadcrumbslook']    = 'classic';
 $conf['breadcrumbsglyphs']  = 1;
-$conf['sidebarpos']         = 'left';
 $conf['dark']               = 0;
 $conf['links']              = 'links';
 $conf['licensevisual']      = 'badge';

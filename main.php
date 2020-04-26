@@ -17,7 +17,10 @@ $colormag = array();
 colormag_init();
 
 $hasSidebar = page_findnearest($conf['sidebar']);
+//dbg($hasSidebar);
 $showSidebar = $hasSidebar && ($ACT=='show');
+//dbg($showSidebar);
+//dbg($ACT);
 ?><!DOCTYPE html>
 <html id="dokuwiki__top" lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>
@@ -38,13 +41,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <?php include('tpl_header.php') ?>
 
-        <header id="colormage__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
+        <header id="colormag__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
             <div class="inner-wrap flex row between">
                 <!-- PAGEID -->
-                <div class="pageId alignleft"><span><?php echo hsc($ID) ?></span></div>
+                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
                 <!-- BREADCRUMBS -->
                 <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                    <nav id="colormag__breadcrumbs-wrapper" class="alignright breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
+                    <nav id="colormag__breadcrumbs-wrapper" class="breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
                             <?php if($conf['youarehere']): ?>
                                 <ul class="youarehere"><?php colormag_youarehere() ?></ul>
                             <?php endif ?>

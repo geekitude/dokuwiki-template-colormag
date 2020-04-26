@@ -727,6 +727,10 @@ body.box2wide-layout #colormag__page {
     margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin);
 }
 
+body.pagetools-flip .inner-wrap-left {
+    margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0 !important;
+}
+
 body.mix-layout .narrow-mix {
     max-width: (@ini_site_width - (2 * (@ico-width + @ico-margin + @ico-margin)));
 }
@@ -852,6 +856,14 @@ body.mix-layout .inner-wrap-left.narrow-mix {
     margin-bottom: 0;
     border-bottom: 1px solid @ini_border;
     width: 100%;
+}
+
+body.banner-flip #colormag__header-right-section .flex .advertisement-content {
+    order: 2;
+}
+
+body.banner-flip #colormag__header-right-sidebar {
+    order: 1;
 }
 
 /* =HEADER INFO TEXT
@@ -1571,6 +1583,15 @@ body.classic-breadcrumbs .translations ul > li + li:before {
     content: "";
 }
 
+body.pageheader-flip #colormag__pageheader .pageId {
+    order: 2;
+}
+
+body.pageheader-flip #colormag__breadcrumbs-wrapper {
+    order: 1;
+    text-align: start;
+}
+
 .default-wp-page {
     clear: both;
 }
@@ -2149,12 +2170,21 @@ body.classic-breadcrumbs .translations ul > li + li:before {
 
 .menu-primary-container-right-section,
 .footer-socket-right-section {
-    float: right;
+    /*float: right;*/
 }
 
 .menu-primary-container-left-section,
 .footer-socket-left-section {
-    float: left;
+    /*float: left;*/
+}
+
+body.socket-flip #colormag__colophon .footer-socket-left-section {
+    order: 2;
+    text-align: end;
+}
+
+body.socket-flip #colormag__colophon .footer-socket-right-section {
+    order: 1;
 }
 
 .footer-socket-wrapper .copyright {
@@ -2458,6 +2488,23 @@ body.left-sidebar #colormag__secondary {
 
 #colormag__pagetools ul li:hover a svg {
     fill: @ini_color_theme_text;
+}
+
+body.pagetools-flip #colormag__main-content {
+    order: 2;
+}
+
+body.pagetools-flip #colormag__pagetools {
+    order: 1;
+}
+
+body.pagetools-flip #colormag__pagetools ul {
+    left: 0;
+    right: auto;
+}
+
+body.pagetools-flip #colormag__pagetools ul li a {
+    text-align: start;
 }
 
 /* =POST CONTENT
@@ -4203,13 +4250,14 @@ FLEXBOX
     flex-wrap: wrap;
 }
 
+/*
 .flex .flex1 {
     order: 1;
 }
 .flex .flex2 {
     order: 2;
 }
-/*
+
 .flex.nowrap {
     flex-wrap: nowrap;
 }
@@ -4244,6 +4292,9 @@ Responsive Structure
     .inner-wrap-left {
         margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin) !important;
     }
+    body.mix-layout .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0 !important;
+    }
 }
 
 @media screen and (max-width: @ini_site_width) {
@@ -4273,6 +4324,9 @@ Responsive Structure
     }
     body.mix-layout .inner-wrap-left.narrow-mix {
         margin: 0 0 0 (@ico-width + @ico-margin + @ico-margin) !important;
+    }
+    body.mix-layout.pagetools-flip .inner-wrap-left.narrow-mix {
+        margin: 0 (@ico-width + @ico-margin + @ico-margin) 0 0 !important;
     }
 }
 
@@ -4384,6 +4438,9 @@ Responsive Structure
     }
     .inner-wrap-left {
         margin: 0 0 0 (@ico-width + @ico-margin);
+    }
+    body.pagetools-flip .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin) 0 0!important;
     }
     .logged-in #colormag__header #colormag__site-navigation {
         top: 0 !important;
@@ -4570,6 +4627,9 @@ Responsive Structure
     }
     .inner-wrap-left {
         margin: 0 0 0 (@ico-width + @ico-margin);
+    }
+    body.pagetools-flip .inner-wrap-left {
+        margin: 0 (@ico-width + @ico-margin) 0 0!important;
     }
     #colormag__secondary, #dw__toc {
         margin: 0 0 1rem !important;

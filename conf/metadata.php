@@ -11,6 +11,7 @@
  */
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
+$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pageheader','sidebar','pagetools','socket'));
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
 $meta['navcolors']          = array('onoff');
@@ -20,10 +21,8 @@ $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
 $meta['headerflexalign']    = array('multichoice', '_choices' => array('start','baseline','center','end'));
-$meta['bannerflexorder']    = array('multichoice', '_choices' => array('1','2'));
 $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','pills'));
 $meta['breadcrumbsglyphs']  = array('onoff');
-$meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));
 $meta['links']              = array('string');
 $meta['dark']               = array('onoff');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));

@@ -74,10 +74,10 @@ if (!defined('DOKU_INC')) die();
                 </div>
                 <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
-                        <div class="dbg advertisement-content widget group <?php print (tpl_getConf('bannerflexorder') == '1') ? "flex1" : "flex2" ?>">
+                        <div class="dbg advertisement-content widget group">
                             *BANNER*
                         </div>
-                        <div id="colormag__header-right-sidebar" class="widget group <?php print (tpl_getConf('bannerflexorder') == '1') ? "flex2" : "flex1" ?>">
+                        <div id="colormag__header-right-sidebar" class="widget group">
                             <div class="tools group">
                                 <!-- SITE TOOLS -->
                                 <div id="colormag__sitetools">
@@ -110,7 +110,7 @@ if (!defined('DOKU_INC')) die();
             </div>
             <nav id="colormag__site-navigation" class="main-navigation group" role="navigation">
                 <div class="inner-wrap group">
-                    <div class="menu-primary-container">
+                    <div class="menu-primary-container flex row between">
                         <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
                             <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>

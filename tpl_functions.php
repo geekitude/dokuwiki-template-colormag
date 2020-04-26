@@ -206,23 +206,24 @@ function colormag_bodyclasses() {
 
     $classes = array();
 
-    if ($showSidebar) {
-        if (tpl_getConf('sidebarpos') == "left") {
-            $sidebar = "left-sidebar";
-        } else {
-            $sidebar = "right-sidebar";
-        }
-        if (strpos(tpl_getConf('stickies'), 'sidebar') !== false) {
-            $sidebar .= " sticky-sidebar";
-        }
-        if ((strpos(tpl_getConf('extractible'), 'sidebar') !== false) and ((tpl_getConf('layout') == "boxed") or (tpl_getConf('layout') == "mix") or (tpl_getConf('layout') == "box2full")) and (tpl_getConf('sidebarPos') == "left")) {
-            $sidebar .= " extractible-sidebar";
-        }
-    } else {
-        $sidebar = "no-sidebar";
-    }
+//    if ($showSidebar) {
+//        if (tpl_getConf('sidebarpos') == "left") {
+//            $sidebar = "left-sidebar";
+//        } else {
+//            $sidebar = "right-sidebar";
+//        }
+//        if (strpos(tpl_getConf('stickies'), 'sidebar') !== false) {
+//            $sidebar .= " sticky-sidebar";
+//        }
+//        if ((strpos(tpl_getConf('extractible'), 'sidebar') !== false) and ((tpl_getConf('layout') == "boxed") or (tpl_getConf('layout') == "mix") or (tpl_getConf('layout') == "box2full")) and (tpl_getConf('sidebarPos') == "left")) {
+//            $sidebar .= " extractible-sidebar";
+//        }
+//    } else {
+//        $sidebar = "no-sidebar";
+//    }
 
-    array_push($classes, $sidebar, tpl_getConf('layout').'-layout', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
+//    array_push($classes, $sidebar, tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
+    array_push($classes, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //dbg($classes);
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));
