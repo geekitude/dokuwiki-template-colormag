@@ -11,7 +11,7 @@ if (!defined('DOKU_INC')) die();
 <footer id="colormag__colophon" class="group<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
     <div class="footer-widgets-wrapper">
         <div class="inner-wrap">
-            <div class="footer-widgets-area flex row start between">
+            <div class="footer-widgets-area flex row start evenly">
                 <?php if ($conf['useacl'] && $ACT != "login" && $ACT != "denied"): ?>
                     <aside id="colormag__userwidget" class="widget">
                         <?php
