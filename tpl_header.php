@@ -35,7 +35,7 @@ if (!defined('DOKU_INC')) die();
                             </div>
                         <?php endif ?>
                     </div>
-                    *SOCIAL?*
+                    <div class="dbg flex row">*SOCIAL?*</div>
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
@@ -73,7 +73,7 @@ if (!defined('DOKU_INC')) die();
                     </div>
                 </div>
                 <div id="colormag__header-right-section">
-                    <div class="advertisement-content widget group">
+                    <div class="dbg advertisement-content widget group">
                         *BANNER*
                     </div>
                     <div id="colormag__header-right-sidebar" class="widget group">
