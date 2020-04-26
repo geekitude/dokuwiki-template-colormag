@@ -316,22 +316,23 @@ function colormag_usertools() {
 //        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y') or (tpl_getConf('headertoolsIcons') == 0)) {
         if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
             $class = null;
-            $icon = null;
+            //$icon = null;
         } else {
             $class = ' class="a11y"';
-            $icon = $field["\0*\0svg"];
+            //$icon = $field["\0*\0svg"];
         }
+        $icon = $field["\0*\0svg"];
         if ($field["\0*\0type"] == "login") {
             if ($ACT == "denied") {
-                print '<li class="menu-item action login"><a href="#colormag__content" rel="nofollow" title="'.$lang['btn_login'].'"><span'.$class.'>'.$lang['btn_login'].'</span>'.inlineSVG($icon).'</a></li>';
+                print '<li class="menu-item action login"><a href="#colormag__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action login"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['btn_login'].'"><span'.$class.'>'.$lang['btn_login'].'</span>'.inlineSVG($icon).'</a></li>';
+                print '<li class="menu-item action login"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
             }
         } elseif (($field["\0*\0type"] == "register") && ($ACT != "register")) {
-            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'"><span'.$class.'>'.$lang['btn_register'].'</span>'.inlineSVG($icon).'</a></li>';
+            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_register'].'</span></a></li>';
         } elseif ($field["\0*\0type"] == "profile") {
-            //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'"><span class="a11y">'.$lang['profile'].'</span>'.inlineSVG($field["\0*\0svg"]).'</a></li>';
-            print '<li class="menu-item action profile"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'"><span'.$class.'>'.$lang['profile'].'</span>'.inlineSVG($icon).'</a></li>';
+            //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($field["\0*\0svg"]).'<span class="a11y">'.$lang['profile'].'</span></a></li>';
+            print '<li class="menu-item action profile"><a href="#colormag__userwidget" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
 
             //PAGES PERSOS MANQUANTES
             // Custom UserTools
@@ -348,15 +349,15 @@ function colormag_usertools() {
 
         } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
             print '<li class="menu-item menu-item-has-children action admin">';
-                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'"><span'.$class.'>'.$lang['btn_admin'].'</span>'.inlineSVG($icon).'</a>';
+                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_admin'].'</span></a>';
                 print '<ul class="sub-menu">';
                     colormag_admindropdown();
                 print '</ul>';
             print '</li><!-- .action.admin -->';
         } elseif ($field["\0*\0type"] == "logout") {
-            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'"><span'.$class.'>'.$lang['btn_logout'].'</span>'.inlineSVG($icon).'</a></li>';
+            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_logout'].'</span></a></li>';
         } else {
-            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'"><span'.$class.'>'.$field["\0*\0type"].'</span>'.inlineSVG($icon).'</a></li>';
+            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$class.'>'.$field["\0*\0type"].'</span></a></li>';
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0svg"]);
