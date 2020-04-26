@@ -5761,6 +5761,37 @@ div.insitu-footnote {
     padding: .5rem 1rem;
 }
 
+[dir=ltr] #user__manager #usrmgr__del {
+    margin: 0 .5rem 0 0;
+}
+
+[dir=rtl] #user__manager #usrmgr__del {
+    margin: 0 0 0 .5rem;
+}
+
+[dir] #user__manager button[name="fn[export]"], [dir] #user__manager button[name="fn[start]"], [dir] #user__manager button[name="fn[prev]"], [dir] #user__manager button[name="fn[next]"], [dir] #user__manager button[name="fn[last]"], [dir] #user__manager button[name="fn[add]"] {
+    margin-bottom: 0;
+}
+[dir] #user__manager button[name="fn[add]"] {
+    margin-bottom: 0;
+}
+
+#user__manager .import_users form {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+[dir] #user__manager .import_users form {
+    border: 1px solid @ini_border;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+[dir] #user__manager .import_users form button[name="fn[import]"] {
+    margin: 1rem 0 0 0;
+}
+
 /*--------------------------------------------------------------
 DEBUG
 --------------------------------------------------------------*/
