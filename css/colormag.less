@@ -5560,6 +5560,27 @@ div.mobileTools {
     margin-left: auto;
 }
 
+/* Footnotes inside the text */
+
+div.insitu-footnote {
+    min-width: 5rem;
+}
+
+[dir] div.insitu-footnote {
+    padding: .3rem .5rem;
+    background-color: @ini_color_blue;
+}
+
+/* Footnotes at the bottom of the page */
+
+[dir] .dokuwiki div.footnotes {
+    padding: .6rem 0 0 0;
+}
+
+.dokuwiki div.footnotes .fn .content {
+    display: inline-block;
+}
+
 /* OTHER MODES */
 
 /* Recent */
@@ -5647,6 +5668,43 @@ div.mobileTools {
 
 .mode_admin #acl_manager ul.acl img {
     vertical-align: baseline;
+}
+
+[dir] .mode_admin #config__manager fieldset {
+    background-color: @ini_background;
+    border: 1px solid @ini_border;
+}
+
+[dir] .mode_admin #config__manager fieldset legend {
+    padding: 0 3rem;
+}
+
+[dir] .mode_admin #config__manager fieldset table td.value {
+    background-color: @ini_background_neu;
+}
+
+[dir] .mode_admin #config__manager fieldset table td.value input {
+    margin: 0;
+}
+
+.mode_admin #config__manager fieldset div.input select,
+.mode_admin #config__manager fieldset input.edit {
+    width: 100%;
+}
+
+#config__manager div.other label[for="config___tpl____colormag____flexflip_other"],
+#config___tpl____colormag____flexflip_other,
+#config__manager div.other label[for="config___tpl____colormag____uicolorize_other"],
+#config___tpl____colormag____uicolorize_other,
+#config__manager div.other label[for="config___tpl____colormag____topbar_other"],
+#config___tpl____colormag____topbar_other,
+#config__manager div.other label[for="config___tpl____colormag____print_other"],
+#config___tpl____colormag____print_other {
+    display: none;
+}
+
+[dir] #config__manager #tpl____colormag____tpl_settings_name div.other.selectiondefault {
+    padding: 0;
 }
 
 /*--------------------------------------------------------------
