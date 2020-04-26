@@ -19,6 +19,8 @@ $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
+$meta['headerflexalign']    = array('multichoice', '_choices' => array('start','baseline','center','end'));
+$meta['bannerflexorder']    = array('multichoice', '_choices' => array('1','2'));
 $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','pills'));
 $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['sidebarpos']         = array('multichoice','_choices' => array('left','right'));

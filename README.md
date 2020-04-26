@@ -128,10 +128,16 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `pages` : show or ignore pages in list
   * `media` : show or ignore media files
   * the number in text field is the number of elements to show (starting from most recent)
+* **headerflexalign** (*start*) : set vertical alignment of header items (ie. logo, branding text, right section), note that `start` and `center` are the most common choices
+  * `start` : to the top
+  * `baseline` : at text baseline level - still looking for a situation where it's different from `start` 8-)
+  * `center`
+  * `end` : to the bottom
+* **bannerflexorder** : choose to have header banner above (`1`) or below (`2`) site tools
 * **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs
-* **breadcrumbsglyphs** (*ON*) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
+* **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **sidebarpos** (*left*) : left or right sidebar
 * **links** (*links*) : name of wiki page to use to feed footer links widget
-* **dark** (*OFF*) : switch to dark color skin
+* **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)

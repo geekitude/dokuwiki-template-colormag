@@ -41,7 +41,7 @@ if (!defined('DOKU_INC')) die();
         <?php endif ?>
         <div class="inner-wrap narrow-mix group">
             <div id="colormag__header-text-nav-wrap" class="flex row stretch between">
-                <div id="colormag__header-left-section" class="flex row start">
+                <div id="colormag__header-left-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div id="colormag__site-logo">
                         <?php
                             // get logo either out of the template images folder or data/media folder
@@ -56,7 +56,7 @@ if (!defined('DOKU_INC')) die();
                             );
                         ?>
                     </div>
-                    <div class="flex column start">
+                    <div class="flex column <?php print tpl_getConf('headerflexalign') ?>">
                         <h1 id="colormag__site-title">
                             <?php
                                 // display logo and wiki title in a link to the home page
@@ -72,23 +72,25 @@ if (!defined('DOKU_INC')) die();
                         <?php endif ?>
                     </div>
                 </div>
-                <div id="colormag__header-right-section">
-                    <div class="dbg advertisement-content widget group">
-                        *BANNER*
-                    </div>
-                    <div id="colormag__header-right-sidebar" class="widget group">
-                        <div class="tools group">
-                            <!-- SITE TOOLS -->
-                            <div id="colormag__sitetools">
-                                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
-                                <div class="mobileTools">
-                                    <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-                                </div><!-- /.mobiletools -->
-                                <ul class="flex row between">
-                                    <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
-                                </ul>
-                            </div><!-- /#colormag__sitetools -->
-                        </div><!-- /.tools -->
+                <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
+                    <div class="flex column end">
+                        <div class="dbg advertisement-content widget group <?php print (tpl_getConf('bannerflexorder') == '1') ? "flex1" : "flex2" ?>">
+                            *BANNER*
+                        </div>
+                        <div id="colormag__header-right-sidebar" class="widget group <?php print (tpl_getConf('bannerflexorder') == '1') ? "flex2" : "flex1" ?>">
+                            <div class="tools group">
+                                <!-- SITE TOOLS -->
+                                <div id="colormag__sitetools">
+                                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
+                                    <div class="mobileTools">
+                                        <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+                                    </div><!-- /.mobiletools -->
+                                    <ul class="flex row between">
+                                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
+                                    </ul>
+                                </div><!-- /#colormag__sitetools -->
+                            </div><!-- /.tools -->
+                        </div>
                     </div>
                 </div>
             </div>
