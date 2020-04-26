@@ -117,15 +117,19 @@ if (!defined('DOKU_INC')) die();
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
                                 <ul class="sub-menu">
-                                    <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1</a></li>
-                                    <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 2</a></li>
+                                    <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1.1</a></li>
+                                    <li class="sub-menu-item menu-item-has-children">
+                                        <a href="#" title="Blah blah 2">Blah blah 1.2</a>
+                                        <ul class="sub-menu">
+                                            <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1.2.1</a></li>
+                                            <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 1.2.2</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
-                            <li class="menu-item"><a href="#" title="Blah3"><span>Blah3</span></a></li>
                         </ul><!-- /#colormag__menu-primary -->
                         <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget">
-                            <li class="menu-item"><a href="#" title="Blah4"><span>Blah4</span></a></li>
                             <!-- SEARCH -->
                             <li class="menu-item top-search-wrap action search">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
@@ -134,7 +138,6 @@ if (!defined('DOKU_INC')) die();
                                     <?php tpl_searchform(); ?>
                                 </div>
                             </li>
-                            <li class="menu-item"><a href="#" title="Blah5"><span>Blah5</span></a></li>
                             <!-- USERTOOLS -->
                             <?php
                                 if ($conf['useacl']) {
