@@ -1121,7 +1121,7 @@ nav li > ol {
 #colormag__site-navigation svg {
     fill: @ini_color_theme_text;
     vertical-align: -7px;
-    max-height: 23px;
+    /*max-height: 23px;*/
 }
 
 .home-icon {
@@ -1185,13 +1185,33 @@ body.navcolors #colormag__site-navigation li.action.admin svg {
     float: none;
     font-size: 14px;
     font-weight: 600;
-    padding: 10px 12px;
+    padding: 10px;
     text-transform: uppercase;
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
 }
 
 .main-navigation li.default-menu,
 li.default-menu {
     display: none;
+}
+
+.main-navigation li.menu-item-has-children a {
+    border-bottom: 1px solid transparent;
+}
+
+.main-navigation li.menu-item-has-children a:hover {
+    border-color: @ini_color_theme;
+}
+
+.main-navigation li.menu-item a span,
+.main-navigation li.menu-item-has-children a span {
+    vertical-align: 0px;
+    vertical-align: middle;
+}
+.main-navigation li.menu-item.nav.home a span {
+    vertical-align: 0px;
 }
 
 .main-navigation a:hover,
@@ -1291,10 +1311,12 @@ li.default-menu {
 }
 
 /* making sure focus isn't lost when passing from main to sub menu */
+/*
 .sub-menu li:first-child {
     border-top: 1px solid transparent;
     margin-top: -1px;
 }
+*/
 
 #colormag__menu-tools .sub-menu {
     right: 0;
@@ -1307,7 +1329,7 @@ li.default-menu {
 .main-navigation ul li ul {
     position: absolute;
     width: 200px;
-    top: 43px;
+    top: 44px;
 }
 
 .main-navigation ul li ul li a {
