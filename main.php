@@ -93,7 +93,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <!-- ********** ASIDE ********** -->
                         <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
                             <div class="pad aside include group">
-                                <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+                                <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
                                 <div id="colormag__content" class="content group">
                                     <div class="group">
                                         <?php tpl_flush() ?>
@@ -112,7 +112,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 <div id="colormag__pagetools">
                     <div class="tools">
                         <ul>
-                            <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['page_tools']; ?></span></h6></li>
+                            <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         </ul>
                     </div><!-- /.tools -->
