@@ -28,6 +28,7 @@
 * IMAGES
 * CLEARFIX
 * ALIGNMENT
+* TABS
 * *****************************************************************
 * BODY
 * HEADER
@@ -848,6 +849,38 @@ img#wpstats {
 [dir=rtl] .aligncenter {
     margin-right: auto;
     margin-left: auto;
+}
+
+/* =TABS
+----------------------------------------------- */
+
+[dir] ul.tabs {
+    margin: 0 0 .3rem 0 !important;
+}
+
+ul.tabs li {
+    display: inline-block;
+}
+
+[dir] ul.tabs li a {
+    border-radius: 5px 5px 0 0;
+}
+
+ul.tabs li:not(.active) a {
+    color: @ini_text_neu;
+}
+
+[dir] ul.tabs li:not(.active) a {
+    padding: .5rem 1rem .7rem 1rem;
+}
+
+[dir] ul.tabs li:not(.active) a:hover {
+    background-color: @ini_color_theme;
+}
+
+[dir] ul.tabs li.active a {
+    border-top: 4px solid @ini_color_theme;
+    padding: 1rem 1.5rem;
 }
 
 /*****************************************************************/
