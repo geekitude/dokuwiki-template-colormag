@@ -571,7 +571,7 @@ textarea {
 [dir] input[type="text"], [dir] input[type="email"], [dir] input[type="password"], [dir] input[type="url"], [dir] textarea {
     padding: 1%;
     border: 1px solid @ini_border;
-    margin: 0 0 30px;
+    margin: 0 0 1rem;
     background-color: @ini_background_neu;
     border-radius: 3px;
 }
@@ -631,8 +631,8 @@ button {
 }
 
 [dir] .colormag-button, [dir] input[type="reset"], [dir] input[type="button"], [dir] input[type="submit"], [dir] button {
-    margin-bottom: 30px;
-    padding: 10px 20px;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
     background-color: @ini_color_theme;
     border: 0px;
     border-radius: 3px;
@@ -2663,6 +2663,19 @@ body.classic-breadcrumbs .translations ul > li + li:before {
 #colormag__colophon, #colormag__colophon p {
     font-size: 14px;
     line-height: 1.4;
+}
+
+[dir] #colormag__userwidget form fieldset {
+    border: 2px solid @ini_border;
+    padding: 1rem;
+}
+
+[dir] #colormag__userwidget form fieldset legend {
+    padding: 0 1rem;
+}
+
+#colormag__userwidget form fieldset label.block input {
+    width: 100%;
 }
 
 #colormag__licensewidget {
