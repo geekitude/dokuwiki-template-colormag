@@ -2919,7 +2919,9 @@ body.left-sidebar #colormag__secondary {
 
 /* =NO SIDEBAR CONTENT LAYOUT
 -------------------------------------------------------------- */
-[dir] .no-sidebar #colormag__primary {
+
+/*
+.no-sidebar #colormag__primary {
     margin: 0 auto;
 }
 
@@ -2939,17 +2941,9 @@ body.left-sidebar #colormag__secondary {
 
 .no-sidebar-full-width .alignfull,
 .no-sidebar .alignfull {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     max-width: unset;
-}
-
-[dir=ltr] .no-sidebar-full-width .alignfull, [dir=ltr] .no-sidebar .alignfull {
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-}
-
-[dir=rtl] .no-sidebar-full-width .alignfull, [dir=rtl] .no-sidebar .alignfull {
-    margin-right: calc(50% - 50vw);
-    margin-left: calc(50% - 50vw);
 }
 
 .no-sidebar-full-width .alignfull img,
@@ -2959,17 +2953,9 @@ body.left-sidebar #colormag__secondary {
 
 .no-sidebar-full-width .alignwide,
 .no-sidebar .alignwide {
+    margin-left: -100px;
+    margin-right: -100px;
     max-width: unset;
-}
-
-[dir=ltr] .no-sidebar-full-width .alignwide, [dir=ltr] .no-sidebar .alignwide {
-    margin-left: -100px;
-    margin-right: -100px;
-}
-
-[dir=rtl] .no-sidebar-full-width .alignwide, [dir=rtl] .no-sidebar .alignwide {
-    margin-right: -100px;
-    margin-left: -100px;
 }
 
 .no-sidebar-full-width.box-layout #colormag__main,
@@ -2977,77 +2963,47 @@ body.left-sidebar #colormag__secondary {
     overflow: hidden;
 }
 
-[dir=ltr] .no-sidebar-full-width.box-layout .alignwide, [dir=ltr] .no-sidebar.box-layout .alignwide {
+.no-sidebar-full-width.box-layout .alignwide,
+.no-sidebar.box-layout .alignwide {
     margin-left: -100px;
     margin-right: -100px;
-}
-
-[dir=rtl] .no-sidebar-full-width.box-layout .alignwide, [dir=rtl] .no-sidebar.box-layout .alignwide {
-    margin-right: -100px;
-    margin-left: -100px;
 }
 
 .widget_featured_posts .article-content .above-entry-meta .cat-links a {
+    background-color: @ini_link;
+    border-radius: 3px;
     color: @ini_color_theme_text;
     font-size: 12px;
+    padding: 3px 10px;
     display: inline-block;
 }
 
-[dir] .widget_featured_posts .article-content .above-entry-meta .cat-links a {
-    background-color: @ini_link;
-    border-radius: 3px;
-    padding: 3px 10px;
-}
-
 .widget_featured_posts .article-content .entry-title {
-    font-size: 22px;
-}
-
-[dir] .widget_featured_posts .article-content .entry-title {
     padding: 10px 0 0;
+    font-size: 22px;
 }
 
 .widget_featured_posts .article-content .entry-title a {
     color: @ini_color_theme_dark;
-}
-
-[dir] .widget_featured_posts .article-content .entry-title a {
     text-shadow: none;
 }
 
-[dir=ltr] .widget_featured_posts .article-content .below-entry-meta .posted-on, [dir=ltr] .widget_featured_posts .article-content .below-entry-meta .byline {
+.widget_featured_posts .article-content .below-entry-meta .posted-on,
+.widget_featured_posts .article-content .below-entry-meta .byline {
     padding-right: 10px;
-}
-
-[dir=rtl] .widget_featured_posts .article-content .below-entry-meta .posted-on, [dir=rtl] .widget_featured_posts .article-content .below-entry-meta .byline {
-    padding-left: 10px;
 }
 
 .widget_featured_posts .article-content .below-entry-meta .posted-on .fa {
     color: @ini_text_neu;
     font-size: 10px;
-}
-
-[dir=ltr] .widget_featured_posts .article-content .below-entry-meta .posted-on .fa {
     padding-right: 3px;
-}
-
-[dir=rtl] .widget_featured_posts .article-content .below-entry-meta .posted-on .fa {
-    padding-left: 3px;
 }
 
 .widget_featured_posts .article-content .below-entry-meta .byline .fa,
 .widget_featured_posts .article-content .below-entry-meta .comments .fa {
     color: @ini_text_neu;
-    font-size: 11px;
-}
-
-[dir=ltr] .widget_featured_posts .article-content .below-entry-meta .byline .fa, [dir=ltr] .widget_featured_posts .article-content .below-entry-meta .comments .fa {
     padding-right: 5px;
-}
-
-[dir=rtl] .widget_featured_posts .article-content .below-entry-meta .byline .fa, [dir=rtl] .widget_featured_posts .article-content .below-entry-meta .comments .fa {
-    padding-left: 5px;
+    font-size: 11px;
 }
 
 .widget_featured_posts .article-content .below-entry-meta .posted-on a,
@@ -3055,6 +3011,7 @@ body.left-sidebar #colormag__secondary {
 .widget_featured_posts .article-content .below-entry-meta .comments a {
     font-size: 12px;
 }
+*/
 
 /* =Pagetools
 -------------------------------------------------------------- */
