@@ -2990,6 +2990,10 @@ body.left-sidebar #colormag__secondary {
 
 /* =NO SIDEBAR CONTENT LAYOUT
 -------------------------------------------------------------- */
+body.no-sidebar #colormag__main-content,
+body.no-sidebar #colormag__primary {
+    width: 100%;
+}
 
 /*
 .no-sidebar #colormag__primary {
@@ -5414,7 +5418,6 @@ DW SPECIFIC
     padding: 0;
     background-color: black;
 }
-
 div.skip a {
     display: block;
     width: 100%;
@@ -5425,17 +5428,12 @@ div.skip a {
     font-size: 3.9rem;
     font-weight: 600;
 }
-
 [dir] div.skip a {
     text-align: center;
 }
 
 /* Alerts */
-/*
-#colormag__alerts > div:first-child {
-    margin-top: .5rem;
-}
-*/
+
 [dir] #colormag__alerts > div:last-child {
     margin-bottom: 1.5rem;
 }
@@ -5468,13 +5466,16 @@ div.info, div.notify, div.success, div.error {
 }
 
 /* ToC container */
+
 #dw__toc {
     width: @ini_toc_width;
 }
+
 [dir=ltr] #dw__toc {
     float: right;
     margin: 0 0 1.6rem 1.6rem;
 }
+
 [dir=rtl] #dw__toc {
     float: left;
     margin: 0 1.6rem 1.6rem 0;
@@ -5557,6 +5558,34 @@ div.mobileTools {
 [dir=rtl] .mediacenter {
     margin-right: auto;
     margin-left: auto;
+}
+
+/* OTHER MODES */
+
+/* Recent */
+
+[dir] .mode_recent #dw__recent .changeType {
+    margin-bottom: 1rem;
+}
+
+[dir] .mode_recent #dw__recent ul li {
+    margin: 0 0 .5rem 0;
+}
+
+[dir] .mode_recent #dw__recent ul img {
+    margin: 0;
+}
+
+.mode_recent #dw__recent ul img.icon {
+    vertical-align: text-top;
+}
+
+.mode_recent #dw__recent ul li a.diff_link img {
+    vertical-align: 0px;
+}
+
+.mode_recent #dw__recent ul li a.revisions_link img {
+    vertical-align: -1px;
 }
 
 /*--------------------------------------------------------------

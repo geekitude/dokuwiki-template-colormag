@@ -2347,6 +2347,10 @@ body.left-sidebar #colormag__secondary {
 
 /* =NO SIDEBAR CONTENT LAYOUT
 -------------------------------------------------------------- */
+body.no-sidebar #colormag__main-content,
+body.no-sidebar #colormag__primary {
+    width: 100%;
+}
 
 /*
 .no-sidebar #colormag__primary {
@@ -4111,7 +4115,6 @@ div.skip {
     padding: 0;
     background-color: black;
 }
-
 div.skip a {
     display: block;
     width: 100%;
@@ -4125,11 +4128,7 @@ div.skip a {
 }
 
 /* Alerts */
-/*
-#colormag__alerts > div:first-child {
-    margin-top: .5rem;
-}
-*/
+
 #colormag__alerts > div:last-child {
     margin-bottom: 1.5rem;
 }
@@ -4155,6 +4154,7 @@ div.error {
 }
 
 /* ToC container */
+
 #dw__toc {
     float: right;
     margin: 0 0 1.6rem 1.6rem;
@@ -4212,6 +4212,34 @@ div.mobileTools {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* OTHER MODES */
+
+/* Recent */
+
+.mode_recent #dw__recent .changeType {
+    margin-bottom: 1rem;
+}
+
+.mode_recent #dw__recent ul li {
+    margin: 0 0 .5rem 0;
+}
+
+.mode_recent #dw__recent ul img {
+    margin: 0;
+}
+
+.mode_recent #dw__recent ul img.icon {
+    vertical-align: text-top;
+}
+
+.mode_recent #dw__recent ul li a.diff_link img {
+    vertical-align: 0px;
+}
+
+.mode_recent #dw__recent ul li a.revisions_link img {
+    vertical-align: -1px;
 }
 
 /*--------------------------------------------------------------
