@@ -13,6 +13,7 @@
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
+$meta['navcolors']          = array('onoff');
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');

@@ -13,6 +13,7 @@
 $conf['layout']             = 'box';
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
+$conf['navcolors']          = 0;
 $conf['topbar']             = 'date,newsticker,socialnetworks';
 $conf['datelocale']         = 'fra';
 $conf['longdatestring']     = '%A %d %B %Y';

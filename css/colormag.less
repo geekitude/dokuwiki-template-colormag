@@ -1363,8 +1363,24 @@ nav li > ol {
     font-size: 27px;
 }
 
-[dir] #colormag__page.home #colormag__site-navigation li.action.home, [dir] .home-icon.front_page_on {
+[dir] #colormag__page.home #colormag__site-navigation li.nav.home, [dir] .home-icon.front_page_on {
     background-color: @ini_color_theme;
+}
+
+body.navcolors #colormag__site-navigation li.action.login svg {
+    fill: @ini_color_green;
+}
+
+body.navcolors #colormag__site-navigation li.action.profile svg {
+    fill: @ini_color_blue;
+}
+
+body.navcolors #colormag__site-navigation li.action.logout svg {
+    fill: @ini_color_red;
+}
+
+body.navcolors #colormag__site-navigation li.action.admin svg {
+    fill: @ini_color_yellow;
 }
 
 [dir] .main-navigation .home-icon a {

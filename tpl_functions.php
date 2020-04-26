@@ -222,7 +222,7 @@ function colormag_bodyclasses() {
         $sidebar = "no-sidebar";
     }
 
-    array_push($classes, $sidebar, tpl_getConf('layout').'-layout', tpl_getConf('uicolor').'-ui', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
+    array_push($classes, $sidebar, tpl_getConf('layout').'-layout', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //dbg($classes);
     /* TODO: better home detection than core */
     return rtrim(join(' ', array_filter($classes)));
