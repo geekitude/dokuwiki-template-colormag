@@ -144,7 +144,6 @@ if (!defined('DOKU_INC')) die();
                                     colormag_usertools();
                                 }
                             ?>
-                            <li class="menu-item"><a href="#" title="Blah6"><span>Blah6</span></a></li>
                         </ul><!-- /#colormag__menu-tools -->
                     </div><!-- /.menu-primary-container -->
                 </div><!-- /.inner-wrap -->
