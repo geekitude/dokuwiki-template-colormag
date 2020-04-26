@@ -65,7 +65,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Further HTML/PHP
   * [ ] Other layouts
   * [x] Special DW elements
-  * [ ] Other actions
+  * [x] Other actions
 * [x] Further CSS
   * [x] style.ini
   * [x] WP vs. DW classes
