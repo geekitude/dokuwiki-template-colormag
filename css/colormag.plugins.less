@@ -9,6 +9,31 @@
  * This file contains some plugins' CSS adaptation rules.
  */
 
+
+/*--------------------------------------------------------------
+BLOCKQUOTE
+--------------------------------------------------------------*/
+
+[dir] .dokuwiki blockquote.blockquote-plugin {
+    background: __background_alt__ url(images/override/blockquote.png) no-repeat 1.4rem 1.4rem;
+}
+
+[dir=ltr] .dokuwiki blockquote.blockquote-plugin {
+    padding: 5rem 2rem 2rem 7rem;
+}
+
+[dir=rtl] .dokuwiki blockquote.blockquote-plugin {
+    padding: 5rem 7rem 2rem 2rem;
+}
+
+[dir] .dokuwiki blockquote.blockquote-plugin p {
+    margin: 0;
+}
+
+[dir] .dokuwiki blockquote.blockquote-plugin p cite {
+    margin: 1rem 0 0 0;
+}
+
 /*--------------------------------------------------------------
 UPGRADE
 --------------------------------------------------------------*/
