@@ -85,15 +85,16 @@
 * Classic Layout
 * *****************************************************************
 * DOKUWIKI MODES
-* Recent
-* Sitemap
 * Admin
 * Admin - ACL Manager
 * Admin - Config Manager
 * Admin - Extensions
 * Admin - User Manager
+* Edit
 * Media Manager
 * Media Popup
+* Recent
+* Sitemap
 * DEBUG
 * *****************************************************************
 * RESPONSIVE STRUCTURE
@@ -4463,38 +4464,6 @@ Classic Layout
 DOKUWIKI MODES
 --------------------------------------------------------------*/
 
-/* Recent */
-
-.mode_recent #dw__recent .changeType {
-    margin-bottom: 1rem;
-}
-
-.mode_recent #dw__recent ul li {
-    margin: 0 0 .5rem 0;
-}
-
-.mode_recent #dw__recent ul img {
-    margin: 0;
-}
-
-.mode_recent #dw__recent ul img.icon {
-    vertical-align: text-top;
-}
-
-.mode_recent #dw__recent ul li a.diff_link img {
-    vertical-align: 0px;
-}
-
-.mode_recent #dw__recent ul li a.revisions_link img {
-    vertical-align: -1px;
-}
-
-/* Sitemap */
-
-.mode_index #index__tree li > ul {
-    margin: 0 0 0 2rem;
-}
-
 /* Admin */
 
 .mode_admin .ui-admin ul.admin_tasks {
@@ -4622,6 +4591,62 @@ DOKUWIKI MODES
     margin: 1rem 0 0 0;
 }
 
+/* Edit */
+
+.editBox .toolbar #tool__bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editBox .toolbar button {
+    line-height: 0;
+    padding: 1rem;
+}
+
+.editBox #dw__editform #wiki__text {
+    width: 100%;
+    resize: none;
+}
+
+.editBox #dw__editform #wiki__editbar #size__ctl {
+    float: right;
+}
+
+.editBox #dw__editform #wiki__editbar .editButtons,
+.editBox #dw__editform #wiki__editbar .summary {
+    display: inline;
+    float: left;
+}
+
+.editBox #dw__editform #wiki__editbar #edit__summary {
+    width: 300px;
+}
+
+.editBox #dw__editform .license {
+    clear: left;
+}
+
+/*
+.editBox .toolbar button::first-child):not(:last-child) {
+    margin: 0 .5rem 1rem .5rem;
+}
+
+.editBox .toolbar button:not(:first-child):not(:last-child) {
+    margin: 0 .5rem 1rem .5rem;
+}
+
+.editBox .toolbar button:not(:first-child):not(:last-child) {
+    margin: 0 .5rem 1rem .5rem;
+}
+*/
+
+.editBox .toolbar button img {
+    margin: 0;
+}
+
 /* Media Manager */
 
 #mediamanager__page .panel h2 {
@@ -4676,6 +4701,38 @@ DOKUWIKI MODES
 #media__manager #media__opts input,
 #media__manager #media__opts label {
     display: inline;
+}
+
+/* Recent */
+
+.mode_recent #dw__recent .changeType {
+    margin-bottom: 1rem;
+}
+
+.mode_recent #dw__recent ul li {
+    margin: 0 0 .5rem 0;
+}
+
+.mode_recent #dw__recent ul img {
+    margin: 0;
+}
+
+.mode_recent #dw__recent ul img.icon {
+    vertical-align: text-top;
+}
+
+.mode_recent #dw__recent ul li a.diff_link img {
+    vertical-align: 0px;
+}
+
+.mode_recent #dw__recent ul li a.revisions_link img {
+    vertical-align: -1px;
+}
+
+/* Sitemap */
+
+.mode_index #index__tree li > ul {
+    margin: 0 0 0 2rem;
 }
 
 /*--------------------------------------------------------------
