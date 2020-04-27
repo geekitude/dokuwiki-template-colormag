@@ -545,6 +545,7 @@ input.s:focus {
     text-indent: 0;
 }
 
+#media__manager #media__opts a,
 .colormag-button,
 input[type="reset"],
 input[type="button"],
@@ -575,6 +576,7 @@ button {
     font-size: 18px;
 }
 
+#media__manager #media__opts a:hover,
 .colormag-button:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
@@ -4433,7 +4435,8 @@ div.insitu-footnote {
     border-radius: 0;
 }
 
-#mediamanager__page .panel.namespaces ul.idx li img {
+#mediamanager__page .panel.namespaces ul.idx li img,
+#media__manager #media__tree ul.idx li img {
     margin: 0;
     padding: .6em .3em 0 0
 }
@@ -4461,6 +4464,18 @@ div.insitu-footnote {
 
 #mediamanager__page .panel.file div.panelContent dl dd {
     margin: 0 0 .5rem 0;
+}
+
+#media__manager #mediamgr__aside h1 {
+    font-size: 18px;
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+    padding: 6px 12px;
+}
+
+#media__manager #media__opts input,
+#media__manager #media__opts label {
+    display: inline;
 }
 
 /*--------------------------------------------------------------

@@ -649,6 +649,7 @@ input.s:focus {
     padding-right: 10px;
 }
 
+#media__manager #media__opts a,
 .colormag-button,
 input[type="reset"],
 input[type="button"],
@@ -663,7 +664,7 @@ button {
     color: @ini_color_theme_text;
 }
 
-[dir] .colormag-button, [dir] input[type="reset"], [dir] input[type="button"], [dir] input[type="submit"], [dir] button {
+[dir] #media__manager #media__opts a, [dir] .colormag-button, [dir] input[type="reset"], [dir] input[type="button"], [dir] input[type="submit"], [dir] button {
     margin-bottom: 1rem;
     padding: 1rem 2rem;
     background-color: @ini_color_theme;
@@ -690,7 +691,7 @@ button {
     margin-right: -8px;
 }
 
-[dir] .colormag-button:hover, [dir] input[type="reset"]:hover, [dir] input[type="button"]:hover, [dir] input[type="submit"]:hover, [dir] button:hover {
+[dir] #media__manager #media__opts a:hover, [dir] .colormag-button:hover, [dir] input[type="reset"]:hover, [dir] input[type="button"]:hover, [dir] input[type="submit"]:hover, [dir] button:hover {
     background-color: @ini_color_theme_dark;
 }
 
@@ -5835,15 +5836,15 @@ div.insitu-footnote {
     margin: 0 0 0 10px;
 }
 
-[dir] #mediamanager__page .panel.namespaces ul.idx li img {
+[dir] #mediamanager__page .panel.namespaces ul.idx li img, [dir] #media__manager #media__tree ul.idx li img {
     margin: 0
 }
 
-[dir=ltr] #mediamanager__page .panel.namespaces ul.idx li img {
+[dir=ltr] #mediamanager__page .panel.namespaces ul.idx li img, [dir=ltr] #media__manager #media__tree ul.idx li img {
     padding: .6em .3em 0 0
 }
 
-[dir=rtl] #mediamanager__page .panel.namespaces ul.idx li img {
+[dir=rtl] #mediamanager__page .panel.namespaces ul.idx li img, [dir=rtl] #media__manager #media__tree ul.idx li img {
     padding: .6em 0 0 .3em
 }
 
@@ -5870,6 +5871,21 @@ div.insitu-footnote {
 
 [dir] #mediamanager__page .panel.file div.panelContent dl dd {
     margin: 0 0 .5rem 0;
+}
+
+#media__manager #mediamgr__aside h1 {
+    font-size: 18px;
+    color: @ini_color_theme_text;
+}
+
+[dir] #media__manager #mediamgr__aside h1 {
+    background-color: @ini_color_theme;
+    padding: 6px 12px;
+}
+
+#media__manager #media__opts input,
+#media__manager #media__opts label {
+    display: inline;
 }
 
 /*--------------------------------------------------------------
