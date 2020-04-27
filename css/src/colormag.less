@@ -20,6 +20,8 @@
 * Pagetools constants
 * RESET
 * GLOBAL
+* UI colors
+* Flexbox
 * TEXT ELEMENTS
 * Headings
 * LISTS
@@ -242,83 +244,17 @@ body {
     background-color: @ini_background_site;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    padding-bottom: 18px;
-    color: @ini_color_theme;
-    /*font-weight: normal;*/
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    clear: left; /* ideally 'both', but problems with toc */
-}
-
-h1 {
-    font-size: 42px;
-    line-height: 1.2;
-    color: @ini_color_h1;
-}
-
-h2 {
-    font-size: 38px;
-    line-height: 1.2;
-    color: @ini_color_h2;
-}
-
-h3 {
-    font-size: 34px;
-    line-height: 1.2;
-    color: @ini_color_h3;
-}
-
-h4 {
-    font-size: 30px;
-    line-height: 1.2;
-    color: @ini_color_h4;
-}
-
-h5 {
-    font-size: 26px;
-    line-height: 1.2;
-    color: @ini_color_h5;
-}
-
-h6 {
-    font-size: 22px;
-    line-height: 1.2;
-    color: @ini_color_h6;
-}
-
-h6.widget-title {
-    border-bottom: 2px solid @ini_color_theme;
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-}
-
-h6.widget-title span {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
-    padding: 6px 12px;
-    display: inline-block;
-}
-
-h6.aside-title,
-#dw__toc h3 {
-    font-size: 18px;
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
-    padding: 6px 12px;
-    display: inline-block;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
 hr {
     border-color: @ini_border;
     border-style: solid none none;
     border-width: 1px 0 0;
     height: 0;
     margin: .8rem 3rem;
+}
+
+div.vr {
+    border-left: 1px solid @ini_border;
+    margin: 3rem 0;
 }
 
 /* UI colors */
@@ -339,6 +275,58 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 body.alt-ui .uicolor a {
     background-color: @ini_background_alt;
 }
+
+/* Flexbox */
+
+.flex {
+    display: flex;
+    /*position: relative;*/
+    align-items: center;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.between {
+    justify-content: space-between;
+}
+.flex.evenly {
+    justify-content: space-evenly;
+}
+
+.flex.stretch {
+    align-items: stretch;
+}
+.flex.baseline {
+    align-items: flex-start;
+}
+.flex.start {
+    align-items: flex-start;
+}
+.flex.end {
+    align-items: flex-end;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+/*
+.flex .flex1 {
+    order: 1;
+}
+.flex .flex2 {
+    order: 2;
+}
+
+.flex.nowrap {
+    flex-wrap: nowrap;
+}
+*/
 
 /* =TEXT ELEMENTS
 ----------------------------------------------- */
@@ -410,6 +398,77 @@ span.curid {
     font-weight: bold;
 }
 
+/* Headings */
+
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 18px;
+    color: @ini_color_theme;
+    /*font-weight: normal;*/
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    clear: left; /* ideally 'both', but problems with toc */
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    color: @ini_color_h1;
+}
+
+h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    color: @ini_color_h2;
+}
+
+h3 {
+    font-size: 34px;
+    line-height: 1.2;
+    color: @ini_color_h3;
+}
+
+h4 {
+    font-size: 30px;
+    line-height: 1.2;
+    color: @ini_color_h4;
+}
+
+h5 {
+    font-size: 26px;
+    line-height: 1.2;
+    color: @ini_color_h5;
+}
+
+h6 {
+    font-size: 22px;
+    line-height: 1.2;
+    color: @ini_color_h6;
+}
+
+h6.widget-title {
+    border-bottom: 2px solid @ini_color_theme;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+}
+
+h6.widget-title span {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+    padding: 6px 12px;
+    display: inline-block;
+}
+
+h6.aside-title,
+#dw__toc h3 {
+    font-size: 18px;
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+    padding: 6px 12px;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+}
 
 /* =LISTS
 ----------------------------------------------- */
@@ -2544,8 +2603,6 @@ a#scroll-up:hover {
 
 #colormag__main-content .vr {
     order: 2;
-    border-left: 1px solid @ini_border;
-    margin: 3rem 0;
 }
 
 /* ToC container */
@@ -4633,61 +4690,6 @@ body.debug #colormag__helper {
 .dbg {
     background-color: gold;
 }
-
-
-/*--------------------------------------------------------------
-FLEXBOX
---------------------------------------------------------------*/
-
-.flex {
-    display: flex;
-    /*position: relative;*/
-    align-items: center;
-}
-
-.flex.row {
-    flex-direction: row;
-}
-.flex.column {
-    flex-direction: column;
-}
-
-.flex.between {
-    justify-content: space-between;
-}
-.flex.evenly {
-    justify-content: space-evenly;
-}
-
-.flex.stretch {
-    align-items: stretch;
-}
-.flex.baseline {
-    align-items: flex-start;
-}
-.flex.start {
-    align-items: flex-start;
-}
-.flex.end {
-    align-items: flex-end;
-}
-
-.flex.wrap {
-    flex-wrap: wrap;
-}
-
-/*
-.flex .flex1 {
-    order: 1;
-}
-.flex .flex2 {
-    order: 2;
-}
-
-.flex.nowrap {
-    flex-wrap: nowrap;
-}
-*/
 
 /*--------------------------------------------------------------
 RESPONSIVE STRUCTURE

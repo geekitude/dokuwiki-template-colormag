@@ -20,6 +20,8 @@
 * Pagetools constants
 * RESET
 * GLOBAL
+* UI colors
+* Flexbox
 * TEXT ELEMENTS
 * Headings
 * LISTS
@@ -254,93 +256,6 @@ textarea {
     background-color: @ini_background_site;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: @ini_color_theme;
-    /*font-weight: normal;*/
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif; /* ideally 'both', but problems with toc */
-}
-[dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] h6 {
-    padding-bottom: 18px;
-}
-[dir=ltr] h1, [dir=ltr] h2, [dir=ltr] h3, [dir=ltr] h4, [dir=ltr] h5, [dir=ltr] h6 {
-    clear: left;
-}
-[dir=rtl] h1, [dir=rtl] h2, [dir=rtl] h3, [dir=rtl] h4, [dir=rtl] h5, [dir=rtl] h6 {
-    clear: right;
-}
-
-h1 {
-    font-size: 42px;
-    line-height: 1.2;
-    color: @ini_color_h1;
-}
-
-h2 {
-    font-size: 38px;
-    line-height: 1.2;
-    color: @ini_color_h2;
-}
-
-h3 {
-    font-size: 34px;
-    line-height: 1.2;
-    color: @ini_color_h3;
-}
-
-h4 {
-    font-size: 30px;
-    line-height: 1.2;
-    color: @ini_color_h4;
-}
-
-h5 {
-    font-size: 26px;
-    line-height: 1.2;
-    color: @ini_color_h5;
-}
-
-h6 {
-    font-size: 22px;
-    line-height: 1.2;
-    color: @ini_color_h6;
-}
-
-h6.widget-title {
-    font-size: 18px;
-}
-
-[dir] h6.widget-title {
-    border-bottom: 2px solid @ini_color_theme;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-}
-
-h6.widget-title span {
-    color: @ini_color_theme_text;
-    display: inline-block;
-}
-
-[dir] h6.widget-title span {
-    background-color: @ini_color_theme;
-    padding: 6px 12px;
-}
-
-h6.aside-title,
-#dw__toc h3 {
-    font-size: 18px;
-    color: @ini_color_theme_text;
-    display: inline-block;
-    width: 100%;
-}
-
-[dir] h6.aside-title, [dir] #dw__toc h3 {
-    background-color: @ini_color_theme;
-    padding: 6px 12px;
-    margin-bottom: 15px;
-}
-
 hr {
     height: 0;
 }
@@ -350,6 +265,18 @@ hr {
     border-style: solid none none;
     border-width: 1px 0 0;
     margin: .8rem 3rem;
+}
+
+[dir] div.vr {
+    margin: 3rem 0;
+}
+
+[dir=ltr] div.vr {
+    border-left: 1px solid @ini_border;
+}
+
+[dir=rtl] div.vr {
+    border-right: 1px solid @ini_border;
 }
 
 /* UI colors */
@@ -375,6 +302,58 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 [dir] body.alt-ui .uicolor a {
     background-color: @ini_background_alt;
 }
+
+/* Flexbox */
+
+.flex {
+    display: flex;
+    /*position: relative;*/
+    align-items: center;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.between {
+    justify-content: space-between;
+}
+.flex.evenly {
+    justify-content: space-evenly;
+}
+
+.flex.stretch {
+    align-items: stretch;
+}
+.flex.baseline {
+    align-items: flex-start;
+}
+.flex.start {
+    align-items: flex-start;
+}
+.flex.end {
+    align-items: flex-end;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+/*
+.flex .flex1 {
+    order: 1;
+}
+.flex .flex2 {
+    order: 2;
+}
+
+.flex.nowrap {
+    flex-wrap: nowrap;
+}
+*/
 
 /* =TEXT ELEMENTS
 ----------------------------------------------- */
@@ -459,6 +438,96 @@ span.curid {
     font-weight: bold;
 }
 
+/* Headings */
+
+h1, h2, h3, h4, h5, h6 {
+    color: @ini_color_theme;
+    /*font-weight: normal;*/
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif; /* ideally 'both', but problems with toc */
+}
+
+[dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] h6 {
+    padding-bottom: 18px;
+}
+
+[dir=ltr] h1, [dir=ltr] h2, [dir=ltr] h3, [dir=ltr] h4, [dir=ltr] h5, [dir=ltr] h6 {
+    clear: left;
+}
+
+[dir=rtl] h1, [dir=rtl] h2, [dir=rtl] h3, [dir=rtl] h4, [dir=rtl] h5, [dir=rtl] h6 {
+    clear: right;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    color: @ini_color_h1;
+}
+
+h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    color: @ini_color_h2;
+}
+
+h3 {
+    font-size: 34px;
+    line-height: 1.2;
+    color: @ini_color_h3;
+}
+
+h4 {
+    font-size: 30px;
+    line-height: 1.2;
+    color: @ini_color_h4;
+}
+
+h5 {
+    font-size: 26px;
+    line-height: 1.2;
+    color: @ini_color_h5;
+}
+
+h6 {
+    font-size: 22px;
+    line-height: 1.2;
+    color: @ini_color_h6;
+}
+
+h6.widget-title {
+    font-size: 18px;
+}
+
+[dir] h6.widget-title {
+    border-bottom: 2px solid @ini_color_theme;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+}
+
+h6.widget-title span {
+    color: @ini_color_theme_text;
+    display: inline-block;
+}
+
+[dir] h6.widget-title span {
+    background-color: @ini_color_theme;
+    padding: 6px 12px;
+}
+
+h6.aside-title,
+#dw__toc h3 {
+    font-size: 18px;
+    color: @ini_color_theme_text;
+    display: inline-block;
+    width: 100%;
+}
+
+[dir] h6.aside-title, [dir] #dw__toc h3 {
+    background-color: @ini_color_theme;
+    padding: 6px 12px;
+    margin-bottom: 15px;
+}
 
 /* =LISTS
 ----------------------------------------------- */
@@ -3195,18 +3264,6 @@ a#scroll-up:hover {
 
 #colormag__main-content .vr {
     order: 2;
-}
-
-[dir] #colormag__main-content .vr {
-    margin: 3rem 0;
-}
-
-[dir=ltr] #colormag__main-content .vr {
-    border-left: 1px solid @ini_border;
-}
-
-[dir=rtl] #colormag__main-content .vr {
-    border-right: 1px solid @ini_border;
 }
 
 /* ToC container */
@@ -6048,61 +6105,6 @@ body.debug #colormag__helper {
 [dir] .dbg {
     background-color: gold;
 }
-
-
-/*--------------------------------------------------------------
-FLEXBOX
---------------------------------------------------------------*/
-
-.flex {
-    display: flex;
-    /*position: relative;*/
-    align-items: center;
-}
-
-.flex.row {
-    flex-direction: row;
-}
-.flex.column {
-    flex-direction: column;
-}
-
-.flex.between {
-    justify-content: space-between;
-}
-.flex.evenly {
-    justify-content: space-evenly;
-}
-
-.flex.stretch {
-    align-items: stretch;
-}
-.flex.baseline {
-    align-items: flex-start;
-}
-.flex.start {
-    align-items: flex-start;
-}
-.flex.end {
-    align-items: flex-end;
-}
-
-.flex.wrap {
-    flex-wrap: wrap;
-}
-
-/*
-.flex .flex1 {
-    order: 1;
-}
-.flex .flex2 {
-    order: 2;
-}
-
-.flex.nowrap {
-    flex-wrap: nowrap;
-}
-*/
 
 /*--------------------------------------------------------------
 RESPONSIVE STRUCTURE
