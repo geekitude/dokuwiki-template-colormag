@@ -764,14 +764,6 @@ a:hover {
     text-decoration: none;
 }
 
-a.wikilink1 {
-    color: @ini_color_green;
-}
-
-a.wikilink2 {
-    color: @ini_color_red;
-}
-
 a:focus, a:active, a:hover {
     text-decoration: none;
 }
@@ -786,6 +778,28 @@ a:hover svg {
 
 a:hover img {
     opacity: .6;
+}
+
+.dokuwiki a.wikilink1 {
+    color: @ini_color_green;
+}
+
+.dokuwiki a.wikilink2 {
+    color: @ini_color_red;
+}
+
+[dir] .dokuwiki a.interwiki, [dir] .dokuwiki a.urlextern, [dir] .dokuwiki a.windows, [dir] .dokuwiki a.mail, [dir] .dokuwiki a.mediafile {
+    background-repeat: no-repeat;
+}
+
+[dir=ltr] .dokuwiki a.interwiki, [dir=ltr] .dokuwiki a.urlextern, [dir=ltr] .dokuwiki a.windows, [dir=ltr] .dokuwiki a.mail, [dir=ltr] .dokuwiki a.mediafile {
+    background-position: 0 center;
+    padding: 0 0 0 1.8rem;
+}
+
+[dir=rtl] .dokuwiki a.interwiki, [dir=rtl] .dokuwiki a.urlextern, [dir=rtl] .dokuwiki a.windows, [dir=rtl] .dokuwiki a.mail, [dir=rtl] .dokuwiki a.mediafile {
+    background-position: 100% center;
+    padding: 0 1.8rem 0 0;
 }
 
 /* =IMAGES
