@@ -21,6 +21,7 @@
 * Reset
 * GLOBAL
 * TEXT ELEMENTS
+* LISTS
 * SUPERCRIPT AND SUBSCRIPT
 * BLOCKQUOTE
 * FORMS
@@ -377,6 +378,10 @@ cite, em, i {
     font-style: italic;
 }
 
+[dir] #colormag__content :not(li) > ul, [dir] #colormag__content :not(li) > ol {
+    margin-bottom: 2rem;
+}
+
 pre {
     /*background-color: #ffffff;*/
     overflow: auto;
@@ -425,6 +430,34 @@ span.curid {
     font-weight: bold;
 }
 
+
+/* =LISTS
+----------------------------------------------- */
+ul,
+ol {
+    list-style: none;
+}
+
+ol {
+    list-style: decimal;
+}
+
+[dir=ltr] ol {
+    padding: 0 0 0 2rem;
+}
+
+[dir=rtl] ol {
+    padding: 0 2rem 0 0;
+}
+
+[dir=ltr] li > ul, [dir=ltr] li > ol {
+    margin: 0 0 0 2rem;
+}
+
+[dir=rtl] li > ul, [dir=rtl] li > ol {
+    margin: 0 2rem 0 0;
+}
+
 /* =SUPERCRIPT AND SUBSCRIPT
 ----------------------------------------------- */
 sup, sub {
@@ -461,27 +494,6 @@ dt {
 
 [dir] dd {
     margin-bottom: 24px;
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-ol {
-    list-style: decimal;
-}
-
-[dir=ltr] li > ul, [dir=ltr] li > ol {
-    margin: 0 0 0 2rem;
-}
-
-[dir=rtl] li > ul, [dir=rtl] li > ol {
-    margin: 0 2rem 0 0;
-}
-
-[dir] #colormag__content ul, [dir] #colormag__content ol {
-    margin-bottom: 2rem;
 }
 
 /* =BLOCKQUOTE
