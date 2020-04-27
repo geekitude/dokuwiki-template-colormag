@@ -646,3 +646,49 @@ function colormag_trace() {
         return false;
     }
 }/* /colormag_trace */
+
+/**
+ * adapted from core
+ *
+ * See original function in inc/template.php for details
+ */
+function colormag_searchform($ajax = true, $autocomplete = true, $dw = false) {
+    global $colormag;
+    global $lang, $ACT, $QUERY;
+
+    // don't print the search form if search action has been disabled
+    if(!actionOK('search')) return false;
+
+//                            <form action="http://demo.themegrill.com/colormag/" class="search-form searchform clearfix" method="get">
+//                                <div class="search-wrap">
+//                                    <input type="text" placeholder="Search" class="s field" name="s">
+//                                    <button class="search-icon" type="submit"></button>
+//                                </div>
+//                            </form><!-- .searchform -->
+
+
+    print '<form id="search-form" action="'.wl().'" accept-charset="utf-8" class="search searchform clearfix';
+//    if ($dw) { print ' dw'; }
+//    print '" method="get" role="search"><div class="no">';
+    print '" method="get" role="search"><div class="no">';
+//    print '<div class="search-wrap">';
+    print '<input type="hidden" name="do" value="search" />';
+    print '<input type="text" ';
+
+//    print '<form action="'.wl().'" accept-charset="utf-8" class="form-inline search" id="dw__search" method="get" role="search"><div class="no">';
+//    print '<input type="hidden" name="do" value="search" />';
+//    print '<input type="text" ';
+    if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
+//    print 'placeholder="&#xF002; '.$lang['btn_search'].'" ';
+    print 'placeholder="'.$lang['btn_search'].'" ';
+    if(!$autocomplete) print 'autocomplete="off" ';
+    print 'id="qsearch__in" accesskey="f" name="id" class="s field" title="[F]" />';
+    if (!$dw) {
+        print '<button type="submit" title="'.$lang['btn_search'].'">'.colormag_glyph($colormag['glyphs']['search'], true).'</button>';
+    }
+//    print '</div>';
+//  REMOVED JSpopup class because when used, quick search result doesn't show up ("Found pages"). Original line: if ($ajax) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
+    if ($ajax) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch"></div>';
+    print '</div></form>';
+    return true;
+}/* /colormag_searchform */

@@ -1629,14 +1629,63 @@ div.info, div.notify, div.success, div.error {
     left: 175px;
 }
 
-[dir=ltr] #colormag__secondary .search-wrap button {
+[dir=ltr] .dokuwiki #colormag__secondary .search-wrap button {
     right: 26px;
 }
 
-[dir=rtl] #colormag__secondary .search-wrap button {
+[dir=rtl] .dokuwiki #colormag__secondary .search-wrap button {
     left: 26px;
 }
 
+.dokuwiki .search-form-top {
+    width: 300px;
+}
+
+.dokuwiki .search-form-top #qsearch__in,
+.dokuwiki .search-form-top button[type="submit"] {
+    display: inline-block;
+}
+
+.dokuwiki .search-form-top #qsearch__in {
+    width: 200px;
+    height: 44px;
+}
+
+[dir] .dokuwiki .search-form-top #qsearch__in {
+    padding: 0 1rem;
+}
+
+[dir=ltr] .dokuwiki .search-form-top #qsearch__in {
+    border-radius: 3px 0 0 3px;
+}
+
+[dir=rtl] .dokuwiki .search-form-top #qsearch__in {
+    border-radius: 0 3px 3px 0;
+}
+
+.dokuwiki .search-form-top button[type="submit"] {
+    line-height: 0;
+    vertical-align: bottom;
+}
+
+[dir] .dokuwiki .search-form-top button[type="submit"] {
+    margin: 0;
+    border-radius: 0;
+    padding: 10px;
+}
+
+[dir=ltr] .dokuwiki .search-form-top button[type="submit"] {
+    margin-left: -2px;
+}
+
+[dir=rtl] .dokuwiki .search-form-top button[type="submit"] {
+    margin-right: -2px;
+}
+
+.dokuwiki #qsearch__out ul {
+    position: initial;
+    width: 100%;
+}
 /* =RANDOM POST
 ----------------------------------------------- */
 [dir=ltr] .random-post {

@@ -135,7 +135,7 @@ if (!defined('DOKU_INC')) die();
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
                                 <label for="colormag__searchcheck01" title="<?php print $lang['btn_search']; ?>"><?php colormag_glyph($colormag['glyphs']['search']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['btn_search']; ?></span></label>
                                 <div class="search-form-top">
-                                    <?php tpl_searchform(); ?>
+                                    <?php colormag_searchform(); ?>
                                 </div>
                             </li>
                             <!-- USERTOOLS -->
