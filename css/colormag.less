@@ -18,22 +18,28 @@
 
 /**
 * Pagetools constants
-* Reset
+* RESET
 * GLOBAL
 * TEXT ELEMENTS
 * LISTS
 * SUPERCRIPT AND SUBSCRIPT
+* Footnotes
 * BLOCKQUOTE
 * FORMS
 * LINKS
 * IMAGES
+* Alignment
 * CLEARFIX
 * ALIGNMENT
 * TABS
 * *****************************************************************
 * BODY
+* Inner-wraps
+* Skip to content
+* Move tpl_indexerWebBug() out of the way
 * HEADER
-* HEADER INFO TEXT
+* INFO TEXT
+* docInfo
 * SOCIAL LINKS
 * SEARCH WIDGET
 * RANDOM POST
@@ -48,6 +54,7 @@
 * PAGE NAVIGATION
 * WP PAGENAVI PLUGIN
 * PAGINATION
+* SECTION HIGHLIGHTING
 * MEDIA
 * WORDPRESS GALLERY SUPPORT
 * COMMENTS
@@ -58,24 +65,35 @@
 * FOOTER SOCKET AREA
 * SCROLL UP
 * PRIMARY AND SECONDARY CONTENT AREA
+* ToC container
 * RIGHT SIDEBAR CONTENT LAYOUT
 * LEFT SIDEBAR CONTENT LAYOUT
 * NO SIDEBAR CONTENT LAYOUT
-* Pagetools
+* MOBILETOOLS
+* PAGETOOLS
 * POST CONTENT
 * FEATURED BLOG
 * FRONT PAGE WIDGET AREAS
 * FRONT PAGE MAIN CONTENT SECTION
 * Gallery Post Format
-*  Page Template CSS
+* Page Template CSS
 * *****************************************************************
 * 16.0 heaader media css
 * Classic Layout
 * *****************************************************************
-* DW SPECIFIC
+* DOKUWIKI MODES
+* Recent
+* Sitemap
+* Admin
+* Admin - ACL Manager
+* Admin - Config Manager
+* Admin - Extensions
+* Admin - User Manager
+* Media Manager
+* Media Popup
 * DEBUG
 * *****************************************************************
-* Responsive Structure
+* RESPONSIVE STRUCTURE
 * *****************************************************************
 */
 
@@ -496,6 +514,25 @@ dt {
     margin-bottom: 24px;
 }
 
+/* Footnotes */
+
+div.insitu-footnote {
+    min-width: 5rem;
+}
+
+[dir] div.insitu-footnote {
+    padding: .3rem .5rem;
+    background-color: @ini_color_blue;
+}
+
+[dir] .dokuwiki div.footnotes {
+    padding: .6rem 0 0 0;
+}
+
+.dokuwiki div.footnotes .fn .content {
+    display: inline-block;
+}
+
 /* =BLOCKQUOTE
 ----------------------------------------------- */
 blockquote {
@@ -793,6 +830,33 @@ img#wpstats {
     display: none;
 }
 
+/* Alignment */
+
+[dir=ltr] .medialeft {
+    float: left;
+}
+
+[dir=rtl] .medialeft {
+    float: right;
+}
+[dir=ltr] .mediaright {
+    float: right;
+}
+[dir=rtl] .mediaright {
+    float: left;
+}
+.mediacenter {
+    display: block;
+}
+[dir=ltr] .mediacenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+[dir=rtl] .mediacenter {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 /* =CLEARFIX
 ----------------------------------------------- */
 .clearfix:after {
@@ -920,6 +984,8 @@ body.box2wide-layout #colormag__page {
     margin: 20px auto;
 }
 
+/* Inner-wraps */
+
 [dir] .inner-wrap {
     margin: 0 (@ico-width + @ico-margin + @ico-margin);
 }
@@ -946,6 +1012,34 @@ body.mix-layout .narrow-mix {
 
 [dir] body.mix-layout .inner-wrap.narrow-mix, [dir] body.mix-layout .inner-wrap-left.narrow-mix {
     margin: 0 auto !important;
+}
+
+/* Skip to content */
+
+[dir] div.skip {
+    margin: 0 auto;
+    padding: 0;
+    background-color: black;
+}
+div.skip a {
+    display: block;
+    width: 100%;
+    color: @ini_color_theme_text;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 2;
+    font-size: 3.9rem;
+    font-weight: 600;
+}
+[dir] div.skip a {
+    text-align: center;
+}
+
+/* Move tpl_indexerWebBug() out of the way */
+
+#colormag__housekeeper {
+    position: fixed;
+    top: 0;
 }
 
 /* =HEADER
@@ -1122,7 +1216,40 @@ body.banner-flip #colormag__header-right-sidebar {
     order: 1;
 }
 
-/* =HEADER INFO TEXT
+/* Alerts */
+
+[dir] #colormag__alerts > div:last-child {
+    margin-bottom: 1.5rem;
+}
+#colormag__alerts a {
+    color: @ini_color_theme_text;
+}
+div.info, div.notify, div.success, div.error {
+    width: 80%;
+}
+[dir] div.info, [dir] div.notify, [dir] div.success, [dir] div.error {
+    margin: .5rem auto;
+}
+[dir=ltr] div.info, [dir=ltr] div.notify, [dir=ltr] div.success, [dir=ltr] div.error {
+    padding: .5rem 1rem .5rem 3rem;
+}
+[dir=rtl] div.info, [dir=rtl] div.notify, [dir=rtl] div.success, [dir=rtl] div.error {
+    padding: .5rem 3rem .5rem 1rem;
+}
+[dir] div.info {
+    background-color: @ini_color_blue;
+}
+[dir] div.notify {
+    background-color: @ini_color_yellow;
+}
+[dir] div.success {
+    background-color: @ini_color_green;
+}
+[dir] div.error {
+    background-color: @ini_color_red;
+}
+
+/* =INFO TEXT
 ----------------------------------------------- */
 .small-info-text {
     max-width: 100%;
@@ -1146,6 +1273,12 @@ body.banner-flip #colormag__header-right-sidebar {
 
 [dir] .small-info-text p {
     margin-bottom: 0;
+}
+
+/* docInfo */
+
+[dir] #colormag__content .docInfo {
+    margin-top: 1rem;
 }
 
 /* =SOCIAL LINKS
@@ -2173,6 +2306,40 @@ body.pageheader-flip #colormag__breadcrumbs-wrapper {
     border-color: @ini_link;
 }
 
+/* =SECTION HIGHLIGHTING
+----------------------------------------------- */
+
+div.secedit.editbutton_section {
+    display: block;
+}
+
+[dir] div.secedit.editbutton_section {
+    margin-top: -1.6rem;
+}
+
+[dir=ltr] div.secedit.editbutton_section {
+    float: right;
+}
+
+[dir=rtl] div.secedit.editbutton_section {
+    float: left;
+}
+
+[dir] div.secedit.editbutton_section button {
+    padding: .1rem .9rem;
+}
+
+.dokuwiki div.section_highlight { /* negative side margin = side padding + side border */
+}
+
+[dir] .dokuwiki div.section_highlight {
+    margin: 0 -.8rem;
+    padding: 0 .3rem;
+    border-width: 0 .5rem;
+    border-color: @ini_color_yellow;
+    border-style: solid;
+}
+
 /* =MEDIA
 ----------------------------------------------- */
 .wp-caption {
@@ -2977,6 +3144,22 @@ a#scroll-up:hover {
     border-right: 1px solid @ini_border;
 }
 
+/* ToC container */
+
+#dw__toc {
+    width: @ini_toc_width;
+}
+
+[dir=ltr] #dw__toc {
+    float: right;
+    margin: 0 0 1.6rem 1.6rem;
+}
+
+[dir=rtl] #dw__toc {
+    float: left;
+    margin: 0 1.6rem 1.6rem 0;
+}
+
 
 /* =RIGHT SIDEBAR CONTENT LAYOUT
 -------------------------------------------------------------- */
@@ -3142,7 +3325,14 @@ body.no-sidebar #colormag__primary {
 }
 */
 
-/* =Pagetools
+/* =MOBILETOOLS
+-------------------------------------------------------------- */
+
+div.mobileTools {
+    display:none;
+}
+
+/* =PAGETOOLS
 -------------------------------------------------------------- */
 
 #colormag__pagetools .tools {
@@ -5463,179 +5653,8 @@ Classic Layout
 }
 
 /*--------------------------------------------------------------
-DW SPECIFIC
+DOKUWIKI MODES
 --------------------------------------------------------------*/
-/* Skip to content */
-
-[dir] div.skip {
-    margin: 0 auto;
-    padding: 0;
-    background-color: black;
-}
-div.skip a {
-    display: block;
-    width: 100%;
-    color: @ini_color_theme_text;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 2;
-    font-size: 3.9rem;
-    font-weight: 600;
-}
-[dir] div.skip a {
-    text-align: center;
-}
-
-/* Alerts */
-
-[dir] #colormag__alerts > div:last-child {
-    margin-bottom: 1.5rem;
-}
-#colormag__alerts a {
-    color: @ini_color_theme_text;
-}
-div.info, div.notify, div.success, div.error {
-    width: 80%;
-}
-[dir] div.info, [dir] div.notify, [dir] div.success, [dir] div.error {
-    margin: .5rem auto;
-}
-[dir=ltr] div.info, [dir=ltr] div.notify, [dir=ltr] div.success, [dir=ltr] div.error {
-    padding: .5rem 1rem .5rem 3rem;
-}
-[dir=rtl] div.info, [dir=rtl] div.notify, [dir=rtl] div.success, [dir=rtl] div.error {
-    padding: .5rem 3rem .5rem 1rem;
-}
-[dir] div.info {
-    background-color: @ini_color_blue;
-}
-[dir] div.notify {
-    background-color: @ini_color_yellow;
-}
-[dir] div.success {
-    background-color: @ini_color_green;
-}
-[dir] div.error {
-    background-color: @ini_color_red;
-}
-
-/* ToC container */
-
-#dw__toc {
-    width: @ini_toc_width;
-}
-
-[dir=ltr] #dw__toc {
-    float: right;
-    margin: 0 0 1.6rem 1.6rem;
-}
-
-[dir=rtl] #dw__toc {
-    float: left;
-    margin: 0 1.6rem 1.6rem 0;
-}
-
-/* Section highlighting */
-
-div.secedit.editbutton_section {
-    display: block;
-}
-
-[dir] div.secedit.editbutton_section {
-    margin-top: -1.6rem;
-}
-
-[dir=ltr] div.secedit.editbutton_section {
-    float: right;
-}
-
-[dir=rtl] div.secedit.editbutton_section {
-    float: left;
-}
-
-[dir] div.secedit.editbutton_section button {
-    padding: .1rem .9rem;
-}
-
-.dokuwiki div.section_highlight { /* negative side margin = side padding + side border */
-}
-
-[dir] .dokuwiki div.section_highlight {
-    margin: 0 -.8rem;
-    padding: 0 .3rem;
-    border-width: 0 .5rem;
-    border-color: @ini_color_yellow;
-    border-style: solid;
-}
-
-/* docInfo */
-
-[dir] #colormag__content .docInfo {
-    margin-top: 1rem;
-}
-
-/* Move tpl_indexerWebBug() out of the way */
-
-#colormag__housekeeper {
-    position: fixed;
-    top: 0;
-}
-
-/* Hide mobile tools by default */
-
-div.mobileTools {
-    display:none;
-}
-
-/* Images alignment */
-
-[dir=ltr] .medialeft {
-    float: left;
-}
-
-[dir=rtl] .medialeft {
-    float: right;
-}
-[dir=ltr] .mediaright {
-    float: right;
-}
-[dir=rtl] .mediaright {
-    float: left;
-}
-.mediacenter {
-    display: block;
-}
-[dir=ltr] .mediacenter {
-    margin-left: auto;
-    margin-right: auto;
-}
-[dir=rtl] .mediacenter {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* Footnotes inside the text */
-
-div.insitu-footnote {
-    min-width: 5rem;
-}
-
-[dir] div.insitu-footnote {
-    padding: .3rem .5rem;
-    background-color: @ini_color_blue;
-}
-
-/* Footnotes at the bottom of the page */
-
-[dir] .dokuwiki div.footnotes {
-    padding: .6rem 0 0 0;
-}
-
-.dokuwiki div.footnotes .fn .content {
-    display: inline-block;
-}
-
-/* OTHER MODES */
 
 /* Recent */
 
@@ -5716,6 +5735,8 @@ div.insitu-footnote {
     clear: right;
 }
 
+/* Admin - ACL Manager */
+
 [dir] .mode_admin #acl_manager ul.acl, [dir] .mode_admin #acl_manager ul.acl img {
     margin-bottom: 0;
 }
@@ -5723,6 +5744,8 @@ div.insitu-footnote {
 .mode_admin #acl_manager ul.acl img {
     vertical-align: baseline;
 }
+
+/* Admin - Config Manager */
 
 [dir] .mode_admin #config__manager fieldset {
     background-color: @ini_background;
@@ -5765,6 +5788,8 @@ div.insitu-footnote {
     margin: 0 1rem;
 }
 
+/* Admin - Extensions */
+
 [dir] #extension__manager ul.extensionList li {
     padding: 0;
 }
@@ -5785,6 +5810,8 @@ div.insitu-footnote {
     margin: .5rem auto;
     padding: .5rem 1rem;
 }
+
+/* Admin - User Manager */
 
 [dir=ltr] #user__manager #usrmgr__del {
     margin: 0 .5rem 0 0;
@@ -5816,6 +5843,8 @@ div.insitu-footnote {
 [dir] #user__manager .import_users form button[name="fn[import]"] {
     margin: 1rem 0 0 0;
 }
+
+/* Media Manager */
 
 #mediamanager__page .panel h2 {
     font-size: 18px;
@@ -5872,6 +5901,8 @@ div.insitu-footnote {
 [dir] #mediamanager__page .panel.file div.panelContent dl dd {
     margin: 0 0 .5rem 0;
 }
+
+/* Media Popup */
 
 #media__manager #mediamgr__aside h1 {
     font-size: 18px;
@@ -5978,7 +6009,7 @@ FLEXBOX
 */
 
 /*--------------------------------------------------------------
-Responsive Structure
+RESPONSIVE STRUCTURE
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width + 60px) {
