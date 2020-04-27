@@ -81,7 +81,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Namespace dependent UI images (background pattern, logo, banner, widebanner and a potential sidebar header)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
-* [ ] Test most common plugins
+* [ ] Tested with most common plugins (Blockquote, Wrap)
 * [x] Dark color scheme (maybe)
 * [ ] Topbar with date, newsticker (based on current namespace and sub content) and social links
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)

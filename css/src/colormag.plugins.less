@@ -34,3 +34,87 @@ UPGRADE
 #plugin__upgrade_meter span.stage {
     margin-top: -.2rem;
 }
+
+/*--------------------------------------------------------------
+WRAP
+--------------------------------------------------------------*/
+
+div.wrap_info,
+div.wrap_notice {
+    background-color: @ini_color_blue;
+    color: initial !important;
+}
+span.wrap_info,
+span.wrap_notice {
+    background-color: mix(#fff, @ini_color_blue, 40%);
+    color: initial !important;
+}
+
+div.wrap_tip,
+div.wrap_caution {
+    background-color: @ini_color_yellow;
+}
+span.wrap_tip,
+span.wrap_caution {
+    background-color: mix(#fff, @ini_color_yellow, 50%);
+}
+
+div.wrap_alert,
+div.wrap_danger {
+    background-color: @ini_color_red;
+    color: initial !important;
+}
+span.wrap_alert,
+span.wrap_danger {
+    background-color: mix(#fff, @ini_color_red, 30%);
+    color: initial !important;
+}
+
+div.wrap_download,
+div.wrap_safety {
+    background-color: @ini_color_green;
+    color: initial !important;
+}
+span.wrap_download,
+span.wrap_safety {
+    background-color: mix(#fff, @ini_color_green, 30%);
+    color: initial !important;
+}
+
+div.wrap_important,
+div.wrap_warning {
+    background-color: mix(@ini_color_red, @ini_color_yellow, 50%);
+}
+span.wrap_important,
+span.wrap_warning {
+    background-color: mix(#fff, mix(@ini_color_red, @ini_color_yellow, 50%), 50%);
+}
+
+div.wrap_help {
+    background-color: mix(@ini_color_red, @ini_color_blue, 50%);
+}
+span.wrap_help {
+    background-color: mix(#fff, mix(@ini_color_red, @ini_color_blue, 50%), 50%);
+}
+
+div.wrap_todo {
+    background-color: mix(@ini_color_green, @ini_color_blue, 50%);
+}
+span.wrap_todo {
+    background-color: mix(#fff, mix(@ini_color_green, @ini_color_blue, 50%), 50%);
+}
+
+div.wrap_download {
+    background-image: url(images/override/wrap_download_48.png);
+}
+span.wrap_download {
+    background-image: url(images/override/wrap_download_16.png);
+}
+
+span.wrap_hi {
+    background-color: @ini_highlight;
+}
+
+span.wrap_em {
+    color: @ini_color_red;
+}
