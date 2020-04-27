@@ -218,15 +218,6 @@ th {
     text-align: right;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
-}
-
-blockquote, q {
-    quotes: "" "";
-}
-
 a:focus {
     outline: thin dotted;
 }
@@ -547,19 +538,22 @@ div.insitu-footnote {
 
 /* =BLOCKQUOTE
 ----------------------------------------------- */
-blockquote {
-    color: @ini_color_theme_text;
+/*
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
 }
-[dir] blockquote {
+
+blockquote, q {
+    quotes: "" "";
+}
+
+blockquote {
+    padding: 30px 30px 20px 45px;
     margin-bottom: 20px;
     background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
     border-radius: 5px;
-}
-[dir=ltr] blockquote {
-    padding: 30px 30px 20px 45px;
-}
-[dir=rtl] blockquote {
-    padding: 30px 45px 20px 30px;
 }
 
 blockquote p {
@@ -567,18 +561,8 @@ blockquote p {
     font-family: 'Open Sans', serif;
     line-height: 1.4;
     position: relative;
-}
-
-[dir] blockquote p {
     padding-top: 13px;
-}
-
-[dir=ltr] blockquote p {
     padding-left: 40px;
-}
-
-[dir=rtl] blockquote p {
-    padding-right: 40px;
 }
 
 blockquote p:before {
@@ -591,14 +575,7 @@ blockquote p:before {
     font-size: 60px;
     position: absolute;
     top: -27px;
-}
-
-[dir=ltr] blockquote p:before {
     left: -27px;
-}
-
-[dir=rtl] blockquote p:before {
-    right: -27px;
 }
 
 blockquote em, blockquote i, blockquote cite {
@@ -609,19 +586,58 @@ blockquote cite {
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     letter-spacing: 0.05em;
-}
-
-[dir=ltr] blockquote cite {
     float: right;
-}
-
-[dir=rtl] blockquote cite {
-    float: left;
 }
 
 blockquote a {
     color: @ini_color_theme_text;
     text-decoration: underline;
+}
+*/
+
+blockquote {
+    font-style: italic;
+    font-weight: normal;
+    /*border: 1px solid @ini_border;
+    border-left: 3px solid @ini_theme_color;*/
+    /*padding: .2rem 0 .2rem .75rem !important;*/
+}
+
+[dir] blockquote {
+    border-style: solid;
+    margin: 0 0 1.5rem 0;
+    padding: .75rem;
+}
+
+[dir=ltr] blockquote {
+    border-width: 1px 1px 1px 3px;
+    border-color: @ini_border @ini_border @ini_border @ini_color_theme;
+}
+
+[dir=rtl] blockquote {
+    border-width: 1px 3px 1px 1px;
+    border-color: @ini_border @ini_color_theme @ini_border @ini_border;
+}
+
+blockquote blockquote {
+    /*margin: .4rem 0;*/
+}
+
+[dir] blockquote blockquote {
+    margin: .4rem;
+}
+
+blockquote em, blockquote i {
+    font-style: normal;
+}
+
+blockquote cite {
+    font-style: normal;
+    color: #666666;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
 }
 
 /* =FORMS

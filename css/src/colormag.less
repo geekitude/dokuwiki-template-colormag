@@ -206,15 +206,6 @@ caption, th, td {
     text-align: left;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
-}
-
-blockquote, q {
-    quotes: "" "";
-}
-
 a:focus {
     outline: thin dotted;
 }
@@ -484,6 +475,16 @@ div.insitu-footnote {
 
 /* =BLOCKQUOTE
 ----------------------------------------------- */
+/*
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
 blockquote {
     padding: 30px 30px 20px 45px;
     margin-bottom: 20px;
@@ -528,6 +529,38 @@ blockquote cite {
 blockquote a {
     color: @ini_color_theme_text;
     text-decoration: underline;
+}
+*/
+
+blockquote {
+    font-style: italic;
+    font-weight: normal;
+    /*border: 1px solid @ini_border;
+    border-left: 3px solid @ini_theme_color;*/
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    border-color: @ini_border @ini_border @ini_border @ini_color_theme;
+    margin: 0 0 1.5rem 0;
+    /*padding: .2rem 0 .2rem .75rem !important;*/
+    padding: .75rem;
+}
+
+blockquote blockquote {
+    /*margin: .4rem 0;*/
+    margin: .4rem;
+}
+
+blockquote em, blockquote i {
+    font-style: normal;
+}
+
+blockquote cite {
+    font-style: normal;
+    color: #666666;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
 }
 
 /* =FORMS
