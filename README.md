@@ -112,16 +112,23 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `wide` is incompatible with "scrollspy" ToC and will override that setting
   * `box2wide` switches from `box` on large screens to `wide` on smaller ones
   * `mix` aesthically ressembles `wide` layout but site header and main content are still limited to **style.ini** file's `site-width` value
+* **flexflip** (*nothing*) : flip corresponding element's position
+  * `banner` : will be moved under site tools
+  * `pageheader` : switch PageID and Breadcrumbs positions
+  * `sidebar` : will be moved on the osther side of page
+  * `pagetools` : just like `sidebar` above
+  * `socket` : flip content
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu* or *alt*)
-* topbar (*nothing*) : choose topbar elements
+* **navcolors** (*[ ]*) : enabling this adds some color to user tools glyphs in main navigation
+* **topbar** (*nothing*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
   * `socialnetworks` : list of social networks links (see [Topbar social links](https://github.com/geekitude/dokuwiki-template-spacious#topbar-social-links) below)
-* datelocale (*fra*) : language used for dates
-* longdatestring (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
-* shortdatestring (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
-* newsTicker (*skip_minors,pages,media,5*): options used to built last changes list
+* **datelocale** (*fra*) : language used for dates
+* **longdatestring** (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
+* **shortdatestring** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
+* **newsTicker** (*skip_minors,pages,media,5*): options used to built last changes list
   * `skip_deleted` : ignore deleted items
   * `skip_minors` : ignore minor updates
   * `skip_subspaces` : only consider elements from current namespace, not sub-namespaces
@@ -133,10 +140,8 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `baseline` : at text baseline level - still looking for a situation where it's different from `start` 8-)
   * `center`
   * `end` : to the bottom
-* **bannerflexorder** : choose to have header banner above (`1`) or below (`2`) site tools
 * **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
-* **sidebarpos** (*left*) : left or right sidebar
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
