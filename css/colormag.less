@@ -21,6 +21,7 @@
 * RESET
 * GLOBAL
 * TEXT ELEMENTS
+* Headings
 * LISTS
 * SUPERCRIPT AND SUBSCRIPT
 * Footnotes
@@ -256,11 +257,18 @@ textarea {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
     color: @ini_color_theme;
-    font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
+    /*font-weight: normal;*/
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif; /* ideally 'both', but problems with toc */
 }
 [dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] h6 {
     padding-bottom: 18px;
+}
+[dir=ltr] h1, [dir=ltr] h2, [dir=ltr] h3, [dir=ltr] h4, [dir=ltr] h5, [dir=ltr] h6 {
+    clear: left;
+}
+[dir=rtl] h1, [dir=rtl] h2, [dir=rtl] h3, [dir=rtl] h4, [dir=rtl] h5, [dir=rtl] h6 {
+    clear: right;
 }
 
 h1 {

@@ -21,6 +21,7 @@
 * RESET
 * GLOBAL
 * TEXT ELEMENTS
+* Headings
 * LISTS
 * SUPERCRIPT AND SUBSCRIPT
 * Footnotes
@@ -245,8 +246,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
     padding-bottom: 18px;
     color: @ini_color_theme;
-    font-weight: normal;
+    /*font-weight: normal;*/
+    font-weight: bold;
     font-family: 'Open Sans', sans-serif;
+    clear: left; /* ideally 'both', but problems with toc */
 }
 
 h1 {
