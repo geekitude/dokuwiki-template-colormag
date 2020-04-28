@@ -11,6 +11,7 @@
  */
 
 $conf['layout']             = 'box';
+$conf['bodybg']             = 'color';
 $conf['flexflip']           = '';
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';

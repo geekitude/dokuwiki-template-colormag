@@ -45,6 +45,14 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * Context logo Lighbox effect uses [Lity - 2.4.0](https://sorgalla.com/lity/), distributed under [MIT License](https://en.wikipedia.org/wiki/MIT_License)
 * ToC scrollspy effect is provided by [Gumshoe - 5.1.2](https://github.com/cferdinandi/gumshoe), distributed under [MIT License](https://en.wikipedia.org/wiki/MIT_License)
 
+### Extra
+
+* Default optional background pattern comes from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/)
+* SVG icons come from [Material Design Icons](https://materialdesignicons.com)
+* [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
+* Font used for sample UI images (banner, widebanner and sidebar.png) is: [Rollandin by Emilie Rollandin](http://www.archistico.com/portfolio/nuovo-font-rollandin/).
+* Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
+
 ## Conversion todo
 
 * [x] Start with ~~Starter~~ Default template (don't wan't to struggle with complex items like pagetools)
@@ -58,21 +66,21 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] WP vs. DW functions
 * [x] Basic CSS
   * [x] style.css
-  * ~~[ ] rtl.css~~ (shouldn't be needed, thanks to Grunt and Flexbox)
+  * [ ] ~~rtl.css~~ (shouldn't be needed, thanks to Grunt and Flexbox)
   * [x] print.css
   * [x] Necessary changes
-* [x] JS
-* [ ] Further HTML/PHP
-  * [ ] Other layouts
+* [ ] JS
+* [x] Further HTML/PHP
+  * [x] Other layouts
   * [x] Special DW elements
   * [x] Other actions
 * [x] Further CSS
   * [x] style.ini
   * [x] WP vs. DW classes
 * [x] Rename IDs
-* [ ] Support specific custom WP theme functionality
+* [x] Support specific custom WP theme functionality
   * [x] Custom colours
-  * [ ] Custom background
+  * [x] Custom background
 * [x] Further Reading
 
 ## Main features
@@ -82,7 +90,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins (Blockquote, Wrap)
-* [x] Dark color scheme (maybe)
+* [x] Dark color scheme
 * [ ] Topbar with date, newsticker (based on current namespace and sub content) and social links
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
@@ -103,6 +111,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *images* (all UI images)
   * [ ] *include* (HTML include hooks)
   * [ ] *logo*
+  * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
 
 ## Settings

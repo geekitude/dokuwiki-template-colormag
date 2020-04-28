@@ -12,6 +12,7 @@
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pageheader','sidebar','pagetools','socket'));
+$meta['bodybg']             = array('multichoice','_choices' => array('color','pattern'));
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
 $meta['navcolors']          = array('onoff');

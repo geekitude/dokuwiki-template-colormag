@@ -34,6 +34,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php if (tpl_getConf('dark')): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
+
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
