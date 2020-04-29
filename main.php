@@ -21,6 +21,7 @@ $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 //dbg($showSidebar);
 //dbg($ACT);
+//dbg(getNS($ID));
 ?><!DOCTYPE html>
 <html id="dokuwiki__top" lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>
@@ -34,7 +35,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php if (tpl_getConf('dark')): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
-
+    <?php if ($_GET['debug'] != null): ?>
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>debug/debug.css">
+    <?php endif ?>
+    <?php //if ($_GET['debug'] != null): ?>
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/pattern.php?ns=<?php print getNS($ID); ?>" />
+    <?php //endif ?>
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
