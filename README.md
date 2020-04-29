@@ -116,7 +116,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ## Settings
 
-* **layout** (*box*) : choose site layout
+* **layout** (*box2wide*) : choose site layout
   * `box` wastes a little space around content on narrow screens
   * `wide` is incompatible with "scrollspy" ToC and will override that setting
   * `box2wide` switches from `box` on large screens to `wide` on smaller ones

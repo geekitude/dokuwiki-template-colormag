@@ -10,7 +10,7 @@
  * Default configuration settings
  */
 
-$conf['layout']             = 'box';
+$conf['layout']             = 'box2wide';
 $conf['bodybg']             = 'color';
 $conf['flexflip']           = '';
 $conf['uicolorize']         = '';
