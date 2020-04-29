@@ -40,7 +40,7 @@ function js_dokuwiki_resize(){
     jQuery('html').removeClass(device_classes).addClass(device_class);
 
     // handle some layout changes based on change in device
-    var $handle = jQuery('#colormag__secondary h3.toggle');
+    var $handle = jQuery('#colormag__secondary h6.toggle');
     var $toc = jQuery('#dw__toc h3');
 
     if (device_class == 'desktop') {
@@ -69,7 +69,7 @@ function js_dokuwiki_resize(){
 jQuery(function(){
 
     var resizeTimer;
-    dw_page.makeToggle('#colormag__secondary h3.toggle','#colormag__secondary div.content');
+    dw_page.makeToggle('#colormag__secondary h6.toggle','#colormag__secondary div.content');
 
     js_dokuwiki_resize();
     jQuery(window).on('resize',
