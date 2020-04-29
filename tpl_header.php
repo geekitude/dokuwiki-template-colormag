@@ -35,7 +35,18 @@ if (!defined('DOKU_INC')) die();
                             </div>
                         <?php endif ?>
                     </div>
-                    <div class="dbg flex row">*SOCIAL?*</div>
+                    <?php if (((strpos(tpl_getConf('topbar'), 'socialnetworks') !== false) or ($_GET['debug'] == 1) or ($_GET['debug'] == "social")) and $colormag['socials'] != null) : ?>
+                        <div id="colormag__topbar-social" class="flex row">
+                            <?php colormag_glyph($colormag['glyphs']['social']); ?>
+                            <ul class="flex row">
+                                <?php
+                                    foreach ($colormag['socials'] as $key => $value) {
+                                        colormag_social_link($key);
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    <?php endif ?>
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>

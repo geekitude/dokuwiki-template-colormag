@@ -113,6 +113,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *logo*
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
+  * [x] *social* (load a dummy social networks list)
 
 ## Settings
 

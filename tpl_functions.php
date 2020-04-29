@@ -24,6 +24,39 @@ if (!defined('DOKU_INC')) die();
 function colormag_init() {
     global $colormag, $JSINFO;
 
+    // SOCIAL LINKS
+    $colormag['socials'] = array();
+    // Load "social" links from DOKU_CONF/social.local.conf (or tpl/colormag/debug/social.local.conf) to global conf
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == "social")) {
+        $socialFile = tpl_incdir().'debug/social.local.conf';
+    } else {
+        $socialFile = DOKU_CONF.'social.local.conf';
+    }
+    // If file exists...
+    if ((@file_exists($socialFile)) and (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) {
+//dbg($socialFile);
+        // ... read it's content
+        $colormag['socials'] = confToHash($socialFile);
+        $colormag['socials'] = array_filter($colormag['socials']);
+        // Sorting array in reverse alphabetical order on keys because they will float to the right (now done by default)
+        // krsort($socialFile);
+        // Get actual links from file content
+//dbg($socialFile);
+//dbg(gettype($socials));
+//var_dump($socials);
+//        if (is_array($colormag['socials'])) {
+//            foreach ($socials as $key => $value) {
+////dbg($key." => ".$value);
+//                if (filter_var($value, FILTER_VALIDATE_URL)) { 
+//                    $colormag['socials'][$key] = $value;
+//                }
+//            }
+//        } else {
+//            dbg("Socials error: ".$colormag['socials']);
+//        }
+//dbg($colormag['socials']);
+    }
+
     // GLYPHS
     // Search for default or custum default SVG glyphs
 //    $colormag['glyphs']['about'] = 'help';
@@ -75,9 +108,9 @@ function colormag_init() {
 //    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
-//    foreach ($colormag['social'] as $key => $value) {
-//        $colormag['glyphs'][$key] = $key;
-//    }
+    foreach ($colormag['socials'] as $key => $value) {
+        $colormag['glyphs'][$key] = $key;
+    }
 //dbg($colormag['glyphs']);
     foreach ($colormag['glyphs'] as $key => $value) {
         /*if (is_file(DOKU_CONF."glyphs/".$key.".svg")) {*/
@@ -250,22 +283,27 @@ function colormag_glyph($glyph, $return = false) {
 //if (file_exists($glyph)) {
 //    dbg("bingo!");
 //}
-    if (isset($colormag['social'][$glyph])) {
-        $maxsize = 4096;
-    } else {
-        $maxsize = 2048;
-    }
+//    if (isset($colormag['socials'][$glyph])) {
+//        $maxsize = 4096;
+//    } else {
+//        $maxsize = 2048;
+//    }
+//    dbg($maxsize);
 //    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
     if (file_exists($glyph)) {
-        $result = inlineSVG($glyph, $maxsize);
+//        $result = inlineSVG($glyph, $maxsize);
+        $result = inlineSVG($glyph, 4096);
 //dbg("ici?");
     } else {
         $result = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
 //dbg("là");
     }
     if ($return) {
+//dbg("ici aussi?");
+//dbg($result);
         return $result;
     } else {
+//dbg("là");
         print $result;
         return 1;
     }
@@ -707,3 +745,62 @@ function colormag_searchform($ajax = true, $autocomplete = true, $dw = false) {
     print '</div></form>';
     return true;
 }/* /colormag_searchform */
+
+function colormag_social_link($network = null) {
+    global $conf, $colormag;
+//dbg($network);
+
+//    // If there's a social network name and current wiki url is not included in given social network url
+////dbg($colormag['socials'][$network]." vs ".trim(DOKU_URL, "/"));
+//    if (($network != null) and (strpos($colormag['socials'][$network], trim(DOKU_URL, "/")) === false)) {
+    if ($network != null) {
+        $target = $conf['target']['extern'];
+//dbg($colormag['socials'][$network]);
+        $result = '<li><a href="'.$colormag['socials'][$network].'" class="social '.$network.' flex row"';
+        if ($target != null) { $result .= ' target="'.$target.'"'; }
+        if (($network == "digg") or ($network == "dribbble") or ($network == "facebook") or ($network == "flickr") or ($network == "reddit")) {
+            $tooltip = $network;
+        } elseif ($network == "codepen") {
+            $tooltip = "CodePen";
+        } elseif ($network == "github") {
+            $tooltip = "GitHub";
+        } elseif ($network == "google-plus") {
+            $tooltip = "Google+";
+        } elseif ($network == "stumbleupon") {
+            $tooltip = "StumbleUpon";
+        } elseif ($network == "wordpress") {
+            $tooltip = "WordPress";
+        } elseif ($network == "youtube") {
+            $tooltip = "YouTube";
+        } else {
+            $tooltip = ucwords(str_replace("_", " ", $network));
+        }
+        if ($tooltip != null) { $result .= ' title="'.$tooltip.'"'; }
+        $result .= ' rel="nofollow">';
+//dbg($colormag['glyphs'][$network]);
+//dbg($colormag['glyphs']['default']);
+        //if (($colormag['glyphs'][$network] != null) and ($colormag['glyphs'][$network] != $colormag['glyphs']['default'])) {
+        //    $result .= $colormag['glyphs'][$network];
+        //} else {
+        //    $result .= $tooltip;
+        //}
+//dbg($network);
+//dbg($colormag['glyphs'][$network]);
+//dbg(colormag_glyph($colormag['glyphs'][$network], true));
+        $result .= colormag_glyph($colormag['glyphs'][$network], true);
+        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
+            $class = "";
+        } else {
+            $class=' class="a11y"';
+        }
+        $result .= '<span'.$class.'>'.$tooltip.'</span>';
+        $result .= '</a></li>';
+//dbg($result);
+        if ($return) {
+            return $result;
+        } else {
+            print $result;
+            return 1;
+        }
+    }
+}
