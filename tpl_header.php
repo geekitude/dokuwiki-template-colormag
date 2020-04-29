@@ -82,12 +82,12 @@ if (!defined('DOKU_INC')) die();
                                 <!-- SITE TOOLS -->
                                 <div id="colormag__sitetools">
                                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
+                                    <ul class="flex row end wrap">
+                                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
+                                    </ul>
                                     <div class="mobileTools">
                                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                     </div><!-- /.mobiletools -->
-                                    <ul class="flex row between">
-                                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
-                                    </ul>
                                 </div><!-- /#colormag__sitetools -->
                             </div><!-- /.tools -->
                         </div>
