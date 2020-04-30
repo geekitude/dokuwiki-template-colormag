@@ -778,9 +778,16 @@ a {
     text-decoration: none;
 }
 
+.dokuwiki a.wikilink1 {
+    color: @ini_existing;
+}
+
+.dokuwiki a.wikilink2 {
+    color: @ini_missing;
+}
+
 a:hover {
     color: @ini_text_neu;
-    text-decoration: none;
 }
 
 a:focus, a:active, a:hover {
@@ -797,14 +804,6 @@ a:hover svg {
 
 a:hover img {
     opacity: .6;
-}
-
-.dokuwiki a.wikilink1 {
-    color: @ini_color_green;
-}
-
-.dokuwiki a.wikilink2 {
-    color: @ini_color_red;
 }
 
 .dokuwiki a.interwiki,
