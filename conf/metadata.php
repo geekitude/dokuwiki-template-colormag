@@ -15,7 +15,7 @@ $meta['flexflip']           = array('multicheckbox','_choices' => array('banner'
 $meta['bodybg']             = array('multichoice','_choices' => array('color','pattern'));
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
-$meta['navcolors']          = array('onoff');
+$meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');

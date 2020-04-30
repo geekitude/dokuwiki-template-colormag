@@ -130,7 +130,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `socket` : flip content
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu* or *alt*)
-* **navcolors** (*[ ]*) : enabling this adds some color to user tools glyphs in main navigation
+* **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
 * **topbar** (*nothing*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
@@ -156,3 +156,15 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
+
+## About
+
+### Social network links
+
+Copy `dokuwiki/lib/tpl/colormag/debug/social.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs.
+
+You can add new lines for social networks that are not in the list yet. Note that the name must be lower case and contain no special characters (spaces must be replaced by underscores), `my_network` is a valid example.
+
+As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as long as it is named exactly like corresponding target network in configuration file.
+
+:bulb: you can add `<title>` tag within your SVG files to add a custom tooltip on hover.

@@ -36,7 +36,7 @@ if (!defined('DOKU_INC')) die();
                         <?php endif ?>
                     </div>
                     <?php if (((strpos(tpl_getConf('topbar'), 'socialnetworks') !== false) or ($_GET['debug'] == 1) or ($_GET['debug'] == "social")) and $colormag['socials'] != null) : ?>
-                        <div id="colormag__topbar-social" class="flex row">
+                        <div id="colormag__topbar-social" class="flex row<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <?php colormag_glyph($colormag['glyphs']['social']); ?>
                             <ul class="flex row">
                                 <?php
@@ -140,7 +140,7 @@ if (!defined('DOKU_INC')) die();
                             </li>
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
                         </ul><!-- /#colormag__menu-primary -->
-                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget">
+                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- SEARCH -->
                             <li class="menu-item top-search-wrap action search">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
