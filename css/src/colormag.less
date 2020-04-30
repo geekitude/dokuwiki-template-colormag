@@ -1058,7 +1058,12 @@ div.skip a {
 }
 
 #colormag__header-left-section {
-    float: left;
+    /*float: left;*/
+}
+
+#colormag__header-left-section,
+#colormag__header-left-section {
+    /*float: left;*/
 }
 
 #colormag__site-logo {
@@ -4192,8 +4197,8 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
 }
 
 #colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section {
-    float: none;
-    text-align: center;
+    /*float: none;*/
+    /*text-align: center;*/
 }
 
 #colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #colormag__site-logo,
@@ -4843,31 +4848,56 @@ RESPONSIVE STRUCTURE
     #colormag__header-text-nav-wrap {
         padding: 10px 0;
     }
+    #colormag__header-text-nav-wrap {
+        flex-direction: column;
+    }
+    #colormag__header-left-section,
+    #colormag__header-right-section div {
+        width: 100%;
+    }
     #colormag__header-left-section {
-        float: none;
-        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+    #colormag__header-right-section {
+        margin-top: 1rem;
+    }
+    #colormag__header-left-section,
+    #colormag__header-right-section div ul {
+        justify-content: space-evenly;
+    }
+    #colormag__header-left-section {
+        /*float: none;*/
+        /*margin-bottom: 10px;*/
     }
     #colormag__site-logo {
         /*float: none;*/
         /*text-align: center;*/
-        padding-right: 0;
+        /*padding-right: 0;*/
     }
     #colormag__site-title {
         /*float: none;*/
         /*text-align: center;*/
         padding-right: 0;
     }
+    #colormag__site-title,
+    #colormag__site-description {
+        text-align: right;
+    }
+    #colormag__site-description {
+        width: 100%;
+    }
     #colormag__header-right-section {
-        float: none;
+        /*float: none;*/
     }
     #colormag__header-right-section .widget {
         /*text-align: center;*/
     }
+    /*
     #colormag__header-right-section .widget ul {
         flex-direction: column;
-    }
+    }*/
     #colormag__header-right-section .widget ul li {
-        margin: 0;
+        margin: 0 !important;
     }
     .menu-toggle {
         display: block;

@@ -1236,12 +1236,13 @@ div.skip a {
     padding: 20px 0 25px;
 }
 
-[dir=ltr] #colormag__header-left-section {
-    float: left;
+#colormag__header-left-section {
+    /*float: left;*/
 }
 
-[dir=rtl] #colormag__header-left-section {
-    float: right;
+#colormag__header-left-section,
+#colormag__header-left-section {
+    /*float: left;*/
 }
 
 #colormag__site-logo {
@@ -5493,9 +5494,9 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
     display: none;
 }
 
-[dir] #colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section {
-    float: none;
-    text-align: center;
+#colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section {
+    /*float: none;*/
+    /*text-align: center;*/
 }
 
 #colormag__header.colormag-header-classic #colormag__header-text-nav-wrap #colormag__header-left-section #colormag__site-logo,
@@ -6315,19 +6316,31 @@ RESPONSIVE STRUCTURE
     [dir] #colormag__header-text-nav-wrap {
         padding: 10px 0;
     }
-    [dir] #colormag__header-left-section {
-        float: none;
-        margin-bottom: 10px;
+    #colormag__header-text-nav-wrap {
+        flex-direction: column;
+    }
+    #colormag__header-left-section,
+    #colormag__header-right-section div {
+        width: 100%;
+    }
+    #colormag__header-left-section {
+        justify-content: space-between;
+    }
+    [dir] #colormag__header-right-section {
+        margin-top: 1rem;
+    }
+    #colormag__header-left-section,
+    #colormag__header-right-section div ul {
+        justify-content: space-evenly;
+    }
+    #colormag__header-left-section {
+        /*float: none;*/
+        /*margin-bottom: 10px;*/
     }
     #colormag__site-logo {
         /*float: none;*/
         /*text-align: center;*/
-    }
-    [dir=ltr] #colormag__site-logo {
-        padding-right: 0;
-    }
-    [dir=rtl] #colormag__site-logo {
-        padding-left: 0;
+        /*padding-right: 0;*/
     }
     #colormag__site-title {
         /*float: none;*/
@@ -6339,17 +6352,27 @@ RESPONSIVE STRUCTURE
     [dir=rtl] #colormag__site-title {
         padding-left: 0;
     }
-    [dir] #colormag__header-right-section {
-        float: none;
+    [dir=ltr] #colormag__site-title, [dir=ltr] #colormag__site-description {
+        text-align: right;
+    }
+    [dir=rtl] #colormag__site-title, [dir=rtl] #colormag__site-description {
+        text-align: left;
+    }
+    #colormag__site-description {
+        width: 100%;
+    }
+    #colormag__header-right-section {
+        /*float: none;*/
     }
     #colormag__header-right-section .widget {
         /*text-align: center;*/
     }
+    /*
     #colormag__header-right-section .widget ul {
         flex-direction: column;
-    }
+    }*/
     [dir] #colormag__header-right-section .widget ul li {
-        margin: 0;
+        margin: 0 !important;
     }
     .menu-toggle {
         display: block;
