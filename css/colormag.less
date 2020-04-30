@@ -363,6 +363,9 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 .flex.evenly {
     justify-content: space-evenly;
 }
+.flex.justifyend {
+    justify-content: end;
+}
 
 .flex.stretch {
     align-items: stretch;
@@ -3182,10 +3185,12 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 
 [dir=ltr] .footer-socket-wrapper .copyright {
     float: left;
+    text-alignt: left;
 }
 
 [dir=rtl] .footer-socket-wrapper .copyright {
     float: right;
+    text-alignt: right;
 }
 
 .footer-socket-wrapper .copyright a {
@@ -3200,16 +3205,27 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
     color: @ini_color_theme_text;
 }
 
+.footer-socket-wrapper .buttons a {
+    display: inline-block;
+    height: 0;
+}
+
 [dir] .footer-socket-wrapper .buttons a {
     margin-bottom: 0;
 }
 
-[dir=ltr] .footer-socket-wrapper .buttons ul li:not(:last-child) a {
+/*
+.footer-socket-wrapper .buttons ul li:not(:first-child) a {
     margin: 0 1rem 0 0;
 }
+*/
 
-[dir=rtl] .footer-socket-wrapper .buttons ul li:not(:last-child) a {
+[dir=ltr] .footer-socket-wrapper .buttons ul li a {
     margin: 0 0 0 1rem;
+}
+
+[dir=rtl] .footer-socket-wrapper .buttons ul li a {
+    margin: 0 1rem 0 0;
 }
 
 [dir] .footer-socket-wrapper .buttons ul li img {
@@ -6548,7 +6564,6 @@ RESPONSIVE STRUCTURE
     }
     [dir] .footer-socket-wrapper .copyright {
         float: none;
-        text-align: center;
     }
     [dir] .footer-socket-area .social-links, [dir] .footer-socket-area .buttons {
         float: none;

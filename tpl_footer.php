@@ -88,7 +88,7 @@ dbg("vérifier ces liens");
                 </div><!-- /.footer-socket-left-section -->
                 <div class="footer-socket-right-section flex">
                     <div class="buttons">
-                        <ul class="flex">
+                        <ul class="flex wrap justifyend">
                             <li>
                                 <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>>
                                     <img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" />
