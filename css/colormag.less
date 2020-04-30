@@ -1707,10 +1707,6 @@ nav li > ol {
     font-size: 27px;
 }
 
-[dir] #colormag__page.home #colormag__site-navigation li.nav.home, [dir] .home-icon.front_page_on {
-    background-color: @ini_color_theme;
-}
-
 #colormag__page.home #colormag__site-navigation li.nav.home svg {
     fill: @ini_color_theme_dark;
 }
@@ -1841,7 +1837,7 @@ li.default-menu {
     color: @ini_color_theme_text;
 }
 
-[dir] .main-navigation a:hover, [dir] .main-navigation ul li.current-menu-item > a, [dir] .main-navigation ul li.current_page_ancestor > a, [dir] .main-navigation ul li.current-menu-ancestor > a, [dir] .main-navigation ul li.current_page_item > a, [dir] .main-navigation ul li:hover > a, [dir] .main-navigation ul li:hover > label, [dir] .main-navigation ul li.focus > a {
+[dir] .main-navigation a:hover, [dir] .main-navigation ul li.current-menu-item > a, [dir] .main-navigation ul li.current_page_ancestor > a, [dir] .main-navigation ul li.current-menu-ancestor > a, [dir] .main-navigation ul li.current_page_item > a, [dir] .main-navigation ul li:hover > a, [dir] .main-navigation ul li:hover > label, [dir] .main-navigation ul li.focus > a, [dir] #colormag__page.home #colormag__site-navigation li.nav.home, [dir] .home-icon.front_page_on {
     background-color: @ini_color_theme;
 }
 
@@ -6008,21 +6004,40 @@ DOKUWIKI MODES
     float: left;
 }
 
-.editBox #dw__editform #wiki__editbar .editButtons,
-.editBox #dw__editform #wiki__editbar .summary {
+.editBox #dw__editform #wiki__editbar .editButtons {
     display: inline;
 }
 
-[dir=ltr] .editBox #dw__editform #wiki__editbar .editButtons, [dir=ltr] .editBox #dw__editform #wiki__editbar .summary {
+[dir=ltr] .editBox #dw__editform #wiki__editbar .editButtons {
     float: left;
 }
 
-[dir=rtl] .editBox #dw__editform #wiki__editbar .editButtons, [dir=rtl] .editBox #dw__editform #wiki__editbar .summary {
+[dir=rtl] .editBox #dw__editform #wiki__editbar .editButtons {
     float: right;
 }
 
+[dir=ltr] .editBox #dw__editform #wiki__editbar .summary {
+    float: left;
+}
+
+[dir=rtl] .editBox #dw__editform #wiki__editbar .summary {
+    float: right;
+}
+
+.editBox #dw__editform #wiki__editbar .summary label {
+    display: inline-block;
+}
+
+[dir=ltr] .editBox #dw__editform #wiki__editbar .summary label {
+    margin: 1rem 0 0 .4rem;
+}
+
+[dir=rtl] .editBox #dw__editform #wiki__editbar .summary label {
+    margin: 1rem .4rem 0 0;
+}
+
 .editBox #dw__editform #wiki__editbar #edit__summary {
-    width: 300px;
+    width: 350px;
 }
 
 [dir=ltr] .editBox #dw__editform .license {
@@ -6327,8 +6342,14 @@ RESPONSIVE STRUCTURE
     [dir] #colormag__header-right-section {
         float: none;
     }
-    [dir] #colormag__header-right-section .widget {
-        text-align: center;
+    #colormag__header-right-section .widget {
+        /*text-align: center;*/
+    }
+    #colormag__header-right-section .widget ul {
+        flex-direction: column;
+    }
+    [dir] #colormag__header-right-section .widget ul li {
+        margin: 0;
     }
     .menu-toggle {
         display: block;

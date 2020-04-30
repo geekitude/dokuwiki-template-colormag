@@ -1395,11 +1395,6 @@ nav li > ol {
     font-size: 27px;
 }
 
-#colormag__page.home #colormag__site-navigation li.nav.home,
-.home-icon.front_page_on {
-    background-color: @ini_color_theme;
-}
-
 #colormag__page.home #colormag__site-navigation li.nav.home svg {
     fill: @ini_color_theme_dark;
 }
@@ -1520,7 +1515,9 @@ li.default-menu {
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li:hover > a,
 .main-navigation ul li:hover > label,
-.main-navigation ul li.focus > a {
+.main-navigation ul li.focus > a,
+#colormag__page.home #colormag__site-navigation li.nav.home,
+.home-icon.front_page_on {
     background-color: @ini_color_theme;
 }
 
@@ -4601,14 +4598,22 @@ DOKUWIKI MODES
     float: right;
 }
 
-.editBox #dw__editform #wiki__editbar .editButtons,
-.editBox #dw__editform #wiki__editbar .summary {
+.editBox #dw__editform #wiki__editbar .editButtons {
     display: inline;
     float: left;
 }
 
+.editBox #dw__editform #wiki__editbar .summary {
+    float: left;
+}
+
+.editBox #dw__editform #wiki__editbar .summary label {
+    display: inline-block;
+    margin: 1rem 0 0 .4rem;
+}
+
 .editBox #dw__editform #wiki__editbar #edit__summary {
-    width: 300px;
+    width: 350px;
 }
 
 .editBox #dw__editform .license {
@@ -4856,7 +4861,13 @@ RESPONSIVE STRUCTURE
         float: none;
     }
     #colormag__header-right-section .widget {
-        text-align: center;
+        /*text-align: center;*/
+    }
+    #colormag__header-right-section .widget ul {
+        flex-direction: column;
+    }
+    #colormag__header-right-section .widget ul li {
+        margin: 0;
     }
     .menu-toggle {
         display: block;
