@@ -101,7 +101,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
                             <div class="pad aside include group">
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
-                                <div id="colormag__content" class="content group">
+                                <div class="content group">
                                     <div class="group">
                                         <?php tpl_flush() ?>
                                         <?php tpl_includeFile('sidebarheader.html') ?>
