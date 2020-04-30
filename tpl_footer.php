@@ -86,9 +86,9 @@ dbg("vérifier ces liens");
                         A <a href="https://wordpress.org/" title="WordPress"><span>WordPress</span></a> theme by <a href="https://themegrill.com/" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a> ported to <a href="https://dokuwiki.org/" title="DokuWiki"><span>DokuWiki</span></a>.
                     </div><!-- /.copyright -->
                 </div><!-- /.footer-socket-left-section -->
-                <div class="footer-socket-right-section flex row">
+                <div class="footer-socket-right-section flex">
                     <div class="buttons">
-                        <ul>
+                        <ul class="flex">
                             <li>
                                 <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>>
                                     <img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" />
