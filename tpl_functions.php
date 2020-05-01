@@ -365,6 +365,8 @@ function colormag_usertools() {
 
     $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
     $object =  (array) $objects;
+//dbg(count($objects));
+//dbg($objects);
     foreach ($object as $key => $value) {
         $field = (array) $value;
 //        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y') or (tpl_getConf('headertoolsIcons') == 0)) {

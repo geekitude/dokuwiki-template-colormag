@@ -120,11 +120,13 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
             <nav id="colormag__site-navigation" class="main-navigation group" role="navigation">
-                <div class="inner-wrap group">
-                    <div class="menu-primary-container flex row between">
-                        <ul id="colormag__menu-primary" class="menunav-menu menu-primary-container-left-section">
+                <div class="inner-wrap flex row between">
+                    <div class="menu-primary-container flex row start">
+                        <ul id="colormag__menu-parents" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
                             <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
+                        </ul><!-- /#colormag__menu-primary -->
+                        <ul id="colormag__menu-index" class="menunav-menu menu-primary-container-left-section">
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
                                 <ul class="sub-menu">
@@ -140,7 +142,9 @@ if (!defined('DOKU_INC')) die();
                             </li>
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
                         </ul><!-- /#colormag__menu-primary -->
-                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
+                    </div><!-- /.menu-primary-container -->
+                    <div class="menu-secondary-container flex row end">
+                        <ul id="colormag__menu-search" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- SEARCH -->
                             <li class="menu-item top-search-wrap action search">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
@@ -149,6 +153,8 @@ if (!defined('DOKU_INC')) die();
                                     <?php colormag_searchform(); ?>
                                 </div>
                             </li>
+                        </ul><!-- /#colormag__menu-tools -->
+                        <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- USERTOOLS -->
                             <?php
                                 if ($conf['useacl']) {
