@@ -91,7 +91,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins (Blockquote, Wrap)
 * [x] Dark color scheme
-* [ ] Topbar with date, newsticker (based on current namespace and sub content) and social links
+* [x] Topbar with date, newsticker (based on current namespace and sub content) and social links
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers

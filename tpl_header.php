@@ -25,7 +25,7 @@ if (!defined('DOKU_INC')) die();
                         <?php
                             if (strpos(tpl_getConf('topbar'), 'date') !== false) {
                                 $date = colormag_date("long", null, false, true);
-                                print '<div id="colormag__topbar-date" class="flex row" title="'.$date.'">'.colormag_glyph($colormag['glyphs']['date'], true).'<span>'.$date.'</span></div>';
+                                print '<div id="colormag__topbar-date" class="flex row" title="'.$date.'">'.colormag_glyph($colormag['glyphs']['date'], true).'<strong>'.$date.'</strong></div>';
                             }
                         ?>
                         <?php if ((strpos(tpl_getConf('topbar'), 'newsticker') !== false) and ($colormag['recents'] != null) and is_array($colormag['recents'])) : ?>
