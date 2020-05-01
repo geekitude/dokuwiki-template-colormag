@@ -568,6 +568,41 @@ h6.aside-title,
     padding: 6px 12px;
 }
 
+/* Toggles */
+
+.toggle strong span {
+    display: none;
+}
+
+.toggle strong {
+    content: "";
+    display: inline-block;
+    height:1.8rem;
+    width:1.8rem;
+}
+
+[dir] .toggle strong {
+    background-size: 1.8rem 1.8rem;
+    background-repeat: no-repeat;
+    margin-top: 2px;
+}
+
+[dir=ltr] .toggle strong {
+    float: right;
+}
+
+[dir=rtl] .toggle strong {
+    float: left;
+}
+
+[dir] .toggle.closed strong {
+    background-image: url(images/expand.svg);
+}
+
+[dir] .toggle.open strong {
+    background-image: url(images/collapse.svg);
+}
+
 /* =LISTS
 ----------------------------------------------- */
 ul,

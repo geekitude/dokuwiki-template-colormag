@@ -503,6 +503,31 @@ h6.aside-title,
     width: 100%;
 }
 
+/* Toggles */
+
+.toggle strong span {
+    display: none;
+}
+
+.toggle strong {
+    content: "";
+    display: inline-block;
+    height:1.8rem;
+    width:1.8rem;
+    background-size: 1.8rem 1.8rem;
+    background-repeat: no-repeat;
+    float: right;
+    margin-top: 2px;
+}
+
+.toggle.closed strong {
+    background-image: url(images/expand.svg);
+}
+
+.toggle.open strong {
+    background-image: url(images/collapse.svg);
+}
+
 /* =LISTS
 ----------------------------------------------- */
 ul,
