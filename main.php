@@ -22,6 +22,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 //dbg($showSidebar);
 //dbg($ACT);
 //dbg(getNS($ID));
+//dbg($lang);
 ?><!DOCTYPE html>
 <html id="dokuwiki__top" lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>

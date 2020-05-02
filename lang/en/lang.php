@@ -18,3 +18,4 @@ $lang['purgepagecache']     = 'Remove current page from cache';
 $lang['purgejscache']       = 'Purge JavaScript cache';
 $lang['purgecsscache']      = 'Purge CSS cache';
 $lang['contools']               = 'Contextual Tools';
+$lang['nscontent']               = 'Namespace content';

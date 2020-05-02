@@ -122,11 +122,13 @@ if (!defined('DOKU_INC')) die();
             <nav id="colormag__site-navigation" class="main-navigation group" role="navigation">
                 <div class="inner-wrap flex row between">
                     <div class="menu-primary-container flex row start">
-                        <ul id="colormag__menu-parents" class="menunav-menu menu-primary-container-left-section">
+                        <ul id="colormag__menu-context" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
                             <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
-                        </ul><!-- /#colormag__menu-primary -->
-                        <ul id="colormag__menu-index" class="menunav-menu menu-primary-container-left-section">
+                            <!-- NSINDEX DROPDOWN -->
+                            <li id="colormag__nsindex-dropdown" class="menu-item nav index menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print tpl_getLang('nscontent') ?>"><?php colormag_glyph($colormag['glyphs']['map']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('nscontent') ?></span></a></li>
+                        </ul><!-- /#colormag__menu-parent -->
+                        <ul id="colormag__nsindex-menu" class="sub-menu">
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" title="Blah1"><span>Blah1</span></a>
                                 <ul class="sub-menu">
@@ -134,14 +136,19 @@ if (!defined('DOKU_INC')) die();
                                     <li class="sub-menu-item menu-item-has-children">
                                         <a href="#" title="Blah blah 2">Blah blah 1.2</a>
                                         <ul class="sub-menu">
-                                            <li class="sub-menu-item"><a href="#" title="Blah blah 1">Blah blah 1.2.1</a></li>
+                                            <li class="sub-menu-item menu-item-has-children"><a href="#" title="Blah blah 1">Blah blah 1.2.1</a>
+                                                <ul class="sub-menu">
+                                                    <li class="sub-menu-item "><a href="#" title="Blah 1">Blah blah 1.2.1.1</a></li>
+                                                    <li class="sub-menu-item"><a href="#" title="Blah 2">Blah blah 1.2.1.2</a></li>
+                                                </ul>
+                                            </li>
                                             <li class="sub-menu-item"><a href="#" title="Blah blah 2">Blah blah 1.2.2</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="#" title="Blah2"><span>Blah2</span></a></li>
-                        </ul><!-- /#colormag__menu-primary -->
+                        </ul><!-- /#colormag__menu-index -->
                     </div><!-- /.menu-primary-container -->
                     <div class="menu-secondary-container flex row end">
                         <ul id="colormag__menu-search" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
@@ -153,7 +160,7 @@ if (!defined('DOKU_INC')) die();
                                     <?php colormag_searchform(); ?>
                                 </div>
                             </li>
-                        </ul><!-- /#colormag__menu-tools -->
+                        </ul><!-- /#colormag__menu-search -->
                         <ul id="colormag__menu-tools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- USERTOOLS -->
                             <?php
@@ -162,7 +169,7 @@ if (!defined('DOKU_INC')) die();
                                 }
                             ?>
                         </ul><!-- /#colormag__menu-tools -->
-                    </div><!-- /.menu-primary-container -->
+                    </div><!-- /.menu-secondary-container -->
                 </div><!-- /.inner-wrap -->
             </nav><!-- /#colormag__site-navigation -->
         </div><!-- /#colormag__site-navigation-sticky-wrapper -->
