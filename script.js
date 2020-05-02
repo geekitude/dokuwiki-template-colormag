@@ -65,8 +65,6 @@ function js_dokuwiki_resize(){
         if($toc.length) {
             $toc[0].setState(-1);
         }
-    }
-    if (device_class.match(/tablet/)){
         // move nsindex and usertools to dropdown
         jQuery('#colormag__nsindex-menu').appendTo('#colormag__nsindex-dropdown');
         jQuery('#colormag__usertools-menu').appendTo('#colormag__usertools-dropdown');
