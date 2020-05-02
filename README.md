@@ -92,7 +92,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Tested with most common plugins (Blockquote, Discussion, Wrap)
 * [x] Dark color scheme
 * [x] Topbar with date, newsticker (based on current namespace and sub content) and social links
-* [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
+* [x] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
 * [ ] Hidable sidebar
@@ -114,6 +114,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
+
+(*) to replace a glyph by another, simply put desired SVG file (2kb max) in `conf/svg` folder (you will most likely need to create it) and name it after the following list of elements : acl.svg, config.svg, date.svg, editor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, translated.svg, translation.svg, usertools.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
+
+:warning: POSSIBLE SVG NAMES LIST ABOVE NEEDS TO BE UPDATED :warning:
 
 ## Settings
 
