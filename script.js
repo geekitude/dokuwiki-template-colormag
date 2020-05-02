@@ -53,7 +53,7 @@ function js_dokuwiki_resize(){
             $toc[0].setState(1);
         }
         // nsindex back to initial place
-        jQuery('#colormag__nsindex-menu').appendTo('.menu-primary-container');
+        jQuery('#colormag__nsindex-menu').appendTo('#colormag__site-navigation-primary');
     }
     if (device_class.match(/mobile/)){
         // toc and sidebar hiding

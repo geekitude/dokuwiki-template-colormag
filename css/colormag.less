@@ -1773,20 +1773,20 @@ body.navcolors #colormag__site-navigation li span {
 }
 */
 
-#colormag__menu-tools.glyphcolors li.action.login svg,
-#colormag__menu-tools.glyphcolors li.action.register svg {
+#colormag__usertools.glyphcolors li.action.login svg,
+#colormag__usertools.glyphcolors li.action.register svg {
     fill: @ini_color_green;
 }
 
-#colormag__menu-tools.glyphcolors li.action.profile svg {
+#colormag__usertools.glyphcolors li.action.profile svg {
     fill: @ini_color_blue;
 }
 
-#colormag__menu-tools.glyphcolors li.action.logout svg {
+#colormag__usertools.glyphcolors li.action.logout svg {
     fill: @ini_color_red;
 }
 
-#colormag__menu-tools.glyphcolors li.action.admin svg {
+#colormag__usertools.glyphcolors li.action.admin svg {
     fill: @ini_color_yellow;
 }
 
@@ -1963,11 +1963,11 @@ li.default-menu {
 }
 */
 
-[dir=ltr] #colormag__menu-tools .sub-menu {
+[dir=ltr] #colormag__usertools .sub-menu {
     right: 0;
 }
 
-[dir=rtl] #colormag__menu-tools .sub-menu {
+[dir=rtl] #colormag__usertools .sub-menu {
     left: 0;
 }
 
@@ -2153,11 +2153,11 @@ label {
     float: none;
 }
 
-[dir] .main-small-navigation .menu-primary-container, [dir] .main-small-navigation .menu {
+[dir] .main-small-navigation #colormag__site-navigation-primary, [dir] .main-small-navigation .menu {
     padding-top: 43px;
 }
 
-.main-small-navigation .menu-primary-container > ul,
+.main-small-navigation #colormag__site-navigation-primary > ul,
 .main-small-navigation .menu > ul {
     width: 100%;
 }
@@ -3193,12 +3193,12 @@ div.secedit.editbutton_section {
     width: 100%;
 }
 
-.menu-primary-container-right-section,
+#colormag__site-navigation-primary-right-section,
 .footer-socket-right-section {
     /*float: right;*/
 }
 
-.menu-primary-container-left-section,
+#colormag__site-navigation-primary-left-section,
 .footer-socket-left-section {
     /*float: left;*/
 }
@@ -5454,7 +5454,7 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
     opacity: 1;
 }
 
-#colormag__header.colormag-header-clean .main-small-navigation .menu-primary-container,
+#colormag__header.colormag-header-clean .main-small-navigation #colormag__site-navigation-primary,
 #colormag__header.colormag-header-clean .main-small-navigation .nav-menu,
 #colormag__header.colormag-header-clean .main-small-navigation .menu {
     position: absolute;
@@ -5462,7 +5462,7 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
     width: 100%;
 }
 
-[dir] #colormag__header.colormag-header-clean .main-small-navigation .menu-primary-container, [dir] #colormag__header.colormag-header-clean .main-small-navigation .nav-menu, [dir] #colormag__header.colormag-header-clean .main-small-navigation .menu {
+[dir] #colormag__header.colormag-header-clean .main-small-navigation #colormag__site-navigation-primary, [dir] #colormag__header.colormag-header-clean .main-small-navigation .nav-menu, [dir] #colormag__header.colormag-header-clean .main-small-navigation .menu {
     padding-top: 0;
     padding-top: 0;
 }
@@ -5781,14 +5781,14 @@ div#wp-custom-header:hover .wp-custom-header-video-button {
     color: @ini_color_theme_dark;
 }
 
-#colormag__header.colormag-header-classic .main-small-navigation .menu-primary-container,
+#colormag__header.colormag-header-classic .main-small-navigation #colormag__site-navigation-primary,
 #colormag__header.colormag-header-classic .main-small-navigation .nav-menu {
     position: absolute;
     top: 100%;
     width: 100%;
 }
 
-[dir] #colormag__header.colormag-header-classic .main-small-navigation .menu-primary-container, [dir] #colormag__header.colormag-header-classic .main-small-navigation .nav-menu {
+[dir] #colormag__header.colormag-header-classic .main-small-navigation #colormag__site-navigation-primary, [dir] #colormag__header.colormag-header-classic .main-small-navigation .nav-menu {
     padding-top: 0;
     padding-top: 0;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.2);
@@ -6628,7 +6628,7 @@ RESPONSIVE STRUCTURE
     }
 
     /* 16.0 heaader media css */
-    [dir] .better-responsive-menu .main-small-navigation .menu-primary-container {
+    [dir] .better-responsive-menu .main-small-navigation #colormag__site-navigation-primary {
         padding-bottom: 20px;
     }
     [dir] #colormag__header .main-small-navigation li:hover > .sub-toggle, [dir] #colormag__header .main-small-navigation li.current-page-ancestor > .sub-toggle, [dir] #colormag__header .main-small-navigation li.current-menu-ancestor > .sub-toggle, [dir] #colormag__header .main-small-navigation li.current-page-item > .sub-toggle, [dir] #colormag__header .main-small-navigation li.current-menu-item > .sub-toggle {
@@ -6805,7 +6805,7 @@ RESPONSIVE STRUCTURE
     }
 
     /* 16.0 heaader media css */
-    [dir] .better-responsive-menu .main-small-navigation .menu-primary-container {
+    [dir] .better-responsive-menu .main-small-navigation #colormag__site-navigation-primary {
         padding-bottom: 15px;
     }
     #colormag__header.colormag-header-classic .date-in-header, #colormag__header.colormag-header-clean .date-in-header {
