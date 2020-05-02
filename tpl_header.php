@@ -126,7 +126,7 @@ if (!defined('DOKU_INC')) die();
                             <!-- HOME -->
                             <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
                             <!-- NSINDEX DROPDOWN -->
-                            <li id="colormag__nsindex-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print tpl_getLang('nscontent') ?>"><?php colormag_glyph($colormag['glyphs']['map']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('nscontent') ?></span></a></li>
+                            <li id="colormag__nsindex-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print tpl_getLang('nscontent') ?>"><?php colormag_glyph($colormag['glyphs']['map']) ?></a></li>
                         </ul><!-- /#colormag__contools -->
                         <ul id="colormag__nsindex-menu" class="sub-menu">
                             <li class="menu-item menu-item-has-children">
@@ -161,7 +161,7 @@ if (!defined('DOKU_INC')) die();
                                 </div>
                             </li>
                             <!-- USERTOOLS DROPDOWN -->
-                            <li id="colormag__usertools-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print $lang['tools'] ?>"><?php colormag_glyph($colormag['glyphs']['usertools']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['tools'] ?></span></a></li>
+                            <li id="colormag__usertools-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print $lang['tools'] ?>"><?php colormag_glyph($colormag['glyphs']['usertools']) ?></a></li>
                         </ul><!-- /#colormag__usertools -->
                         <ul id="colormag__usertools-menu" class="sub-menu <?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- USERTOOLS -->
