@@ -296,7 +296,7 @@ body.neu-ui #colormag__main.uicolor-toc #dw__toc {
     color: @ini_text_neu;
 }
 body.neu-ui .uicolor a {
-    background-color: @ini_background_neu;
+    background-color: transparent;
 }
 body.alt-ui .uicolor,
 body.alt-ui #colormag__main.uicolor-toc #dw__toc {
@@ -410,8 +410,8 @@ address {
     margin: 0 0 15px;
 }
 
-del, ins {
-    padding: .1rem .5rem;
+del, ins, span.curid {
+    padding: .1rem;
 }
 
 del {
@@ -429,6 +429,7 @@ table {
 
 span.curid {
     font-weight: bold;
+    background-color: @ini_highlight;
 }
 
 /* Headings */
