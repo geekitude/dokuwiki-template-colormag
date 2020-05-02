@@ -151,7 +151,7 @@ if (!defined('DOKU_INC')) die();
                         </ul><!-- /#colormag__nsindex-menu -->
                     </div><!-- /#colormag__site-navigation-primary -->
                     <div id="colormag__site-navigation-secondary" class="flex row end">
-                        <ul id="colormag__menu-search" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
+                        <ul id="colormag__usertools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- SEARCH -->
                             <li class="menu-item top-search-wrap action search">
                                 <input id="colormag__searchcheck01" type="checkbox" name="menu-tools-search" />
@@ -160,15 +160,17 @@ if (!defined('DOKU_INC')) die();
                                     <?php colormag_searchform(); ?>
                                 </div>
                             </li>
-                        </ul><!-- /#colormag__menu-search -->
-                        <ul id="colormag__usertools" class="menunav-menu  menu-primary-container-right-section widget<?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
+                            <!-- USERTOOLS DROPDOWN -->
+                            <li id="colormag__usertools-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print $lang['tools'] ?>"><?php colormag_glyph($colormag['glyphs']['usertools']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print $lang['tools'] ?></span></a></li>
+                        </ul><!-- /#colormag__usertools -->
+                        <ul id="colormag__usertools-menu" class="sub-menu <?php print (strpos(tpl_getConf('glyphcolors'), 'usertools') !== false) ? ' glyphcolors' : '' ?>">
                             <!-- USERTOOLS -->
                             <?php
                                 if ($conf['useacl']) {
                                     colormag_usertools();
                                 }
                             ?>
-                        </ul><!-- /#colormag__usertools -->
+                        </ul><!-- /#colormag__usertools-menu -->
                     </div><!-- /#colormag__site-navigation-secondary -->
                 </div><!-- /.inner-wrap -->
             </nav><!-- /#colormag__site-navigation -->

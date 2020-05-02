@@ -52,8 +52,9 @@ function js_dokuwiki_resize(){
         if($toc.length) {
             $toc[0].setState(1);
         }
-        // nsindex back to initial place
+        // nsindex and usertools back to initial place
         jQuery('#colormag__nsindex-menu').appendTo('#colormag__site-navigation-primary');
+        jQuery('#colormag__usertools-menu').appendTo('#colormag__site-navigation-secondary');
     }
     if (device_class.match(/mobile/)){
         // toc and sidebar hiding
@@ -66,8 +67,9 @@ function js_dokuwiki_resize(){
         }
     }
     if (device_class.match(/tablet/)){
-        // move nsindex to dropdown
+        // move nsindex and usertools to dropdown
         jQuery('#colormag__nsindex-menu').appendTo('#colormag__nsindex-dropdown');
+        jQuery('#colormag__usertools-menu').appendTo('#colormag__usertools-dropdown');
     }
 }
 

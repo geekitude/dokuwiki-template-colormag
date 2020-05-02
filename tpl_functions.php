@@ -108,6 +108,7 @@ function colormag_init() {
 //    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
+    $colormag['glyphs']['usertools'] = 'account-cog';
     foreach ($colormag['socials'] as $key => $value) {
         $colormag['glyphs'][$key] = $key;
     }
