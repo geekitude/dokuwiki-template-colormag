@@ -117,7 +117,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </div><!-- /#colormag__secondary -->
                     <?php endif; ?>
 
-                </div><!-- /.inner-wrap.group -->
+                </div><!-- /#colormag__main-content -->
 
                 <!-- PAGE ACTIONS -->
                 <div id="colormag__pagetools">
@@ -128,7 +128,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </ul>
                     </div><!-- /.tools -->
                 </div><!-- /#dokuwiki__pagetools -->
-            </div><!-- /.inner-wrap.group -->
+            </div><!-- /.inner-wrap-left -->
 
         </div><!-- /#colormag__main -->
 
