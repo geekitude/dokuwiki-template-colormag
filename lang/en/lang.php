@@ -19,3 +19,5 @@ $lang['purgejscache']       = 'Purge JavaScript cache';
 $lang['purgecsscache']      = 'Purge CSS cache';
 $lang['contools']               = 'Contextual Tools';
 $lang['nscontent']               = 'Namespace content';
+$lang['lasteditor']             = 'Last editor';
+$lang['pagepath']               = 'File path';

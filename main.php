@@ -87,7 +87,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                             <hr <?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"' ?> />
 
-                            <div class="docInfo flex row evenly<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint' ?><?php print (strpos(tpl_getConf('uicolorize'), 'docinfo') !== false) ? " uicolor" : "" ?>"><?php tpl_pageinfo() ?></div>
+                            <?php if(($ACT == "show") or ($ACT == "edit")): ?>
+                                <div class="docInfo news-bar flex row evenly<?php print (strpos(tpl_getConf('print'), 'docinfo') !== false) ? '' : ' noprint'; ?><?php print (strpos(tpl_getConf('uicolorize'), 'docinfo') !== false) ? " uicolor" : "" ?>"><?php print colormag_docinfo() ?></div>
+                            <?php endif; ?>
 
                             <?php tpl_flush() ?>
 

@@ -68,7 +68,7 @@ function colormag_init() {
     $colormag['glyphs']['editor'] = 'fountain-pen-tip';
     $colormag['glyphs']['ellipsis'] = 'ellipsis';
 //    $colormag['glyphs']['extension'] = 'puzzle';
-//    $colormag['glyphs']['extedit'] = 'desktop-classic';
+    $colormag['glyphs']['extrnaleditor'] = 'desktop-classic';
     $colormag['glyphs']['from-playground'] = 'shovel-off';
     $colormag['glyphs']['help'] = 'lifebuoy';
     $colormag['glyphs']['hide'] = 'eye-off';
@@ -810,4 +810,65 @@ function colormag_social_link($network = null) {
             return 1;
         }
     }
+}
+
+/**
+ * Adapted from tpl_pageinfo() core function
+ *
+ * Print some info about the current page
+ *
+ * @param bool $ret return content instead of printing it
+ * @return bool|string
+ */
+function colormag_docinfo() {
+    global $conf, $lang, $INFO, $ID;
+    global $colormag;
+
+    // return if we are not allowed to view the page
+    if(!auth_quickaclcheck($ID)) {
+        return false;
+    }
+
+    // prepare date and path
+    $fn = $INFO['filepath'];
+    if(!$conf['fullpath']) {
+        if($INFO['rev']) {
+            $fn = str_replace($conf['olddir'].'/', '', $fn);
+        } else {
+            $fn = str_replace($conf['datadir'].'/', '', $fn);
+        }
+    }
+    $fn   = utf8_decodeFN($fn);
+    $date = dformat($INFO['lastmod']);
+    $date = colormag_date("short", $INFO['lastmod'], true, true);
+    // print it
+    if($INFO['exists']) {
+        $out = '';
+//print "<img class='qrcode' src='".$colormag['qrcode']['id']."' alt='*this page*' />";
+        if($INFO['editor']) {
+            $out .= '<div title="'.tpl_getLang('lasteditor').'" class="flex">'.colormag_glyph($colormag['glyphs']['editor'], true);
+            if ((isset($colormag['qrcode']['editor'])) and ($colormag['qrcode']['editor'] != null)) {
+                $out .= "<img class='qrcode editor' src='".$colormag['qrcode']['editor']."' alt='*qrcode*' title='".tpl_getLang('lasteditor')."' />";
+            }
+            $out .= '<bdi>'.ucfirst(editorinfo($INFO['editor'])).'</bdi>';
+        } else {
+            $out .= '<div class="editor svgonly" title="'.ucfirst($lang['external_edit']).'">'.colormag_glyph($colormag['glyphs']['externaleditor'], true);
+            //$out .= '['.$lang['external_edit'].']';
+        }
+        $out .= '</div>';
+        $out .= '<div title="'.explode(':',$lang['lastmod'])[0].'" class="flex">'.colormag_glyph($colormag['glyphs']['lastmod'], true).$date.'</div>';
+        if($INFO['locked']) {
+            $out .= '<div title="'.$lang['lockedby'].'" class="locked">'.colormag_glyph($colormag['glyphs']['locked'], true);
+            if ((isset($colormag['qrcode']['locked'])) and ($colormag['qrcode']['locked'] != null)) {
+                $out .= "<img class='qrcode locked' src='".$colormag['qrcode']['locked']."' alt='*qrcode*' title='".$lang['lockedby']."' />";
+            }
+            $out .= '<bdi>'.ucfirst(editorinfo($INFO['locked'])).'</bdi>';
+            $out .= '</div>';
+        }
+        $out .= '<div title="'.tpl_getLang('pagepath').'" class="flex">'.colormag_glyph($colormag['glyphs']['pagepath'], true);
+        $out .= '<bdi>'.$fn.'</bdi></div>';
+
+        return $out;
+    }
+    return false;
 }

@@ -1051,13 +1051,9 @@ div.skip a {
     display: none;
 }
 */
+
 #colormag__topbar-wrapper .inner-wrap div.flex div {
     margin-right: 1rem;
-}
-
-#colormag__topbar-wrapper .inner-wrap div.flex div svg,
-#colormag__topbar-wrapper .inner-wrap div.flex div strong {
-    margin: 0 .4rem 0 0;
 }
 
 /* The HTML list gets replaced with a single div,
@@ -1072,15 +1068,22 @@ div.skip a {
     display: inline-block;
     overflow: hidden;
     height: 2.2rem;
+    margin-left: .4rem;
 }
 
 #colormag__topbar-social ul li {
     margin-left: .8rem;
 }
 
+#colormag__topbar-social ul li:first-child {
+    margin-left: .4rem;
+}
+
+/*
 #colormag__topbar-social ul li a svg {
     margin-right: .4rem;
 }
+*/
 
 /*
 #colormag__header-text-nav-container {
@@ -3748,6 +3751,10 @@ ul.wp-block-gallery {
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
     font-size: 14px;
     position: relative;
+}
+
+.news-bar svg {
+    margin: 0 .4rem 0 0;
 }
 
 .breaking-news {
