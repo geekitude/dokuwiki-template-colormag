@@ -19,6 +19,9 @@ body {
     /*background-color: transparent !important;*/
     /*border: 2px black solid;*/
 }
+[dir] body {
+    background-image: unset !important;
+}
 /** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
 * { -webkit-filter:none !important; filter:none !important; -ms-filter: none !important; }[dir] */
 * { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; }
@@ -27,9 +30,18 @@ body {
 [dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] caption, [dir] legend {
     clear: both;
 }
-/* a, */
+
+[dir] #colormag__page, [dir] .inner-wrap, [dir] .inner-wrap-left {
+    margin: 0;
+}
+.inner-wrap-left {
+    display: block;
+}
 #colormag__content p {
     color: black;
+}
+#colormag__main-content {
+    display: block;
 }
 [dir] #colormag__colophon .footer-widgets-wrapper { background-color: transparent !important; }
 #colormag__colophon .footer-widgets-area { color: #000 !important; }
@@ -38,16 +50,16 @@ body {
 #colormag__colophon a { color: #000 !important; }
 /* Black prints faster: h5bp.com/s */
 
-/* prevent breaks directly after headings */
-h1, h2, h3, h4, h5 {
-  page-break-after: avoid;
-}
-
-/* prevent paragraphs (and contained images), figures and tables from being cut between pages */ 
-p, pre, table, figure {
+/* prevent breaks directly after ... */
+h1, h2, h3, h4, h5, p, pre, table, figure, div.fn sup {
     /*page-break-inside: avoid !important;*/
     -moz-column-break-inside: avoid;
          break-inside: avoid;
+}
+
+/* remove borders */
+[dir] .footer-widgets-wrapper {
+    border: none;
 }
 
 /* edit buttons */
@@ -67,6 +79,9 @@ a:visited {
 }
 [dir] a:link, [dir] a:visited {
     padding: 0 !important;
+}
+[dir] a {
+    background-image: none !important;
 }
 
 /* display href after link */
@@ -141,10 +156,10 @@ EXCLUDED
 #colormag__topbar-wrapper,
 #colormag__header-right-sidebar .tools,
 #colormag__site-navigation-sticky-wrapper,
-#colormag__breadcrumbs-wrapper,
-#dw__toc .toggle strong,
+#colormag__pageheader,
 #colormag__userwidget,
-#dokuwiki__pagetools,
+#dw__toc,
+#colormag__pagetools,
 div.footer-socket-wrapper {
     display: none !important;
 }

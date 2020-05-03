@@ -18,6 +18,7 @@
 body {
     /*background-color: transparent !important;*/
     /*border: 2px black solid;*/
+    background-image: unset !important;
 }
 /** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
 * { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
@@ -32,9 +33,20 @@ caption,
 legend {
     clear: both;
 }
-/* a, */
+
+#colormag__page,
+.inner-wrap,
+.inner-wrap-left {
+    margin: 0;
+}
+.inner-wrap-left {
+    display: block;
+}
 #colormag__content p {
     color: black;
+}
+#colormag__main-content {
+    display: block;
 }
 #colormag__colophon .footer-widgets-wrapper { background-color: transparent !important; }
 #colormag__colophon .footer-widgets-area { padding: 0; color: #000 !important; }
@@ -42,15 +54,15 @@ legend {
 #colormag__colophon a { color: #000 !important; }
 /* Black prints faster: h5bp.com/s */
 
-/* prevent breaks directly after headings */
-h1, h2, h3, h4, h5 {
-  page-break-after: avoid;
-}
-
-/* prevent paragraphs (and contained images), figures and tables from being cut between pages */ 
-p, pre, table, figure {
+/* prevent breaks directly after ... */
+h1, h2, h3, h4, h5, p, pre, table, figure, div.fn sup {
     /*page-break-inside: avoid !important;*/
     break-inside: avoid;
+}
+
+/* remove borders */
+.footer-widgets-wrapper {
+    border: none;
 }
 
 /* edit buttons */
@@ -68,6 +80,9 @@ a:visited {
     /*color: #333;*/
     /*background-color: inherit;*/
     padding: 0 !important;
+}
+a {
+    background-image: none !important;
 }
 
 /* display href after link */
@@ -134,10 +149,10 @@ EXCLUDED
 #colormag__topbar-wrapper,
 #colormag__header-right-sidebar .tools,
 #colormag__site-navigation-sticky-wrapper,
-#colormag__breadcrumbs-wrapper,
-#dw__toc .toggle strong,
+#colormag__pageheader,
 #colormag__userwidget,
-#dokuwiki__pagetools,
+#dw__toc,
+#colormag__pagetools,
 div.footer-socket-wrapper {
     display: none !important;
 }
