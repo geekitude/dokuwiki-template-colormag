@@ -175,10 +175,48 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 ### Footer widgets
 
-#### User widget
-
 * Login form or informations about current user as well as potentially usefull links like `register` and `update profile`
 * Contact informations: automatically shows the content of `wiki:contact` wiki page (you can find an example of such page in `colormag/debug` folder)
 * Usefull Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
 * Licence widget shows current license choosen for the whole wiki (you can choose between no image, small button or larger badge
 * QRCode to current page shows up when printing page if `QRCode2` plugin is enabled
+
+### HTML hooks
+
+Spacious can be customized using HTML files that will be displayed at one of the many available include or replace hooks. Include hooks add some content while replace hooks take place of standard content.
+To get started, copy the correspondig HTML file from `spacious/debug` folder to `spacious` folder and change it to your liking (don't forget to remove existing `*-hook-sample` class).
+
+You can add `noprint` class to avoid the content to be printed.
+
+#### Include hooks
+
+* *meta.html* : just before `</head>` tag (use this to add additional styles or metaheaders)
+* *header.html* : right above everything but [Skip to Content] and [Topbar]
+* *brandingfooter.html* : just below site-logo/title/banner section
+* *bannerheader.html* : above banner
+* *bannerfooter.html* : below banner
+* *toolsheader.html* : above header tools area
+* *toolsfooter.html* : below header tools area
+* *headerfooter.html* : below site header (just before main navigation area)
+* *pageidheader.html* : above pageid
+* *pageidfooter.html* : below pageid
+* *breadcrumbsheader.html* : above breadcrumbs
+* *breadcrumbsfooter.html* : below breadcrumbs
+* *mainheader.html* : above main content area
+* *sidebarheader.html* : before sidebar content
+* *pageheader.html* : above actual DW page content
+* *sidebarfooter.html* : after sidebar content
+* *pagefooter.html* : below actual DW page content
+* *mainfooter.html* : between main content area and site footer, 
+* *footerheader.html* : at the top of site footer
+* *footerwidget.html* : included in footer widgets area (after other widgets)
+* *footer.html* : at the very end of site page (last visible item before `</body>` tag)
+
+#### Replace hooks
+
+These specific HTML hooks let you change some template elements with fancier HTML code of your own
+* *sidebar.html* : replacement for sidebar page
+* *title.html* : replace wiki title string with HTML element
+* *tagline.html* : replace wiki description string with HTML element
+* *banner.html* : replaces potential banner image with HTML element
+* *widebanner.html* : replaces potential banner image with HTML element

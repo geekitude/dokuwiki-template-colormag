@@ -9,8 +9,12 @@ if (!defined('DOKU_INC')) die();
 
 <!-- ********** FOOTER ********** -->
 <footer id="colormag__colophon" class="group<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
+
     <div class="footer-widgets-wrapper">
         <div class="inner-wrap">
+
+            <?php colormag_include("footerheader"); ?>
+
             <div class="footer-widgets-area flex row start evenly">
                 <?php if ($conf['useacl'] && $ACT != "login" && $ACT != "denied"): ?>
                     <aside id="colormag__userwidget" class="widget">
@@ -84,7 +88,11 @@ dbg("vérifier ces liens");
                     <h6 class="widget-title"><span class="label"><?php print tpl_getLang('onlineversion'); ?></span></h6>
                     <img class="qrcode url" src="<?php print $colormag['qrcode']['id']; ?>" alt="*qrcode*" title="<?php print tpl_getLang('onlineversion'); ?>" />
                 </aside>
+
+                <?php colormag_include("footerwidget"); ?>
+
             </div><!-- /.footer-widgets-area.group -->
+
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-widgets-wrapper -->
     <div class="footer-socket-wrapper group<?php print (strpos(tpl_getConf('uicolorize'), 'footersocket') !== false) ? " uicolor" : "" ?>">
@@ -136,5 +144,5 @@ dbg("vérifier ces liens");
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-socket-wrapper -->
 </footer>
-<?php
-tpl_includeFile('footer.html');
+
+<?php colormag_include("footer");

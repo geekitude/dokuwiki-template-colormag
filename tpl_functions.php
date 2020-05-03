@@ -315,6 +315,43 @@ function colormag_glyph($glyph, $return = false) {
 }/* colormag_glyph */
 
 /**
+ * Include a page
+ * adapted from tpl_includeFile() to choose between debug or real include file
+ *
+ * See original function in inc/template.php for details
+ */
+function colormag_include($file, $widget = false) {
+    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'include')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+        if ($widget) {
+            print '<aside id="colormag__'.$file.'" class="widget">';
+        }
+        include(tpl_incdir().'debug/'.$file.'.html');
+    } elseif (file_exists(tpl_incdir().$file.'.html')) {
+        if ($widget) {
+            print '<aside id="colormag__'.$file.'" class="widget">';
+        }
+        include(tpl_incdir().$file.'.html');
+    } else {
+        print p_wiki_xhtml($file, '', false);
+    }
+    if ($widget) {
+        print '</aside>';
+    }
+}/* /colormag_include */
+
+function colormag_replace($file, $string = null) {
+    if (($_GET['debug'] == 'replace') && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+        include(tpl_incdir().'debug/'.$file.'.html');
+    } elseif (file_exists(tpl_incdir().$file.'.html')) {
+        include(tpl_incdir().$file.'.html');
+    } elseif ($string != null) {
+        print $string;
+    } else {
+        print p_wiki_xhtml($file, '', false);
+    }
+}/* /colormag_replace */
+
+/**
  * The loginform
  * adapted from html_login() because colormag doesn't need autofocus on username input
  *

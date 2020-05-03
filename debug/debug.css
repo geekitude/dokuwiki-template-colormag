@@ -11,10 +11,6 @@
 
 /* general */
 
-body {
-    background-color: gold !important;
-}
-
 body.dbg-pattern {
     background-image: url(pattern.png);
 }

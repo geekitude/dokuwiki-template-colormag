@@ -33,7 +33,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_metaheaders() ?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
     <?php if (tpl_getConf('dark')): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
@@ -43,6 +42,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php //if ($_GET['debug'] != null): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/pattern.php?ns=<?php print getNS($ID); ?>" />
     <?php //endif ?>
+    <?php colormag_include('meta') ?>
 </head>
 
 <body class="<?php print colormag_bodyclasses(); ?>">
@@ -53,22 +53,31 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <header id="colormag__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
             <div class="inner-wrap flex row between">
                 <!-- PAGEID -->
-                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                <div class="flex column start">
+                    <?php colormag_include("pageidheader"); ?>
+                    <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                    <?php colormag_include("pageidfooter"); ?>
+                </div>
                 <!-- BREADCRUMBS -->
                 <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
                     <nav id="colormag__breadcrumbs-wrapper" class="breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
-                            <?php if($conf['youarehere']): ?>
-                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
-                            <?php endif ?>
-                            <?php if($conf['breadcrumbs']): ?>
-                                <ul class="trace"><?php colormag_trace() ?></ul>
-                            <?php endif ?>
+                        <?php colormag_include("breadcrumbsheader"); ?>
+                        <?php if($conf['youarehere']): ?>
+                            <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                        <?php endif ?>
+                        <?php if($conf['breadcrumbs']): ?>
+                            <ul class="trace"><?php colormag_trace() ?></ul>
+                        <?php endif ?>
+                        <?php colormag_include("breadcrumbsfooter"); ?>
                     </nav><!-- /#colormag__breadcrumbs-wrapper -->
                 <?php endif ?>
             </div>
         </header><!-- /#colormag__main -->
 
+        <?php colormag_include("mainheader"); ?>
+
         <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
+
             <div class="inner-wrap-left narrow-mix group flex row stretch">
 
                 <div id="colormag__main-content" class="flex row stretch between">
@@ -78,11 +87,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div id="colormag__content" class="group">
                             <div class="page group">
                                 <?php tpl_flush() ?>
-                                <?php tpl_includeFile('pageheader.html') ?>
+                                <?php colormag_include('pageheader') ?>
                                 <!-- wikipage start -->
                                 <?php tpl_content() ?>
                                 <!-- wikipage stop -->
-                                <?php tpl_includeFile('pagefooter.html') ?>
+                                <?php colormag_include('pagefooter') ?>
                             </div><!-- /.page.group -->
 
                             <hr <?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"' ?> />
@@ -103,6 +112,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                         <!-- ********** ASIDE ********** -->
                         <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
+
+                            <?php colormag_include("sidebarheader"); ?>
+
                             <div class="pad aside include group">
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
                                 <div class="content group">
@@ -114,6 +126,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                     </div><!-- /.group -->
                                 </div><!-- /#colormag__content -->
                             </div><!-- /.pad.aside.include.group -->
+
+                            <?php colormag_include("sidebarfooter"); ?>
+
                         </div><!-- /#colormag__secondary -->
                     <?php endif; ?>
 
@@ -129,6 +144,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     </div><!-- /.tools -->
                 </div><!-- /#dokuwiki__pagetools -->
             </div><!-- /.inner-wrap-left -->
+
+            <?php colormag_include("mainfooter"); ?>
 
         </div><!-- /#colormag__main -->
 

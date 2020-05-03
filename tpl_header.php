@@ -16,8 +16,6 @@ if (!defined('DOKU_INC')) die();
 
     <div id="colormag__header-text-nav-container" class="group">
 
-        <?php tpl_includeFile('headertop.html') ?>
-
         <?php if ((strpos(tpl_getConf('topbar'), 'date') !== false) or (strpos(tpl_getConf('topbar'), 'newsticker') !== false) or (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) : ?>
             <div id="colormag__topbar-wrapper" class="news-bar group<?php print (strpos(tpl_getConf('uicolorize'), 'topbar') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap flex row between">
@@ -50,46 +48,55 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
+
+        <?php colormag_include("header"); ?>
+
         <div class="inner-wrap narrow-mix group">
             <div id="colormag__header-text-nav-wrap" class="flex row stretch between">
-                <div id="colormag__header-left-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
-                    <div id="colormag__site-logo">
-                        <?php
-                            // get logo either out of the template images folder or data/media folder
-                            $logoSize = array();
-                            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
-
-                            // display logo and wiki title in a link to the home page
-                            tpl_link(
-                                wl(),
-                                '<img src="'.$logo.'" '.$logoSize[3].' alt="" />',
-                                'accesskey="h" title="[H]"'
-                            );
-                        ?>
-                    </div>
-                    <div class="flex column <?php print tpl_getConf('headerflexalign') ?>">
-                        <h1 id="colormag__site-title">
+                <div id="colormag__header-left-section" class="flex column">
+                    <div class="flex row <?php print tpl_getConf('headerflexalign') ?>">
+                        <div id="colormag__site-logo">
                             <?php
+                                // get logo either out of the template images folder or data/media folder
+                                $logoSize = array();
+                                $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+
                                 // display logo and wiki title in a link to the home page
                                 tpl_link(
                                     wl(),
-                                    '<span>'.$conf['title'].'</span>',
+                                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" />',
                                     'accesskey="h" title="[H]"'
                                 );
                             ?>
-                        </h1>
-                        <?php if ($conf['tagline']): ?>
-                            <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
-                        <?php endif ?>
+                        </div>
+                        <div class="flex column <?php print tpl_getConf('headerflexalign') ?>">
+                            <h1 id="colormag__site-title">
+                                <?php
+                                    // display logo and wiki title in a link to the home page
+                                    tpl_link(
+                                        wl(),
+                                        '<span>'.$conf['title'].'</span>',
+                                        'accesskey="h" title="[H]"'
+                                    );
+                                ?>
+                            </h1>
+                            <?php if ($conf['tagline']): ?>
+                                <p id="colormag__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
+                            <?php endif ?>
+                        </div>
                     </div>
+                    <?php colormag_include("brandingfooter"); ?>
                 </div>
                 <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
                         <div class="dbg advertisement-content widget group">
-                            *BANNER*
+                            <?php colormag_include("bannerheader"); ?>
+                                *BANNER*
+                            <?php colormag_include("bannerfooter"); ?>
                         </div>
                         <div id="colormag__header-right-sidebar" class="widget group">
                             <div class="tools group">
+                                <?php colormag_include("toolsheader"); ?>
                                 <!-- SITE TOOLS -->
                                 <div id="colormag__sitetools">
                                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
@@ -100,11 +107,13 @@ if (!defined('DOKU_INC')) die();
                                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                     </div><!-- /.mobiletools -->
                                 </div><!-- /#colormag__sitetools -->
+                                <?php colormag_include("toolsfooter"); ?>
                             </div><!-- /.tools -->
                         </div>
                     </div>
                 </div>
             </div>
+            <?php colormag_include("headerfooter"); ?>
         </div><!-- .inner-wrap -->
 
         <aside id="colormag__alerts" class="group">
