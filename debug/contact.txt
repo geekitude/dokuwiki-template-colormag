@@ -1,0 +1,5 @@
+  * City    Sainte-Geneviève-des-Bois | France
+  * Phone   +33 1 23 45 67 89
+  * Fax     +33 2 34 56 78 90
+  * Email   sample@example.com
+  * Website www.dokuwiki.org

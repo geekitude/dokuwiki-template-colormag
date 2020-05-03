@@ -172,3 +172,13 @@ You can add new lines for social networks that are not in the list yet. Note tha
 As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as long as it is named exactly like corresponding target network in configuration file.
 
 :bulb: you can add `<title>` tag within your SVG files to add a custom tooltip on hover.
+
+### Footer widgets
+
+#### User widget
+
+* Login form or informations about current user as well as potentially usefull links like `register` and `update profile`
+* Contact informations: automatically shows the content of `wiki:contact` wiki page (you can find an example of such page in `colormag/debug` folder)
+* Usefull Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
+* Licence widget shows current license choosen for the whole wiki (you can choose between no image, small button or larger badge
+* QRCode to current page shows up when printing page if `QRCode2` plugin is enabled

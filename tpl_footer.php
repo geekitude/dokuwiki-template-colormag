@@ -62,6 +62,12 @@ dbg("vérifier ces liens");
                         ?>
                     </aside><!-- /#colormag__usertools -->
                 <?php endif; ?>
+                <?php if(page_exists("wiki:contact") && (!$useacl || auth_quickaclcheck("wiki:contact") >= AUTH_READ)): ?>
+                    <aside id="colormag__contactwidget" class="widget">
+                        <h6 class="widget-title"><span class="label"><?php print tpl_getLang('contact'); ?></span></h6>
+                        <?php print p_wiki_xhtml('wiki:contact', '', false); /* includes the wiki:contact page */ ?>
+                    </aside>
+                <?php endif; ?>
                 <?php if (page_findnearest(tpl_getConf('links'), $useacl)): ?>
                     <aside id="colormag__linkswidget" class="widget">
                         <h6 class="widget-title"><span class="label"><?php print tpl_getLang('links'); ?></span></h6>

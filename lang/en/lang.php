@@ -22,3 +22,4 @@ $lang['nscontent']               = 'Namespace content';
 $lang['lasteditor']             = 'Last editor';
 $lang['pagepath']               = 'File path';
 $lang['onlineversion']          = 'Online Version';
+$lang['contact']          = 'Contact';
