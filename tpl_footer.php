@@ -74,6 +74,10 @@ dbg("vérifier ces liens");
                         <?php tpl_license(tpl_getConf('licensevisual')) /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
                     </div>
                 </aside>
+                <aside id="colormag__pageqrwidget" class="widget">
+                    <h6 class="widget-title"><span class="label"><?php print tpl_getLang('onlineversion'); ?></span></h6>
+                    <img class="qrcode url" src="<?php print $colormag['qrcode']['id']; ?>" alt="*qrcode*" title="<?php print tpl_getLang('onlineversion'); ?>" />
+                </aside>
             </div><!-- /.footer-widgets-area.group -->
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-widgets-wrapper -->

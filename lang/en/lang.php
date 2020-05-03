@@ -21,3 +21,4 @@ $lang['contools']               = 'Contextual Tools';
 $lang['nscontent']               = 'Namespace content';
 $lang['lasteditor']             = 'Last editor';
 $lang['pagepath']               = 'File path';
+$lang['onlineversion']          = 'Online Version';

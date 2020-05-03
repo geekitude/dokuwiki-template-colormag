@@ -148,3 +148,10 @@ EXCLUDED
 div.footer-socket-wrapper {
     display: none !important;
 }
+
+/*--------------------------------------------------------------
+INCLUDED
+--------------------------------------------------------------*/
+#colormag__pageqrwidget {
+    display: initial;
+}
