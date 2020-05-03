@@ -64,10 +64,10 @@ function colormag_init() {
 //    $colormag['glyphs']['admin'] = 'settings';
     $colormag['glyphs']['config'] = 'tune';
     $colormag['glyphs']['date'] = 'calendar-month';
-//    $colormag['glyphs']['discussion'] = 'comment-text-multiple';
+    $colormag['glyphs']['discussion'] = 'comment-text-multiple';
     $colormag['glyphs']['editor'] = 'fountain-pen-tip';
     $colormag['glyphs']['ellipsis'] = 'ellipsis';
-//    $colormag['glyphs']['extension'] = 'puzzle';
+    $colormag['glyphs']['extension'] = 'puzzle';
     $colormag['glyphs']['extrnaleditor'] = 'desktop-classic';
     $colormag['glyphs']['from-playground'] = 'shovel-off';
     $colormag['glyphs']['help'] = 'lifebuoy';
@@ -88,7 +88,7 @@ function colormag_init() {
     $colormag['glyphs']['pagepath'] = 'folder-open';
     $colormag['glyphs']['parent-namespace'] = 'reply-all';
     $colormag['glyphs']['playground'] = 'shovel';
-//    $colormag['glyphs']['popularity'] = 'star-half';
+    $colormag['glyphs']['popularity'] = 'star-half';
     $colormag['glyphs']['previous'] = 'skip-previous';
     $colormag['glyphs']['private-ns'] = 'folder-key';
     $colormag['glyphs']['profile'] = 'account-edit';
@@ -101,13 +101,13 @@ function colormag_init() {
 //    $colormag['glyphs']['separator'] = 'cards-diamond';
     $colormag['glyphs']['show'] = 'eye';
     $colormag['glyphs']['social'] = 'account-network';
-//    $colormag['glyphs']['styling'] = 'palette';
+    $colormag['glyphs']['styling'] = 'palette';
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';
-//    $colormag['glyphs']['upgrade'] = 'cloud-download';
+    $colormag['glyphs']['upgrade'] = 'cloud-download';
 //    $colormag['glyphs']['user'] = 'account';
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
-//    $colormag['glyphs']['usermanager'] = 'account-group';
+    $colormag['glyphs']['usermanager'] = 'account-group';
     $colormag['glyphs']['usertools'] = 'account-cog';
     foreach ($colormag['socials'] as $key => $value) {
         if ($value) {
