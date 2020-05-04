@@ -22,7 +22,8 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
-    global $colormag, $JSINFO;
+    global $ID, $JSINFO;
+    global $colormag;
 
     // SOCIAL LINKS
     $colormag['socials'] = array();
@@ -134,6 +135,16 @@ function colormag_init() {
     }
 //dbg($colormag['glyphs']);
 
+    // HELPER PLUGINS
+    // Preparing usefull plugins' helpers
+    // Translation
+    $colormag['translation'] = array();
+    //$colormag['translation']['parts'] = array();
+    if (!plugin_isdisabled('translation')) {
+        $colormag['translation']['helper'] = plugin_load('helper','translation');
+        //$colormag['translation']['parts'] = $colormag['translation']['helper']->getTransParts($ID);
+    }
+//dbg($colormag['helpers']['translation']->getTransParts($ID));
     // CURRENT NS AND PATH
     // Get current namespace and corresponding path (resulting path will correspond to namespace's pages, media or conf files)
 //    //$colormag['currentNs'] = getNS(cleanID($id));

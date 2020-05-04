@@ -98,7 +98,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Hidable sidebar
 * [ ] Stickable main navigation bar, pageheader, sidebar and docinfo
 * [ ] Dynamic navigation button (current NS home, parent NS start, home or "back to article")
-* [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
+* [x] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
 * [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
 * [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
@@ -109,7 +109,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *card* (sidebar namespace card image)
   * [ ] *conlogo* (namespace logo within page header aka context logo)
   * [ ] *images* (all UI images)
-  * [ ] *include* (HTML include hooks)
+  * [x] *include* (HTML include hooks)
   * [ ] *logo*
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
@@ -160,7 +160,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
-* **wikiwidgettitle** : set Wiki Widget's title (see [Footer widgets(https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
+* **wikiwidgettitle** : set Wiki Widget's title (see [Footer widgets](https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
 
 ## About
 

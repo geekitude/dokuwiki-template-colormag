@@ -79,6 +79,45 @@ DISCUSSION
 }
 
 /*--------------------------------------------------------------
+TRANSLATION
+--------------------------------------------------------------*/
+
+div.plugin_translation #translation__dropdown {
+    display: initial;
+}
+
+div.plugin_translation select.wikilink1,
+div.plugin_translation option.wikilink1 {
+    color: @ini_existing !important;
+}
+
+div.plugin_translation select.wikilink2,
+div.plugin_translation option.wikilink2 {
+    color: @ini_missing !important;
+}
+
+div.plugin_translation ul {
+    display: inline-block;
+    vertical-align: -6px;
+}
+
+[dir] div.plugin_translation ul li a {
+    border-radius: 2px;
+}
+
+div.plugin_translation ul div.li.cur {
+    display: none;
+}
+
+[dir] div.plugin_translation ul li a.wikilink1 {
+    background-color: @ini_existing !important;
+}
+
+[dir] div.plugin_translation ul li a.wikilink2 {
+    background-color: @ini_missing !important;
+}
+
+/*--------------------------------------------------------------
 UPGRADE
 --------------------------------------------------------------*/
 
