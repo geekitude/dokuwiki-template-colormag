@@ -374,9 +374,6 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 .flex.stretch {
     align-items: stretch;
 }
-.flex.baseline {
-    align-items: flex-start;
-}
 .flex.start {
     align-items: flex-start;
 }
@@ -1236,11 +1233,11 @@ div.skip a {
 }
 */
 
-[dir=ltr] #colormag__topbar-wrapper .inner-wrap div.flex div {
+[dir=ltr] #colormag__topbar-wrapper .inner-wrap div.flex > div {
     margin-right: 1rem;
 }
 
-[dir=rtl] #colormag__topbar-wrapper .inner-wrap div.flex div {
+[dir=rtl] #colormag__topbar-wrapper .inner-wrap div.flex > div {
     margin-left: 1rem;
 }
 
@@ -1264,6 +1261,22 @@ div.skip a {
 
 [dir=rtl] .js-lastchanges {
     margin-right: .4rem;
+}
+
+#colormag__topbar-links ul li {
+    display: inline-block;
+}
+
+[dir=ltr] #colormag__topbar-links ul li {
+    margin: 0 0 0 .4rem;
+}
+
+[dir=rtl] #colormag__topbar-links ul li {
+    margin: 0 .4rem 0 0;
+}
+
+[dir] #colormag__topbar-links ul li div.li {
+    margin: 0;
 }
 
 /*

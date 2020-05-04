@@ -338,9 +338,6 @@ body.alt-ui .uicolor a {
 .flex.stretch {
     align-items: stretch;
 }
-.flex.baseline {
-    align-items: flex-start;
-}
 .flex.start {
     align-items: flex-start;
 }
@@ -1055,7 +1052,7 @@ div.skip a {
 }
 */
 
-#colormag__topbar-wrapper .inner-wrap div.flex div {
+#colormag__topbar-wrapper .inner-wrap div.flex > div {
     margin-right: 1rem;
 }
 
@@ -1072,6 +1069,15 @@ div.skip a {
     overflow: hidden;
     height: 2.2rem;
     margin-left: .4rem;
+}
+
+#colormag__topbar-links ul li {
+    display: inline-block;
+    margin: 0 0 0 .4rem;
+}
+
+#colormag__topbar-links ul li div.li {
+    margin: 0;
 }
 
 /*

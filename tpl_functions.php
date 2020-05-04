@@ -78,7 +78,7 @@ function colormag_init() {
 //    $colormag['glyphs']['login'] = 'login';
 //    $colormag['glyphs']['logout'] = 'logout';
     $colormag['glyphs']['lastmod'] = 'calendar-clock';
-//    $colormag['glyphs']['link'] = 'web';
+    $colormag['glyphs']['link'] = 'web';
     $colormag['glyphs']['locked'] = 'lock';
     $colormag['glyphs']['map'] = 'sitemap';
 //    $colormag['glyphs']['map-hover'] = 'map-search-outline';
@@ -101,7 +101,7 @@ function colormag_init() {
     $colormag['glyphs']['search'] = 'magnify';
 //    $colormag['glyphs']['separator'] = 'cards-diamond';
     $colormag['glyphs']['show'] = 'eye';
-    $colormag['glyphs']['social'] = 'account-network';
+//    $colormag['glyphs']['social'] = 'account-network';
     $colormag['glyphs']['styling'] = 'palette';
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';

@@ -16,7 +16,7 @@ $meta['bodybg']             = array('multichoice','_choices' => array('color','p
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
-$meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','socialnetworks'));
+$meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
