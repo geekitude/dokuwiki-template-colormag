@@ -28,3 +28,4 @@ $conf['dark']               = 0;
 $conf['links']              = 'links';
 $conf['licensevisual']      = 'badge';
 $conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
+$conf['wikiwidgettitle']    = 'Wiki Widget';

@@ -138,7 +138,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **topbar** (*nothing*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
-  * `socialnetworks` : list of social networks links (see [Topbar social links](https://github.com/geekitude/dokuwiki-template-spacious#topbar-social-links) below)
+  * `socialnetworks` : list of social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * **datelocale** (*fra*) : language used for dates
 * **longdatestring** (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
 * **shortdatestring** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
@@ -160,10 +160,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
+* **wikiwidgettitle** : set Wiki Widget's title (see [Footer widgets(https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
 
 ## About
 
-### Social network links
+### Social links
 
 Copy `dokuwiki/lib/tpl/colormag/debug/social.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs.
 
@@ -176,10 +177,10 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 ### Footer widgets
 
 * Login form or informations about current user as well as potentially usefull links like `register` and `update profile`
-* Contact informations: automatically shows the content of `wiki:contact` wiki page (you can find an example of such page in `colormag/debug` folder)
-* Usefull Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
+* Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
 * Licence widget shows current license choosen for the whole wiki (you can choose between no image, small button or larger badge
 * QRCode to current page shows up when printing page if `QRCode2` plugin is enabled
+* Wiki Widget: automatically shows the content of `wiki:widget` wiki page (you can find an example of such page in `colormag/debug` folder)
 
 ### HTML hooks
 

@@ -70,12 +70,6 @@ dbg("vérifier ces liens");
                         ?>
                     </aside><!-- /#colormag__usertools -->
                 <?php endif; ?>
-                <?php if(page_exists("wiki:contact") && (!$useacl || auth_quickaclcheck("wiki:contact") >= AUTH_READ)): ?>
-                    <aside id="colormag__contactwidget" class="widget">
-                        <h6 class="widget-title"><span class="label"><?php print tpl_getLang('contact'); ?></span></h6>
-                        <?php print p_wiki_xhtml('wiki:contact', '', false); /* includes the wiki:contact page */ ?>
-                    </aside>
-                <?php endif; ?>
                 <?php if (page_findnearest(tpl_getConf('links'), $useacl)): ?>
                     <aside id="colormag__linkswidget" class="widget">
                         <h6 class="widget-title"><span class="label"><?php print tpl_getLang('links'); ?></span></h6>
@@ -88,6 +82,12 @@ dbg("vérifier ces liens");
                         <?php tpl_license(tpl_getConf('licensevisual')) /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
                     </div>
                 </aside>
+                <?php if(page_exists("wiki:widget") && (!$useacl || auth_quickaclcheck("wiki:widget") >= AUTH_READ)): ?>
+                    <aside id="colormag__wikiwidget" class="widget">
+                        <h6 class="widget-title"><span><?php print tpl_getConf('wikiwidgettitle'); ?></span></h6>
+                        <?php print p_wiki_xhtml('wiki:widget', '', false); /* includes the wiki:contact page */ ?>
+                    </aside>
+                <?php endif; ?>
                 <aside id="colormag__pageqrwidget" class="widget">
                     <h6 class="widget-title"><span class="label"><?php print tpl_getLang('onlineversion'); ?></span></h6>
                     <img class="qrcode url" src="<?php print $colormag['qrcode']['id']; ?>" alt="*qrcode*" title="<?php print tpl_getLang('onlineversion'); ?>" />
