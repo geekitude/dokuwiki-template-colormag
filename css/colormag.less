@@ -3170,8 +3170,28 @@ div.secedit.editbutton_section {
     color: @ini_link;
 }
 
+#colormag__colophon .widget {
+    /*margin-bottom: 30px;*/
+}
+
 [dir] #colormag__colophon .widget {
-    margin-bottom: 30px;
+    margin: 0 .5rem 3rem .5rem;
+}
+
+[dir=ltr] #colormag__colophon .widget:first-child {
+    margin: 0 .5rem 3rem 0;
+}
+
+[dir=rtl] #colormag__colophon .widget:first-child {
+    margin: 0 0 3rem .5rem;
+}
+
+[dir=ltr] #colormag__colophon .widget:last-child {
+    margin: 0 0 3rem .5rem;
+}
+
+[dir=rtl] #colormag__colophon .widget:last-child {
+    margin: 0 .5rem 3rem 0;
 }
 
 #colormag__colophon, #colormag__colophon p {
