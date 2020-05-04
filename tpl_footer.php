@@ -110,41 +110,53 @@ dbg("vérifier ces liens");
                         A <a href="https://wordpress.org/" title="WordPress"><span>WordPress</span></a> theme by <a href="https://themegrill.com/" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a> ported to <a href="https://dokuwiki.org/" title="DokuWiki"><span>DokuWiki</span></a>.
                     </div><!-- /.copyright -->
                 </div><!-- /.footer-socket-left-section -->
-                <div class="footer-socket-right-section flex">
-                    <div class="buttons">
-                        <ul class="flex wrap justifyend">
-                            <li>
-                                <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>>
-                                    <img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://translate.dokuwiki.org/" title="Localized (you can help)">
-                                    <img src="<?php print tpl_basedir(); ?>images/button-localized.png" width="80" height="15" alt="Localized" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.dokuwiki.org/donate" title="Donate" <?php echo $target?>>
-                                    <img src="<?php echo tpl_basedir(); ?>images/button-donate.png" width="80" height="15" alt="Donate" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://php.net" title="Powered by PHP" <?php echo $target?>>
-                                    <img src="<?php echo tpl_basedir(); ?>images/button-php.png" width="80" height="15" alt="Powered by PHP" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="//validator.w3.org/check/referer" title="Valid HTML5" <?php echo $target?>>
-                                    <img src="<?php echo tpl_basedir(); ?>images/button-html5.png" width="80" height="15" alt="Valid HTML5" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" <?php echo $target?>>
-                                    <img src="<?php echo tpl_basedir(); ?>images/button-css.png" width="80" height="15" alt="Valid CSS" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div><!-- /.buttons -->
+                <div class="footer-socket-right-section flex column justifycenter">
+                        <div class="buttons">
+                            <ul class="flex wrap justifyend">
+                                <li>
+                                    <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>>
+                                        <img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://translate.dokuwiki.org/" title="Localized (you can help)">
+                                        <img src="<?php print tpl_basedir(); ?>images/button-localized.png" width="80" height="15" alt="Localized" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.dokuwiki.org/donate" title="Donate" <?php echo $target?>>
+                                        <img src="<?php echo tpl_basedir(); ?>images/button-donate.png" width="80" height="15" alt="Donate" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://php.net" title="Powered by PHP" <?php echo $target?>>
+                                        <img src="<?php echo tpl_basedir(); ?>images/button-php.png" width="80" height="15" alt="Powered by PHP" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="//validator.w3.org/check/referer" title="Valid HTML5" <?php echo $target?>>
+                                        <img src="<?php echo tpl_basedir(); ?>images/button-html5.png" width="80" height="15" alt="Valid HTML5" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" <?php echo $target?>>
+                                        <img src="<?php echo tpl_basedir(); ?>images/button-css.png" width="80" height="15" alt="Valid CSS" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- /.buttons -->
+                        <?php if (((strpos(tpl_getConf('topbar'), 'socialnetworks') !== false) or ($_GET['debug'] == 1) or ($_GET['debug'] == "social")) and $colormag['socials'] != null) : ?>
+                            <div id="colormag__social" class="flex row justifyend<?php print (strpos(tpl_getConf('glyphcolors'), 'social') !== false) ? ' glyphcolors' : '' ?>">
+                                <?php //colormag_glyph($colormag['glyphs']['social']); ?>
+                                <ul class="flex row">
+                                    <?php
+                                        foreach ($colormag['socials'] as $key => $value) {
+                                            colormag_social_link($key);
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
+                        <?php endif ?>
                 </div><!-- /.footer-socket-right-section -->
             </div><!-- /.footer-socket-area -->
         </div><!-- /.inner-wrap -->

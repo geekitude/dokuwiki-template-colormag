@@ -367,6 +367,9 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 .flex.justifyend {
     justify-content: end;
 }
+.flex.justifycenter {
+    justify-content: center;
+}
 
 .flex.stretch {
     align-items: stretch;
@@ -1263,28 +1266,6 @@ div.skip a {
     margin-right: .4rem;
 }
 
-[dir=ltr] #colormag__topbar-social ul li {
-    margin-left: .8rem;
-}
-
-[dir=rtl] #colormag__topbar-social ul li {
-    margin-right: .8rem;
-}
-
-[dir=ltr] #colormag__topbar-social ul li:first-child {
-    margin-left: .4rem;
-}
-
-[dir=rtl] #colormag__topbar-social ul li:first-child {
-    margin-right: .4rem;
-}
-
-/*
-#colormag__topbar-social ul li a svg {
-    margin-right: .4rem;
-}
-*/
-
 /*
 #colormag__header-text-nav-container {
     background-color: #ffffff;
@@ -1488,6 +1469,41 @@ div.info, div.notify, div.success, div.error {
 /* =SOCIAL LINKS
 ----------------------------------------------- */
 
+#colormag__social {
+    width: 100%;
+}
+
+/*#colormag__topbar-social ul li,*/
+[dir=ltr] #colormag__social ul li {
+    margin-left: .8rem;
+}
+[dir=rtl] #colormag__social ul li {
+    margin-right: .8rem;
+}
+
+/*#colormag__topbar-social ul li:first-child,*/
+[dir=ltr] #colormag__social ul li:first-child {
+    margin-left: .4rem;
+}
+[dir=rtl] #colormag__social ul li:first-child {
+    margin-right: .4rem;
+}
+
+/*
+#colormag__topbar-social ul li a svg {
+    margin-right: .4rem;
+}
+*/
+
+[dir=ltr] #colormag__social ul li a span {
+    margin-left: .4rem;
+}
+
+[dir=rtl] #colormag__social ul li a span {
+    margin-right: .4rem;
+}
+
+/*
 #colormag__topbar-social.glyphcolors a.social.clarity svg { fill: #61bed9; } 
 #colormag__topbar-social.glyphcolors a.social.codepen svg { fill: #ccc; }
 #colormag__topbar-social.glyphcolors a.social.deviantart svg { fill: #05cc47; }
@@ -1529,6 +1545,49 @@ div.info, div.notify, div.success, div.error {
 #colormag__topbar-social.glyphcolors a.social.whatsappen svg { fill: #25d366; }
 #colormag__topbar-social.glyphcolors a.social.yelp svg { fill: #d32323; }
 #colormag__topbar-social.glyphcolors a.social.youtube svg { fill: #ff0000; }
+*/
+
+#colormag__social.glyphcolors a.social.clarity svg { fill: #61bed9; } 
+#colormag__social.glyphcolors a.social.codepen svg { fill: #ccc; }
+#colormag__social.glyphcolors a.social.deviantart svg { fill: #05cc47; }
+#colormag__social.glyphcolors a.social.digg svg { fill: #005BE2; }
+#colormag__social.glyphcolors a.social.discord svg { fill: #7289da; }
+#colormag__social.glyphcolors a.social.dribbble svg { fill: #ea4c89; }
+#colormag__social.glyphcolors a.social.facebook svg { fill: #1877f2; }
+#colormag__social.glyphcolors a.social.fivehundredpx svg { fill: #0099e5; }
+#colormag__social.glyphcolors a.social.flickr svg { fill: #f40083; }
+#colormag__social.glyphcolors a.social.foursquare svg { fill: #073282; }
+#colormag__social.glyphcolors a.social.github svg { fill: #24292e; }
+#colormag__social.glyphcolors a.social.google-plus svg { fill: #db4437; }
+#colormag__social.glyphcolors a.social.instagram svg { fill: #e64853; }
+#colormag__social.glyphcolors a.social.linkedin svg { fill: #007bb5; }
+#colormag__social.glyphcolors a.social.listly svg { fill: #df6d46; }
+#colormag__social.glyphcolors a.social.mastodon svg { fill: #2b90d9; }
+#colormag__social.glyphcolors a.social.medium svg { fill: #02b875; }
+#colormag__social.glyphcolors a.social.periscope svg { fill: #40a4c4; }
+#colormag__social.glyphcolors a.social.pinterest svg { fill: #bd081c; }
+#colormag__social.glyphcolors a.social.pocket svg { fill: #ee4056; }
+#colormag__social.glyphcolors a.social.quora svg { fill: #aa2200; }
+#colormag__social.glyphcolors a.social.reddit svg { fill: #ff5700; }
+#colormag__social.glyphcolors a.social.skype svg { fill: #00aff0; }
+#colormag__social.glyphcolors a.social.slack svg { fill: #2eb67d; } 
+#colormag__social.glyphcolors a.social.slideshare svg { fill: #00a0dc; }
+#colormag__social.glyphcolors a.social.snapchat svg { fill: #fffc00; }
+#colormag__social.glyphcolors a.social.soundcloud svg { fill: #ff5500; }
+#colormag__social.glyphcolors a.social.spotify svg { fill: #1db954; }
+#colormag__social.glyphcolors a.social.steam svg { fill: #171a21; }
+#colormag__social.glyphcolors a.social.stumbleupon svg { fill: #e94826; }
+#colormag__social.glyphcolors a.social.swarm svg { fill: #ffa633; }
+#colormag__social.glyphcolors a.social.telegram svg { fill: #0088cc; }
+#colormag__social.glyphcolors a.social.tumblr svg { fill: #2c4762; }
+#colormag__social.glyphcolors a.social.twitch svg { fill: #9146ff; }
+#colormag__social.glyphcolors a.social.twitter svg { fill: #1da1f2; }
+#colormag__social.glyphcolors a.social.vimeo svg { fill: #1ab7ea; }
+#colormag__social.glyphcolors a.social.vine svg { fill: #00b489; }
+#colormag__social.glyphcolors a.social.vk svg { fill: #4a76a8; }
+#colormag__social.glyphcolors a.social.whatsappen svg { fill: #25d366; }
+#colormag__social.glyphcolors a.social.yelp svg { fill: #d32323; }
+#colormag__social.glyphcolors a.social.youtube svg { fill: #ff0000; }
 
 /* =SEARCH WIDGET
 ----------------------------------------------- */
@@ -3287,8 +3346,8 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 }
 
 .footer-socket-wrapper .buttons a {
-    display: inline-block;
-    height: 0;
+    /*display: inline-block;*/
+    /*height: 0;*/
 }
 
 [dir] .footer-socket-wrapper .buttons a {
@@ -3301,12 +3360,16 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 }
 */
 
-[dir=ltr] .footer-socket-wrapper .buttons ul li a {
+[dir=ltr] .footer-socket-wrapper .buttons ul li:not(:first-child) a {
     margin: 0 0 0 1rem;
 }
 
-[dir=rtl] .footer-socket-wrapper .buttons ul li a {
+[dir=rtl] .footer-socket-wrapper .buttons ul li:not(:first-child) a {
     margin: 0 1rem 0 0;
+}
+
+.footer-socket-wrapper .buttons ul li img {
+    vertical-align: sub;
 }
 
 [dir] .footer-socket-wrapper .buttons ul li img {
