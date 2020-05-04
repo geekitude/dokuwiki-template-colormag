@@ -51,30 +51,32 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <?php include('tpl_header.php') ?>
 
-        <header id="colormag__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
-            <div class="inner-wrap flex row between">
-                <!-- PAGEID -->
-                <div class="flex column start">
-                    <?php colormag_include("pageidheader"); ?>
-                    <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
-                    <?php if ($colormag['translation']['helper']) print $colormag['translation']['helper']->showTranslations(); ?>
-                    <?php colormag_include("pageidfooter"); ?>
+        <?php if(($ACT == "show") or ($ACT == "edit")): ?>
+            <header id="colormag__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
+                <div class="inner-wrap flex row between">
+                    <!-- PAGEID -->
+                    <div class="flex column start">
+                        <?php colormag_include("pageidheader"); ?>
+                        <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                        <?php if ($colormag['translation']['helper']) print $colormag['translation']['helper']->showTranslations(); ?>
+                        <?php colormag_include("pageidfooter"); ?>
+                    </div>
+                    <!-- BREADCRUMBS -->
+                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                        <nav id="colormag__breadcrumbs-wrapper" class="breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
+                            <?php colormag_include("breadcrumbsheader"); ?>
+                            <?php if($conf['youarehere']): ?>
+                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                            <?php endif ?>
+                            <?php if($conf['breadcrumbs']): ?>
+                                <ul class="trace"><?php colormag_trace() ?></ul>
+                            <?php endif ?>
+                            <?php colormag_include("breadcrumbsfooter"); ?>
+                        </nav><!-- /#colormag__breadcrumbs-wrapper -->
+                    <?php endif ?>
                 </div>
-                <!-- BREADCRUMBS -->
-                <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                    <nav id="colormag__breadcrumbs-wrapper" class="breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
-                        <?php colormag_include("breadcrumbsheader"); ?>
-                        <?php if($conf['youarehere']): ?>
-                            <ul class="youarehere"><?php colormag_youarehere() ?></ul>
-                        <?php endif ?>
-                        <?php if($conf['breadcrumbs']): ?>
-                            <ul class="trace"><?php colormag_trace() ?></ul>
-                        <?php endif ?>
-                        <?php colormag_include("breadcrumbsfooter"); ?>
-                    </nav><!-- /#colormag__breadcrumbs-wrapper -->
-                <?php endif ?>
-            </div>
-        </header><!-- /#colormag__main -->
+            </header><!-- /#colormag__main -->
+        <?php endif ?>
 
         <?php colormag_include("mainheader"); ?>
 
