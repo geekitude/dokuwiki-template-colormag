@@ -113,21 +113,23 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <!-- ********** ASIDE ********** -->
                         <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
 
-                            <?php colormag_include("sidebarheader"); ?>
-
                             <div class="pad aside include group">
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
                                 <div class="content group">
+
+                                    <?php colormag_include("sidebarheader"); ?>
+
                                     <div class="group">
                                         <?php tpl_flush() ?>
                                         <?php tpl_includeFile('sidebarheader.html') ?>
                                         <?php tpl_include_page($conf['sidebar'], true, true) ?>
                                         <?php tpl_includeFile('sidebarfooter.html') ?>
                                     </div><!-- /.group -->
+
+                                    <?php colormag_include("sidebarfooter"); ?>
+
                                 </div><!-- /#colormag__content -->
                             </div><!-- /.pad.aside.include.group -->
-
-                            <?php colormag_include("sidebarfooter"); ?>
 
                         </div><!-- /#colormag__secondary -->
                     <?php endif; ?>

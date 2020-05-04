@@ -11,11 +11,15 @@ if (!defined('DOKU_INC')) die();
 <footer id="colormag__colophon" class="group<?php print (strpos(tpl_getConf('print'), 'sitefooter') !== false) ? '' : ' noprint' ?>">
 
     <div class="footer-widgets-wrapper">
+
+        <?php colormag_include("footerheader"); ?>
+
         <div class="inner-wrap">
 
-            <?php colormag_include("footerheader"); ?>
+            <?php colormag_include("widgetsheader"); ?>
 
             <div class="footer-widgets-area flex row start evenly">
+
                 <?php if ($conf['useacl'] && $ACT != "login" && $ACT != "denied"): ?>
                     <aside id="colormag__userwidget" class="widget">
                         <?php
@@ -92,6 +96,8 @@ dbg("vérifier ces liens");
                 <?php colormag_include("footerwidget"); ?>
 
             </div><!-- /.footer-widgets-area.group -->
+
+            <?php colormag_include("widgetsfooter"); ?>
 
         </div><!-- /.inner-wrap -->
     </div><!-- /.footer-widgets-wrapper -->

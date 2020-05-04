@@ -209,7 +209,9 @@ You can add `noprint` class to avoid the content to be printed.
 * *pagefooter.html* : below actual DW page content
 * *mainfooter.html* : between main content area and site footer, 
 * *footerheader.html* : at the top of site footer
-* *footerwidget.html* : included in footer widgets area (after other widgets)
+* *widgetsheader.html* : above footer widgets area
+* *footerwidget.html* : included as a footer widget (after other widgets)
+* *widgetsfooter.html* : below footer widgets area
 * *footer.html* : at the very end of site page (last visible item before `</body>` tag)
 
 #### Replace hooks

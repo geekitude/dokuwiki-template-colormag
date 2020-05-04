@@ -53,7 +53,7 @@ if (!defined('DOKU_INC')) die();
 
         <div class="inner-wrap narrow-mix group">
             <div id="colormag__header-text-nav-wrap" class="flex row stretch between">
-                <div id="colormag__header-left-section" class="flex column">
+                <div id="colormag__header-left-section" class="flex column stretch">
                     <div class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                         <div id="colormag__site-logo">
                             <?php
