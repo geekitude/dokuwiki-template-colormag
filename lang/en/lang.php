@@ -22,3 +22,7 @@ $lang['nscontent']              = 'Namespace content';
 $lang['lasteditor']             = 'Last editor';
 $lang['pagepath']               = 'File path';
 $lang['onlineversion']          = 'Online Version';
+$lang['addtopbarlinks']         = 'Add a list of links';
+$lang['playground_admin']       = 'Please make sure Playground is kept clean (see <a href="https://www.dokuwiki.org/tips%3Amaintenance#keeping_playground_clean" class="interwiki iw_doku" title="https://www.dokuwiki.org/tips%3Amaintenance#keeping_playground_clean">this article</a>).';
+$lang['playground_user']        = 'Feel free to play around with <a href="/doku.php?id=wiki:syntax" title="wiki:syntax">syntax</a> in this Playground (note that you can create or delete any page within this Namespace).';
+$lang['edit_topbar']            = 'This page should only contain a list of links like this :<br/><code>  * [[http://example.com|Sample Link 1]]<br/>  * [[http://example.com|Sample Link 2]]</code>';

@@ -40,7 +40,7 @@ if (!defined('DOKU_INC')) die();
                                         tpl_link(wl($colormag['topbar-links']), colormag_glyph($colormag['glyphs']['topbar-page'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang("links").'</span>',' title="'.$colormag['topbar-links'].'"');
                                         tpl_include_page($colormag['topbar-links'], true, true, true); /* includes the topbar links wiki page */
                                 } elseif (auth_quickaclcheck(getns($ID).':'.tpl_getConf('topbarlinkspage')) >= 4) {
-                                        tpl_link(wl(getns($ID).':'.tpl_getConf('topbarlinkspage')).'&do=edit', colormag_glyph($colormag['glyphs']['topbar-page-add'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>Add a topbar links page</span>',' title="Add a topbar links page"');
+                                        tpl_link(wl(getns($ID).':'.tpl_getConf('topbarlinkspage')).'&do=edit', colormag_glyph($colormag['glyphs']['topbar-page-add'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang('addtopbarlinks').'</span>',' title="'.tpl_getLang('addtopbarlinks').'"');
                                 //} else {
                                     //print colormag_glyph($colormag['glyphs']['topbar-page-denied'], true)." permission do add links is denied.";
                                 }
@@ -120,7 +120,23 @@ if (!defined('DOKU_INC')) die();
 
         <aside id="colormag__alerts" class="group">
             <!-- ALERTS -->
-            <?php html_msgarea() ?>
+            <?php
+                html_msgarea();
+                // If in playground...
+                if (strpos($ID, 'playground') !== false) {
+                    // ...and admin, show a link to managing page...
+                    if ($INFO['isadmin']) {
+                        msg(tpl_getLang('playground_admin'), 2);
+                    // ...else, show a few hints on what it's for
+                    } else {
+                        msg(tpl_getLang('playground_user'), 0);
+                    }
+                //} elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinkspage') !== false))) {
+                } elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinkspage')) !== false)) {
+                //} elseif ($ACT == 'edit') {
+                    msg(tpl_getLang('edit_topbar'), 0);
+                }
+            ?>
         </aside>
 
         <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
