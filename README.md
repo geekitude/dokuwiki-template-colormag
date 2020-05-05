@@ -171,7 +171,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 Copy `dokuwiki/lib/tpl/colormag/debug/social.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs.
 
-You can add new lines for social networks that are not in the list yet. Note that the name must be lower case and contain no special characters (spaces must be replaced by underscores), `my_network` is a valid example.
+You can add new lines for social networks that are not in the list yet (but you will eventually have to provide CSS color with a rule like `#colormag__social.glyphcolors a.social.github svg { fill: #24292e; }`). Note that the name must be lower case and contain no special characters (spaces must be replaced by underscores), `my_network` is a valid example.
 
 As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as long as it is named exactly like corresponding target network in configuration file.
 
