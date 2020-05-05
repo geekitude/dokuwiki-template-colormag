@@ -34,7 +34,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_metaheaders() ?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php if (tpl_getConf('dark')): ?>
+    <?php if (tpl_getConf('dark-skin')): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
     <?php if ($_GET['debug'] != null): ?>

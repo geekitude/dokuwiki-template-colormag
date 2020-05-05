@@ -13,7 +13,7 @@
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 $conf['bodybg']             = 'color';
-$conf['dark']               = 0;
+$conf['dark-skin']               = 0;
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
 $conf['glyphcolors']        = '';
