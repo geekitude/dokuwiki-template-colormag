@@ -237,3 +237,7 @@ DOKUWIKI STUFF
 #dw__toc a {
     color: #fff !important;
 }
+
+[dir] #colormag__pagetools .tools ul:hover {
+    background-color: #151515;
+}

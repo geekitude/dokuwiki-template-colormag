@@ -240,3 +240,7 @@ DOKUWIKI STUFF
 #dw__toc a {
     color: #fff !important;
 }
+
+#colormag__pagetools .tools ul:hover {
+    background-color: #151515;
+}
