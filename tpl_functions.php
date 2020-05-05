@@ -25,7 +25,11 @@ function colormag_init() {
     global $ID, $JSINFO;
     global $colormag;
 
-    // SOCIAL LINKS
+    // COLLECT LINKS
+    $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinkspage'), true);
+//dbg($colormag['topbar']);
+
+    // GZET SOCIAL LINKS
     $colormag['socials'] = array();
     // Load "social" links from DOKU_CONF/social.local.conf (or tpl/colormag/debug/social.local.conf) to global conf
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "social")) {
@@ -78,7 +82,7 @@ function colormag_init() {
 //    $colormag['glyphs']['login'] = 'login';
 //    $colormag['glyphs']['logout'] = 'logout';
     $colormag['glyphs']['lastmod'] = 'calendar-clock';
-    $colormag['glyphs']['link'] = 'web';
+//    $colormag['glyphs']['link'] = 'web';
     $colormag['glyphs']['locked'] = 'lock';
     $colormag['glyphs']['map'] = 'sitemap';
 //    $colormag['glyphs']['map-hover'] = 'map-search-outline';
@@ -103,6 +107,9 @@ function colormag_init() {
     $colormag['glyphs']['show'] = 'eye';
 //    $colormag['glyphs']['social'] = 'account-network';
     $colormag['glyphs']['styling'] = 'palette';
+    $colormag['glyphs']['topbar-page'] = 'link-variant';
+    $colormag['glyphs']['topbar-page-add'] = 'link-variant-plus';
+//    $colormag['glyphs']['topbar-page-denied'] = 'link-variant-off';
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';
     $colormag['glyphs']['upgrade'] = 'cloud-download';

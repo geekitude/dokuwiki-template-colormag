@@ -17,6 +17,7 @@ $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu'));
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
+$meta['topbarlinkspage']    = array('string');
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');

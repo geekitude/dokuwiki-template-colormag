@@ -33,12 +33,20 @@ if (!defined('DOKU_INC')) die();
                             </div>
                         <?php endif ?>
                     </div>
-                    <?php if (page_findnearest('topbar', true)): ?>
-                        <div id="colormag__topbar-links" class="flex row">
-                            <?php colormag_glyph($colormag['glyphs']['link']); ?>
-                            <?php tpl_include_page('topbar', true, true, true); /* includes the topbar links wiki page */ ?>
-                        </div>
-                    <?php endif; ?>
+                    <?php
+                        if (strpos(tpl_getConf('topbar'), 'links') !== false) {
+                            print '<div id="colormag__topbar-links" class="flex row" title="'.$colormag['topbar-links'].'">';
+                                if ($colormag['topbar-links']) {
+                                        tpl_link(wl($colormag['topbar-links']), colormag_glyph($colormag['glyphs']['topbar-page'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang("links").'</span>',' title="'.$colormag['topbar-links'].'"');
+                                        tpl_include_page($colormag['topbar-links'], true, true, true); /* includes the topbar links wiki page */
+                                } elseif (auth_quickaclcheck(getns($ID).':'.tpl_getConf('topbarlinkspage')) >= 4) {
+                                        tpl_link(wl(getns($ID).':'.tpl_getConf('topbarlinkspage')).'&do=edit', colormag_glyph($colormag['glyphs']['topbar-page-add'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>Add a topbar links page</span>',' title="Add a topbar links page"');
+                                //} else {
+                                    //print colormag_glyph($colormag['glyphs']['topbar-page-denied'], true)." permission do add links is denied.";
+                                }
+                            print '</div>';
+                        }
+                    ?>
                 </div>
             </div><!-- /#colormag__topbar-wrapper -->
         <?php endif ?>
