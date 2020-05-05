@@ -551,9 +551,9 @@ function colormag_date($type = "long", $timestamp = null, $clock = false, $retur
         setlocale(LC_TIME, $datelocale);
     }
     if ($type == "short") {
-        $format = tpl_getConf('shortdatestring');
+        $format = tpl_getConf('shortdate');
     } else {
-        $format = tpl_getConf('longdatestring');
+        $format = tpl_getConf('longdate');
     }
     if ($clock) {
         $format .= ' %H:%M';

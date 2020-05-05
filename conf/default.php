@@ -11,21 +11,21 @@
  */
 
 $conf['layout']             = 'box2wide';
-$conf['bodybg']             = 'color';
 $conf['flexflip']           = '';
+$conf['bodybg']             = 'color';
+$conf['dark']               = 0;
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
 $conf['glyphcolors']        = '';
 $conf['topbar']             = 'date,newsticker,links';
+$conf['newsticker']         = 'skip_minors,pages,media,5';
 $conf['topbarlinkspage']    = 'topbar';
 $conf['datelocale']         = 'fra';
-$conf['longdatestring']     = '%A %d %B %Y';
-$conf['shortdatestring']    = '%d/%m/%Y';
-$conf['newsticker']         = 'skip_minors,pages,media,5';
+$conf['longdate']           = '%A %d %B %Y';
+$conf['shortdate']          = '%d/%m/%Y';
 $conf['headerflexalign']    = 'start';
 $conf['breadcrumbslook']    = 'classic';
 $conf['breadcrumbsglyphs']  = 1;
-$conf['dark']               = 0;
 $conf['links']              = 'links';
 $conf['licensevisual']      = 'badge';
 $conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';

@@ -91,7 +91,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins (Blockquote, Discussion, Translation, Wrap)
 * [x] Dark color scheme
-* [x] Topbar with date, newsticker (based on current namespace and sub content) and social links
+* [x] Topbar with date, newsticker (based on current namespace and sub content) and links
 * [x] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
@@ -102,6 +102,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
 * [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
 * [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
+* [x] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Expanded debug mode to show some specific elements (sample code or images)
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
@@ -132,16 +133,15 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `sidebar` : will be moved on the osther side of page
   * `pagetools` : just like `sidebar` above
   * `socket` : flip content
+* **bodybg** (*color*) :warning: WILL SOON BE REMOVED WITH NS IMAGES COLLECTION :warning:
+* **dark** ([ ]) : switch to dark color skin
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu* or *alt*)
 * **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
-* **topbar** (*nothing*) : choose topbar elements
+* **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
-  * `socialnetworks` : list of social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
-* **datelocale** (*fra*) : language used for dates
-* **longdatestring** (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
-* **shortdatestring** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
+  * `links` : a simple list of links based on a wiki page from current namespace or it's parents
 * **newsTicker** (*skip_minors,pages,media,5*): options used to built last changes list
   * `skip_deleted` : ignore deleted items
   * `skip_minors` : ignore minor updates
@@ -149,15 +149,18 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `pages` : show or ignore pages in list
   * `media` : show or ignore media files
   * the number in text field is the number of elements to show (starting from most recent)
+* **topbarlinkspage** (*topbar*) : page containing the list of links to show in topbar
+* **datelocale** (*fra*) : language used for dates
+* **longdate** (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
+* **shortdate** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
 * **headerflexalign** (*start*) : set vertical alignment of header items (ie. logo, branding text, right section), note that `start` and `center` are the most common choices
   * `start` : to the top
   * `baseline` : at text baseline level - still looking for a situation where it's different from `start` 8-)
   * `center`
   * `end` : to the bottom
-* **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs
+* **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs :warning: TODO :warning:
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **links** (*links*) : name of wiki page to use to feed footer links widget
-* **dark** ([ ]) : switch to dark color skin
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
 * **wikiwidgettitle** : set Wiki Widget's title (see [Footer widgets](https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
