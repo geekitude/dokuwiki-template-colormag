@@ -332,10 +332,12 @@ body.neu-ui #colormag__main.uicolor-toc #dw__toc {
 [dir] body.neu-ui .uicolor a {
     background-color: transparent;
 }
+
 body.alt-ui .uicolor,
 body.alt-ui #colormag__main.uicolor-toc #dw__toc {
     color: @ini_text_alt;
 }
+
 [dir] body.alt-ui .uicolor, [dir] body.alt-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_alt;
 }
@@ -343,6 +345,22 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_alt;
 }
 
+body.dark-ui .uicolor,
+body.dark-ui #colormag__main.uicolor-toc #dw__toc {
+    color: @ini_color_theme_light;
+}
+
+[dir] body.dark-ui .uicolor, [dir] body.dark-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_color_theme_dark;
+}
+body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
+    color: #fff;
+}
+/*
+body.dark-ui .uicolor a {
+    background-color: @ini_background_alt;
+}
+*/
 /* Flexbox */
 
 .flex {

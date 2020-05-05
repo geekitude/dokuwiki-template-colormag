@@ -136,7 +136,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **bodybg** (*color*) :warning: WILL SOON BE REMOVED WITH NS IMAGES COLLECTION :warning:
 * **dark** ([ ]) : switch to dark color skin
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
-* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu* or *alt*)
+* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt* or *dark*)
 * **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
