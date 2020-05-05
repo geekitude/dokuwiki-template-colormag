@@ -145,9 +145,8 @@ dbg("vérifier ces liens");
                                 </li>
                             </ul>
                         </div><!-- /.buttons -->
-                        <?php if (((strpos(tpl_getConf('topbar'), 'socialnetworks') !== false) or ($_GET['debug'] == 1) or ($_GET['debug'] == "social")) and $colormag['socials'] != null) : ?>
+                        <?php if ($colormag['socials'] != null) : ?>
                             <div id="colormag__social" class="flex row justifyend<?php print (strpos(tpl_getConf('glyphcolors'), 'social') !== false) ? ' glyphcolors' : '' ?>">
-                                <?php //colormag_glyph($colormag['glyphs']['social']); ?>
                                 <ul class="flex row">
                                     <?php
                                         foreach ($colormag['socials'] as $key => $value) {

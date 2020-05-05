@@ -29,7 +29,7 @@ function colormag_init() {
     $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinkspage'), true);
 //dbg($colormag['topbar']);
 
-    // GZET SOCIAL LINKS
+    // GET SOCIAL LINKS
     $colormag['socials'] = array();
     // Load "social" links from DOKU_CONF/social.local.conf (or tpl/colormag/debug/social.local.conf) to global conf
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "social")) {
@@ -37,8 +37,9 @@ function colormag_init() {
     } else {
         $socialFile = DOKU_CONF.'social.local.conf';
     }
+//dbg($socialFile);
     // If file exists...
-    if ((@file_exists($socialFile)) and (strpos(tpl_getConf('topbar'), 'socialnetworks') !== false)) {
+    if (@file_exists($socialFile)) {
 //dbg($socialFile);
         // ... read it's content
         $colormag['socials'] = confToHash($socialFile);
