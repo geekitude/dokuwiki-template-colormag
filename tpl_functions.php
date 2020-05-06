@@ -25,6 +25,30 @@ function colormag_init() {
     global $ID, $JSINFO;
     global $colormag;
 
+    $images= array('banner', 'widebanner', 'sidecard');
+//dbg($images);
+    // IMAGES
+    // Search for namespace UI images (logo, banner, widebanner and potential last sidebar header image aka sidecard)
+    //if (tpl_getConf('logo') != null) {
+    //    $colormag['images']['logo'] = colormag_inheritmedia(tpl_getConf('logo'));
+    //}
+    //if (tpl_getConf('banner') != null) {
+    //    $colormag['images']['banner'] = colormag_inheritmedia(tpl_getConf('banner'));
+    //}
+    //if (tpl_getConf('widebanner') != null) {
+    //    $colormag['images']['widebanner'] = colormag_inheritmedia(tpl_getConf('widebanner'));
+    //}
+    //if (tpl_getConf('sidecard') != null) {
+    //    $colormag['images']['sidecard'] = colormag_inheritmedia(tpl_getConf('sidecard'));
+    //}
+    foreach ($images as $type) {
+//dbg($type);
+        if (tpl_getConf($type) != null) {
+            $colormag['images'][$type] = colormag_inheritmedia(tpl_getConf($type));
+        }
+    }
+//dbg($colormag['images']);
+
     // COLLECT LINKS
     $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinkspage'), true);
 //dbg($colormag['topbar']);
@@ -302,6 +326,65 @@ function colormag_bodyclasses() {
     return rtrim(join(' ', array_filter($classes)));
 }/* /colormag_bodyclasses */
 
+/**
+ * Find a media in the current namespace (determined from $ID) or any
+ * higher namespace that can be accessed by the current user,
+ * this condition can be overriden by an optional parameter.
+ *
+ * Based on core page_findnearest()
+ *
+ * @param  string $filename the media name we're looking for
+ * @param bool $useacl only return media if start page in same ns is readable by the current user, false to ignore ACLs
+ * @return false|string the found media id, false if none
+ */
+function colormag_inheritmedia($filename, $useacl = false){
+    if ((string) $filename === '') return false;
+    global $ID, $conf;
+
+    $ns = $ID;
+    $result = array();
+    $glob = array();
+    // In case we are in a farm, we have to make sure we search in animal's data dir by starting at DOKU_CONF directory (will however work if not in a farm)
+    $base = DOKU_CONF.'../'.$conf['savedir'].'/media/';
+    do {
+        $ns = getNS($ns);
+//dbg($ns);
+        $path = $base.str_replace(":", "/", $ns);
+//dbg($path);
+        $result['ns'] = cleanID($ns).":".$conf['start'];
+//dbg($result['id']);
+//dbg($path.'/'.$filename);
+        $glob = glob($path.'/'.$filename.'.{jpg,gif,png}', GLOB_BRACE);
+//dbg($glob);
+    } while(($ns !== false) and (empty($glob)));
+    //} while($ns !== false);
+
+    if (count($glob) == 0) {
+        $result['ns'] = cleanID("wiki:".$conf['start']);
+        $glob = glob(DOKU_CONF.'../'.$conf['savedir'].'/media/wiki/'.$filename.'.{jpg,gif,png}', GLOB_BRACE);
+    }
+//dbg($result);
+
+    $src = null;
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == "images") or ($_GET['debug'] == $filename)) {
+        //$result['src'] = tpl_incdir().'debug/'.$filename.'.png';
+        $src = tpl_incdir().'debug/'.$filename.'.png';
+        $result['src'] = $src;
+        $result['src'] = '/lib/tpl/colormag/debug/'.$filename.'.png';
+        $result['ns'] = null;
+    } elseif (isset($glob[0])) {
+        $src = $glob[0];
+        $result['src'] = '/lib/exe/fetch.php?media='.str_replace("/", ":", explode("media/", $src)[1]);
+    }
+
+    if ($src != null) {
+        $result['size'] = getimagesize($src);
+        return $result;
+    } else {
+        return false;
+    }
+}
+ 
 function colormag_glyph($glyph, $return = false) {
     global $colormag;
 //dbg($glyph);

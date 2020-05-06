@@ -121,6 +121,22 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
                                 <div class="content group">
 
+                                    <div id="colormag__sidecard-wrap" class="group">
+                                        <?php
+                                            if ($colormag['images']['sidecard']['src'] != null) {
+                                                $title = "sidecard";
+                                                if ($colormag['images']['sidecard']['ns'] != null) {
+                                                    tpl_link(
+                                                        $colormag['images']['sidecard']['ns'],
+                                                        '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$colormag['images']['sidecard']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['sidecard']['size'][3].' class="mediacenter" />'
+                                                    );
+                                                } else {
+                                                    print '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['sidecard']['size'][3].' class="mediacenter" />';
+                                                }
+                                            }
+                                        ?>
+                                    </div><!-- #colormag__sidecard-wrap -->
+
                                     <?php colormag_include("sidebarheader"); ?>
 
                                     <div class="group">

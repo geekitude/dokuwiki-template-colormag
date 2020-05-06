@@ -30,3 +30,6 @@ $conf['links']              = 'links';
 $conf['licensevisual']      = 'badge';
 $conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
 $conf['wikiwidgettitle']    = 'Wiki Widget';
+$conf['banner']             = 'banner';
+$conf['widebanner']         = 'widebanner';
+$conf['sidecard']           = 'sidecard';

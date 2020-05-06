@@ -1437,8 +1437,13 @@ div.skip a {
     border-bottom: 1px solid @ini_border;
 }
 
-body.banner-flip #colormag__header-right-section .flex .advertisement-content {
+/*body.banner-flip #colormag__header-right-section .flex .advertisement-content {*/
+body.banner-flip #colormag__banner-wrap {
     order: 2;
+}
+
+[dir] body.banner-flip #colormag__banner-wrap img {
+    margin-top: 18px;
 }
 
 body.banner-flip #colormag__header-right-sidebar {
@@ -1476,6 +1481,10 @@ div.info, div.notify, div.success, div.error {
 }
 [dir] div.error {
     background-color: @ini_color_red;
+}
+
+[dir] #colormag__widebanner-wrap img {
+    margin: 0;
 }
 
 /* =INFO TEXT

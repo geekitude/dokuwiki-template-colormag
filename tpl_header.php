@@ -91,10 +91,24 @@ if (!defined('DOKU_INC')) die();
                 </div>
                 <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
-                        <div class="dbg advertisement-content widget group">
-                            <?php colormag_include("bannerheader"); ?>
-                                *BANNER*
-                            <?php colormag_include("bannerfooter"); ?>
+                        <div id="colormag__banner-wrap" class="advertisement-content widget group">
+                            <?php
+                                colormag_include("bannerheader");
+                                if ($colormag['images']['banner']['src'] != null) {
+                                    //$target = getNS($colormag['images']['banner']['id']).':'.$conf['start'];
+                                    $title = "Banner";
+                                    if ($colormag['images']['banner']['ns'] != null) {
+                                        tpl_link(
+                                            $colormag['images']['banner']['ns'],
+                                            //'<img src="'.'/lib/exe/fetch.php?'.$colormag['images']['banner']['id'].'.png" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' class="" />'
+                                            '<img src="'.$colormag['images']['banner']['src'].'" title="'.$colormag['images']['banner']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' />'
+                                        );
+                                    } else {
+                                        print '<img src="'.$colormag['images']['banner']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' />';
+                                    }
+                                }
+                                colormag_include("bannerfooter");
+                            ?>
                         </div>
                         <div id="colormag__header-right-sidebar" class="widget group">
                             <div class="tools group">
@@ -139,7 +153,7 @@ if (!defined('DOKU_INC')) die();
             ?>
         </aside>
 
-        <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
+       <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
             <div id="colormag__site-navigation-titles" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>group">
                 <div class="inner-wrap flex row between">
                     <h6 class="widget-title alignleft"><span><?php print tpl_getLang('contools'); ?><span></h6>
@@ -204,5 +218,21 @@ if (!defined('DOKU_INC')) die();
         </div><!-- /#colormag__site-navigation-sticky-wrapper -->
 
     </div><!-- #colormag__header-text-nav-container -->
+
+    <div id="colormag__widebanner-wrap" class="group">
+        <?php
+            if ($colormag['images']['widebanner']['src'] != null) {
+                $title = "WideBanner";
+                if ($colormag['images']['widebanner']['ns'] != null) {
+                    tpl_link(
+                        $colormag['images']['widebanner']['ns'],
+                        '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$colormag['images']['widebanner']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['widebanner']['size'][3].' />'
+                    );
+                } else {
+                    print '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['widebanner']['size'][3].' />';
+                }
+            }
+        ?>
+    </div><!-- #colormag__widebanner-wrap -->
 
 </header><!-- /#colormag__header -->
