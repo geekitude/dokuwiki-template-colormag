@@ -95,16 +95,22 @@ if (!defined('DOKU_INC')) die();
                             <?php
                                 colormag_include("bannerheader");
                                 if ($colormag['images']['banner']['src'] != null) {
-                                    //$target = getNS($colormag['images']['banner']['id']).':'.$conf['start'];
-                                    $title = "Banner";
-                                    if ($colormag['images']['banner']['ns'] != null) {
+                                    if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                                        $target = $colormag['images']['banner']['ns'];
+                                    } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+                                        $target = getNS($ID).":".$conf['start'];
+                                    } elseif (tpl_getConf('uiimagetarget') == 'home') {
+                                        $target = $conf['start'];
+                                    } else {
+                                        $target = null;
+                                    }
+                                    if (($colormag['images']['banner']['ns'] != null) and ($target != null)) {
                                         tpl_link(
-                                            $colormag['images']['banner']['ns'],
-                                            //'<img src="'.'/lib/exe/fetch.php?'.$colormag['images']['banner']['id'].'.png" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' class="" />'
-                                            '<img src="'.$colormag['images']['banner']['src'].'" title="'.$colormag['images']['banner']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' />'
+                                            wl($target),
+                                            '<img src="'.$colormag['images']['banner']['src'].'" title="'.$target.'" alt="*banner*" '.$colormag['images']['banner']['size'][3].' />'
                                         );
                                     } else {
-                                        print '<img src="'.$colormag['images']['banner']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['banner']['size'][3].' />';
+                                        print '<img src="'.$colormag['images']['banner']['src'].'" title="'.$title.'" alt="*banner*" '.$colormag['images']['banner']['size'][3].' />';
                                     }
                                 }
                                 colormag_include("bannerfooter");
@@ -222,14 +228,22 @@ if (!defined('DOKU_INC')) die();
     <div id="colormag__widebanner-wrap" class="group">
         <?php
             if ($colormag['images']['widebanner']['src'] != null) {
-                $title = "WideBanner";
-                if ($colormag['images']['widebanner']['ns'] != null) {
+                if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                    $target = $colormag['images']['widebanner']['ns'];
+                } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+                    $target = getNS($ID).":".$conf['start'];
+                } elseif (tpl_getConf('uiimagetarget') == 'home') {
+                    $target = $conf['start'];
+                } else {
+                    $target = null;
+                }
+                if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
                     tpl_link(
-                        $colormag['images']['widebanner']['ns'],
-                        '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$colormag['images']['widebanner']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['widebanner']['size'][3].' />'
+                        wl($target),
+                        '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$target.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />'
                     );
                 } else {
-                    print '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['widebanner']['size'][3].' />';
+                    print '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />';
                 }
             }
         ?>

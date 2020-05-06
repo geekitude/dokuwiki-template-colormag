@@ -307,7 +307,7 @@ function colormag_bodyclasses() {
             $pattern = "dbg-pattern";
 //    } elseif (tpl_getConf('bodybg') == "pattern") {
     } elseif (isset($colormag['images']['pattern']['ns'])) {
-            $pattern = "pattern";
+        $pattern = "pattern";
 //        $pattern = tpl_getMediaFile(array(':'.getNS($ID).':pattern.png', ':wiki:pattern.png', 'images/pattern.png'), false, $patternSize);
 //        if (strpos($pattern, 'wiki') !== false) {
 //            $pattern = "wiki-pattern";

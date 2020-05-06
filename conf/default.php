@@ -33,3 +33,4 @@ $conf['banner']             = 'banner';
 $conf['pattern']            = 'pattern';
 $conf['sidecard']           = 'sidecard';
 $conf['widebanner']         = 'widebanner';
+$conf['uiimagetarget']      = 'image-ns';

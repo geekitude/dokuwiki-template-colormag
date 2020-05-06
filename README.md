@@ -86,7 +86,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 ## Main features
 
 * [ ] Namespace dependent CSS (for colors and fonts)
-* [ ] Namespace dependent UI images ([x] background pattern, [ ] logo, [ ] banner, [ ] widebanner and a potential [ ] sidebar header image aka sidecard)
+* [ ] Namespace dependent UI images ([x] background pattern, [ ] logo, [x] banner, [x] widebanner and a potential [x] sidebar header image aka sidecard)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins (Blockquote, Discussion, Translation, Wrap)
@@ -106,12 +106,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Expanded debug mode to show some specific elements (sample code or images)
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
-  * [ ] *banner*
-  * [ ] *card* (sidebar namespace card image)
-  * [ ] *conlogo* (namespace logo within page header aka context logo)
-  * [ ] *images* (all UI images)
+  * [x] *banner*
+  * [x] *sidecard* (sidebar header image)
+  * [x] *images* (all UI images)
   * [x] *include* (HTML include hooks)
-  * [ ] *logo*
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
@@ -133,7 +131,6 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `sidebar` : will be moved on the osther side of page
   * `pagetools` : just like `sidebar` above
   * `socket` : flip content
-* **bodybg** (*color*) :warning: WILL SOON BE REMOVED WITH NS IMAGES COLLECTION :warning:
 * **dark-skin** ([ ]) : switch to dark color skin
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt* or *dark* wich uses a slightly lightened __color_theme_dark__ background color). This setting overrides `dark-skin` above but not all combinations look nice.
@@ -142,7 +139,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
   * `links` : a simple list of links based on a wiki page from current namespace or it's parents
-* **newsTicker** (*skip_minors,pages,media,5*): options used to built last changes list
+* **newsTicker** (*skip_minors,pages,media,5*) : options used to built last changes list
   * `skip_deleted` : ignore deleted items
   * `skip_minors` : ignore minor updates
   * `skip_subspaces` : only consider elements from current namespace, not sub-namespaces
@@ -163,9 +160,24 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
-* **wikiwidgettitle** : set Wiki Widget's title (see [Footer widgets](https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
+* **wikiwidgettitle** (*Wiki Widget*) : set Wiki Widget's title (see [Footer widgets](https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
+* **banner** (*banner*) : file name to look after for site banner
+* **pattern** (*pattern*) : file name to look after for site background pattern
+* **sidecard** (*sidecard*) : file name to look after to use as sidebar header
+* **widebanner** (*widebanner*) : file name to look after for widebanner
+* **uiimagetarget** (*image-ns*) : choose if UI images are links to a choosen target
+  * `image-ns` : image's namespace start page
+  * `current-ns` : current namespace start page
+  * `home` : wiki home
+  * `none` : no link at all
 
 ## About
+
+### UI Images
+
+Just like sidebar and topbar links pages, simply upload the images you want to use in corresponding namespace (they will also be used for sub-namespaces).
+
+Images uploaded to `wiki` namespace will be used as default for the whole wiki. 
 
 ### Social links
 

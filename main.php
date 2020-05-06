@@ -125,11 +125,19 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                     <div id="colormag__sidecard-wrap" class="group">
                                         <?php
                                             if ($colormag['images']['sidecard']['src'] != null) {
-                                                $title = "sidecard";
-                                                if ($colormag['images']['sidecard']['ns'] != null) {
+                                                if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                                                    $target = $colormag['images']['sidecard']['ns'];
+                                                } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+                                                    $target = getNS($ID).":".$conf['start'];
+                                                } elseif (tpl_getConf('uiimagetarget') == 'home') {
+                                                    $target = $conf['start'];
+                                                } else {
+                                                    $target = null;
+                                                }
+                                                if (($colormag['images']['sidecard']['ns'] != null) and ($target != null)) {
                                                     tpl_link(
-                                                        $colormag['images']['sidecard']['ns'],
-                                                        '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$colormag['images']['sidecard']['ns'].'" alt="*'.$title.'*" '.$colormag['images']['sidecard']['size'][3].' class="mediacenter" />'
+                                                        wl($target),
+                                                        '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$target.'" alt="*sidecard*" '.$colormag['images']['sidecard']['size'][3].' />'
                                                     );
                                                 } else {
                                                     print '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$title.'" alt="*'.$title.'*" '.$colormag['images']['sidecard']['size'][3].' class="mediacenter" />';

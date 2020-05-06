@@ -33,3 +33,4 @@ $meta['banner']             = array('string');
 $meta['pattern']            = array('string');
 $meta['sidecard']           = array('string');
 $meta['widebanner']         = array('string');
+$meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','none'));
