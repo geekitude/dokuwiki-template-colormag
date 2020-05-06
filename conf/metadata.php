@@ -12,7 +12,6 @@
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pageheader','sidebar','pagetools','socket'));
-$meta['bodybg']             = array('multichoice','_choices' => array('color','pattern'));
 $meta['dark-skin']          = array('onoff');
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu','dark'));
@@ -31,5 +30,6 @@ $meta['licensevisual']      = array('multichoice','_choices' => array('badge','b
 $meta['print']              = array('multicheckbox', '_choices' => array('siteheader','docinfo','sitefooter','hrefs'));
 $meta['wikiwidgettitle']    = array('string');
 $meta['banner']             = array('string');
-$meta['widebanner']         = array('string');
+$meta['pattern']            = array('string');
 $meta['sidecard']           = array('string');
+$meta['widebanner']         = array('string');

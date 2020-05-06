@@ -25,6 +25,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 //dbg($lang);
 //dbg($INFO);
 //dbg($colormag['glyphs']);
+//dbg($colormag['images']);
 ?><!DOCTYPE html>
 <html id="dokuwiki__top" lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>
@@ -40,9 +41,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php if ($_GET['debug'] != null): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>debug/debug.css">
     <?php endif ?>
-    <?php //if ($_GET['debug'] != null): ?>
-        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/pattern.php?ns=<?php print getNS($ID); ?>" />
-    <?php //endif ?>
+    <?php if (isset($colormag['images']['pattern']['src'])): ?>
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/pattern.php?target=<?php print explode("media=", $colormag['images']['pattern']['src'])[1]; ?>" />
+    <?php endif ?>
     <?php colormag_include('meta') ?>
 </head>
 

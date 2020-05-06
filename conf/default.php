@@ -12,8 +12,7 @@
 
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
-$conf['bodybg']             = 'color';
-$conf['dark-skin']               = 0;
+$conf['dark-skin']          = 0;
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
 $conf['glyphcolors']        = '';
@@ -31,5 +30,6 @@ $conf['licensevisual']      = 'badge';
 $conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
 $conf['wikiwidgettitle']    = 'Wiki Widget';
 $conf['banner']             = 'banner';
-$conf['widebanner']         = 'widebanner';
+$conf['pattern']            = 'pattern';
 $conf['sidecard']           = 'sidecard';
+$conf['widebanner']         = 'widebanner';

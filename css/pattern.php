@@ -6,9 +6,9 @@
 
 header("Content-type: text/css; charset: UTF-8");
 
-$ns = $_GET["ns"];
+$target = $_GET["target"];
 ?>
 
-body.ns-pattern {
-    background-image: url(/lib/exe/fetch.php?media=<?php echo $ns; ?>:pattern.png);
+body.pattern {
+    background-image: url(/lib/exe/fetch.php?media=<?php echo $target; ?>);
 }
