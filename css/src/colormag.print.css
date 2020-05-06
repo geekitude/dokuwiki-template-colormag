@@ -19,6 +19,7 @@ body {
     /*background-color: transparent !important;*/
     /*border: 2px black solid;*/
     background-image: unset !important;
+    background-color: transparent !important;
 }
 /** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
 * { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
