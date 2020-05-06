@@ -86,7 +86,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 ## Main features
 
 * [ ] Namespace dependent CSS (for colors and fonts)
-* [ ] Namespace dependent UI images ([x] background pattern, [ ] logo, [x] banner, [x] widebanner and a potential [x] sidebar header image aka sidecard)
+* [x] Namespace dependent UI images (background pattern, banner, widebanner and a potential sidebar header image aka sidecard)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins (Blockquote, Discussion, Translation, Wrap)
