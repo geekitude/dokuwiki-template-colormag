@@ -1653,6 +1653,33 @@ li.default-menu {
     display: none;
 }
 
+#colormag__usertools-dropdown > ul {
+    width: 70px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+#colormag__usertools-dropdown > ul li.menu-item-has-children:hover ul {
+    width: 300px;
+}
+
+[dir=ltr] #colormag__usertools-dropdown > ul li.menu-item-has-children:hover ul {
+    left: -300px;
+}
+
+[dir=rtl] #colormag__usertools-dropdown > ul li.menu-item-has-children:hover ul {
+    right: -300px;
+}
+
+#colormag__usertools-dropdown > ul li.menu-item-has-children > a:after {
+    content: "";
+}
+
+#colormag__usertools-dropdown > ul li.menu-item-has-children > a:before {
+    content: url(images/menu-left.svg);
+}
+
 /* =DROP DOWN
 ----------------------------------------------- */
 .main-navigation ul li.focus > ul {
