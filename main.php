@@ -39,10 +39,10 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.dark.css">
     <?php endif ?>
     <?php if ($_GET['debug'] != null): ?>
-        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>debug/debug.css">
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>debug/colormag.debug.css">
     <?php endif ?>
     <?php if (isset($colormag['images']['pattern']['src'])): ?>
-        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/pattern.php?target=<?php print explode("media=", $colormag['images']['pattern']['src'])[1]; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.pattern.php?target=<?php print explode("media=", $colormag['images']['pattern']['src'])[1]; ?>" />
     <?php endif ?>
     <?php colormag_include('meta') ?>
 </head>
