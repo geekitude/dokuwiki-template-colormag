@@ -164,8 +164,8 @@ if (!defined('DOKU_INC')) die();
        <div id="colormag__site-navigation-sticky-wrapper" class="sticky-wrapper">
             <div id="colormag__site-navigation-titles" class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>group">
                 <div class="inner-wrap flex row between">
-                    <h6 class="widget-title alignleft"><span><?php print tpl_getLang('contools'); ?><span></h6>
-                    <h6 class="widget-title alignright"><span><?php print $lang['user_tools']; ?></span></h6>
+                    <h6 class="widget-title"><span><?php print tpl_getLang('contools'); ?><span></h6>
+                    <h6 class="widget-title"><span><?php print $lang['user_tools']; ?></span></h6>
                 </div>
             </div>
             <nav id="colormag__site-navigation" class="main-navigation group" role="navigation">
