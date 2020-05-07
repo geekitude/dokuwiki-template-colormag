@@ -1362,6 +1362,11 @@ li.default-menu {
     content: url(images/menu-right.svg);
 }
 
+[dir=rtl] .main-navigation li li.menu-item-has-children > a:after,
+[dir=rtl] .main-navigation li li.page_item_has_children > a:after {
+    content: url(images/menu-left.svg);
+}
+
 .sub-toggle {
     display: none;
 }
@@ -1381,6 +1386,10 @@ li.default-menu {
 
 #colormag__usertools-dropdown > ul li.menu-item-has-children > a:before {
     content: url(images/menu-left.svg);
+}
+
+[dir=rtl] #colormag__usertools-dropdown > ul li.menu-item-has-children > a:before {
+    content: url(images/menu-right.svg);
 }
 
 /* =DROP DOWN
