@@ -126,13 +126,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                         <?php
                                             if ($colormag['images']['sidecard']['src'] != null) {
                                                 $title = null;
-                                                if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                                                if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['sidecard']['ns'], 'wiki') !== false)) {
+                                                    $target = $conf['start'];
+                                                    $title = tpl_getLang('wikihome');
+                                                } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
                                                     $target = $colormag['images']['sidecard']['ns'];
                                                 } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
                                                     $target = getNS($ID).":".$conf['start'];
-                                                } elseif (tpl_getConf('uiimagetarget') == 'home') {
-                                                    $target = $conf['start'];
-                                                    $title = tpl_getLang('wikihome');
                                                 } else {
                                                     $target = null;
                                                 }

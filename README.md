@@ -165,7 +165,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **pattern** (*pattern*) : file name to look after for site background pattern
 * **sidecard** (*sidecard*) : file name to look after to use as sidebar header
 * **widebanner** (*widebanner*) : file name to look after for widebanner
-* **uiimagetarget** (*image-ns*) : choose if UI images are links to a choosen target
+* **uiimagetarget** (*image-ns*) : choose if UI images are links to a choosen target (images from `wiki` namespace will however point to home or have no link at all)
   * `image-ns` : image's namespace start page
   * `current-ns` : current namespace start page
   * `home` : wiki home

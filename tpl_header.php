@@ -96,13 +96,13 @@ if (!defined('DOKU_INC')) die();
                                 colormag_include("bannerheader");
                                 if ($colormag['images']['banner']['src'] != null) {
                                     $target = null;
-                                    if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                                    if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['banner']['ns'], 'wiki') !== false)) {
+                                        $target = $conf['start'];
+                                        $title = tpl_getLang('wikihome');
+                                    } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
                                         $target = $colormag['images']['banner']['ns'];
                                     } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
                                         $target = getNS($ID).":".$conf['start'];
-                                    } elseif (tpl_getConf('uiimagetarget') == 'home') {
-                                        $target = $conf['start'];
-                                        $title = tpl_getLang('wikihome');
                                     } else {
                                         $target = null;
                                     }
@@ -232,13 +232,13 @@ if (!defined('DOKU_INC')) die();
         <?php
             if ($colormag['images']['widebanner']['src'] != null) {
                 $title = null;
-                if (tpl_getConf('uiimagetarget') == 'image-ns') {
+                if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['widebanner']['ns'], 'wiki') !== false)) {
+                    $target = $conf['start'];
+                    $title = tpl_getLang('wikihome');
+                } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
                     $target = $colormag['images']['widebanner']['ns'];
                 } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
                     $target = getNS($ID).":".$conf['start'];
-                } elseif (tpl_getConf('uiimagetarget') == 'home') {
-                    $target = $conf['start'];
-                    $title = tpl_getLang('wikihome');
                 } else {
                     $target = null;
                 }
