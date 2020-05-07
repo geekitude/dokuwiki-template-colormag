@@ -26,6 +26,7 @@ function colormag_init() {
     global $colormag;
 
     $images= array('banner', 'pattern', 'sidecard', 'widebanner');
+//    if (true) { array_push($images, 'logo'); };
 //dbg($images);
     // IMAGES
     // Search for namespace UI images (logo, banner, widebanner and potential last sidebar header image aka sidecard)
@@ -98,7 +99,7 @@ function colormag_init() {
     $colormag['glyphs']['editor'] = 'fountain-pen-tip';
     $colormag['glyphs']['ellipsis'] = 'ellipsis';
     $colormag['glyphs']['extension'] = 'puzzle';
-    $colormag['glyphs']['extrnaleditor'] = 'desktop-classic';
+    $colormag['glyphs']['externaleditor'] = 'desktop-classic';
     $colormag['glyphs']['from-playground'] = 'shovel-off';
     $colormag['glyphs']['help'] = 'lifebuoy';
     $colormag['glyphs']['hide'] = 'eye-off';
@@ -983,10 +984,11 @@ function colormag_docinfo() {
         }
     }
     $fn   = utf8_decodeFN($fn);
+//dbg($fn);
     $date = dformat($INFO['lastmod']);
     $date = colormag_date("short", $INFO['lastmod'], true, true);
     // print it
-    if($INFO['exists']) {
+    //if($INFO['exists']) {
         $out = '';
 //print "<img class='qrcode' src='".$colormag['qrcode']['id']."' alt='*this page*' />";
         if($INFO['editor']) {
@@ -1013,6 +1015,6 @@ function colormag_docinfo() {
         $out .= '<bdi>'.$fn.'</bdi></div>';
 
         return $out;
-    }
+    //}
     return false;
 }
