@@ -95,7 +95,7 @@ if (!defined('DOKU_INC')) die();
                             <?php
                                 colormag_include("bannerheader");
                                 if ($colormag['images']['banner']['src'] != null) {
-                                    $title = $target;
+                                    $target = null;
                                     if (tpl_getConf('uiimagetarget') == 'image-ns') {
                                         $target = $colormag['images']['banner']['ns'];
                                     } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
@@ -106,6 +106,7 @@ if (!defined('DOKU_INC')) die();
                                     } else {
                                         $target = null;
                                     }
+                                    if ($title == null) { $title = $target; }
                                     if (($colormag['images']['banner']['ns'] != null) and ($target != null)) {
                                         tpl_link(
                                             wl($target),
@@ -230,7 +231,7 @@ if (!defined('DOKU_INC')) die();
     <div id="colormag__widebanner-wrap" class="group">
         <?php
             if ($colormag['images']['widebanner']['src'] != null) {
-                $title = $target;
+                $title = null;
                 if (tpl_getConf('uiimagetarget') == 'image-ns') {
                     $target = $colormag['images']['widebanner']['ns'];
                 } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
@@ -241,6 +242,7 @@ if (!defined('DOKU_INC')) die();
                 } else {
                     $target = null;
                 }
+                if ($title == null) { $title = $target; }
                 if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
                     tpl_link(
                         wl($target),

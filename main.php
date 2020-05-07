@@ -125,7 +125,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                     <div id="colormag__sidecard-wrap" class="group">
                                         <?php
                                             if ($colormag['images']['sidecard']['src'] != null) {
-                                                $title = $target;
+                                                $title = null;
                                                 if (tpl_getConf('uiimagetarget') == 'image-ns') {
                                                     $target = $colormag['images']['sidecard']['ns'];
                                                 } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
@@ -136,6 +136,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                                 } else {
                                                     $target = null;
                                                 }
+                                                if ($title == null) { $title = $target; }
                                                 if (($colormag['images']['sidecard']['ns'] != null) and ($target != null)) {
                                                     tpl_link(
                                                         wl($target),
