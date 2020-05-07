@@ -1537,6 +1537,18 @@ nav li > ol {
     fill: @ini_color_theme_dark;
 }
 
+[dir] #colormag__usertools-menu.glyphcolors ul li a {
+    text-align: end;
+}
+
+[dir=ltr] #colormag__usertools-menu.glyphcolors ul li a svg {
+    margin-left: .4rem;
+}
+
+[dir=rtl] #colormag__usertools-menu.glyphcolors ul li a svg {
+    margin-right: .4rem;
+}
+
 #colormag__usertools-menu.glyphcolors li.action.login svg,
 #colormag__usertools-menu.glyphcolors li.action.register svg {
     fill: @ini_color_green;
@@ -1582,6 +1594,15 @@ nav li > ol {
 
 [dir=rtl] .main-navigation li {
     float: right;
+}
+
+.main-navigation li.dropdown-header {
+    color: @ini_color_theme_light;
+    line-height: 1;
+}
+
+[dir] .main-navigation li.dropdown-header hr {
+    margin-bottom: 0;
 }
 
 .main-navigation a,
