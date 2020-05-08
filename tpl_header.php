@@ -66,7 +66,7 @@ if (!defined('DOKU_INC')) die();
                                 // display logo and wiki title in a link to the home page
                                 tpl_link(
                                     wl(),
-                                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" />',
+                                    '<img src="'.$logo.'" '.$logoSize[3].' alt="*logo*" />',
                                     'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
                                 );
                             ?>
