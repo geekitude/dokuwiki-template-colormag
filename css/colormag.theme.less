@@ -1,0 +1,702 @@
+/**
+ * Dokuwiki ColorMag template
+ * Original Wordpress theme URI: https://themegrill.com/themes/colormag/
+ * Dokuwiki Template URI: http://www.dokuwiki.org/template:colormag
+ * 
+ * @link    https://www.dokuwiki.org/template:spacious
+ * @author  Simon DELAGE <sdelage@gmail.com>
+ * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
+ * 
+ * This file contains namespace dependent colors, loaded from main.php header
+ * Based on this page : https://css-tricks.com/css-variables-with-php/
+ */
+
+/**
+* Pagetools constants
+* RESET
+* GLOBAL
+* Ui colors
+* Flexbox
+* TEXT ELEMENTS
+* Headings
+* SUPERCRIPT AND SUBSCRIPT
+* Footnotes
+* BLOCKQUOTE
+* FORMS
+* LINKS
+* IMAGES
+* TABS
+* *****************************************************************
+* PAGE
+* Inner-wraps
+* Skip to content
+* News bar
+* Breaking news
+* Move tpl_indexerWebBug() out of the way
+* HEADER
+* Alerts
+* INFO TEXT
+* SEARCH WIDGET
+* NAVIGATION
+* DROP DOWN
+* RESPONSIVE MENU
+* PAGE HEADER TITLE
+* PAGE NAVIGATION
+* SECTION HIGHLIGHTING
+* WIDGETS
+* FOOTER WIDGET AREA
+* FOOTER SOCKET AREA
+* PRIMARY AND SECONDARY CONTENT AREA
+* ToC container
+* PAGETOOLS
+* DOKUWIKI MODES
+* Admin
+* Admin - Config Manager
+* Admin - User Manager
+* Media Manager
+* Media Popup
+* *****************************************************************
+* RESPONSIVE STRUCTURE
+* *****************************************************************
+*/
+
+/* =Reset
+-------------------------------------------------------------- */
+
+th, td {
+    border: 1px solid @ini_border;
+}
+
+/* =GLOBAL
+----------------------------------------------- */
+body,
+button,
+input,
+select,
+textarea {
+    color: @ini_text;
+}
+
+body {
+    background-color: @ini_background_site;
+}
+
+hr {
+    border-color: @ini_border;
+}
+
+div.vr {
+    border-left: 1px solid @ini_border;
+}
+
+/* Ui colors */
+
+body.neu-ui .uicolor,
+body.neu-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_neu;
+    color: @ini_text_neu;
+}
+body.neu-ui .uicolor a {
+    background-color: @ini_background_neu;
+}
+
+body.alt-ui .uicolor,
+body.alt-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_background_alt;
+    color: @ini_text_alt;
+}
+body.alt-ui .uicolor a {
+    background-color: @ini_background_alt;
+}
+
+body.dark-ui .uicolor,
+body.dark-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: lighten(@ini_color_theme_dark, 5%);
+    color: @ini_color_theme_light;
+}
+body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
+    color: #fff;
+}
+
+/* =TEXT ELEMENTS
+----------------------------------------------- */
+
+pre {
+    border: 1px solid @ini_border;
+}
+
+abbr, acronym, dfn {
+    border-bottom: 1px dotted @ini_text_neu;
+}
+
+del {
+    background-color: mix(#fff, @ini_color_red, 30%);
+}
+
+ins {
+    background-color: mix(#fff, @ini_color_green, 30%);
+}
+
+span.curid {
+    background-color: @ini_highlight;
+}
+
+/* Headings */
+
+h1 {
+    color: @ini_color_h1;
+}
+
+h2 {
+    color: @ini_color_h2;
+}
+
+h3 {
+    color: @ini_color_h3;
+}
+
+h4 {
+    color: @ini_color_h4;
+}
+
+h5 {
+    color: @ini_color_h5;
+}
+
+h6 {
+    color: @ini_color_h6;
+}
+
+h6.widget-title {
+    border-bottom: 2px solid @ini_color_theme;
+}
+
+h6.widget-title span {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+h6.aside-title,
+#dw__toc h3 {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+/* =SUPERCRIPT AND SUBSCRIPT
+----------------------------------------------- */
+
+/* Footnotes */
+
+div.insitu-footnote {
+    background-color: @ini_color_blue;
+}
+
+/* =BLOCKQUOTE
+----------------------------------------------- */
+
+blockquote {
+    border-color: @ini_border @ini_border @ini_border @ini_color_theme;
+}
+
+blockquote cite {
+    color: #666666;
+}
+
+/* =FORMS
+----------------------------------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea {
+    border: 1px solid @ini_border;
+    background-color: @ini_background_neu;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border: 1px solid @ini_border;
+}
+
+input.s {
+    color: @ini_text_neu;
+    background-color: @ini_background;
+    border: 1px solid @ini_border;
+}
+
+input.s:focus {
+    border-color: @ini_border;
+}
+
+#media__manager #media__opts a,
+.colormag-button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+button {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+#media__manager #media__opts a:hover,
+.colormag-button:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover {
+    background-color: @ini_color_theme_dark;
+}
+
+input[type="reset"]:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =LINKS
+----------------------------------------------- */
+a {
+    color: @ini_link;
+}
+
+.dokuwiki a.wikilink1 {
+    color: @ini_existing;
+}
+
+.dokuwiki a.wikilink2 {
+    color: @ini_missing;
+}
+
+a:hover {
+    color: @ini_text_neu;
+}
+
+a svg {
+    fill: @ini_text_neu;
+}
+
+a:hover svg {
+    fill: @ini_text_neu;
+}
+
+/* =IMAGES
+----------------------------------------------- */
+
+svg {
+    fill: @ini_color_blue;
+}
+
+/* =TABS
+----------------------------------------------- */
+
+ul.tabs li:not(.active) a {
+    color: @ini_text_neu;
+}
+
+ul.tabs li:not(.active) a:hover {
+    background-color: @ini_color_theme;
+}
+
+ul.tabs li.active a {
+    border-top: 4px solid @ini_color_theme;
+}
+
+/*****************************************************************/
+/* =PAGE
+----------------------------------------------- */
+
+#colormag__page {
+    background-color: @ini_background;
+}
+
+/* Skip to content */
+
+div.skip {
+    background-color: black;
+}
+
+div.skip a {
+    color: @ini_color_theme_text;
+}
+
+/* News bar */
+
+.news-bar {
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* =HEADER
+----------------------------------------------- */
+
+#colormag__site-title a {
+    color: @ini_color_theme;
+}
+
+#colormag__site-description {
+    color: @ini_text_neu;
+}
+
+/*
+#colormag__header-right-section .widget {
+    color: @ini_text;
+}
+*/
+
+/* Alerts */
+
+#colormag__alerts a {
+    color: @ini_color_theme_text;
+}
+
+div.info {
+    background-color: @ini_color_blue;
+}
+
+div.notify {
+    background-color: @ini_color_yellow;
+}
+
+div.success {
+    background-color: @ini_color_green;
+}
+
+div.error {
+    background-color: @ini_color_red;
+}
+
+/* =INFO TEXT
+----------------------------------------------- */
+
+/*
+.small-info-text p {
+    color: @ini_text_neu;
+}
+*/
+
+/* =SEARCH WIDGET
+----------------------------------------------- */
+
+.search-wrap button {
+    color: @ini_color_theme_text;
+}
+
+.search-form-top {
+    border: 1px solid @ini_border;
+    background-color: @ini_background;
+}
+
+/* =NAVIGATION
+----------------------------------------------- */
+
+#colormag__site-navigation {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+    background-color: @ini_color_theme_dark;
+    border-top: 4px solid @ini_color_theme;
+}
+
+#colormag__site-navigation svg {
+    fill: @ini_color_theme_text;
+}
+
+#colormag__page.home #colormag__site-navigation li.nav.home svg {
+    fill: @ini_color_theme_dark;
+}
+
+#colormag__usertools-menu.glyphcolors li.action.login svg,
+#colormag__usertools-menu.glyphcolors li.action.register svg {
+    fill: @ini_color_green;
+}
+
+#colormag__usertools-menu.glyphcolors li.action.profile svg {
+    fill: @ini_color_blue;
+}
+
+#colormag__usertools-menu.glyphcolors li.action.logout svg {
+    fill: @ini_color_red;
+}
+
+#colormag__usertools-menu.glyphcolors li.action.admin svg {
+    fill: @ini_color_yellow;
+}
+
+.main-navigation li.dropdown-header {
+    color: @ini_color_theme_light;
+}
+
+.main-navigation a,
+.main-navigation label {
+    color: @ini_color_theme_text;
+}
+
+.main-navigation li.menu-item-has-children a:hover {
+    border-color: @ini_color_theme;
+}
+
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current-menu-item a:after,
+.main-navigation ul li.current_page_ancestor a,
+.main-navigation ul li.current-menu-ancestor a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li:hover > a,
+.main-navigation li.menu-item-has-children:hover > a:after {
+    color: @ini_color_theme_text;
+}
+
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_ancestor > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li:hover > a,
+.main-navigation ul li:hover > label,
+.main-navigation ul li.focus > a,
+#colormag__page.home #colormag__site-navigation li.nav.home,
+.home-icon.front_page_on {
+    background-color: @ini_color_theme;
+}
+
+/* =DROP DOWN
+----------------------------------------------- */
+
+.main-navigation .sub-menu,
+.main-navigation .children {
+    background-color: @ini_color_theme_dark;
+}
+
+.main-navigation ul li ul li a,
+.main-navigation ul li.current-menu-item ul li a,
+.main-navigation ul li ul li.current-menu-item a,
+.main-navigation ul li.current_page_ancestor ul li a,
+.main-navigation ul li.current-menu-ancestor ul li a,
+.main-navigation ul li.current_page_item ul li a {
+    color: @ini_color_theme_text;
+}
+
+.main-navigation ul li ul li a:hover,
+.main-navigation ul li ul li:hover > a,
+.main-navigation ul li.current-menu-item ul li a:hover {
+    color: @ini_color_theme_text;
+    background-color: @ini_color_theme;
+}
+
+/* =RESPONSIVE MENU
+----------------------------------------------- */
+
+.site-header .menu-toggle {
+    color: @ini_color_theme_text;
+}
+
+.site-header .menu-toggle:hover {
+    background-color: @ini_link;
+}
+
+/*
+.main-small-navigation a {
+    color: @ini_text;
+}
+
+.main-small-navigation li {
+    background-color: @ini_color_theme_text;
+}
+
+.main-small-navigation li a:hover {
+    background-color: @ini_link;
+    color: @ini_color_theme_text;
+}
+
+.main-small-navigation .current_page_item > a,
+.main-small-navigation .current-menu-item > a {
+    background: @ini_link;
+    color: @ini_color_theme_text;
+}
+*/
+
+/* =PAGE HEADER TITLE
+----------------------------------------------- */
+.page-header .page-title {
+    border-bottom: 1px solid @ini_border;
+}
+
+/* =PAGE NAVIGATION
+----------------------------------------------- */
+
+#colormag__breadcrumbs-wrapper.classic-look ul li.label {
+    color: @ini_text_neu;
+}
+
+/* =SECTION HIGHLIGHTING
+----------------------------------------------- */
+
+.dokuwiki div.section_highlight {
+    border-color: @ini_highlight;
+}
+
+/* =WIDGETS
+----------------------------------------------- */
+
+#colormag__colophon .widget ul li {
+    border-bottom: 1px solid @ini_text_neu;
+}
+
+.widget select {
+    border: 1px solid @ini_border;
+    color: @ini_text_neu;
+}
+
+#colormag__secondary .widget-title a.rsswidget {
+    color: @ini_color_theme_text;
+}
+
+/* =FOOTER WIDGET AREA
+----------------------------------------------- */
+.footer-widgets-wrapper {
+    border-top: 1px solid @ini_border;
+    background-color: @ini_color_theme_dark;
+}
+
+.footer-widgets-area {
+    color: @ini_color_theme_light;
+}
+
+.footer-widgets-area p {
+    color: @ini_text_neu;
+}
+
+.footer-widgets-area a {
+    color: @ini_color_theme_text;
+}
+
+.footer-widgets-area a:hover {
+    color: @ini_link;
+}
+
+#colormag__userwidget form fieldset {
+    border: 2px solid @ini_border;
+}
+
+/* =FOOTER SOCKET AREA
+----------------------------------------------- */
+.footer-socket-wrapper {
+    background-color: @ini_color_theme_dark;
+}
+
+.footer-socket-wrapper .copyright {
+    color: @ini_text_neu;
+}
+
+.footer-socket-wrapper .copyright a {
+    color: @ini_text_neu;
+    border-bottom: 1px solid @ini_border;
+}
+
+.footer-socket-wrapper .copyright a:hover {
+    color: @ini_color_theme_text;
+}
+
+/* =PRIMARY AND SECONDARY CONTENT AREA
+----------------------------------------------- */
+
+/* ToC container */
+
+#dw__toc ul.toc a {
+    color: @ini_text;
+}
+
+#dw__toc ul.toc a:hover {
+    border-color: @ini_highlight;
+}
+
+/* =PAGETOOLS
+-------------------------------------------------------------- */
+
+#colormag__pagetools ul:hover {
+    background: @ini_background;
+    border: 1px solid @ini_border;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#colormag__pagetools ul:hover li a svg {
+    fill: @ini_text_neu;
+}
+
+#colormag__pagetools ul li:hover a {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+#colormag__pagetools ul li:hover a svg {
+    fill: @ini_color_theme_text;
+}
+
+/*--------------------------------------------------------------
+DOKUWIKI MODES
+--------------------------------------------------------------*/
+
+/* Admin */
+
+/* Admin - Config Manager */
+
+.mode_admin #config__manager fieldset {
+    background-color: @ini_background;
+    border: 1px solid @ini_border;
+}
+
+.mode_admin #config__manager fieldset table td.value {
+    background-color: @ini_background_neu;
+}
+
+/* Admin - User Manager */
+
+#user__manager .import_users form {
+    border: 1px solid @ini_border;
+}
+
+/* Media Manager */
+
+#mediamanager__page .panel h2 {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+#mediamanager__page .panel ul.tabs li strong {
+    border-top: 4px solid @ini_color_theme;
+    background-color: @ini_background_alt;
+}
+
+/* Media Popup */
+
+#media__manager #mediamgr__aside h1 {
+    background-color: @ini_color_theme;
+    color: @ini_color_theme_text;
+}
+
+/*--------------------------------------------------------------
+RESPONSIVE STRUCTURE
+--------------------------------------------------------------*/
+
+@media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    #colormag__topbar-links ul li ul {
+        background-color: @ini_background;
+        -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    }
+    #colormag__topbar-links ul li ul li:hover {
+        background-color: @ini_color_theme;
+    }
+    #colormag__topbar-links ul li ul li:hover a {
+        color: #fff;
+    }
+}

@@ -15,12 +15,10 @@
  * along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/ and Blueprint http://www.blueprintcss.org/
 */
 
-
 /**
 * Pagetools constants
 * RESET
 * GLOBAL
-* Ui colors
 * Flexbox
 * TEXT ELEMENTS
 * Headings
@@ -178,7 +176,6 @@ th {
 }
 
 th, td {
-    border: 1px solid @ini_border;
     padding: 6px 10px;
 }
 
@@ -211,14 +208,9 @@ button,
 input,
 select,
 textarea {
-    color: @ini_text;
     font: 16px 'Open Sans', serif;
     line-height: 1.6;
     word-wrap: break-word;
-}
-
-body {
-    background-color: @ini_background_site;
 }
 
 body.box-layout #colormag__page,
@@ -244,7 +236,6 @@ body.dbg-pattern {
 }
 
 hr {
-    border-color: @ini_border;
     border-style: solid none none;
     border-width: 1px 0 0;
     height: 0;
@@ -252,37 +243,7 @@ hr {
 }
 
 div.vr {
-    border-left: 1px solid @ini_border;
     margin: 3rem 0;
-}
-
-/* Ui colors */
-
-body.neu-ui .uicolor,
-body.neu-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_background_neu;
-    color: @ini_text_neu;
-}
-body.neu-ui .uicolor a {
-    background-color: transparent;
-}
-
-body.alt-ui .uicolor,
-body.alt-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_background_alt;
-    color: @ini_text_alt;
-}
-body.alt-ui .uicolor a {
-    background-color: @ini_background_alt;
-}
-
-body.dark-ui .uicolor,
-body.dark-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: lighten(@ini_color_theme_dark, 5%);
-    color: @ini_color_theme_light;
-}
-body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
-    color: #fff;
 }
 
 /* Flexbox */
@@ -352,7 +313,6 @@ pre {
     margin-bottom: 20px;
     overflow: auto;
     padding: 20px;
-    border: 1px solid @ini_border;
 }
 
 pre, code, kbd, var, samp, tt {
@@ -363,7 +323,6 @@ pre, code, kbd, var, samp, tt {
 }
 
 abbr, acronym, dfn {
-    border-bottom: 1px dotted @ini_text_neu;
     cursor: help;
 }
 
@@ -377,14 +336,6 @@ del, ins, span.curid {
     padding: .1rem;
 }
 
-del {
-    background-color: mix(#fff, @ini_color_red, 30%);
-}
-
-ins {
-    background-color: mix(#fff, @ini_color_green, 30%);
-}
-
 table {
     margin: 0 0 1.5em;
     width: 100%;
@@ -392,14 +343,12 @@ table {
 
 span.curid {
     font-weight: bold;
-    background-color: @ini_highlight;
 }
 
 /* Headings */
 
 h1, h2, h3, h4, h5, h6 {
     padding-bottom: 18px;
-    color: @ini_color_theme;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     clear: left; /* ideally 'both', but problems with toc */
@@ -408,49 +357,40 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 42px;
     line-height: 1.2;
-    color: @ini_color_h1;
 }
 
 h2 {
     font-size: 38px;
     line-height: 1.2;
-    color: @ini_color_h2;
 }
 
 h3 {
     font-size: 34px;
     line-height: 1.2;
-    color: @ini_color_h3;
 }
 
 h4 {
     font-size: 30px;
     line-height: 1.2;
-    color: @ini_color_h4;
 }
 
 h5 {
     font-size: 26px;
     line-height: 1.2;
-    color: @ini_color_h5;
 }
 
 h6 {
     font-size: 22px;
     line-height: 1.2;
-    color: @ini_color_h6;
 }
 
 h6.widget-title {
-    border-bottom: 2px solid @ini_color_theme;
     font-size: 18px;
     margin-bottom: 15px;
     padding-bottom: 0;
 }
 
 h6.widget-title span {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
     padding: 6px 12px;
     display: inline-block;
 }
@@ -458,8 +398,6 @@ h6.widget-title span {
 h6.aside-title,
 #dw__toc h3 {
     font-size: 18px;
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
     padding: 6px 12px;
     display: inline-block;
     width: 100%;
@@ -544,7 +482,6 @@ dd {
 div.insitu-footnote {
     min-width: 5rem;
     padding: .3rem .5rem;
-    background-color: @ini_color_blue;
 }
 
 .dokuwiki div.footnotes {
@@ -563,7 +500,6 @@ blockquote {
     font-weight: normal;
     border-style: solid;
     border-width: 1px 1px 1px 4px;
-    border-color: @ini_border @ini_border @ini_border @ini_color_theme;
     margin: 0 0 1.5rem 0;
     padding: .75rem;
 }
@@ -578,7 +514,6 @@ blockquote em, blockquote i {
 
 blockquote cite {
     font-style: normal;
-    color: #666666;
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     letter-spacing: 0.05rem;
@@ -608,38 +543,23 @@ input[type="password"],
 input[type="url"],
 textarea {
     padding: 1%;
-    border: 1px solid @ini_border;
     line-height: 20px;
     width: 95%;
     margin: 0 0 1rem;
-    background-color: @ini_background_neu;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="search"]:focus,
-input[type="password"]:focus,
-input[type="url"]:focus,
-textarea:focus {
-    border: 1px solid @ini_border;
 }
 
 input.s {
     width: 85%;
     padding: 4px 54px 4px 10px;
     height: 46px;
-    color: @ini_text_neu;
-    background-color: @ini_background;
     margin: 0;
-    border: 1px solid @ini_border;
 }
 
 input.s:focus {
     padding-left: 10px;
-    border-color: @ini_border;
     text-indent: 0;
 }
 
@@ -651,7 +571,6 @@ input[type="submit"],
 button {
     margin-bottom: 1rem;
     padding: 1rem 2rem;
-    background-color: @ini_color_theme;
     border: 0px;
     transition: background-color 0.3s linear 0s;
     -webkit-border-radius: 3px;
@@ -663,7 +582,6 @@ button {
     appearance: none !important;
     cursor: pointer;
     display: inline-block;
-    color: @ini_color_theme_text;
 }
 
 #search-form input[type="submit"] {
@@ -674,52 +592,14 @@ button {
     font-size: 18px;
 }
 
-#media__manager #media__opts a:hover,
-.colormag-button:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover,
-button:hover {
-    background-color: @ini_color_theme_dark;
-}
-
-input[type="reset"]:active,
-input[type="button"]:active,
-input[type="submit"]:active {
-    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
 /* =LINKS
 ----------------------------------------------- */
 a {
-    color: @ini_link;
     text-decoration: none;
-}
-
-.dokuwiki a.wikilink1 {
-    color: @ini_existing;
-}
-
-.dokuwiki a.wikilink2 {
-    color: @ini_missing;
-}
-
-a:hover {
-    color: @ini_text_neu;
 }
 
 a:focus, a:active, a:hover {
     text-decoration: none;
-}
-
-a svg {
-    fill: @ini_text_neu;
-}
-
-a:hover svg {
-    fill: @ini_text_neu;
 }
 
 a:hover img {
@@ -770,10 +650,6 @@ img.icon {
     vertical-align: -2px;
 }
 
-svg {
-    fill: @ini_color_blue;
-}
-
 .entry-content img, .comment-content img, .widget img {
     max-width: 100%;
     /* Fluid images for posts, comments, and widgets */
@@ -799,27 +675,16 @@ ul.tabs li a {
 }
 
 ul.tabs li:not(.active) a {
-    color: @ini_text_neu;
     padding: .5rem 1rem .7rem 1rem;
 }
 
-ul.tabs li:not(.active) a:hover {
-    background-color: @ini_color_theme;
-}
-
 ul.tabs li.active a {
-    border-top: 4px solid @ini_color_theme;
     padding: 1rem 1.5rem;
 }
 
 /*****************************************************************/
 /* =PAGE
 ----------------------------------------------- */
-
-#colormag__page {
-    background-color: @ini_background;
-}
-
 
 /* Inner-wraps */
 
@@ -849,13 +714,11 @@ body.mix-layout .inner-wrap-left.narrow-mix {
 div.skip {
     margin: 0 auto;
     padding: 0;
-    background-color: black;
 }
 
 div.skip a {
     display: block;
     width: 100%;
-    color: @ini_color_theme_text;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 2px;
@@ -867,12 +730,8 @@ div.skip a {
 /* News bar */
 
 .news-bar {
-    /*background-color: #ffffff;*/
     /*padding: 8px 0 4px;*/
     padding: 8px 0;
-    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
     font-size: 14px;
     position: relative;
 }
@@ -980,14 +839,12 @@ div.skip a {
 }
 
 #colormag__site-title a {
-    color: @ini_color_theme;
     font-size: 46px;
 }
 
 #colormag__site-description {
     line-height: 24px;
     font-size: 24px;
-    color: @ini_text_neu;
     padding-bottom: 0px;
     font-family: 'Open Sans', serif;
 }
@@ -995,7 +852,6 @@ div.skip a {
 /*
 #colormag__header-right-section .widget {
     text-align: right;
-    color: @ini_text;
     font-size: 2rem;
 }
 */
@@ -1030,25 +886,10 @@ body.banner-flip #colormag__header-right-sidebar {
 #colormag__alerts > div:last-child {
     margin-bottom: 1.5rem;
 }
-#colormag__alerts a {
-    color: @ini_color_theme_text;
-}
 div.info, div.notify, div.success, div.error {
     width: 80%;
     margin: .5rem auto;
     padding: .5rem 1rem .5rem 3rem;
-}
-div.info {
-    background-color: @ini_color_blue;
-}
-div.notify {
-    background-color: @ini_color_yellow;
-}
-div.success {
-    background-color: @ini_color_green;
-}
-div.error {
-    background-color: @ini_color_red;
 }
 
 /* =INFO TEXT
@@ -1064,7 +905,6 @@ div.error {
 
 .small-info-text p {
     font-size: 12px;
-    color: @ini_text_neu;
     margin-bottom: 0;
 }
 */
@@ -1151,7 +991,6 @@ div.error {
 
 .search-wrap button {
     border-radius: 0;
-    color: @ini_color_theme_text;
     line-height: 45px;
     margin-bottom: 0;
     padding: 0 15px;
@@ -1160,14 +999,12 @@ div.error {
 }
 
 .search-form-top {
-    border: 1px solid @ini_border;
     display: none;
     padding: 10px;
     position: absolute;
     right: 0;
     top: 44px;
     z-index: 9999;
-    background-color: @ini_background;
 }
 
 .search-form-top.show {
@@ -1219,6 +1056,7 @@ div.error {
 
 #colormag__site-navigation {
     z-index: 999;
+    position: relative;
 }
 
 nav li > ul,
@@ -1226,13 +1064,6 @@ nav li > ol {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-#colormag__site-navigation {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
-    position: relative;
-    background-color: @ini_color_theme_dark;
-    border-top: 4px solid @ini_color_theme;
 }
 
 #colormag__site-navigation-titles h6.widget-title {
@@ -1245,7 +1076,6 @@ nav li > ol {
 }
 
 #colormag__site-navigation svg {
-    fill: @ini_color_theme_text;
     vertical-align: -7px;
     /*max-height: 23px;*/
 }
@@ -1255,33 +1085,12 @@ nav li > ol {
     margin: 0 0 0 .4rem;
 }
 
-#colormag__page.home #colormag__site-navigation li.nav.home svg {
-    fill: @ini_color_theme_dark;
-}
-
 #colormag__usertools-menu.glyphcolors ul li a {
     text-align: end;
 }
 
 #colormag__usertools-menu.glyphcolors ul li a svg {
     margin-left: .4rem;
-}
-
-#colormag__usertools-menu.glyphcolors li.action.login svg,
-#colormag__usertools-menu.glyphcolors li.action.register svg {
-    fill: @ini_color_green;
-}
-
-#colormag__usertools-menu.glyphcolors li.action.profile svg {
-    fill: @ini_color_blue;
-}
-
-#colormag__usertools-menu.glyphcolors li.action.logout svg {
-    fill: @ini_color_red;
-}
-
-#colormag__usertools-menu.glyphcolors li.action.admin svg {
-    fill: @ini_color_yellow;
 }
 
 body.navcolors #colormag__site-navigation li span {
@@ -1301,7 +1110,6 @@ body.navcolors #colormag__site-navigation li span {
 }
 
 .main-navigation li.dropdown-header {
-    color: @ini_color_theme_light;
     line-height: 1;
 }
 
@@ -1311,7 +1119,6 @@ body.navcolors #colormag__site-navigation li span {
 
 .main-navigation a,
 .main-navigation label {
-    color: @ini_color_theme_text;
     display: block;
     float: none;
     font-size: 14px;
@@ -1333,10 +1140,6 @@ li.default-menu {
     border-bottom: 1px solid transparent;
 }
 
-.main-navigation li.menu-item-has-children a:hover {
-    border-color: @ini_color_theme;
-}
-
 .main-navigation li.menu-item a span,
 .main-navigation li.menu-item-has-children a span {
     vertical-align: 0px;
@@ -1344,30 +1147,6 @@ li.default-menu {
 }
 .main-navigation li.menu-item.nav.home a span {
     vertical-align: 0px;
-}
-
-.main-navigation a:hover,
-.main-navigation ul li.current-menu-item a,
-.main-navigation ul li.current-menu-item a:after,
-.main-navigation ul li.current_page_ancestor a,
-.main-navigation ul li.current-menu-ancestor a,
-.main-navigation ul li.current_page_item a,
-.main-navigation ul li:hover > a,
-.main-navigation li.menu-item-has-children:hover > a:after {
-    color: @ini_color_theme_text;
-}
-
-.main-navigation a:hover,
-.main-navigation ul li.current-menu-item > a,
-.main-navigation ul li.current_page_ancestor > a,
-.main-navigation ul li.current-menu-ancestor > a,
-.main-navigation ul li.current_page_item > a,
-.main-navigation ul li:hover > a,
-.main-navigation ul li:hover > label,
-.main-navigation ul li.focus > a,
-#colormag__page.home #colormag__site-navigation li.nav.home,
-.home-icon.front_page_on {
-    background-color: @ini_color_theme;
 }
 
 .main-navigation li.menu-item-has-children > a:after,
@@ -1414,11 +1193,6 @@ li.default-menu {
 ----------------------------------------------- */
 .main-navigation ul li.focus > ul {
     display: block;
-}
-
-.main-navigation .sub-menu,
-.main-navigation .children {
-    background-color: @ini_color_theme_dark;
 }
 
 .main-navigation ul li ul,
@@ -1482,17 +1256,9 @@ li.default-menu {
     font-size: 14px;
     height: 100%;
     padding: 10px 15px;
-    color: @ini_color_theme_text;
     display: block;
     text-align: left;
     text-transform: none;
-}
-
-.main-navigation ul li ul li a:hover,
-.main-navigation ul li ul li:hover > a,
-.main-navigation ul li.current-menu-item ul li a:hover {
-    color: @ini_color_theme_text;
-    background-color: @ini_color_theme;
 }
 
 .main-navigation ul li ul li ul {
@@ -1558,16 +1324,11 @@ label {
 }
 
 .site-header .menu-toggle {
-    color: @ini_color_theme_text;
     margin: 0;
     text-align: center;
     font-family: 'Open Sans', serif;
     padding-bottom: 0;
     line-height: 1.2;
-}
-
-.site-header .menu-toggle:hover {
-    background-color: @ini_link;
 }
 
 /*
@@ -1593,7 +1354,6 @@ label {
 .main-small-navigation a {
     display: block;
     font-size: 14px;
-    color: @ini_text;
     padding: 10px 20px;
     text-decoration: none;
     text-transform: uppercase;
@@ -1604,15 +1364,6 @@ label {
     border-bottom: none;
 }
 
-.main-small-navigation li {
-    background-color: @ini_color_theme_text;
-}
-
-.main-small-navigation li a:hover {
-    background-color: @ini_link;
-    color: @ini_color_theme_text;
-}
-
 .main-small-navigation ul ul a {
     padding-left: 45px;
     text-transform: none;
@@ -1621,18 +1372,11 @@ label {
 .main-small-navigation ul ul ul a {
     padding-left: 90px;
 }
-
-.main-small-navigation .current_page_item > a,
-.main-small-navigation .current-menu-item > a {
-    background: @ini_link;
-    color: @ini_color_theme_text;
-}
 */
 
 /* =PAGE HEADER TITLE
 ----------------------------------------------- */
 .page-header .page-title {
-    border-bottom: 1px solid @ini_border;
     margin-bottom: 30px;
 }
 
@@ -1653,10 +1397,6 @@ label {
 
 #colormag__breadcrumbs-wrapper ul li {
     display: inline list-item;
-}
-
-#colormag__breadcrumbs-wrapper.classic-look ul li.label {
-    color: @ini_text_neu;
 }
 
 #colormag__breadcrumbs-wrapper.pills-look ul li.label {
@@ -1707,7 +1447,6 @@ div.secedit.editbutton_section button {
     margin: 0 -.8rem; /* negative side margin = side padding + side border */
     padding: 0 .3rem;
     border-width: 0 .5rem;
-    border-color: @ini_highlight;
     border-style: solid;
 }
 
@@ -1716,10 +1455,6 @@ div.secedit.editbutton_section button {
 #colormag__secondary .widget ul li, #colormag__colophon .widget ul li {
     line-height: 1.5;
     padding: 5px 0;
-}
-
-#colormag__colophon .widget ul li {
-    border-bottom: 1px solid @ini_text_neu;
 }
 
 #colormag__secondary .widget ul li li, #colormag__colophon .widget ul li li {
@@ -1731,8 +1466,6 @@ div.secedit.editbutton_section button {
 }
 
 .widget select {
-    border: 1px solid @ini_border;
-    color: @ini_text_neu;
     padding: 2px;
     width: 60%;
 }
@@ -1745,37 +1478,19 @@ div.secedit.editbutton_section button {
     text-decoration: underline;
 }
 
-#colormag__secondary .widget-title a.rsswidget {
-    color: @ini_color_theme_text;
-}
-
 #colormag__pageqrwidget {
     display: none;
 }
 
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
-.footer-widgets-wrapper {
-    border-top: 1px solid @ini_border;
-    background-color: @ini_color_theme_dark;
-}
 
 .footer-widgets-area {
     padding-top: 45px;
-    color: @ini_color_theme_light;
 }
 
 .footer-widgets-area p {
     text-align: left;
-    color: @ini_text_neu;
-}
-
-.footer-widgets-area a {
-    color: @ini_color_theme_text;
-}
-
-.footer-widgets-area a:hover {
-    color: @ini_link;
 }
 
 #colormag__colophon .widget {
@@ -1796,7 +1511,6 @@ div.secedit.editbutton_section button {
 }
 
 #colormag__userwidget form fieldset {
-    border: 2px solid @ini_border;
     padding: 1rem;
 }
 
@@ -1820,7 +1534,6 @@ div.secedit.editbutton_section button {
 ----------------------------------------------- */
 .footer-socket-wrapper {
     padding: 20px 0px 20px;
-    background-color: @ini_color_theme_dark;
 }
 
 .footer-socket-area {
@@ -1837,19 +1550,9 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 }
 
 .footer-socket-wrapper .copyright {
-    color: @ini_text_neu;
     float: left;
     font-size: 14px;
     text-alignt: left;
-}
-
-.footer-socket-wrapper .copyright a {
-    color: @ini_text_neu;
-    border-bottom: 1px solid #5a5d62;
-}
-
-.footer-socket-wrapper .copyright a:hover {
-    color: @ini_color_theme_text;
 }
 
 .footer-socket-wrapper .buttons a {
@@ -1901,13 +1604,11 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 #dw__toc ul.toc a {
     display: block;
     opacity: 0.5;
-    color: @ini_text;
     border-left: 4px transparent solid;
     padding: 0 8px 0 4px;
 }
 
 #dw__toc ul.toc a:hover {
-    border-color: @ini_highlight;
     opacity: 1;
     font-weight: 550;
 }
@@ -2008,14 +1709,6 @@ div.mobileTools {
     vertical-align: middle;
 }
 
-#colormag__pagetools ul:hover {
-    background: @ini_background;
-    border: 1px solid @ini_border;
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
 #colormag__pagetools ul:hover li a span,
 #colormag__pagetools ul:hover li button span,
 #colormag__pagetools ul:hover li p span {
@@ -2024,19 +1717,6 @@ div.mobileTools {
 
 #colormag__pagetools ul:hover li h6 {
     visibility: visible;
-}
-
-#colormag__pagetools ul:hover li a svg {
-    fill: @ini_text_neu;
-}
-
-#colormag__pagetools ul li:hover a {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
-}
-
-#colormag__pagetools ul li:hover a svg {
-    fill: @ini_color_theme_text;
 }
 
 body.pagetools-flip #colormag__main-content {
@@ -2097,17 +1777,11 @@ DOKUWIKI MODES
 /* Admin - Config Manager */
 
 .mode_admin #config__manager fieldset {
-    background-color: @ini_background;
-    border: 1px solid @ini_border;
     margin: 2rem auto;
 }
 
 .mode_admin #config__manager fieldset legend {
     padding: 0 3rem;
-}
-
-.mode_admin #config__manager fieldset table td.value {
-    background-color: @ini_background_neu;
 }
 
 .mode_admin #config__manager fieldset table td.value input {
@@ -2181,7 +1855,6 @@ DOKUWIKI MODES
 }
 
 #user__manager .import_users form {
-    border: 1px solid @ini_border;
     width: max-content;
     margin: 0 auto;
     padding: 1rem;
@@ -2246,8 +1919,6 @@ DOKUWIKI MODES
 
 #mediamanager__page .panel h2 {
     font-size: 18px;
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
     padding: 6px 12px;
     margin: 0 10px 0 0;
     border-radius: 0;
@@ -2265,9 +1936,7 @@ DOKUWIKI MODES
 
 #mediamanager__page .panel ul.tabs li strong {
     border-radius: 5px 5px 0 0;
-    border-top: 4px solid @ini_color_theme;
     padding: 1rem 1.5rem;
-    background-color: @ini_background_alt;
 }
 
 #mediamanager__page .panel.filelist ul.thumbs li dl dd,
@@ -2288,8 +1957,6 @@ DOKUWIKI MODES
 
 #media__manager #mediamgr__aside h1 {
     font-size: 18px;
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
     padding: 6px 12px;
 }
 
@@ -2434,10 +2101,6 @@ RESPONSIVE STRUCTURE
     #colormag__topbar-links ul li ul {
         left: -99999px;
         z-index: 100;
-        background-color: @ini_background;
-        -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
     }
     #colormag__topbar-links ul li ul li {
         margin: 0 !important;
@@ -2458,12 +2121,6 @@ RESPONSIVE STRUCTURE
         position: absolute;
         width: 160px;
         top: 32px;
-    }
-    #colormag__topbar-links ul li ul li:hover {
-        background-color: @ini_color_theme;
-    }
-    #colormag__topbar-links ul li ul li:hover a {
-        color: #fff;
     }
 }
 

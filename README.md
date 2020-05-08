@@ -85,7 +85,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ## Main features
 
-* [ ] Namespace dependent CSS (for colors and fonts)
+* [x] Namespace dependent CSS (for colors and fonts)
 * [x] Namespace dependent UI images (background pattern, banner, widebanner and a potential sidebar header image aka sidecard)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
@@ -178,6 +178,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
 Just like sidebar and topbar links pages, simply upload the images you want to use in corresponding namespace (they will also be used for sub-namespaces).
 
 Images uploaded to `wiki` namespace will be used as default for the whole wiki. 
+
+### Namespace dependent CSS
+
+Copy `colormag/debug/theme.ini` file to the `data/pages/<namespace>` folder and customize it's values to your likings.
 
 ### Social links
 

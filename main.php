@@ -44,6 +44,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php if (isset($colormag['images']['pattern']['src'])): ?>
         <link rel="stylesheet" type="text/css" href="<?php print tpl_basedir(); ?>css/colormag.pattern.php?target=<?php print explode("media=", $colormag['images']['pattern']['src'])[1]; ?>" />
     <?php endif ?>
+    <style type="text/css">
+        <?php
+            if (isset($colormag['theme'])) {
+                echo $colormag['theme'];
+            }
+        ?>
+    </style>
     <?php colormag_include('meta') ?>
 </head>
 

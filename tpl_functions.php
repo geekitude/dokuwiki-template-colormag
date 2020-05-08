@@ -52,7 +52,7 @@ function colormag_init() {
 
     // COLLECT LINKS
     $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinkspage'), true);
-//dbg($colormag['topbar']);
+//dbg($colormag['topbar-links']);
 
     // GET SOCIAL LINKS
     $colormag['socials'] = array();
@@ -87,6 +87,37 @@ function colormag_init() {
 //        }
 //dbg($colormag['socials']);
     }
+
+
+    // NAMESPACE THEME
+    // Load template default LESS placehodlers
+    $styleinifile = tpl_incdir().'style.ini';
+    $styleini = parse_ini_file($styleinifile, true);
+//dbg(tpl_incdir().'style.ini');
+//dbg($styleini);
+    // Look for a "nstheme" page
+    //$themelFile = page_findnearest("links", true);
+    //$nsStyleIni = colormag_file("style", "inherit", "conf", $colormag['baseNs']);
+    $themeinifile = "./data/pages/test/test/theme.ini";
+//dbg($themeinifile);
+    if (is_file($themeinifile)) {
+        $themeini = parse_ini_file($themeinifile, true);
+//dbg($themeini);
+        foreach ($themeini['replacements'] as $key => $value) {
+            if ($value) {
+                $styleini['replacements'][$key] = $value;
+            }
+        }
+    }
+    $css = io_readFile(tpl_incdir()."/css/colormag.theme.less");
+//dbg(tpl_incdir()."/css/colormag.less");
+//dbg($css);
+    // Replace CSS' placeholders by their respective value (or LESS formula)
+    $css = colormag_css_applystyle($css, $styleini['replacements']);
+//dbg($css);
+    $less = new lessc();
+    $colormag['theme'] = $less->compile($css);
+
 
     // GLYPHS
     // Search for default or custum default SVG glyphs
@@ -1017,4 +1048,39 @@ function colormag_docinfo() {
         return $out;
     //}
     return false;
+}
+
+/**
+ * Copied from lib/exe/css.php
+ *
+ * Does placeholder replacements in the style according to
+ * the ones defined in a templates style.ini file
+ *
+ * This also adds the ini defined placeholders as less variables
+ * (sans the surrounding __ and with a ini_ prefix)
+ *
+ * @author Andreas Gohr <andi@splitbrain.org>
+ *
+ * @param string $css
+ * @param array $replacements  array(placeholder => value)
+ * @return string
+ */
+function colormag_css_applystyle($css, $replacements) {
+    // we convert ini replacements to LESS variable names
+    // and build a list of variable: value; pairs
+    $less = '';
+    foreach((array) $replacements as $key => $value) {
+        $lkey = trim($key, '_');
+        $lkey = '@ini_'.$lkey;
+        $less .= "$lkey: $value;\n";
+
+        $replacements[$key] = $lkey;
+    }
+
+    // we now replace all old ini replacements with LESS variables
+    $css = strtr($css, $replacements);
+
+    // now prepend the list of LESS variables as the very first thing
+    $css = $less.$css;
+    return $css;
 }
