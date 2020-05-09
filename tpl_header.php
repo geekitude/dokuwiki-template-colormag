@@ -91,7 +91,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
                 <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
-                        <div id="colormag__banner-wrap" class="advertisement-content widget group">
+                        <div id="colormag__banner-wrap" class="advertisement-content widget flex">
                             <?php
                                 colormag_include("bannerheader");
                                 if ($colormag['images']['banner']['src'] != null) {
