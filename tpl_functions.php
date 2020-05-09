@@ -153,6 +153,8 @@ function colormag_init() {
 //    $colormag['glyphs']['map-hover'] = 'map-search-outline';
 //    $colormag['glyphs']['map-active'] = 'map-search';
 //    $colormag['glyphs']['menu'] = 'menu';
+    $colormag['glyphs']['move_main'] = 'folder-move';
+    $colormag['glyphs']['move_tree'] = 'file-tree-outline';
     $colormag['glyphs']['namespace-start'] = 'folder-home';
     $colormag['glyphs']['news'] = 'alert-decagram';
     $colormag['glyphs']['pagepath'] = 'folder-open';
@@ -659,7 +661,7 @@ function colormag_admindropdown() {
             if(($plugin = plugin_load('admin', $task, true)) === null) continue;
             if ($task == "move_tree") {
                 $parts = explode('<a href="%s">', $plugin->getLang('treelink'));
-                $label = substr($parts[1], 0, -4);
+                $label = substr($parts[1], 0, -5);
             } else {
                 $label = $plugin->getMenuText($conf['lang']);
             }
