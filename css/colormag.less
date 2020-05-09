@@ -22,6 +22,8 @@
 * Flexbox
 * TEXT ELEMENTS
 * Headings
+* Toggles
+* More obvious dbg() result
 * LISTS
 * SUPERCRIPT AND SUBSCRIPT
 * Footnotes
@@ -72,10 +74,13 @@
 * Media Popup
 * Recent
 * Sitemap
-* DEBUG
 * *****************************************************************
 * RESPONSIVE STRUCTURE
 * *****************************************************************
+* Colormag helper
+* Media queries
+* Media queries (min-width)
+* Media queries (max-width)
 */
 
 /* =Pagetools constants
@@ -236,24 +241,17 @@ body.box2wide-layout #colormag__page {
 
 [dir] body {
     background-size: cover;
-}
-
-[dir] body.pattern, [dir] body.dbg-pattern {
     background-size: auto;
     background-repeat: repeat;
     background-attachment: scroll;
 }
 
-[dir=ltr] body.pattern, [dir=ltr] body.dbg-pattern {
+[dir=ltr] body {
     background-position: left top;
 }
 
-[dir=rtl] body.pattern, [dir=rtl] body.dbg-pattern {
+[dir=rtl] body {
     background-position: right top;
-}
-
-[dir] body.dbg-pattern {
-    background-image: url(debug/pattern.png);
 }
 
 hr {
@@ -489,6 +487,16 @@ h6.aside-title,
 
 [dir] .toggle.open strong {
     background-image: url(images/collapse.svg);
+}
+
+/* More obvious dbg() result */
+
+.dbg {
+    color: black;
+}
+
+[dir] .dbg {
+    background-color: gold;
 }
 
 /* =LISTS
@@ -2545,10 +2553,12 @@ DOKUWIKI MODES
 }
 
 /*--------------------------------------------------------------
-DEBUG
+RESPONSIVE STRUCTURE
 --------------------------------------------------------------*/
 
-/* Helper */
+/* Colormag helper
+ * It's z-index is what is used for JS screen size detection
+ */
 
 #colormag__helper {
     position: absolute;
@@ -2561,44 +2571,21 @@ DEBUG
 [dir] #colormag__helper {
     background-color: black;
 }
+
 #colormag__helper span::before {
     content: "desktop (>@ini_site_width + 60px)";
 }
+
 #colormag__helper span::after {
     content: " Z-index: 3001.";
 }
-body.debug #colormag__helper {
-    visibility: visible;
-}
 
-/* More obvious dbg() result */
-
-.dbg {
-    color: black;
-}
-
-[dir] .dbg {
-    background-color: gold;
-}
-
-/*--------------------------------------------------------------
-RESPONSIVE STRUCTURE
---------------------------------------------------------------*/
-
-@media screen and (max-width: @ini_site_width + 60px) {
-    [dir] body.debug #colormag__page {
-        background-color: lightyellow;
-    }
-    #colormag__helper span::before {
-        content: "desktop (>@ini_site_width)";
-    }
-    body.box-layout #colormag__page,
-    body.box2wide-layout #colormag__page {
-        width: 97%;
-    }
-}
+/* Media queries (min-width) */
 
 @media screen and (min-width: @ini_site_width + 1px) {
+    [dir] body.debug #colormag__page {
+        background-color: orange;
+    }
     /* Override newsticker label's a11y class if screen is larger than @ini_site_width */
     #colormag__topbar-newsticker strong {
         display: initial !important;
@@ -2621,12 +2608,24 @@ RESPONSIVE STRUCTURE
     }
 }
 
+/* Media queries (max-width) */
+
+@media screen and (max-width: @ini_site_width + 60px) {
+    [dir] body.debug #colormag__page {
+        background-color: lightyellow;
+    }
+    body.box-layout #colormag__page,
+    body.box2wide-layout #colormag__page {
+        width: 97%;
+    }
+}
+
 @media screen and (max-width: @ini_site_width) {
     [dir] body.debug #colormag__page {
         background-color: bisque;
     }
-    #colormag__helper span::before {
-        content: "desktop (<@ini_site_width)";
+    body.debug #colormag__helper span::before {
+        content: "desktop (<@ini_site_width)" !important;
     }
     body.box-layout #colormag__page,
     body.box2wide-layout #colormag__page {
@@ -2710,17 +2709,17 @@ RESPONSIVE STRUCTURE
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    [dir] body.debug #colormag__page {
-        background-color: burlywood;
-    }
     #colormag__helper {
         z-index: 2001;
     }
-    #colormag__helper span::before {
-        content: "tablet (<@ini_tablet_width)";
+    [dir] body.debug #colormag__page {
+        background-color: burlywood;
     }
-    #colormag__helper span::after {
-        content: " Z-index: 2001.";
+    body.debug #colormag__helper span::before {
+        content: "tablet (<@ini_tablet_width)" !important;
+    }
+    body.debug #colormag__helper span::after {
+        content: " Z-index: 2001." !important;
     }
     body.box2wide-layout #colormag__page {
         width: 100%;
@@ -2805,8 +2804,8 @@ RESPONSIVE STRUCTURE
     [dir] body.debug #colormag__page {
         background-color: darkgoldenrod;
     }
-    #colormag__helper span::before {
-        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))";
+    body.debug #colormag__helper span::before {
+        content: "tablet (< @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2))" !important;
     }
     [dir] .inner-wrap {
         margin: 0 (@ico-width + @ico-margin);
@@ -2861,17 +2860,17 @@ RESPONSIVE STRUCTURE
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    [dir] body.debug #colormag__page {
-        background-color: chocolate;
-    }
     #colormag__helper {
         z-index: 1001;
     }
-    #colormag__helper span::before {
-        content: "phone (<@ini_phone_width)";
+    [dir] body.debug #colormag__page {
+        background-color: chocolate;
     }
-    #colormag__helper span::after {
-        content: " Z-index: 1001.";
+    body.debug #colormag__helper span::before {
+        content: "phone (<@ini_phone_width)" !important;
+    }
+    body.debug #colormag__helper span::after {
+        content: " Z-index: 1001." !important;
     }
     [dir] .inner-wrap {
         margin: 0 (@ico-width + @ico-margin);
