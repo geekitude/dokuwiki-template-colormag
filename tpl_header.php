@@ -174,7 +174,7 @@ if (!defined('DOKU_INC')) die();
                     <div id="colormag__site-navigation-primary" class="flex row start">
                         <ul id="colormag__contools" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
-                            <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php colormag_glyph($colormag['glyphs']['home']) ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
+                            <li class="menu-item nav home"><a href="<?php print wl() ?>" title="Home"><?php if ((isset($colormag['translation']['ishome'])) and ($colormag['translation']['ishome'] == "translated")) { colormag_glyph($colormag['glyphs']['translated']); } else { colormag_glyph($colormag['glyphs']['home']); } ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>>Home</span></a></li>
                             <!-- NSINDEX DROPDOWN -->
                             <li id="colormag__nsindex-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print tpl_getLang('nscontent') ?>"><?php colormag_glyph($colormag['glyphs']['map']) ?></a></li>
                         </ul><!-- /#colormag__contools -->

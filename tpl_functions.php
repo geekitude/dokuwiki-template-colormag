@@ -22,7 +22,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
-    global $ID, $JSINFO;
+    global $ID, $JSINFO, $conf;
     global $colormag;
 
     $images= array('banner', 'pattern', 'sidecard', 'widebanner');
@@ -216,9 +216,27 @@ function colormag_init() {
     //$colormag['translation']['parts'] = array();
     if (!plugin_isdisabled('translation')) {
         $colormag['translation']['helper'] = plugin_load('helper','translation');
-        //$colormag['translation']['parts'] = $colormag['translation']['helper']->getTransParts($ID);
+        $colormag['translation']['parts'] = $colormag['translation']['helper']->getTransParts($ID);
+//dbg($colormag['translation']['parts']);
+//dbg($colormag['translation']['parts'][1]);
+        if (strpos($conf['plugin']['translation']['translations'], $conf['lang']) !== false) {
+            $colormag['translation']['untranslatedhome'] = $conf['lang'].":".$conf['start'];
+        } else {
+            $colormag['translation']['untranslatedhome'] = $conf['start'];
+        }
+        $colormag['translation']['ishome'] = false;
+        if ($colormag['translation']['parts'][1] == $conf['start']) {
+//            if (($colormag['translation']['parts'][0] == null) or ($colormag['translation']['parts'][0] == $conf['lang'])) {
+            if ($ID == $colormag['translation']['untranslatedhome']) {
+                $colormag['translation']['ishome'] = "untranslated";
+            //} elseif (($colormag['translation']['parts'][1] == $conf['start']) and ($colormag['translation']['parts'][0] != $conf['lang']))) {
+            } elseif (($colormag['translation']['parts'][0] != "") and (strpos($conf['plugin']['translation']['translations'], $colormag['translation']['parts'][0]) !== false)) {
+                $colormag['translation']['ishome'] = "translated";
+            }
+        }
     }
-//dbg($colormag['helpers']['translation']->getTransParts($ID));
+//dbg($colormag['translation']['ishome']);
+
     // CURRENT NS AND PATH
     // Get current namespace and corresponding path (resulting path will correspond to namespace's pages, media or conf files)
 //    //$colormag['currentNs'] = getNS(cleanID($id));
@@ -354,10 +372,21 @@ function colormag_bodyclasses() {
         $pattern = null;
     }
 
+    if (isset($colormag['translation']['ishome'])) {
+        if ($colormag['translation']['ishome'] == "untranslated") {
+            $home = "untranslated-home";
+        } elseif ($colormag['translation']['ishome'] == "translated") {
+            $home = "translated-home";
+        } else {
+            $home = "not-home";
+        }
+    } else {
+        $home = null;
+    }
 //    array_push($classes, $sidebar, tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //    array_push($classes, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (tpl_getConf('navcolors')) ? 'navcolors' : '', (tpl_getConf('dark')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //    array_push($classes, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (tpl_getConf('dark-skin')) ? 'dark-skin' : '', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
-    array_push($classes, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
+    array_push($classes, $home, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //    array_push($classes, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (isset($colormag['images']['pattern']['ns'])) ? 'pattern' : '', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pageheader') !== false) ? 'pageheader-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('uicolor').'-ui', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
 //dbg($classes);
     /* TODO: better home detection than core */

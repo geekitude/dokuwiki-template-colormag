@@ -408,10 +408,6 @@ div.error {
     fill: @ini_color_theme_text;
 }
 
-#colormag__page.home #colormag__site-navigation li.nav.home svg {
-    fill: @ini_color_theme_dark;
-}
-
 #colormag__usertools-menu.glyphcolors li.action.login svg,
 #colormag__usertools-menu.glyphcolors li.action.register svg {
     fill: @ini_color_green;
@@ -461,9 +457,17 @@ div.error {
 .main-navigation ul li:hover > a,
 .main-navigation ul li:hover > label,
 .main-navigation ul li.focus > a,
-#colormag__page.home #colormag__site-navigation li.nav.home,
+body.translated-home #colormag__site-navigation li.nav.home,
+body.untranslated-home #colormag__site-navigation li.nav.home,
+body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home,
 .home-icon.front_page_on {
     background-color: @ini_color_theme;
+}
+
+body.translated-home #colormag__site-navigation li.nav.home svg,
+body.untranslated-home #colormag__site-navigation li.nav.home svg,
+body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home svg {
+    fill: @ini_color_theme_dark;
 }
 
 /* =DROP DOWN
