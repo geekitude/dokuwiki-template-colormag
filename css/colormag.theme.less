@@ -464,10 +464,26 @@ body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home,
     background-color: @ini_color_theme;
 }
 
+body.translated-home #colormag__site-navigation li.nav.home ul {
+    background-color: @ini_color_theme_dark;
+}
+
 body.translated-home #colormag__site-navigation li.nav.home svg,
 body.untranslated-home #colormag__site-navigation li.nav.home svg,
 body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home svg {
     fill: @ini_color_theme_dark;
+}
+
+body.translated-home #colormag__site-navigation li.nav.home ul li {
+    background-color: @ini_color_theme_dark;
+}
+
+body.translated-home #colormag__site-navigation li.nav.home ul li svg {
+    fill: #fff;
+}
+
+body.translated-home #colormag__site-navigation li.nav.home ul.sub-menu {
+    width: auto;
 }
 
 /* =DROP DOWN
