@@ -89,7 +89,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [x] Namespace dependent UI images (background pattern, banner, widebanner and a potential sidebar header image aka sidecard)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
-* [ ] Tested with most common plugins (Blockquote, Discussion, Translation, Wrap)
+* [ ] Tested with most common plugins ([Blockquote](https://www.dokuwiki.org/plugin:blockquote), [Discussion](https://www.dokuwiki.org/plugin:discussion), [Styling](https://www.dokuwiki.org/plugin:styling), [Translation](https://www.dokuwiki.org/plugin:translation), [Wrap](https://www.dokuwiki.org/plugin:wrap))
 * [x] Dark color scheme
 * [x] Topbar with date, newsticker (based on current namespace and sub content) and links
 * [x] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
@@ -181,9 +181,9 @@ Images uploaded to `wiki` namespace will be used as default for the whole wiki.
 
 ### Namespace dependent CSS
 
-Copy `colormag/debug/theme.ini` file to the `data/pages/<namespace>` folder and customize it's values to your likings.
+Copy `colormag/debug/theme.ini` file to the `data/pages/<namespace>` folder and customize it's values to your likings. Note that it is not recomended to make huge changes on main and neutral color sets.
 
-You can add other values from `colormag/style.ini` files but it is not recommended to ensure high readability.
+You can add other values from `colormag/style.ini` files but it is not recommended to ensure consistency across your wiki.
 
 ### Social links
 
