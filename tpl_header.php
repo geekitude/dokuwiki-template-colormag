@@ -228,31 +228,33 @@ if (!defined('DOKU_INC')) die();
 
     </div><!-- #colormag__header-text-nav-container -->
 
-    <div id="colormag__widebanner-wrap" class="group">
-        <?php
-            if ($colormag['images']['widebanner']['src'] != null) {
-                $title = null;
-                if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['widebanner']['ns'], 'wiki') !== false)) {
-                    $target = $conf['start'];
-                    $title = tpl_getLang('wikihome');
-                } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                    $target = $colormag['images']['widebanner']['ns'];
-                } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                    $target = getNS($ID).":".$conf['start'];
-                } else {
-                    $target = null;
+    <?php if($ACT == "show"): ?>
+        <div id="colormag__widebanner-wrap" class="group">
+            <?php
+                if ($colormag['images']['widebanner']['src'] != null) {
+                    $title = null;
+                    if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['widebanner']['ns'], 'wiki') !== false)) {
+                        $target = $conf['start'];
+                        $title = tpl_getLang('wikihome');
+                    } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
+                        $target = $colormag['images']['widebanner']['ns'];
+                    } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+                        $target = getNS($ID).":".$conf['start'];
+                    } else {
+                        $target = null;
+                    }
+                    if ($title == null) { $title = $target; }
+                    if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
+                        tpl_link(
+                            wl($target),
+                            '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />'
+                        );
+                    } else {
+                        print '<img src="'.$colormag['images']['widebanner']['src'].'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />';
+                    }
                 }
-                if ($title == null) { $title = $target; }
-                if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
-                    tpl_link(
-                        wl($target),
-                        '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />'
-                    );
-                } else {
-                    print '<img src="'.$colormag['images']['widebanner']['src'].'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />';
-                }
-            }
-        ?>
-    </div><!-- #colormag__widebanner-wrap -->
+            ?>
+        </div><!-- #colormag__widebanner-wrap -->
+    <?php endif; ?>
 
 </header><!-- /#colormag__header -->
