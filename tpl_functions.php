@@ -31,21 +31,21 @@ function colormag_init() {
     // IMAGES
     // Search for namespace UI images (logo, banner, widebanner and potential last sidebar header image aka sidecard)
     //if (tpl_getConf('logo') != null) {
-    //    $colormag['images']['logo'] = colormag_inheritmedia(tpl_getConf('logo'));
+    //    $colormag['images']['logo'] = colormag_inherit(tpl_getConf('logo'));
     //}
     //if (tpl_getConf('banner') != null) {
-    //    $colormag['images']['banner'] = colormag_inheritmedia(tpl_getConf('banner'));
+    //    $colormag['images']['banner'] = colormag_inherit(tpl_getConf('banner'));
     //}
     //if (tpl_getConf('widebanner') != null) {
-    //    $colormag['images']['widebanner'] = colormag_inheritmedia(tpl_getConf('widebanner'));
+    //    $colormag['images']['widebanner'] = colormag_inherit(tpl_getConf('widebanner'));
     //}
     //if (tpl_getConf('sidecard') != null) {
-    //    $colormag['images']['sidecard'] = colormag_inheritmedia(tpl_getConf('sidecard'));
+    //    $colormag['images']['sidecard'] = colormag_inherit(tpl_getConf('sidecard'));
     //}
     foreach ($images as $type) {
 //dbg($type);
         if (tpl_getConf($type) != null) {
-            $colormag['images'][$type] = colormag_inheritmedia(tpl_getConf($type));
+            $colormag['images'][$type] = colormag_inherit(tpl_getConf($type));
         }
     }
 //dbg($colormag['images']);
@@ -98,10 +98,11 @@ function colormag_init() {
     // Look for a "nstheme" page
     //$themelFile = page_findnearest("links", true);
     //$nsStyleIni = colormag_file("style", "inherit", "conf", $colormag['baseNs']);
-    $themeinifile = "./data/pages/test/test/theme.ini";
+    //$themeinifile = "./data/pages/test/test/theme.ini";
+    $themeinifile = colormag_inherit("theme.ini", "file");
 //dbg($themeinifile);
-    if (is_file($themeinifile)) {
-        $themeini = parse_ini_file($themeinifile, true);
+    if (is_file($themeinifile['src'])) {
+        $themeini = parse_ini_file($themeinifile['src'], true);
 //dbg($themeini);
         foreach ($themeini['replacements'] as $key => $value) {
             if ($value) {
@@ -336,18 +337,10 @@ function colormag_bodyclasses() {
 //    }
 
     if (($_GET['debug'] == 1) or ($_GET['debug'] == 'images') or ($_GET['debug'] == 'pattern')) {
-            $pattern = "dbg-pattern";
+        $pattern = "dbg-pattern";
 //    } elseif (tpl_getConf('bodybg') == "pattern") {
     } elseif (isset($colormag['images']['pattern']['ns'])) {
         $pattern = "pattern";
-//        $pattern = tpl_getMediaFile(array(':'.getNS($ID).':pattern.png', ':wiki:pattern.png', 'images/pattern.png'), false, $patternSize);
-//        if (strpos($pattern, 'wiki') !== false) {
-//            $pattern = "wiki-pattern";
-//        } elseif ($pattern == "/lib/tpl/colormag/images/pattern.png") {
-//            $pattern = "tpl-pattern";
-//        } else {
-//            $pattern = "ns-pattern";
-//        }
     } else {
         $pattern = null;
     }
@@ -369,52 +362,70 @@ function colormag_bodyclasses() {
  *
  * Based on core page_findnearest()
  *
- * @param  string $filename the media name we're looking for
+ * @param  string $target the media name we're looking for
  * @param bool $useacl only return media if start page in same ns is readable by the current user, false to ignore ACLs
  * @return false|string the found media id, false if none
  */
-function colormag_inheritmedia($filename, $useacl = false){
-    if ((string) $filename === '') return false;
+function colormag_inherit($target, $type = "media", $useacl = false){
+    //if ((string) $target === '') return false;
     global $ID, $conf;
 
     $ns = $ID;
     $result = array();
     $glob = array();
+    $file = null;
     // In case we are in a farm, we have to make sure we search in animal's data dir by starting at DOKU_CONF directory (will however work if not in a farm)
-    $base = DOKU_CONF.'../'.$conf['savedir'].'/media/';
+    if ($type == "media") {
+        $base = DOKU_CONF.'../'.$conf['savedir'].'/media/';
+    } else {
+        $base = DOKU_CONF.'../'.$conf['savedir'].'/pages/';
+    }
     do {
         $ns = getNS($ns);
-//dbg($ns);
-        $path = $base.str_replace(":", "/", $ns);
-//dbg($path);
         $result['ns'] = cleanID($ns).":".$conf['start'];
+//dbg($ns);
+//dbg($path);
 //dbg($result['id']);
-//dbg($path.'/'.$filename);
-        $glob = glob($path.'/'.$filename.'.{jpg,gif,png}', GLOB_BRACE);
+//dbg($path.'/'.$target);
+        if (($type == "media") and (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ)){
+            $path = $base.str_replace(":", "/", $ns);
+            $glob = glob($path.'/'.$target.'.{jpg,gif,png}', GLOB_BRACE);
+        } elseif (($type == "file") and (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ)){
+            $path = $base.str_replace(":", "/", $ns);
+            $glob = glob($path.'/'.$target);
+        }
 //dbg($glob);
+            
     } while(($ns !== false) and (empty($glob)));
     //} while($ns !== false);
 
-    if (count($glob) == 0) {
+    if (($type == "media") and (count($glob) == 0)) {
         $result['ns'] = cleanID("wiki:".$conf['start']);
-        $glob = glob(DOKU_CONF.'../'.$conf['savedir'].'/media/wiki/'.$filename.'.{jpg,gif,png}', GLOB_BRACE);
+        $glob = glob(DOKU_CONF.'../'.$conf['savedir'].'/media/wiki/'.$target.'.{jpg,gif,png}', GLOB_BRACE);
     }
 //dbg($result);
 
     $src = null;
-    if (($_GET['debug'] == 1) or ($_GET['debug'] == "images") or ($_GET['debug'] == $filename)) {
-        //$result['src'] = tpl_incdir().'debug/'.$filename.'.png';
-        $src = tpl_incdir().'debug/'.$filename.'.png';
+    if (($type == "media") and (($_GET['debug'] == 1) or ($_GET['debug'] == "images") or ($_GET['debug'] == $target))) {
+        //$result['src'] = tpl_incdir().'debug/'.$target.'.png';
+        $src = tpl_incdir().'debug/'.$target.'.png';
         $result['src'] = $src;
-        $result['src'] = '/lib/tpl/colormag/debug/'.$filename.'.png';
+        $result['src'] = '/lib/tpl/colormag/debug/'.$target.'.png';
         $result['ns'] = null;
     } elseif (isset($glob[0])) {
         $src = $glob[0];
-        $result['src'] = '/lib/exe/fetch.php?media='.str_replace("/", ":", explode("media/", $src)[1]);
+        if ($type == "media") {
+            $result['src'] = '/lib/exe/fetch.php?media='.str_replace("/", ":", explode("media/", $src)[1]);
+        } elseif ($type == "file") {
+            $result['src'] = explode("../", $src)[1];
+            //$result['src'] = $src;
+        }
     }
 
     if ($src != null) {
-        $result['size'] = getimagesize($src);
+        if ($type == "media") {
+            $result['size'] = getimagesize($src);
+        }
         return $result;
     } else {
         return false;

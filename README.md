@@ -183,6 +183,8 @@ Images uploaded to `wiki` namespace will be used as default for the whole wiki.
 
 Copy `colormag/debug/theme.ini` file to the `data/pages/<namespace>` folder and customize it's values to your likings.
 
+You can add other values from `colormag/style.ini` files but it is not recommended to ensure high readability.
+
 ### Social links
 
 Copy `dokuwiki/lib/tpl/colormag/debug/social.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs.
