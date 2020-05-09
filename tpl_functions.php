@@ -1051,7 +1051,12 @@ function colormag_docinfo() {
 }
 
 /**
- * Copied from lib/exe/css.php
+ * Copied from lib/exe/css.php to avoid calling core CSS.php file
+ * Otherwise, using this code (from dw2pdf plugin) :
+ * //reusue the CSS dispatcher functions without triggering the main function
+ * define('SIMPLE_TEST', 1);
+ * require_once(DOKU_INC . 'lib/exe/css.php');
+ * Creates `possible CSRF attack` alerts when saving wiki pages
  *
  * Does placeholder replacements in the style according to
  * the ones defined in a templates style.ini file
