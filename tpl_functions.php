@@ -88,7 +88,6 @@ function colormag_init() {
 //dbg($colormag['socials']);
     }
 
-
     // NAMESPACE THEME
     // Load template default LESS placehodlers
     //$styleinifile = tpl_incdir().'style.ini';
@@ -107,7 +106,7 @@ function colormag_init() {
     //$themelFile = page_findnearest("links", true);
     //$nsStyleIni = colormag_file("style", "inherit", "conf", $colormag['baseNs']);
     //$themeinifile = "./data/pages/test/test/theme.ini";
-    $themeinifile = colormag_inherit("theme.ini", "file");
+    $themeinifile = colormag_inherit("theme.ini", "conf");
 //dbg($themeinifile);
     if (is_file($themeinifile['src'])) {
         $themeini = parse_ini_file($themeinifile['src'], true);
@@ -386,8 +385,9 @@ function colormag_inherit($target, $type = "media", $useacl = false){
     if ($type == "media") {
         $base = DOKU_CONF.'../'.$conf['savedir'].'/media/';
     } else {
-        $base = DOKU_CONF.'../'.$conf['savedir'].'/pages/';
+        $base = DOKU_CONF.'tpl/colormag/';
     }
+//dbg($base);
     do {
         $ns = getNS($ns);
         $result['ns'] = cleanID($ns).":".$conf['start'];
@@ -398,8 +398,9 @@ function colormag_inherit($target, $type = "media", $useacl = false){
         if (($type == "media") and (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ)){
             $path = $base.str_replace(":", "/", $ns);
             $glob = glob($path.'/'.$target.'.{jpg,gif,png}', GLOB_BRACE);
-        } elseif (($type == "file") and (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ)){
+        } elseif (($type == "conf") and (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ)){
             $path = $base.str_replace(":", "/", $ns);
+//dbg($path);
             $glob = glob($path.'/'.$target);
         }
 //dbg($glob);
@@ -424,8 +425,9 @@ function colormag_inherit($target, $type = "media", $useacl = false){
         $src = $glob[0];
         if ($type == "media") {
             $result['src'] = '/lib/exe/fetch.php?media='.str_replace("/", ":", explode("media/", $src)[1]);
-        } elseif ($type == "file") {
-            $result['src'] = explode("../", $src)[1];
+        } elseif ($type == "conf") {
+            $result['src'] = $src;
+//dbg($result);
             //$result['src'] = $src;
         }
     }

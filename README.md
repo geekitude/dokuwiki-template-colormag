@@ -181,7 +181,7 @@ Images uploaded to `wiki` namespace will be used as default for the whole wiki.
 
 ### Namespace dependent CSS
 
-Copy `colormag/debug/theme.ini` file to the `data/pages/<namespace>` folder and customize it's values to your likings. Note that it is not recomended to make huge changes on main and neutral color sets.
+Copy `colormag/debug/theme.ini` file to the `dokuwiki/conf/colormag/<namespace>` folder (just create inexistant folders) and customize it's values to your likings. Note that it is not recomended to make huge changes on main and neutral color sets.
 
 You can add other values from `colormag/style.ini` files but it is not recommended to ensure consistency across your wiki.
 
