@@ -109,10 +109,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] *banner*
   * [x] *sidecard* (sidebar header image)
   * [x] *images* (all UI images)
-  * [x] *include* (HTML include hooks)
+  * [x] *includes* (HTML include hooks)
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
+  * [x] *widebanner*
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
 

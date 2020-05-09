@@ -512,7 +512,7 @@ function colormag_glyph($glyph, $return = false) {
  * See original function in inc/template.php for details
  */
 function colormag_include($file, $widget = false) {
-    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'include')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
         if ($widget) {
             print '<aside id="colormag__'.$file.'" class="widget">';
         }
