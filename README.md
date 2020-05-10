@@ -258,4 +258,4 @@ Here are a few suggested steps to get a nice consistent dark wiki with Colormag 
 *You may want to invert "alt" text and background colors.*
 * go to settings and change the following :
     enable all elements in **uicolorize**
-    choose *dark* or *black* **uicolor**
+    choose *dark* **uicolor**
