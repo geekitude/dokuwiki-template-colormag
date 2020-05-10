@@ -21,7 +21,7 @@ $meta['topbarlinkspage']    = array('string');
 $meta['datelocale']         = array('string');
 $meta['longdate']           = array('string');
 $meta['shortdate']          = array('string');
-$meta['headerflexalign']    = array('multichoice', '_choices' => array('start','baseline','center','end'));
+$meta['headerflexalign']    = array('multichoice', '_choices' => array('start','center','end'));
 $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','pills'));
 $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['links']              = array('string');

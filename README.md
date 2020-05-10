@@ -153,7 +153,6 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **shortdate** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
 * **headerflexalign** (*start*) : set vertical alignment of header items (ie. logo, branding text, right section), note that `start` and `center` are the most common choices
   * `start` : to the top
-  * `baseline` : at text baseline level - still looking for a situation where it's different from `start` 8-)
   * `center`
   * `end` : to the bottom
 * **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs :warning: TODO :warning:

@@ -71,7 +71,7 @@ if (!defined('DOKU_INC')) die();
                                 );
                             ?>
                         </div>
-                        <div class="flex column <?php print tpl_getConf('headerflexalign') ?>">
+                        <div class="flex column start">
                             <h1 id="colormag__site-title">
                                 <?php
                                     // display logo and wiki title in a link to the home page
