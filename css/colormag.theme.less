@@ -96,17 +96,11 @@ body.neu-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_neu;
     color: @ini_text_neu;
 }
-body.neu-ui .uicolor a {
-    background-color: @ini_background_neu;
-}
 
 body.alt-ui .uicolor,
 body.alt-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_alt;
     color: @ini_text_alt;
-}
-body.alt-ui .uicolor a {
-    background-color: @ini_background_alt;
 }
 
 body.dark-ui .uicolor,
@@ -681,6 +675,15 @@ DOKUWIKI MODES
 .mode_admin #config__manager fieldset {
     background-color: @ini_background;
     border: 1px solid @ini_border;
+    color: @ini_text;
+}
+
+#config__manager tr {
+    border: 1px solid @ini_border;
+}
+
+#config__manager td.label span.outkey {
+    background-color: @ini_background;
 }
 
 .mode_admin #config__manager fieldset table td.value {
