@@ -174,7 +174,7 @@ if (!defined('DOKU_INC')) die();
                     <div id="colormag__site-navigation-primary" class="flex row start">
                         <ul id="colormag__contools" class="menunav-menu menu-primary-container-left-section">
                             <!-- HOME -->
-                            <?php if($colormag['translation']['ishome'] == "translated"): ?>
+                            <?php if(($colormag['translation']['ishome'] == "translated") or (($colormag['translation']['istranslated']) and ($conf['plugin']['translation']['redirectstart']))): ?>
                                 <li class="menu-item nav home menu-item-has-children">
                                     <a href="<?php print wl() ?>" title="<?php print tpl_getLang('wikihome') ?>"><?php colormag_glyph($colormag['glyphs']['translated']); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('wikihome') ?></span></a>
                                     <ul class="sub-menu">

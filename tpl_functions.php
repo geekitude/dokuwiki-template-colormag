@@ -233,6 +233,8 @@ function colormag_init() {
             } elseif (($colormag['translation']['parts'][0] != "") and (strpos($conf['plugin']['translation']['translations'], $colormag['translation']['parts'][0]) !== false)) {
                 $colormag['translation']['ishome'] = "translated";
             }
+        } elseif ($colormag['translation']['parts'][0] != $conf['lang']) {
+            $colormag['translation']['istranslated'] = true;
         }
     }
 //dbg($colormag['translation']['ishome']);
