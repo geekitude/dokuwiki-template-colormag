@@ -32,7 +32,6 @@
 * LINKS
 * IMAGES
 * TABS
-* *****************************************************************
 * PAGE
 * Inner-wraps
 * Skip to content
@@ -74,6 +73,8 @@
 * Media Popup
 * Recent
 * Sitemap
+* *****************************************************************
+* PLUGINS
 * *****************************************************************
 * RESPONSIVE STRUCTURE
 * *****************************************************************
@@ -2550,6 +2551,158 @@ DOKUWIKI MODES
 
 [dir=rtl] .mode_index #index__tree li > ul {
     margin: 0 2rem 0 0;
+}
+
+/*--------------------------------------------------------------
+PLUGINS
+--------------------------------------------------------------*/
+
+/* BLOCKQUOTE
+--------------------------------------------------------------*/
+
+[dir=ltr] .dokuwiki blockquote.blockquote-plugin {
+    padding: 5rem 2rem 2rem 7rem;
+}
+
+[dir=rtl] .dokuwiki blockquote.blockquote-plugin {
+    padding: 5rem 7rem 2rem 2rem;
+}
+
+[dir] .dokuwiki blockquote.blockquote-plugin p {
+    margin: 0;
+}
+
+.dokuwiki blockquote.blockquote-plugin p cite {
+    color: @ini_text_neu;
+}
+
+[dir] .dokuwiki blockquote.blockquote-plugin p cite {
+    margin: 1rem 0 0 0;
+}
+
+/* DISCUSSION
+--------------------------------------------------------------*/
+
+[dir] #comment_wrapper {
+    padding: 1rem;
+}
+
+[dir] #comment_wrapper h2 {
+    padding: 0;
+}
+
+[dir] #comment_wrapper .comment_form {
+    margin: 0;
+}
+
+#discussion__comment_toolbar.toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#discussion__comment_toolbar.toolbar button {
+    line-height: 0;
+}
+
+[dir] #discussion__comment_toolbar.toolbar button {
+    padding: 1rem;
+}
+
+[dir] #discussion__comment_toolbar.toolbar button img {
+    margin: 0;
+}
+
+#discussion__comment_text {
+    width: 100%;
+}
+
+[dir] #discussion__comment_form input.button {
+    margin: 0;
+}
+
+/* MOVE
+--------------------------------------------------------------*/
+
+#plugin_move__progress form {
+    display: inline-block;
+}
+
+div.plugin_move_dialog div.ui-dialog-content.ui-widget-content {
+    min-height: 90px !important;
+}
+
+[dir] div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content {
+    margin: 0;
+    padding: 0;
+}
+
+div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
+    color: #fff;
+}
+
+[dir] div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
+    border: 1px solid transparent;
+    background-image: none;
+}
+
+[dir] div.plugin_move_dialog div.ui-dialog-titlebar {
+    background-image: none;
+    border-radius: 5px 5px 0 0;
+}
+
+/* TRANSLATION
+--------------------------------------------------------------*/
+
+div.plugin_translation #translation__dropdown {
+    display: initial;
+}
+
+div.plugin_translation ul {
+    display: inline-block;
+    vertical-align: -6px;
+}
+
+[dir] div.plugin_translation ul li a {
+    border-radius: 2px;
+}
+
+div.plugin_translation ul div.li.cur {
+    display: none;
+}
+
+/* UPGRADE
+--------------------------------------------------------------*/
+
+[dir] #plugin__upgrade_meter span.stage {
+    margin-top: -.2rem;
+}
+
+/* WRAP
+--------------------------------------------------------------*/
+
+div.wrap_info,
+div.wrap_notice,
+span.wrap_info,
+span.wrap_notice,
+div.wrap_alert,
+div.wrap_danger,
+span.wrap_alert,
+span.wrap_danger,
+div.wrap_download,
+div.wrap_safety,
+span.wrap_download,
+span.wrap_safety {
+    color: initial !important;
+}
+
+[dir] div.wrap_download {
+    background-image: url(images/override/wrap_download_48.png);
+}
+[dir] span.wrap_download {
+    background-image: url(images/override/wrap_download_16.png);
 }
 
 /*--------------------------------------------------------------
