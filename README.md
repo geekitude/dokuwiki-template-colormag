@@ -134,7 +134,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `socket` : flip content
 * **dark-skin** ([ ]) : switch to dark color skin
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
-* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt* or *dark* wich uses a slightly lightened __color_theme_dark__ background color). This setting overrides `dark-skin` above but not all combinations look nice.
+* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color)
 * **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
@@ -258,5 +258,5 @@ __background_site__     = "#000"
 ```
 *You may want to invert "alt" text and background colors.*
 * go to settings and change the following :
-    enable all elements in **uicolorize**
-    choose *dark* **uicolor**
+  * enable all elements in **uicolorize**
+  * choose *dark* **uicolor**
