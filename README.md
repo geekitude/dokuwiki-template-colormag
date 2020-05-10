@@ -245,3 +245,17 @@ These specific HTML hooks let you change some template elements with fancier HTM
 * *tagline.html* : replace wiki description string with HTML element
 * *banner.html* : replaces potential banner image with HTML element
 * *widebanner.html* : replaces potential banner image with HTML element
+
+#### Dark skin
+
+Here are a few suggested steps to get a nice consistent dark wiki with Colormag :
+* change the following values in `style.ini` file
+    __text__                = "#aaa"
+    __background__          = "#333"
+    __background_neu__      = "#eee"
+    __border__              = "#aaa"
+    __background_site__     = "#000"
+*You may want to invert "alt" text and background colors.*
+* go to settings and change the following :
+    enable all elements in **uicolorize**
+    choose *dark* or *black* **uicolor**

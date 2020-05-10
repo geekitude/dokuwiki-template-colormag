@@ -12,9 +12,8 @@
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pageheader','sidebar','pagetools','socket'));
-$meta['dark-skin']          = array('onoff');
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pageheader','sidebar','toc','docinfo','footersocket'));
-$meta['uicolor']            = array('multichoice','_choices' => array('alt','neu','dark'));
+$meta['uicolor']            = array('multichoice','_choices' => array('alt','neu','dark','black'));
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
