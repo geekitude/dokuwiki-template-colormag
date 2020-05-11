@@ -63,7 +63,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <div class="flex column start">
                         <?php colormag_include("pageidheader"); ?>
                         <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
-                        <?php if ($colormag['translation']['helper']) print $colormag['translation']['helper']->showTranslations(); ?>
+                        <?php if ($colormag['translation']['helper']) print $colormag['translation']['helper']->showTranslations(false); ?>
                         <?php colormag_include("pageidfooter"); ?>
                     </div>
                     <!-- BREADCRUMBS -->
