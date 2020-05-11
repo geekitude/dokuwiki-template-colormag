@@ -51,6 +51,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * SVG icons come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
 * Font used for sample UI images (banner, widebanner and sidebar.png) is: [Rollandin by Emilie Rollandin](http://www.archistico.com/portfolio/nuovo-font-rollandin/).
+* Pills style breadcrumbs are based on [this page](https://catalin.red/css3-breadcrumbs/)
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
 
 ## Conversion todo

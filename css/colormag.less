@@ -1796,6 +1796,201 @@ body.pageheader-flip #colormag__breadcrumbs-wrapper {
     text-align: start;
 }
 
+
+
+
+
+
+
+  #colormag__breadcrumbs-wrapper.pills-look ul {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul li{
+    float: left;
+    margin: .4rem .5em .4rem 1em;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul li{
+    float: right;
+    margin: .4rem 1em .4rem .5em;
+  }
+  #colormag__breadcrumbs-wrapper.pills-look ul a{
+    text-decoration: none;
+    color: @ini_color_theme_text;
+    position: relative;
+  }
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul a{
+    background: @ini_color_theme;
+    padding: .7em 1em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  }
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul a{
+    float: left;
+  }
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul a{
+    float: right;
+  }
+  #colormag__breadcrumbs-wrapper.pills-look ul .current,
+  #colormag__breadcrumbs-wrapper.pills-look ul .current:hover{
+    font-weight: bold;
+  }
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul .current, [dir] #colormag__breadcrumbs-wrapper.pills-look ul .current:hover{
+    background: none;
+  }
+
+  #colormag__breadcrumbs-wrapper.pills-look ul .current::after,
+  #colormag__breadcrumbs-wrapper.pills-look ul .current::before{
+    content: normal;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover{
+    background: #99db76;
+  }
+  #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+  }
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
+    margin-top: -1.5em;
+    border-style: solid;
+  }
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
+    border-width: 1.5em 0 1.5em 1em;
+    border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
+    left: -1em;
+  }
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
+    border-width: 1.5em 1em 1.5em 0;
+    border-color: @ini_color_theme transparent @ini_color_theme @ini_color_theme;
+    right: -1em;
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::before{
+    border-color: #99db76 #99db76 #99db76 transparent;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::before{
+    border-color: #99db76 transparent #99db76 #99db76;
+  }
+
+  #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+  }
+
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
+    margin-top: -1.5em;
+    border-top: 1.5em solid transparent;
+    border-bottom: 1.5em solid transparent;
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
+    border-left: 1em solid @ini_color_theme;
+    right: -1em;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
+    border-right: 1em solid @ini_color_theme;
+    left: -1em;
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::after{
+    border-left-color: #99db76;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::after{
+    border-right-color: #99db76;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover{
+    background: #efc9ab;
+  }
+  #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before,
+  #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    content:'';
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    width: 1em;
+  }
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    background: @ini_color_theme;
+  }
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    transform: skew(-10deg);
+  }
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    transform: skew(10deg);
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before{
+    left: -.5em;
+    border-radius: 5px 0 0 5px;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before{
+
+    right: -.5em;
+    border-radius: 0 5px 5px 0;
+  }
+
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover::before{
+    background: #efc9ab;
+  }
+
+  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    right: -.5em;
+    border-radius: 0 5px 5px 0;
+  }
+
+  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    left: -.5em;
+    border-radius: 5px 0 0 5px;
+  }
+
+  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover::after{
+    background: #efc9ab;
+  }
+
+
+
+
+
+
+
+
+
+
+
 /* =SECTION HIGHLIGHTING
 ----------------------------------------------- */
 
