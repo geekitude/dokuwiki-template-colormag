@@ -145,6 +145,10 @@ if (!defined('DOKU_INC')) die();
             <!-- ALERTS -->
             <?php
                 html_msgarea();
+                // If Translation plugin is enabled, check current page
+                if (($colormag['translation']['helper']) and (($ACT == 'show') or ($ACT == 'edit'))) {
+                    $colormag['translation']['helper']->checkAge();
+                }
                 // If in playground...
                 if (strpos($ID, 'playground') !== false) {
                     // ...and admin, show a link to managing page...
