@@ -1754,242 +1754,294 @@ label {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
-[dir] #colormag__breadcrumbs-wrapper {
-    text-align: end;
-}
-
-#colormag__breadcrumbs-wrapper ul li {
+#colormag__pagination ul li {
     display: inline list-item;
 }
 
-#colormag__breadcrumbs-wrapper.pills-look ul li.label {
+[dir=ltr] #colormag__pagination .primary {
+    margin: 0 2rem 0 0;
+}
+
+[dir=rtl] #colormag__pagination .primary {
+    margin: 0 0 0 2rem;
+}
+
+#colormag__pagination .pills-look .primary {
+    flex-shrink: 0;
+}
+
+#colormag__pagination .pills-look div div > span.classic {
     display: none;
 }
 
-#colormag__breadcrumbs-wrapper.classic-look ul li:after {
+#colormag__pagination .pills-look ul li.label {
+    display: none;
+}
+
+[dir] #colormag__pagination .pills-look span.curid {
+    padding: 0;
+    background-color: transparent;
+}
+
+#colormag__pagination .classic-look ul.youarehere li:not(:last-child):after,
+#colormag__pagination .classic-look ul.trace li:not(:last-child):after {
     content: "\00a0";
 }
 
-#colormag__breadcrumbs-wrapper.classic-look ul.trace > li + li:before {
+#colormag__pagination .classic-look ul.trace > li + li:before {
     content: "/\00a0";
 }
 
-#colormag__breadcrumbs-wrapper.classic-look ul.youarehere > li + li:before {
+#colormag__pagination .classic-look ul.youarehere > li + li:before {
     content: "»\00a0";
 }
 
-
-#colormag__breadcrumbs-wrapper.classic-look ul.trace > li:nth-child(2):before,
-#colormag__breadcrumbs-wrapper.classic-look ul.youarehere > li:nth-child(2):before {
+#colormag__pagination .classic-look ul.trace > li:nth-child(2):before,
+#colormag__pagination .classic-look ul.youarehere > li:nth-child(2):before {
     content: "";
 }
 
-body.pageheader-flip #colormag__pageheader .pageId {
+body.pagination-flip #colormag__pagination .primary {
     order: 2;
+    align-items: end;
 }
 
-body.pageheader-flip #colormag__breadcrumbs-wrapper {
+body.pagination-flip #colormag__pagination .secondary {
     order: 1;
 }
 
-[dir] body.pageheader-flip #colormag__breadcrumbs-wrapper {
-    text-align: start;
-}
-
-
-
-
-
-
-
-  #colormag__breadcrumbs-wrapper.pills-look ul {
+/* Pagination pills*/
+#colormag__pagination .pills-look .breadcrumbs ul.trace,
+#colormag__pagination .pills-look .breadcrumbs ul.youarehere {
     overflow: hidden;
     width: 100%;
-  }
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul li{
-    float: left;
-    margin: .4rem .5em .4rem 1em;
-  }
-
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul li{
-    float: right;
-    margin: .4rem 1em .4rem .5em;
-  }
-  #colormag__breadcrumbs-wrapper.pills-look ul a{
+#colormag__pagination .pills-look .breadcrumbs ul a{
     text-decoration: none;
-    /*color: @ini_color_theme_text;*/
-    /*text-shadow: 0 1px 0 rgba(255,255,255,.5);*/
     position: relative;
-  }
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul a{
+}
+
+[dir] #colormag__pagination .pills-look .breadcrumbs ul a{
     background: @ini_color_theme;
     padding: .7em 1em;
-  }
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul a{
+}
+
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul a{
     float: left;
-  }
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul a{
+}
+
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul a{
     float: right;
-  }
-  #colormag__breadcrumbs-wrapper.pills-look ul .current,
-  #colormag__breadcrumbs-wrapper.pills-look ul .current:hover{
+}
+
+#colormag__pagination .pills-look .breadcrumbs ul .current,
+#colormag__pagination .pills-look .breadcrumbs ul .current:hover{
     font-weight: bold;
-  }
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul .current, [dir] #colormag__breadcrumbs-wrapper.pills-look ul .current:hover{
+}
+
+[dir] #colormag__pagination .pills-look .breadcrumbs ul .current, [dir] #colormag__pagination .pills-look .breadcrumbs ul .current:hover{
     background: none;
-  }
+}
 
-  #colormag__breadcrumbs-wrapper.pills-look ul .current::after,
-  #colormag__breadcrumbs-wrapper.pills-look ul .current::before{
+#colormag__pagination .pills-look .breadcrumbs ul .current::after,
+#colormag__pagination .pills-look .breadcrumbs ul .current::before{
     content: normal;
-  }
+}
 
+/* Pills - Youarehere*/
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li{
+    float: left;
+    margin: .4rem .9rem .4rem 1.6rem;
+}
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li{
+    float: right;
+    margin: .4rem 1.6rem .4rem .9rem;
+}
 
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere {
+    padding: 0 .5rem 0 0;
+}
 
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere {
+    padding: 0 0 0 .5rem;
+}
 
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover{
+    background: @ini_color_theme_dark;
+}
 
-
-
-
-
-
-
-
-
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover{
-    background: @ini_color_green;
-  }
-  #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
+#colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
     content: "";
     position: absolute;
     top: 50%;
-  }
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
-    margin-top: -1.5em;
+}
+
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+    margin-top: -2.1rem;
     border-style: solid;
-  }
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
-    border-width: 1.5em 0 1.5em 1em;
+}
+
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+    border-width: 2.1rem 0 2.1rem 1.6rem;
     border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
-    left: -1em;
-  }
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::before{
-    border-width: 1.5em 1em 1.5em 0;
+    left: -1.6rem;
+}
+
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+    border-width: 2.1rem 1.6rem 2.1rem 0;
     border-color: @ini_color_theme transparent @ini_color_theme @ini_color_theme;
-    right: -1em;
-  }
+    right: -1.6rem;
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::before{
-    border-color: @ini_color_green @ini_color_green @ini_color_green transparent;
-  }
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child {
+    margin: .4rem .9rem .4rem 0;
+}
 
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::before{
-    border-color: @ini_color_green transparent @ini_color_green @ini_color_green;
-  }
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child {
+    margin: .4rem 0 .4rem .9rem;
+}
 
-  #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a {
+    border-radius: 5px 0 0 5px;
+}
+
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a {
+    border-radius: 0 5px 5px 0;
+}
+
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a::before{
+    border-color: transparent transparent transparent transparent;
+}
+
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::before{
+    border-color: @ini_color_theme_dark @ini_color_theme_dark @ini_color_theme_dark transparent;
+}
+
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::before{
+    border-color: @ini_color_theme_dark transparent @ini_color_theme_dark @ini_color_theme_dark;
+}
+
+#colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
     content: "";
     position: absolute;
     top: 50%;
-  }
+}
 
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
-    margin-top: -1.5em;
-    border-top: 1.5em solid transparent;
-    border-bottom: 1.5em solid transparent;
-  }
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+    margin-top: -2.1rem;
+    border-top: 2.1rem solid transparent;
+    border-bottom: 2.1rem solid transparent;
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
-    border-left: 1em solid @ini_color_theme;
-    right: -1em;
-  }
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+    border-left: 1.6rem solid @ini_color_theme;
+    right: -1.6rem;
+}
 
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a::after{
-    border-right: 1em solid @ini_color_theme;
-    left: -1em;
-  }
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+    border-right: 1.6rem solid @ini_color_theme;
+    left: -1.6rem;
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::after{
-    border-left-color: @ini_color_green;
-  }
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child {
+    margin: .4rem 0 .4rem 1.6rem;
+}
 
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.youarehere a:hover::after{
-    border-right-color: @ini_color_green;
-  }
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child {
+    margin: .4rem 1.6rem .4rem 0;
+}
 
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a {
+    border-radius: 0 5px 5px 0;
+}
 
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a {
+    border-radius: 5px 0 0 5px;
+}
 
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a::after{
+    border-color: transparent transparent transparent transparent;
+}
 
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::after{
+    border-left-color: @ini_color_theme_dark;
+}
 
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::after{
+    border-right-color: @ini_color_theme_dark;
+}
 
+/* Pills - Trace */
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace li{
+    float: left;
+    margin: .4rem 1.2rem .4rem 1.6rem;
+}
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace li{
+    float: right;
+    margin: .4rem 1.6rem .4rem 1.2rem;
+}
 
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace {
+    padding: 0 .1rem 0 0;
+}
 
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace {
+    padding: 0 0 0 .1rem;
+}
 
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover{
+    background: @ini_color_theme_dark;
+}
 
-
-
-
-
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover{
-    background: @ini_color_yellow;
-  }
-  #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before,
-  #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+#colormag__pagination .pills-look .breadcrumbs ul.trace a::before,
+#colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
     content:'';
     position:absolute;
     top: 0;
     bottom: 0;
-    width: 1em;
-  }
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+    width: 2rem;
+}
+
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
     background: @ini_color_theme;
-  }
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+}
+
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
     transform: skew(-10deg);
-  }
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before, [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
+}
+
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
     transform: skew(10deg);
-  }
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before{
-    left: -.5em;
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before{
+    left: -1rem;
     border-radius: 5px 0 0 5px;
-  }
+}
 
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::before{
-
-    right: -.5em;
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before{
+    right: -1rem;
     border-radius: 0 5px 5px 0;
-  }
+}
 
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover::before{
-    background: @ini_color_yellow;
-  }
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover::before{
+    background: @ini_color_theme_dark;
+}
 
-  [dir=ltr] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
-    right: -.5em;
+[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+    right: -1rem;
     border-radius: 0 5px 5px 0;
-  }
+}
 
-  [dir=rtl] #colormag__breadcrumbs-wrapper.pills-look ul.trace a::after{
-    left: -.5em;
+[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+    left: -1rem;
     border-radius: 5px 0 0 5px;
-  }
+}
 
-  [dir] #colormag__breadcrumbs-wrapper.pills-look ul.trace a:hover::after{
-    background: @ini_color_yellow;
-  }
-
-
-
-
-
-
-
-
-
-
+[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover::after{
+    background: @ini_color_theme_dark;
+}
 
 /* =SECTION HIGHLIGHTING
 ----------------------------------------------- */
@@ -2884,21 +2936,72 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 /* TRANSLATION
 --------------------------------------------------------------*/
 
+div.plugin_translation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    font-size: 14px !important;
+}
+
+[dir] div.plugin_translation {
+    margin: 0;
+    padding: 0;
+}
+
 div.plugin_translation #translation__dropdown {
     display: initial;
 }
 
-div.plugin_translation ul {
+div.plugin_translation ul li {
     display: inline-block;
     vertical-align: -6px;
 }
 
-[dir] div.plugin_translation ul li a {
+[dir] div.plugin_translation ul li {
+    margin: 0;
+}
+
+[dir=ltr] div.plugin_translation ul li:not(:last-child) {
+    margin-right: 2px;
+}
+
+[dir=rtl] div.plugin_translation ul li:not(:last-child) {
+    margin-left: 2px;
+}
+
+div.plugin_translation ul li div.li a {
+    /*vertical-align: -3px;*/
+}
+
+[dir] div.plugin_translation ul li div.li a {
     border-radius: 2px;
+    margin: 0 !important;
 }
 
 div.plugin_translation ul div.li.cur {
     display: none;
+}
+
+#colormag__pagination .secondary  div.plugin_translation ul {
+    /*display: flex;*/
+}
+
+[dir=ltr] #colormag__pagination .secondary  div.plugin_translation ul li {
+    margin: 0 0 0 .6rem;
+}
+
+[dir=rtl] #colormag__pagination .secondary  div.plugin_translation ul li {
+    margin: 0 .6rem 0 0;
+}
+
+#colormag__pagination .secondary  div.plugin_translation ul li a {
+    display: block;
+    font-size: 1.8rem;
+}
+
+[dir] #colormag__pagination .secondary  div.plugin_translation ul li a {
+    padding: .5rem 1.4rem .8rem 1.4rem;
+    border-radius: 3px;
 }
 
 /* UPGRADE
@@ -3246,7 +3349,7 @@ RESPONSIVE STRUCTURE
     .breaking-news {
         height: auto;
     }
-    #colormag__pageheader {
+    #colormag__pagination {
         display: none;
     }
 }

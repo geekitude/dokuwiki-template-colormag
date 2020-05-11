@@ -57,30 +57,46 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php include('tpl_header.php') ?>
 
         <?php if(($ACT == "show") or ($ACT == "edit")): ?>
-            <header id="colormag__pageheader" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pageheader') !== false) ? " uicolor" : "" ?>">
-                <div class="inner-wrap flex row between">
+            <nav id="colormag__pagination" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagination') !== false) ? " uicolor" : "" ?>">
+                <div class="inner-wrap flex row between <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
                     <!-- PAGEID -->
-                    <div class="flex column start">
+                    <div class="primary flex column start">
                         <?php colormag_include("pageidheader"); ?>
-                        <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
-                        <?php if ($colormag['translation']['helper']) print $colormag['translation']['helper']->showTranslations(false); ?>
+                        <div class="breadcrumbs flex row start">
+                            <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
+                                <span class="classic" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
+                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                            <?php else: ?>
+                                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                            <?php endif ?>
+                        </div>
+                        <div class="flex row start">
+                            <?php if(($colormag['translation']['helper']) and (($conf['youarehere']) or ($conf['breadcrumbs']))) print $colormag['translation']['helper']->showTranslations(false); ?>
+                        </div>
                         <?php colormag_include("pageidfooter"); ?>
                     </div>
                     <!-- BREADCRUMBS -->
-                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                        <nav id="colormag__breadcrumbs-wrapper" class="breadcrumbs <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
+                    <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
+                        <div class="secondary">
                             <?php colormag_include("breadcrumbsheader"); ?>
-                            <?php if($conf['youarehere']): ?>
-                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
-                            <?php endif ?>
-                            <?php if($conf['breadcrumbs']): ?>
-                                <ul class="trace"><?php colormag_trace() ?></ul>
-                            <?php endif ?>
+                            <div class="breadcrumbs flex row-reverse start">
+                                <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
+                                    <span class="classic" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
+                                    <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                                <?php endif ?>
+                            </div>
+                            <div class="breadcrumbs flex row-reverse start">
+                                <?php if($conf['breadcrumbs']): ?>
+                                    <span class="classic" title="<?php print rtrim($lang['breadcrumb'], ':') ?>"><?php print $lang['breadcrumb'] ?></span>
+                                    <ul class="trace"><?php colormag_trace() ?></ul>
+                                <?php endif ?>
+                                <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
+                            </div>
                             <?php colormag_include("breadcrumbsfooter"); ?>
-                        </nav><!-- /#colormag__breadcrumbs-wrapper -->
+                        </div><!-- /#colormag__breadcrumbs-wrapper -->
                     <?php endif ?>
                 </div>
-            </header><!-- /#colormag__main -->
+            </nav><!-- /#colormag__main -->
         <?php endif ?>
 
         <?php colormag_include("mainheader"); ?>
