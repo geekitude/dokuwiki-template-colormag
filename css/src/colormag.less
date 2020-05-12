@@ -1459,14 +1459,14 @@ body.pagination-flip #colormag__pagenav .secondary {
 }
 
 /* Pills*/
+
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul,
 #colormag__pagenav .pills-look .breadcrumbs.trace ul {
     overflow: hidden;
     width: 100%;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs ul a{
-    background: @ini_color_theme;
+#colormag__pagenav .pills-look .breadcrumbs ul a {
     padding: .7em 1em;
     float: left;
     text-decoration: none;
@@ -1475,7 +1475,7 @@ body.pagination-flip #colormag__pagenav .secondary {
 
 /* Pills - Youarehere*/
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li{
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li {
     float: left;
     margin: .4rem .9rem .4rem 1.6rem;
 }
@@ -1484,18 +1484,13 @@ body.pagination-flip #colormag__pagenav .secondary {
     padding: 0 .5rem 0 0;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a:hover{
-    background: @ini_color_theme_dark;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::before{
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::before {
     content: "";
     position: absolute;
     top: 50%;
     margin-top: -2.1rem;
     border-width: 2.1rem 0 2.1rem 1.6rem;
     border-style: solid;
-    border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
     left: -1.6rem;
 }
 
@@ -1507,22 +1502,17 @@ body.pagination-flip #colormag__pagenav .secondary {
     border-radius: 5px 0 0 5px;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child a::before{
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child a::before {
     border-color: transparent transparent transparent transparent;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a:hover::before{
-    border-color: @ini_color_theme_dark @ini_color_theme_dark @ini_color_theme_dark transparent;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::after{
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::after {
     content: "";
     position: absolute;
     top: 50%;
     margin-top: -2.1rem;
     border-top: 2.1rem solid transparent;
     border-bottom: 2.1rem solid transparent;
-    border-left: 1.6rem solid @ini_color_theme;
     right: -1.6rem;
 }
 
@@ -1534,17 +1524,13 @@ body.pagination-flip #colormag__pagenav .secondary {
     border-radius: 0 5px 5px 0;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child a::after{
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child a::after {
     border-color: transparent transparent transparent transparent;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul a:hover::after{
-    border-left-color: @ini_color_theme_dark;
 }
 
 /* Pills - Trace */
 
-#colormag__pagenav .pills-look .breadcrumbs.trace ul li{
+#colormag__pagenav .pills-look .breadcrumbs.trace ul li {
     float: left;
     margin: .4rem 1.2rem .4rem 1.6rem;
 }
@@ -1553,61 +1539,36 @@ body.pagination-flip #colormag__pagenav .secondary {
     padding: 0 .1rem 0 0;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a:hover{
-    background: @ini_color_theme_dark;
-}
-
 #colormag__pagenav .pills-look .breadcrumbs.trace ul a::before,
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a::after{
+#colormag__pagenav .pills-look .breadcrumbs.trace ul a::after {
     content:'';
     position:absolute;
     top: 0;
     bottom: 0;
     width: 2rem;
-    background: @ini_color_theme;
     transform: skew(-10deg);
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a::before{
+#colormag__pagenav .pills-look .breadcrumbs.trace ul a::before {
     left: -1rem;
     border-radius: 5px 0 0 5px;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a:hover::before{
-    background: @ini_color_theme_dark;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a::after{
+#colormag__pagenav .pills-look .breadcrumbs.trace ul a::after {
     right: -1rem;
     border-radius: 0 5px 5px 0;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.trace ul a:hover::after{
-    background: @ini_color_theme_dark;
 }
 
 /* Pills - Curid*/
 
 #colormag__pagenav .pills-look span.curid {
-    padding: 0;
     background-color: transparent;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs ul .curid a,
-#colormag__pagenav .pills-look .breadcrumbs ul .curid a:hover{
+#colormag__pagenav .pills-look .breadcrumbs ul .curid a:hover {
     font-weight: bold;
-    background-color: @ini_color_theme_dark;
     cursor: default;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul .curid a::after,
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul .curid a::before{
-    border-color: @ini_color_theme_dark transparent @ini_color_theme_dark transparent;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs.trace ul .curid a::after,
-#colormag__pagenav .pills-look .breadcrumbs.trace ul .curid a::before{
-    background: @ini_color_theme_dark;
 }
 
 /* =SECTION HIGHLIGHTING
