@@ -59,8 +59,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php if(($ACT == "show") or ($ACT == "edit")): ?>
             <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap flex row between <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
-                    <!-- PAGEID -->
-                    <div class="primary flex column start">
+                    <div class="primary">
                         <?php colormag_include("pageidheader"); ?>
                         <div class="breadcrumbs youarehere">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
@@ -69,13 +68,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <?php else: ?>
                                 <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
                             <?php endif ?>
-                        </div>
+                        </div><!-- .breacrumbs.youarehere -->
                         <div class="flex row start">
                             <?php if(($colormag['translation']['helper']) and (($conf['youarehere']) or ($conf['breadcrumbs']))) print $colormag['translation']['helper']->showTranslations(false); ?>
-                        </div>
+                        </div><!-- .flex -->
                         <?php colormag_include("pageidfooter"); ?>
-                    </div>
-                    <!-- BREADCRUMBS -->
+                    </div><!-- .primary.flex -->
                     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
                         <div class="secondary">
                             <?php colormag_include("breadcrumbsheader"); ?>
@@ -95,7 +93,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <?php colormag_include("breadcrumbsfooter"); ?>
                         </div><!-- /#colormag__breadcrumbs-wrapper -->
                     <?php endif ?>
-                </div>
+                </div><!-- .inner-wrap.flex -->
             </nav><!-- /#colormag__pagenav -->
         <?php endif ?>
 
