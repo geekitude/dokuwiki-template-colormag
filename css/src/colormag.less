@@ -54,6 +54,7 @@
 * Pills
 * Pills - Youarehere
 * Pills - Trace
+* Pills - Curid
 * SECTION HIGHLIGHTING
 * WIDGETS
 * FOOTER WIDGET AREA
@@ -1430,11 +1431,6 @@ label {
     display: none;
 }
 
-#colormag__pagenav .pills-look span.curid {
-    padding: 0;
-    background-color: transparent;
-}
-
 #colormag__pagenav .classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
 #colormag__pagenav .classic-look .breadcrumbs.youarehere ul li:not(:last-child):after {
     content: "\00a0";
@@ -1477,18 +1473,8 @@ body.pagination-flip #colormag__pagenav .secondary {
     position: relative;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs ul .current,
-#colormag__pagenav .pills-look .breadcrumbs ul .current:hover{
-    font-weight: bold;
-    background: none;
-}
-
-#colormag__pagenav .pills-look .breadcrumbs ul .current::after,
-#colormag__pagenav .pills-look .breadcrumbs ul .current::before{
-    content: normal;
-}
-
 /* Pills - Youarehere*/
+
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li{
     float: left;
     margin: .4rem .9rem .4rem 1.6rem;
@@ -1557,6 +1543,7 @@ body.pagination-flip #colormag__pagenav .secondary {
 }
 
 /* Pills - Trace */
+
 #colormag__pagenav .pills-look .breadcrumbs.trace ul li{
     float: left;
     margin: .4rem 1.2rem .4rem 1.6rem;
@@ -1596,6 +1583,30 @@ body.pagination-flip #colormag__pagenav .secondary {
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.trace ul a:hover::after{
+    background: @ini_color_theme_dark;
+}
+
+/* Pills - Curid*/
+
+#colormag__pagenav .pills-look span.curid {
+    padding: 0;
+    background-color: transparent;
+}
+
+#colormag__pagenav .pills-look .breadcrumbs ul .curid a,
+#colormag__pagenav .pills-look .breadcrumbs ul .curid a:hover{
+    font-weight: bold;
+    background-color: @ini_color_theme_dark;
+    cursor: default;
+}
+
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul .curid a::after,
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul .curid a::before{
+    border-color: @ini_color_theme_dark transparent @ini_color_theme_dark transparent;
+}
+
+#colormag__pagenav .pills-look .breadcrumbs.trace ul .curid a::after,
+#colormag__pagenav .pills-look .breadcrumbs.trace ul .curid a::before{
     background: @ini_color_theme_dark;
 }
 
