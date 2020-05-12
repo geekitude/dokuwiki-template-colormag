@@ -62,10 +62,10 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <!-- PAGEID -->
                     <div class="primary flex column start">
                         <?php colormag_include("pageidheader"); ?>
-                        <div class="breadcrumbs">
+                        <div class="breadcrumbs youarehere">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
                                 <span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
-                                <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                                <ul class=""><?php colormag_youarehere() ?></ul>
                             <?php else: ?>
                                 <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
                             <?php endif ?>
@@ -79,16 +79,16 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
                         <div class="secondary">
                             <?php colormag_include("breadcrumbsheader"); ?>
-                            <div class="breadcrumbs">
+                            <div class="breadcrumbs youarehere">
                                 <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
                                     <span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
-                                    <ul class="youarehere"><?php colormag_youarehere() ?></ul>
+                                    <ul class=""><?php colormag_youarehere() ?></ul>
                                 <?php endif ?>
                             </div>
-                            <div class="breadcrumbs">
+                            <div class="breadcrumbs trace">
                                 <?php if($conf['breadcrumbs']): ?>
                                     <span class="label" title="<?php print rtrim($lang['breadcrumb'], ':') ?>"><?php print $lang['breadcrumb'] ?></span>
-                                    <ul class="trace"><?php colormag_trace() ?></ul>
+                                    <ul class=""><?php colormag_trace() ?></ul>
                                 <?php endif ?>
                                 <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
                             </div>
