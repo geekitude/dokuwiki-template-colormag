@@ -57,7 +57,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php include('tpl_header.php') ?>
 
         <?php if(($ACT == "show") or ($ACT == "edit")): ?>
-            <nav id="colormag__pagination" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagination') !== false) ? " uicolor" : "" ?>">
+            <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap flex row between <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
                     <!-- PAGEID -->
                     <div class="primary flex column start">
@@ -96,7 +96,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </div><!-- /#colormag__breadcrumbs-wrapper -->
                     <?php endif ?>
                 </div>
-            </nav><!-- /#colormag__main -->
+            </nav><!-- /#colormag__pagenav -->
         <?php endif ?>
 
         <?php colormag_include("mainheader"); ?>

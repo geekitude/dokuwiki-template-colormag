@@ -51,6 +51,9 @@
 * PAGE HEADER TITLE
 * CONTENT
 * PAGE NAVIGATION
+* Pills
+* Pills - Youarehere
+* Pills - Trace
 * SECTION HIGHLIGHTING
 * WIDGETS
 * FOOTER WIDGET AREA
@@ -1754,256 +1757,256 @@ label {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
-#colormag__pagination ul li {
+#colormag__pagenav ul li {
     display: inline list-item;
 }
 
-[dir=ltr] #colormag__pagination .primary {
+[dir=ltr] #colormag__pagenav .primary {
     margin: 0 2rem 0 0;
 }
 
-[dir=rtl] #colormag__pagination .primary {
+[dir=rtl] #colormag__pagenav .primary {
     margin: 0 0 0 2rem;
 }
 
-#colormag__pagination .pills-look .primary {
+#colormag__pagenav .pills-look .primary {
     flex-shrink: 0;
 }
 
 /*
-#colormag__pagination .pills-look div div > span.classic {
+#colormag__pagenav .pills-look div div > span.classic {
     display: none;
 }
 */
-#colormag__pagination .pills-look div div > span.label {
+#colormag__pagenav .pills-look div div > span.label {
     display: block;
 }
-[dir] #colormag__pagination .pills-look div div > span.label {
+[dir] #colormag__pagenav .pills-look div div > span.label {
     text-align: center;
 }
 
-#colormag__pagination .pills-look ul li.label {
+#colormag__pagenav .pills-look ul li.label {
     display: none;
 }
 
-[dir] #colormag__pagination .pills-look span.curid {
+[dir] #colormag__pagenav .pills-look span.curid {
     padding: 0;
     background-color: transparent;
 }
 
-#colormag__pagination .classic-look ul.youarehere li:not(:last-child):after,
-#colormag__pagination .classic-look ul.trace li:not(:last-child):after {
+#colormag__pagenav .classic-look ul.youarehere li:not(:last-child):after,
+#colormag__pagenav .classic-look ul.trace li:not(:last-child):after {
     content: "\00a0";
 }
 
-#colormag__pagination .classic-look ul.trace > li + li:before {
+#colormag__pagenav .classic-look ul.trace > li + li:before {
     content: "/\00a0";
 }
 
-#colormag__pagination .classic-look ul.youarehere > li + li:before {
+#colormag__pagenav .classic-look ul.youarehere > li + li:before {
     content: "»\00a0";
 }
 
-#colormag__pagination .classic-look ul.trace > li:nth-child(2):before,
-#colormag__pagination .classic-look ul.youarehere > li:nth-child(2):before {
+#colormag__pagenav .classic-look ul.trace > li:nth-child(2):before,
+#colormag__pagenav .classic-look ul.youarehere > li:nth-child(2):before {
     content: "";
 }
 
-body.pagination-flip #colormag__pagination .primary {
+body.pagination-flip #colormag__pagenav .primary {
     order: 2;
     align-items: end;
 }
 
-body.pagination-flip #colormag__pagination .secondary {
+body.pagination-flip #colormag__pagenav .secondary {
     order: 1;
 }
 
-/* Pagination pills*/
-#colormag__pagination .pills-look .breadcrumbs ul.trace,
-#colormag__pagination .pills-look .breadcrumbs ul.youarehere {
+/* Pills*/
+#colormag__pagenav .pills-look .breadcrumbs ul.trace,
+#colormag__pagenav .pills-look .breadcrumbs ul.youarehere {
     overflow: hidden;
     width: 100%;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul a{
+#colormag__pagenav .pills-look .breadcrumbs ul a{
     text-decoration: none;
     position: relative;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul a{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul a{
     background: @ini_color_theme;
     padding: .7em 1em;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul a{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul a{
     float: left;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul a{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul a{
     float: right;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul .current,
-#colormag__pagination .pills-look .breadcrumbs ul .current:hover{
+#colormag__pagenav .pills-look .breadcrumbs ul .current,
+#colormag__pagenav .pills-look .breadcrumbs ul .current:hover{
     font-weight: bold;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul .current, [dir] #colormag__pagination .pills-look .breadcrumbs ul .current:hover{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul .current, [dir] #colormag__pagenav .pills-look .breadcrumbs ul .current:hover{
     background: none;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul .current::after,
-#colormag__pagination .pills-look .breadcrumbs ul .current::before{
+#colormag__pagenav .pills-look .breadcrumbs ul .current::after,
+#colormag__pagenav .pills-look .breadcrumbs ul .current::before{
     content: normal;
 }
 
 /* Pills - Youarehere*/
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li{
     float: left;
     margin: .4rem .9rem .4rem 1.6rem;
 }
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li{
     float: right;
     margin: .4rem 1.6rem .4rem .9rem;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere {
     padding: 0 .5rem 0 0;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere {
     padding: 0 0 0 .5rem;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a:hover{
     background: @ini_color_theme_dark;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+#colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::before{
     content: "";
     position: absolute;
     top: 50%;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::before{
     margin-top: -2.1rem;
     border-style: solid;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::before{
     border-width: 2.1rem 0 2.1rem 1.6rem;
     border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
     left: -1.6rem;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::before{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::before{
     border-width: 2.1rem 1.6rem 2.1rem 0;
     border-color: @ini_color_theme transparent @ini_color_theme @ini_color_theme;
     right: -1.6rem;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:first-child {
     margin: .4rem .9rem .4rem 0;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:first-child {
     margin: .4rem 0 .4rem .9rem;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:first-child a {
     border-radius: 5px 0 0 5px;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:first-child a {
     border-radius: 0 5px 5px 0;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:first-child a::before{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:first-child a::before{
     border-color: transparent transparent transparent transparent;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::before{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a:hover::before{
     border-color: @ini_color_theme_dark @ini_color_theme_dark @ini_color_theme_dark transparent;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::before{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a:hover::before{
     border-color: @ini_color_theme_dark transparent @ini_color_theme_dark @ini_color_theme_dark;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+#colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::after{
     content: "";
     position: absolute;
     top: 50%;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::after{
     margin-top: -2.1rem;
     border-top: 2.1rem solid transparent;
     border-bottom: 2.1rem solid transparent;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::after{
     border-left: 1.6rem solid @ini_color_theme;
     right: -1.6rem;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a::after{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a::after{
     border-right: 1.6rem solid @ini_color_theme;
     left: -1.6rem;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:last-child {
     margin: .4rem 0 .4rem 1.6rem;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:last-child {
     margin: .4rem 1.6rem .4rem 0;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:last-child a {
     border-radius: 0 5px 5px 0;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:last-child a {
     border-radius: 5px 0 0 5px;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.youarehere li:last-child a::after{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere li:last-child a::after{
     border-color: transparent transparent transparent transparent;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::after{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a:hover::after{
     border-left-color: @ini_color_theme_dark;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.youarehere a:hover::after{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.youarehere a:hover::after{
     border-right-color: @ini_color_theme_dark;
 }
 
 /* Pills - Trace */
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace li{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace li{
     float: left;
     margin: .4rem 1.2rem .4rem 1.6rem;
 }
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace li{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace li{
     float: right;
     margin: .4rem 1.6rem .4rem 1.2rem;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace {
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace {
     padding: 0 .1rem 0 0;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace {
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace {
     padding: 0 0 0 .1rem;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.trace a:hover{
     background: @ini_color_theme_dark;
 }
 
-#colormag__pagination .pills-look .breadcrumbs ul.trace a::before,
-#colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+#colormag__pagenav .pills-look .breadcrumbs ul.trace a::before,
+#colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     content:'';
     position:absolute;
     top: 0;
@@ -2011,43 +2014,43 @@ body.pagination-flip #colormag__pagination .secondary {
     width: 2rem;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::before, [dir] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     background: @ini_color_theme;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::before, [dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     transform: skew(-10deg);
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before, [dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::before, [dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     transform: skew(10deg);
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::before{
     left: -1rem;
     border-radius: 5px 0 0 5px;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::before{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::before{
     right: -1rem;
     border-radius: 0 5px 5px 0;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover::before{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.trace a:hover::before{
     background: @ini_color_theme_dark;
 }
 
-[dir=ltr] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     right: -1rem;
     border-radius: 0 5px 5px 0;
 }
 
-[dir=rtl] #colormag__pagination .pills-look .breadcrumbs ul.trace a::after{
+[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs ul.trace a::after{
     left: -1rem;
     border-radius: 5px 0 0 5px;
 }
 
-[dir] #colormag__pagination .pills-look .breadcrumbs ul.trace a:hover::after{
+[dir] #colormag__pagenav .pills-look .breadcrumbs ul.trace a:hover::after{
     background: @ini_color_theme_dark;
 }
 
@@ -2990,24 +2993,24 @@ div.plugin_translation ul div.li.cur {
     display: none;
 }
 
-#colormag__pagination .secondary  div.plugin_translation ul {
+#colormag__pagenav .secondary  div.plugin_translation ul {
     /*display: flex;*/
 }
 
-[dir=ltr] #colormag__pagination .secondary  div.plugin_translation ul li {
+[dir=ltr] #colormag__pagenav .secondary  div.plugin_translation ul li {
     margin: 0 0 0 .6rem;
 }
 
-[dir=rtl] #colormag__pagination .secondary  div.plugin_translation ul li {
+[dir=rtl] #colormag__pagenav .secondary  div.plugin_translation ul li {
     margin: 0 .6rem 0 0;
 }
 
-#colormag__pagination .secondary  div.plugin_translation ul li a {
+#colormag__pagenav .secondary  div.plugin_translation ul li a {
     display: block;
     font-size: 1.8rem;
 }
 
-[dir] #colormag__pagination .secondary  div.plugin_translation ul li a {
+[dir] #colormag__pagenav .secondary  div.plugin_translation ul li a {
     padding: .5rem 1.4rem .8rem 1.4rem;
     border-radius: 3px;
 }
@@ -3357,7 +3360,7 @@ RESPONSIVE STRUCTURE
     .breaking-news {
         height: auto;
     }
-    #colormag__pagination {
+    #colormag__pagenav {
         display: none;
     }
 }

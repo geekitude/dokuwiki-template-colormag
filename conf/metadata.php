@@ -11,8 +11,8 @@
  */
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
-$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagination','sidebar','pagetools','socket'));
-$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pagination','sidebar','toc','docinfo','footersocket'));
+$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidebar','pagetools','socket'));
+$meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pagenav','sidebar','toc','docinfo','footersocket'));
 $meta['uicolor']            = array('multichoice','_choices' => array('alt','neu','theme','dark'));
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
