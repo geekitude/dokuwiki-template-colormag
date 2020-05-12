@@ -2983,12 +2983,18 @@ div.plugin_translation ul li {
     margin: 0;
 }
 
-[dir=ltr] div.plugin_translation ul li:not(:last-child) {
+/*
+div.plugin_translation ul li:not(:last-child) {
     margin-right: 2px;
 }
+*/
 
-[dir=rtl] div.plugin_translation ul li:not(:last-child) {
-    margin-left: 2px;
+[dir=ltr] div.plugin_translation ul li {
+    margin: 0 0 0 4px;
+}
+
+[dir=rtl] div.plugin_translation ul li {
+    margin: 0 4px 0 0;
 }
 
 div.plugin_translation ul li div.li a {
