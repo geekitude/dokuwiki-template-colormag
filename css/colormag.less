@@ -2983,18 +2983,12 @@ div.plugin_translation ul li {
     margin: 0;
 }
 
-/*
-div.plugin_translation ul li:not(:last-child) {
-    margin-right: 2px;
-}
-*/
-
 [dir=ltr] div.plugin_translation ul li {
-    margin: 0 0 0 4px;
+    margin: 0 0 0 .4rem;
 }
 
 [dir=rtl] div.plugin_translation ul li {
-    margin: 0 4px 0 0;
+    margin: 0 .4rem 0 0;
 }
 
 div.plugin_translation ul li div.li a {
@@ -3010,26 +3004,28 @@ div.plugin_translation ul div.li.cur {
     display: none;
 }
 
-#colormag__pagenav .secondary  div.plugin_translation ul {
-    /*display: flex;*/
+[dir] #colormag__pagenav .pills-look  div.plugin_translation {
+    margin: .4rem 0 0 0;
 }
 
-[dir=ltr] #colormag__pagenav .secondary  div.plugin_translation ul li {
+[dir=ltr] #colormag__pagenav .pills-look  div.plugin_translation ul li {
     margin: 0 0 0 .6rem;
 }
 
-[dir=rtl] #colormag__pagenav .secondary  div.plugin_translation ul li {
+[dir=rtl] #colormag__pagenav .pills-look  div.plugin_translation ul li {
     margin: 0 .6rem 0 0;
 }
 
-#colormag__pagenav .secondary  div.plugin_translation ul li a {
+#colormag__pagenav .pills-look  div.plugin_translation ul li a {
     display: block;
     font-size: 1.8rem;
+    width: 32px
 }
 
-[dir] #colormag__pagenav .secondary  div.plugin_translation ul li a {
-    padding: .5rem 1.4rem .8rem 1.4rem;
-    border-radius: 3px;
+[dir] #colormag__pagenav .pills-look  div.plugin_translation ul li a {
+    padding: 0 .7rem .3rem .7rem;
+    border-radius: 16px;
+    text-align: center
 }
 
 /* UPGRADE
