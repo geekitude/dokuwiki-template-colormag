@@ -841,6 +841,61 @@ function colormag_newsticker($context = null) {
  *
  * @return bool
  */
+//function colormag_youarehere() {
+//    global $conf, $ID, $lang, $colormag;
+//    // check if enabled
+//    if(!$conf['youarehere']) return false;
+//    $parts = explode(':', $ID);
+//    $count = count($parts);
+////dbg($parts);
+//    // print the startpage unless we're in translated namespace (in wich case trace will start with current language start page)
+////dbg($colormag['trans']);
+//    //if ((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) {
+//    if (((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) or ((!plugin_isdisabled('translation')) and (strpos($conf['plugin']['translation']['translations'], $colormag['trans']['defaultlang']) === false)) or (plugin_isdisabled('translation'))) {
+//        print '<li>'.tpl_pagelink(':'.$conf['start'], null, true).'</li>';
+//    }
+//    // print intermediate namespace links
+//    $part = '';
+//    for($i = 0; $i < $count - 1; $i++) {
+//        $part .= $parts[$i].':';
+////dbg($part);
+//        $page = $part;
+//        print "<li>";
+//            if (p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle') != null) {
+//                tpl_pagelink($page, p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle'));
+//            } else {
+////dbg("eh ben?".$page);
+//                tpl_pagelink($page);
+//            }
+//        print "</li>";
+//    }
+//    // print current page, skipping start page, skipping for namespace index
+//    resolve_pageid('', $page, $exists);
+//    if(isset($page) && $page == $part.$parts[$i]) {
+//        return true;
+//    }
+//    $page = $part.$parts[$i];
+//    if ($page == $conf['start']) {
+//        return true;
+//    }
+//    print "<li>";
+//        if (p_get_metadata($page, 'plugin_croissant_bctitle') != null) {
+//            tpl_pagelink($page, p_get_metadata($page, 'plugin_croissant_bctitle'));
+//        } else {
+//            tpl_pagelink($page);
+//        }
+//    print "</li>";
+//    return true;
+//}/* /colormag_youarehere */
+
+/**
+ * PRINT HIERARCHICAL BREADCRUMBS, adapted from core (template.php) to use a CSS separator solution and respect existing/non-existing page link colors
+ *
+ * This code was suggested as replacement for the usual breadcrumbs.
+ * It only makes sense with a deep site structure.
+ *
+ * @return bool
+ */
 function colormag_youarehere() {
     global $conf, $ID, $lang, $colormag;
 
@@ -850,45 +905,25 @@ function colormag_youarehere() {
     $parts = explode(':', $ID);
     $count = count($parts);
 //dbg($parts);
-    // print the startpage unless we're in translated namespace (in wich case trace will start with current language start page)
-//dbg($colormag['trans']);
-    //if ((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) {
-    if (((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) or ((!plugin_isdisabled('translation')) and (strpos($conf['plugin']['translation']['translations'], $colormag['trans']['defaultlang']) === false)) or (plugin_isdisabled('translation'))) {
-        print '<li>'.tpl_pagelink(':'.$conf['start'], null, true).'</li>';
-    }
     // print intermediate namespace links
     $part = '';
-    for($i = 0; $i < $count - 1; $i++) {
-        $part .= $parts[$i].':';
+    for($i = 0; $i <= $count - 1; $i++) {
+//dbg($i);
+        $part .= $parts[$i];
+        if (!page_exists($part)) {
+            $part .= ':';
+        }
 //dbg($part);
-        $page = $part;
+//        if ($part == $ID) {
+            $page = $part;
+//        } else {
+//            $page = $part.$conf['start'];
+//        }
+//dbg($page);
         print "<li>";
-            if (p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle') != null) {
-                tpl_pagelink($page, p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle'));
-            } else {
-//dbg("eh ben?".$page);
-                tpl_pagelink($page);
-            }
+            tpl_pagelink($page, $parts[$i]);
         print "</li>";
     }
-
-    // print current page, skipping start page, skipping for namespace index
-    resolve_pageid('', $page, $exists);
-    if(isset($page) && $page == $part.$parts[$i]) {
-        return true;
-    }
-    $page = $part.$parts[$i];
-    if ($page == $conf['start']) {
-        return true;
-    }
-    print "<li>";
-        if (p_get_metadata($page, 'plugin_croissant_bctitle') != null) {
-            tpl_pagelink($page, p_get_metadata($page, 'plugin_croissant_bctitle'));
-        } else {
-            tpl_pagelink($page);
-        }
-    print "</li>";
-    return true;
 }/* /colormag_youarehere */
 
 /**
