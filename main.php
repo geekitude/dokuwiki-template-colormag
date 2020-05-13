@@ -60,7 +60,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?>">
                 <div class="inner-wrap flex row between <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
                     <div class="primary">
-                        <?php colormag_include("pageidheader"); ?>
+                        <?php colormag_include("pagenavprimaryheader"); ?>
                         <div class="breadcrumbs youarehere">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
                                 <span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
@@ -72,26 +72,26 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div class="flex row start">
                             <?php if(($colormag['translation']['helper']) and (($conf['youarehere']) or ($conf['breadcrumbs']))) print $colormag['translation']['helper']->showTranslations(false); ?>
                         </div><!-- .flex -->
-                        <?php colormag_include("pageidfooter"); ?>
-                    </div><!-- .primary.flex -->
+                        <?php colormag_include("pagenavprimaryfooter"); ?>
+                    </div><!-- .primary -->
                     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
                         <div class="secondary">
-                            <?php colormag_include("breadcrumbsheader"); ?>
+                            <?php colormag_include("pagenavsecondaryheader"); ?>
                             <div class="breadcrumbs youarehere">
                                 <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
                                     <span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php print $lang['youarehere'] ?></span>
                                     <ul class=""><?php colormag_youarehere() ?></ul>
                                 <?php endif ?>
-                            </div>
+                            </div><!-- .breacrumbs.youarehere -->
                             <div class="breadcrumbs trace">
                                 <?php if($conf['breadcrumbs']): ?>
                                     <span class="label" title="<?php print rtrim($lang['breadcrumb'], ':') ?>"><?php print $lang['breadcrumb'] ?></span>
                                     <ul class=""><?php colormag_trace() ?></ul>
                                 <?php endif ?>
                                 <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
-                            </div>
-                            <?php colormag_include("breadcrumbsfooter"); ?>
-                        </div><!-- /#colormag__breadcrumbs-wrapper -->
+                            </div><!-- .breacrumbs.trace -->
+                            <?php colormag_include("pagenavsecondaryfooter"); ?>
+                        </div><!-- /.secondary -->
                     <?php endif ?>
                 </div><!-- .inner-wrap.flex -->
             </nav><!-- /#colormag__pagenav -->

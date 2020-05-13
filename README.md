@@ -221,10 +221,10 @@ You can add `noprint` class to avoid the content to be printed.
 * *toolsheader.html* : above header tools area
 * *toolsfooter.html* : below header tools area
 * *headerfooter.html* : below site header (just before main navigation area)
-* *pageidheader.html* : above pageid
-* *pageidfooter.html* : below pageid
-* *breadcrumbsheader.html* : above breadcrumbs
-* *breadcrumbsfooter.html* : below breadcrumbs
+* *pagenavprimaryheader.html* : above pageid/youarehere
+* *pagenavprimaryfooter.html* : below pageid/youarehere
+* *pagenavsecondaryheader.html* : above trace breadcrumbs
+* *pagenavsecondaryfooter.html* : below trace breadcrumbs
 * *mainheader.html* : above main content area
 * *sidebarheader.html* : before sidebar content
 * *pageheader.html* : above actual DW page content
