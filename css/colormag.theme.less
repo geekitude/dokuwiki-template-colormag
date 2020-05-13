@@ -279,7 +279,9 @@ a {
     color: @ini_missing;
 }
 
-a:hover {
+a:hover,
+.dokuwiki a.wikilink1:hover,
+.dokuwiki a.wikilink2:hover {
     color: @ini_text_neu;
 }
 
@@ -825,6 +827,11 @@ div.plugin_translation ul li a.wikilink1 {
 
 div.plugin_translation ul li a.wikilink2 {
     background-color: @ini_missing !important;
+}
+
+div.plugin_translation ul li a.wikilink1:hover,
+div.plugin_translation ul li a.wikilink2:hover {
+    color: @ini_text !important;
 }
 
 /* WRAP
