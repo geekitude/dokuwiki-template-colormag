@@ -1464,6 +1464,7 @@ body.pagination-flip #colormag__pagenav .secondary {
 #colormag__pagenav .pills-look .breadcrumbs.trace ul {
     overflow: hidden;
     width: 100%;
+    margin: .4rem 0 .4rem 0;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs ul a {
@@ -1477,7 +1478,8 @@ body.pagination-flip #colormag__pagenav .secondary {
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li {
     float: left;
-    margin: .4rem .9rem .4rem 1.8rem;
+    margin-right: .9rem;
+    margin-left: 1.6rem;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul {
@@ -1494,12 +1496,9 @@ body.pagination-flip #colormag__pagenav .secondary {
     left: -1.6rem;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child {
-    margin: .4rem .9rem .4rem 0;
-}
-
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child a {
-    border-radius: 5px 0 0 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child a::before {
@@ -1516,23 +1515,35 @@ body.pagination-flip #colormag__pagenav .secondary {
     right: -1.6rem;
 }
 
-#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
-    margin: .4rem 0 .4rem 1.6rem;
-}
-
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child a {
-    border-radius: 0 5px 5px 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child a::after {
     border-color: transparent transparent transparent transparent;
 }
 
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
+    /*margin: .4rem 0 .4rem 1.6rem;*/
+    /*margin-top: .4rem;*/
+    /*margin-bottom: .4rem;*/
+    margin-left: 1.6rem;
+}
+
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child {
+    /*margin: .4rem .9rem .4rem 0;*/
+    /*margin: .4rem 0 .4rem 0;*/
+    margin-left: 0;
+}
+
 /* Pills - Trace */
 
 #colormag__pagenav .pills-look .breadcrumbs.trace ul li {
     float: left;
-    margin: .4rem 1.2rem .4rem 1.6rem;
+    /*margin: .4rem 1.2rem .4rem 1.6rem;*/
+    margin-right: 1.2rem;
+    margin-left: 1.6rem;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.trace ul {
