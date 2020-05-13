@@ -42,6 +42,8 @@
 * RESPONSIVE MENU
 * PAGE HEADER TITLE
 * PAGE NAVIGATION
+* Classic breadcrumbs
+* Pills breadcrumbs
 * SECTION HIGHLIGHTING
 * WIDGETS
 * FOOTER WIDGET AREA
@@ -553,13 +555,12 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
-/*
-#colormag__breadcrumbs-wrapper.classic-look ul li.label {
+#colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink1,
+#colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink2 {
     color: @ini_text_neu;
 }
-*/
 
-/* Pills*/
+/* Pills breadcrumbs */
 
 #colormag__pagenav .pills-look .breadcrumbs ul a {
     background: @ini_color_theme;
@@ -569,7 +570,9 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     background: @ini_color_theme_dark;
 }
 
-/* Pills - Youarehere*/
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child a::before {
+    border-color: transparent transparent transparent transparent;
+}
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::before {
     border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
@@ -583,11 +586,13 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     border-left: 1.6rem solid @ini_color_theme;
 }
 
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child a::after {
+    border-color: transparent transparent transparent transparent;
+}
+
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul a:hover::after {
     border-left-color: @ini_color_theme_dark;
 }
-
-/* Pills - Trace */
 
 #colormag__pagenav .pills-look .breadcrumbs.trace ul a::before,
 #colormag__pagenav .pills-look .breadcrumbs.trace ul a::after {
