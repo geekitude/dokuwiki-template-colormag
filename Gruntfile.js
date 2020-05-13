@@ -22,6 +22,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'css/colormag.less': ['css/src/colormag.less'],
+                    'css/colormag.theme.less': ['css/src/colormag.theme.less'],
                     'css/colormag.print.css': ['css/src/colormag.print.css']
                 }
             }
