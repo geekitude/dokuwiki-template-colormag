@@ -51,10 +51,8 @@
 * PAGE HEADER TITLE
 * CONTENT
 * PAGE NAVIGATION
-* Pills
-* Pills - Youarehere
-* Pills - Trace
-* Pills - Curid
+* Classic breadcrumbs
+* Pills breadcrumbs
 * SECTION HIGHLIGHTING
 * WIDGETS
 * FOOTER WIDGET AREA
@@ -1413,24 +1411,11 @@ label {
     margin: 0 2rem 0 0;
 }
 
-#colormag__pagenav .pills-look .primary {
-    flex-shrink: 0;
-}
-
-#colormag__pagenav .pills-look div div > span.label {
-    display: block;
-    text-align: center;
-}
+/* Classic breadcrumbs */
 
 #colormag__pagenav .classic-look div div ul {
     display: inline;
 }
-
-/*
-#colormag__pagenav .pills-look ul li.label {
-    display: none;
-}
-*/
 
 #colormag__pagenav .classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
 #colormag__pagenav .classic-look .breadcrumbs.trace ul li:not(:last-child):after {
@@ -1459,7 +1444,16 @@ body.pagination-flip #colormag__pagenav .secondary {
     order: 1;
 }
 
-/* Pills*/
+/* Pills breadcrumbs */
+
+#colormag__pagenav .pills-look .primary {
+    flex-shrink: 0;
+}
+
+#colormag__pagenav .pills-look div div > span.label {
+    display: block;
+    text-align: center;
+}
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul,
 #colormag__pagenav .pills-look .breadcrumbs.trace ul {
@@ -1474,8 +1468,6 @@ body.pagination-flip #colormag__pagenav .secondary {
     text-decoration: none;
     position: relative;
 }
-
-/* Pills - Youarehere*/
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li {
     float: left;
@@ -1526,23 +1518,15 @@ body.pagination-flip #colormag__pagenav .secondary {
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
-    /*margin: .4rem 0 .4rem 1.6rem;*/
-    /*margin-top: .4rem;*/
-    /*margin-bottom: .4rem;*/
     margin-left: 1.6rem;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child {
-    /*margin: .4rem .9rem .4rem 0;*/
-    /*margin: .4rem 0 .4rem 0;*/
     margin-left: 0;
 }
 
-/* Pills - Trace */
-
 #colormag__pagenav .pills-look .breadcrumbs.trace ul li {
     float: left;
-    /*margin: .4rem 1.2rem .4rem 1.6rem;*/
     margin-right: 1.2rem;
     margin-left: 1.6rem;
 }
@@ -1571,15 +1555,12 @@ body.pagination-flip #colormag__pagenav .secondary {
     border-radius: 0 5px 5px 0;
 }
 
-/* Pills - Curid*/
-
 #colormag__pagenav .pills-look span.curid {
     background-color: transparent;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs ul .curid a,
 #colormag__pagenav .pills-look .breadcrumbs ul .curid a:hover {
-    /*font-weight: bold;*/
     cursor: default;
 }
 
