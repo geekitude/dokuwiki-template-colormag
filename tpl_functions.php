@@ -919,10 +919,14 @@ function colormag_youarehere() {
 //        } else {
 //            $page = $part.$conf['start'];
 //        }
-//dbg($page);
         print "<li>";
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
+        // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
+        if ($page.$conf['start'] == $ID) {
+//dbg("bingo: ".$page);
+            break;
+        }
     }
 }/* /colormag_youarehere */
 
