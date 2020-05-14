@@ -27,7 +27,6 @@ $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['links']              = array('string');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['print']              = array('multicheckbox', '_choices' => array('siteheader','docinfo','sitefooter','hrefs'));
-$meta['wikiwidgettitle']    = array('string');
 $meta['banner']             = array('string');
 $meta['pattern']            = array('string');
 $meta['sidecard']           = array('string');

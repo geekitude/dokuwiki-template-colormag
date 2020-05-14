@@ -23,7 +23,7 @@
 * TEXT ELEMENTS
 * Headings
 * Toggles
-* More obvious dbg() result
+* Debug
 * LISTS
 * SUPERCRIPT AND SUBSCRIPT
 * Footnotes
@@ -492,14 +492,18 @@ h6.aside-title,
     background-image: url(images/collapse.svg);
 }
 
-/* More obvious dbg() result */
+/* Debug */
 
-.dbg {
+.dbg,
+.include-hook-sample {
     color: black;
 }
 
-[dir] .dbg {
+[dir] .dbg, [dir] .include-hook-sample {
     background-color: gold;
+}
+.include-hook-sample svg {
+    vertical-align: bottom;
 }
 
 /* =LISTS

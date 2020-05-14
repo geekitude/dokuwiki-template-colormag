@@ -531,22 +531,43 @@ function colormag_glyph($glyph, $return = false) {
  *
  * See original function in inc/template.php for details
  */
-function colormag_include($file, $widget = false) {
-    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes') or ($_GET['debug'] == 'widgets')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
-        if ($widget) {
-            print '<aside id="colormag__'.$file.'" class="widget">';
+//function colormag_include($file, $widget = false) {
+//    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+//        if ($widget) {
+//            print '<aside id="colormag__'.$file.'" class="widget">';
+//        }
+//        include(tpl_incdir().'debug/'.$file.'.html');
+//    //} elseif (($_GET['debug'] == 'widgets') && $widget && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+//    } elseif (($_GET['debug'] == 'widgets') && $widget && (file_exists(tpl_incdir().'debug/'.$file))) {
+//        if ($widget) {
+//            print '<aside id="colormag__'.$file.'" class="widget">';
+//        }
+//        include(tpl_incdir().'debug/'.$file);
+//    } elseif (file_exists(tpl_incdir().$file.'.html')) {
+//        if ($widget) {
+//            print '<aside id="colormag__'.$file.'" class="widget">';
+//        }
+//        include(tpl_incdir().$file.'.html');
+//    } else {
+//        print p_wiki_xhtml($file, '', false);
+//    }
+//    if ($widget) {
+//        print '</aside>';
+//    }
+//}/* /colormag_include */
+function colormag_include($file) {
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == 'includes') or ($_GET['debug'] == 'widgets')) {
+        if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+            include(tpl_incdir().'debug/'.$file.'.html');
+        } elseif ((($_GET['debug'] == 1) or ($_GET['debug'] == 'widgets')) && (file_exists(tpl_incdir().'debug/'.$file))) {
+            include(tpl_incdir().'debug/'.$file);
         }
-        include(tpl_incdir().'debug/'.$file.'.html');
     } elseif (file_exists(tpl_incdir().$file.'.html')) {
-        if ($widget) {
-            print '<aside id="colormag__'.$file.'" class="widget">';
-        }
         include(tpl_incdir().$file.'.html');
+    } elseif (file_exists(tpl_incdir().$file)) {
+        include(tpl_incdir().$file);
     } else {
         print p_wiki_xhtml($file, '', false);
-    }
-    if ($widget) {
-        print '</aside>';
     }
 }/* /colormag_include */
 
