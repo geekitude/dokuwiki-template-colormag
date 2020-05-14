@@ -115,6 +115,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
   * [x] *widebanner*
+  * [x] *widgets* (show dummy widgets from `footerwidgets.local.conf` file)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
 
@@ -198,18 +199,27 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 ### Footer widgets
 
+#### Bundled widgets
+
 * Login form or informations about current user as well as potentially usefull links like `register` and `update profile`
 * Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
 * Licence widget shows current license choosen for the whole wiki (you can choose between no image, small button or larger badge
 * QRCode to current page shows up when printing page if `QRCode2` plugin is enabled
+
+#### Want more widgets ?
+
+* There's a single HTML hook for some easy to add content (see [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#html-hooks) below)
 * Wiki Widget: automatically shows the content of `wiki:widget` wiki page (you can find an example of such page in `colormag/debug` folder)
+* Copy `dokuwiki/lib/tpl/colormag/debug/footerwidgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#html-hooks) below).
 
 ### HTML hooks
 
 Spacious can be customized using HTML files that will be displayed at one of the many available include or replace hooks. Include hooks add some content while replace hooks take place of standard content.
-To get started, copy the correspondig HTML file from `spacious/debug` folder to `spacious` folder and change it to your liking (don't forget to remove existing `*-hook-sample` class).
+To get started, copy the correspondig HTML file from `dokuwiki/lib/tpl/colormag/debug` folder to `dokuwiki/lib/tpl/colormag` folder and change it to your liking (don't forget to remove existing `*-hook-sample` class).
 
 You can add `noprint` class to avoid the content to be printed.
+
+See [DokuWiki's documentation](https://www.dokuwiki.org/include_hooks) for more details about include hooks.
 
 #### Include hooks
 
@@ -221,6 +231,8 @@ You can add `noprint` class to avoid the content to be printed.
 * *toolsheader.html* : above header tools area
 * *toolsfooter.html* : below header tools area
 * *headerfooter.html* : below site header (just before main navigation area)
+* *pagenavheader.html* : at the begining of pagenav area
+* *pagenavfooter.html* : at the bottom of pagenav area
 * *pagenavprimaryheader.html* : above pageid/youarehere
 * *pagenavprimaryfooter.html* : below pageid/youarehere
 * *pagenavsecondaryheader.html* : above trace breadcrumbs

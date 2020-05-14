@@ -92,7 +92,24 @@ dbg("vérifier ces liens");
                     <h6 class="widget-title"><span class="label"><?php print tpl_getLang('onlineversion'); ?></span></h6>
                     <img class="qrcode url" src="<?php print $colormag['qrcode']['id']; ?>" alt="*qrcode*" title="<?php print tpl_getLang('onlineversion'); ?>" />
                 </aside>
-
+                <?php
+                    if (is_array($colormag['widgets']['footer']) && count($colormag['widgets']['footer']) > 0) {
+                        $class = "widget";
+                        if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
+                            $class .= " include-hook-sample";
+                        }
+                        foreach ($colormag['widgets']['footer'] as $widget => $title) {
+                            print '<aside id="colormag__'.explode(".", $widget)[0].'" class="'.$class.'">';
+                                print '<h6 class="widget-title"><span class="label">'.$title.'</span></h6>';
+                                if (strpos($widget, '.html') !== false) {
+                                    colormag_include($widget);
+                                } else {
+                                    print p_wiki_xhtml('wiki:'.$widget, '', false);
+                                }
+                            print '</aside>';
+                        }
+                    }
+                ?>
                 <?php colormag_include("footerwidget"); ?>
 
             </div><!-- /.footer-widgets-area.group -->

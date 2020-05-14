@@ -88,6 +88,24 @@ function colormag_init() {
 //dbg($colormag['socials']);
     }
 
+    // GET FOOTER WIDGETS
+    $colormag['widgets'] = array();
+    // Load footer widgets list from DOKU_CONF/footerwidgets.local.conf to global conf
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
+        $footerwidgetsFile = tpl_incdir().'debug/footerwidgets.local.conf';
+    } else {
+        $footerwidgetsFile = DOKU_CONF.'footerwidgets.local.conf';
+    }
+//dbg($footerwidgetsFile);
+    // If file exists...
+    if (@file_exists($footerwidgetsFile)) {
+//dbg($footerwidgetsFile);
+        // ... read it's content
+        $colormag['widgets']['footer'] = confToHash($footerwidgetsFile);
+        $colormag['widgets']['footer'] = array_filter($colormag['widgets']['footer']);
+    }
+//dbg($colormag['widgets']['footer']);
+
     // NAMESPACE THEME
     // Load template default LESS placehodlers
     //$styleinifile = tpl_incdir().'style.ini';
@@ -514,7 +532,7 @@ function colormag_glyph($glyph, $return = false) {
  * See original function in inc/template.php for details
  */
 function colormag_include($file, $widget = false) {
-    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+    if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes') or ($_GET['debug'] == 'widgets')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
         if ($widget) {
             print '<aside id="colormag__'.$file.'" class="widget">';
         }
