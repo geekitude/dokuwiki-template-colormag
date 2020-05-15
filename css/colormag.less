@@ -281,6 +281,9 @@ hr {
 .flex.row {
     flex-direction: row;
 }
+.flex.row-reverse {
+    flex-direction: row-reverse;
+}
 .flex.column {
     flex-direction: column;
 }
@@ -1756,8 +1759,18 @@ label {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
+/*
+#colormag__pagenav ul {
+    display: inline;
+}
+*/
+
 #colormag__pagenav ul li {
     display: inline list-item;
+}
+
+[dir] #colormag__pagenav svg {
+    margin: 0;
 }
 
 [dir=ltr] #colormag__pagenav .primary {
@@ -1766,6 +1779,32 @@ label {
 
 [dir=rtl] #colormag__pagenav .primary {
     margin: 0 0 0 2rem;
+}
+
+/*
+#colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    float: left;
+}
+
+#colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    float: right;
+}
+*/
+
+[dir=ltr] #colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-right: .4rem;
+}
+
+[dir=rtl] #colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-left: .4rem;
+}
+
+[dir=ltr] #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-left: .4rem;
+}
+
+[dir=rtl] #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-right: .4rem;
 }
 
 /* Classic breadcrumbs */
@@ -1797,8 +1836,44 @@ body.pagenav-flip #colormag__pagenav .primary {
     align-items: end;
 }
 
+[dir=ltr] body.pagenav-flip #colormag__pagenav .primary {
+    margin: 0 0 0 2rem;
+}
+
+[dir=rtl] body.pagenav-flip #colormag__pagenav .primary {
+    margin: 0 2rem 0 0;
+}
+
+body.pagenav-flip #colormag__pagenav .primary .breadcrumbs div.flex {
+    flex-direction: row-reverse;
+}
+
+[dir=ltr] body.pagenav-flip #colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-left: .4rem;
+    margin-right: 0;
+}
+
+[dir=rtl] body.pagenav-flip #colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-right: .4rem;
+    margin-left: 0;
+}
+
 body.pagenav-flip #colormag__pagenav .secondary {
     order: 1;
+}
+
+body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
+    flex-direction: row;
+}
+
+[dir=ltr] body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-left: 0;
+    margin-right: .4rem;
+}
+
+[dir=rtl] body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-right: 0;
+    margin-left: .4rem;
 }
 
 /* Pills breadcrumbs */
@@ -1821,7 +1896,7 @@ body.pagenav-flip #colormag__pagenav .secondary {
 }
 
 [dir] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul, [dir] #colormag__pagenav .pills-look .breadcrumbs.trace ul {
-    margin: .4rem 0 .4rem 0;
+    margin: 0;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs ul a {
@@ -1853,13 +1928,11 @@ body.pagenav-flip #colormag__pagenav .secondary {
     margin-right: 1.6rem;
 }
 
-[dir=ltr] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul {
+/*
+#colormag__pagenav .pills-look .breadcrumbs.youarehere ul {
     padding: 0 .5rem 0 0;
 }
-
-[dir=rtl] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul {
-    padding: 0 0 0 .5rem;
-}
+*/
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::before {
     content: "";
@@ -1924,10 +1997,12 @@ body.pagenav-flip #colormag__pagenav .secondary {
 
 [dir=ltr] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
     margin-left: 1.6rem;
+    margin-right: 0;
 }
 
 [dir=rtl] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
     margin-right: 1.6rem;
+    margin-left: 0;
 }
 
 [dir=ltr] #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child {
@@ -2903,14 +2978,15 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 --------------------------------------------------------------*/
 
 div.plugin_translation {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-size: 14px !important;
+    width: 100%;
 }
 
 [dir] div.plugin_translation {
-    margin: 0;
+    margin: .4rem 0 0 0;
     padding: 0;
 }
 

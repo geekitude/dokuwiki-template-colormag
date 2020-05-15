@@ -256,6 +256,9 @@ div.vr {
 .flex.row {
     flex-direction: row;
 }
+.flex.row-reverse {
+    flex-direction: row-reverse;
+}
 .flex.column {
     flex-direction: column;
 }
@@ -1407,12 +1410,40 @@ label {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
+/*
+#colormag__pagenav ul {
+    display: inline;
+}
+*/
+
 #colormag__pagenav ul li {
     display: inline list-item;
 }
 
+#colormag__pagenav svg {
+    margin: 0;
+}
+
 #colormag__pagenav .primary {
     margin: 0 2rem 0 0;
+}
+
+/*
+#colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    float: left;
+}
+
+#colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    float: right;
+}
+*/
+
+#colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-right: .4rem;
+}
+
+#colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-left: .4rem;
 }
 
 /* Classic breadcrumbs */
@@ -1442,10 +1473,29 @@ label {
 body.pagenav-flip #colormag__pagenav .primary {
     order: 2;
     align-items: end;
+    margin: 0 0 0 2rem;
+}
+
+body.pagenav-flip #colormag__pagenav .primary .breadcrumbs div.flex {
+    flex-direction: row-reverse;
+}
+
+body.pagenav-flip #colormag__pagenav .primary .breadcrumbs div.flex span.label {
+    margin-left: .4rem;
+    margin-right: 0;
 }
 
 body.pagenav-flip #colormag__pagenav .secondary {
     order: 1;
+}
+
+body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
+    flex-direction: row;
+}
+
+body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
+    margin-left: 0;
+    margin-right: .4rem;
 }
 
 /* Pills breadcrumbs */
@@ -1465,7 +1515,7 @@ body.pagenav-flip #colormag__pagenav .secondary {
 #colormag__pagenav .pills-look .breadcrumbs.trace ul {
     overflow: hidden;
     width: 100%;
-    margin: .4rem 0 .4rem 0;
+    margin: 0;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs ul a {
@@ -1481,9 +1531,11 @@ body.pagenav-flip #colormag__pagenav .secondary {
     margin-left: 1.6rem;
 }
 
+/*
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul {
     padding: 0 .5rem 0 0;
 }
+*/
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul a::before {
     content: "";
@@ -1517,6 +1569,7 @@ body.pagenav-flip #colormag__pagenav .secondary {
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:last-child {
     margin-left: 1.6rem;
+    margin-right: 0;
 }
 
 #colormag__pagenav .pills-look .breadcrumbs.youarehere ul li:first-child {
@@ -2248,12 +2301,13 @@ div.plugin_move_dialog div.ui-dialog-titlebar {
 --------------------------------------------------------------*/
 
 div.plugin_translation {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-size: 14px !important;
-    margin: 0;
+    margin: .4rem 0 0 0;
     padding: 0;
+    width: 100%;
 }
 
 div.plugin_translation #translation__dropdown {

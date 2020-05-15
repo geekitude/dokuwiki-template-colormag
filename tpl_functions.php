@@ -195,6 +195,7 @@ function colormag_init() {
     $colormag['glyphs']['topbar-page'] = 'link-variant';
     $colormag['glyphs']['topbar-page-add'] = 'link-variant-plus';
 //    $colormag['glyphs']['topbar-page-denied'] = 'link-variant-off';
+    $colormag['glyphs']['trace'] = 'timeline-clock';
     $colormag['glyphs']['translated'] = 'flag';
     $colormag['glyphs']['translation'] = 'translate';
     $colormag['glyphs']['upgrade'] = 'cloud-download';
@@ -202,6 +203,7 @@ function colormag_init() {
 //    $colormag['glyphs']['unknown-user'] = 'account-alert';
     $colormag['glyphs']['usermanager'] = 'account-group';
     $colormag['glyphs']['usertools'] = 'account-cog';
+    $colormag['glyphs']['youarehere'] = 'map-marker';
     foreach ($colormag['socials'] as $key => $value) {
         if ($value) {
             $colormag['glyphs'][$key] = $key;

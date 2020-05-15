@@ -65,14 +65,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div class="breadcrumbs youarehere" title="<?php print rtrim($lang['youarehere'], ':') ?>">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
                                 <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['youarehere'] ?></span></h6>
-                                <ul class=""><?php colormag_youarehere() ?></ul>
+                                <div class="flex row center"><span class="label"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span><ul><?php colormag_youarehere() ?></ul></div>
                             <?php else: ?>
                                 <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
                             <?php endif ?>
                         </div><!-- .breacrumbs.youarehere -->
-                        <div class="flex row start">
-                            <?php if(($colormag['translation']['helper']) and (($conf['youarehere']) or ($conf['breadcrumbs']))) print $colormag['translation']['helper']->showTranslations(false); ?>
-                        </div><!-- .flex -->
                         <?php colormag_include("pagenavprimaryfooter"); ?>
                     </div><!-- .primary -->
                     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
@@ -81,13 +78,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                             <div class="breadcrumbs youarehere">
                                 <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['youarehere'] ?></span></h6>
-                                    <ul class=""><?php colormag_youarehere() ?></ul>
+                                    <div class="flex row-reverse center"><span class="label"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span><ul class=""><?php colormag_youarehere() ?></ul></div>
                                 <?php endif ?>
                             </div><!-- .breacrumbs.youarehere -->
                             <div class="breadcrumbs trace" title="<?php print rtrim($lang['breadcrumb'], ':') ?>">
                                 <?php if($conf['breadcrumbs']): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['breadcrumb'] ?></span></h6>
-                                    <ul class=""><?php colormag_trace() ?></ul>
+                                    <div class="flex row-reverse center"><span class="label"><?php colormag_glyph($colormag['glyphs']['trace']) ?></span><ul class=""><?php colormag_trace() ?></ul></div>
                                 <?php endif ?>
                                 <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
                             </div><!-- .breacrumbs.trace -->
@@ -95,6 +92,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </div><!-- /.secondary -->
                     <?php endif ?>
                 </div><!-- .inner-wrap.flex -->
+                        <div class="flex row center">
+                            <?php if(($colormag['translation']['helper']) and (($conf['youarehere']) or ($conf['breadcrumbs']))) print $colormag['translation']['helper']->showTranslations(false); ?>
+                        </div><!-- .flex -->
                 <?php colormag_include("pagenavfooter"); ?>
             </nav><!-- /#colormag__pagenav -->
         <?php endif ?>
