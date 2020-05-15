@@ -172,6 +172,12 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ## About
 
+### Breadccrumbs
+
+Both `youarehere` and `trace` code differs from core functions because original functions' outpout doesn't give the markup needed for "pills" look. While `trace` content is the same, `youarehere` is a bit specific and reflects current page ID parts (ie. current page, current page's namespace's start page if it's different, then other parents) and "home" link is not forced in since it's available in main nav just above.
+
+:memo: Note that Colormag is designed to have both `youarehere` and `trace` enabled at same time (but if `youarehere` is disabled, it will be replaced by page ID string)
+
 ### UI Images
 
 Banner, site pattern, sidecard and widebanner images are meant to be namespace dependent: simply upload the images you want to use in corresponding namespace (they will also be used for sub-namespaces that don't have them). They can be of jpg, gif or png images but have to respect the names set by corresponding setting.

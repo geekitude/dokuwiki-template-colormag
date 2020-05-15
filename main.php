@@ -86,8 +86,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['breadcrumb'] ?></span></h6>
                                     <div class="flex row-reverse center"><span class="label"><?php colormag_glyph($colormag['glyphs']['trace']) ?></span><ul class=""><?php colormag_trace() ?></ul></div>
                                 <?php endif ?>
-                                <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
                             </div><!-- .breacrumbs.trace -->
+                            <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>
                             <?php colormag_include("pagenavsecondaryfooter"); ?>
                         </div><!-- /.secondary -->
                     <?php endif ?>
