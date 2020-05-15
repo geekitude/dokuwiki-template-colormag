@@ -140,7 +140,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                             <div class="pad aside include group">
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
-                                <div class="content group">
+                                <div class="group">
 
                                     <div id="colormag__sidecard-wrap" class="group">
                                         <?php
@@ -171,7 +171,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                                     <?php colormag_include("sidebarheader"); ?>
 
-                                    <div class="group">
+                                    <div class="content group">
                                         <?php tpl_flush() ?>
                                         <?php tpl_includeFile('sidebarheader.html') ?>
                                         <?php tpl_include_page($conf['sidebar'], true, true) ?>
