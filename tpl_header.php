@@ -138,8 +138,9 @@ if (!defined('DOKU_INC')) die();
                     </div>
                 </div>
             </div>
-            <?php colormag_include("headerfooter"); ?>
         </div><!-- .inner-wrap -->
+
+        <?php colormag_include("headerfooter"); ?>
 
         <aside id="colormag__alerts" class="group">
             <!-- ALERTS -->
