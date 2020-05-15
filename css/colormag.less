@@ -2940,6 +2940,26 @@ PLUGINS
     margin: 0;
 }
 
+/* KEYBOARD
+--------------------------------------------------------------*/
+
+kbd.__keyboard {
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+[dir] kbd.__keyboard {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    padding: 2px 4px;
+}
+
 /* MOVE
 --------------------------------------------------------------*/
 
@@ -3000,6 +3020,13 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 
 [dir] #plugin__sitemapnavi ul.idx li {
     padding: 0;
+}
+
+/* TAG
+--------------------------------------------------------------*/
+
+[dir] div.tagstop {
+    margin-top: 0 !important;
 }
 
 /* TRANSLATION
