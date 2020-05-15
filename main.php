@@ -57,9 +57,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php include('tpl_header.php') ?>
 
         <?php if(($ACT == "show") or ($ACT == "edit")): ?>
-            <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?>">
+            <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?> <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
                 <?php colormag_include("pagenavheader"); ?>
-                <div class="inner-wrap flex row between <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
+                <div class="inner-wrap flex row between">
                     <div class="primary">
                         <?php colormag_include("pagenavprimaryheader"); ?>
                         <div class="breadcrumbs youarehere" title="<?php print rtrim($lang['youarehere'], ':') ?>">
