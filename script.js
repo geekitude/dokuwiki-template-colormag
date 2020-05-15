@@ -57,7 +57,7 @@ function js_dokuwiki_resize(){
         jQuery('#colormag__usertools-menu').appendTo('#colormag__site-navigation-secondary');
     }
     if (device_class.match(/mobile/)){
-        // toc and sidebar hiding
+        // toc and sidebar collapse
         if($handle.length) {
             $handle.show();
             $handle[0].setState(-1);
