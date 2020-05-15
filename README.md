@@ -50,7 +50,6 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * Default optional background pattern comes from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/)
 * SVG icons come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
-* Font used for sample UI images (banner, widebanner and sidebar.png) is: [Rollandin by Emilie Rollandin](http://www.archistico.com/portfolio/nuovo-font-rollandin/).
 * Pills style breadcrumbs are based on [this page](https://catalin.red/css3-breadcrumbs/)
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
 
@@ -96,7 +95,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [x] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
-* [ ] Hidable sidebar
+* [ ] Retractable sidebar
 * [ ] Stickable main navigation bar, pageheader, sidebar and docinfo
 * [ ] Dynamic navigation button (current NS home, parent NS start, home or "back to article")
 * [x] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
@@ -115,7 +114,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
   * [x] *widebanner*
-  * [x] *widgets* (show dummy widgets from `footerwidgets.local.conf` file)
+  * [x] *widgets* (show dummy widgets set by `debug/footerwidgets.local.conf` file)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
 
@@ -130,13 +129,12 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `mix` aesthically ressembles `wide` layout but site header and main content are still limited to **style.ini** file's `site-width` value
 * **flexflip** (*nothing*) : flip corresponding element's position
   * `banner` : will be moved under site tools
-  * `pageheader` : switch PageID and Breadcrumbs positions
+  * `pagenav` : switch PageID and Breadcrumbs positions
   * `sidebar` : will be moved on the osther side of page
   * `pagetools` : just like `sidebar` above
   * `socket` : flip content
-* **dark-skin** ([ ]) : switch to dark color skin
-* **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pageheader*, *sidebar*, *toc*, *docinfo*, *footersocket*
-* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color)
+* **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pagenav*, *sidebar*, *toc*, *docinfo*, *footersocket*
+* **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color to keep contrast with main navigation)
 * **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
@@ -162,12 +160,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
 * **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
-* **wikiwidgettitle** (*Wiki Widget*) : set Wiki Widget's title (see [Footer widgets](https://github.com/geekitude/dokuwiki-template-colormag#footer-widgets) below)
 * **banner** (*banner*) : file name to look after for site banner
 * **pattern** (*pattern*) : file name to look after for site background pattern
 * **sidecard** (*sidecard*) : file name to look after to use as sidebar header
 * **widebanner** (*widebanner*) : file name to look after for widebanner
-* **uiimagetarget** (*image-ns*) : choose if UI images are links to a choosen target (images from `wiki` namespace will however point to home or have no link at all)
+* **uiimagetarget** (*image-ns*) : choose if UI images are links to a choosen target or just straight images (images from `wiki` namespace will however point to home or have no link at all)
   * `image-ns` : image's namespace start page
   * `current-ns` : current namespace start page
   * `home` : wiki home
@@ -177,9 +174,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ### UI Images
 
-Just like sidebar and topbar links pages, simply upload the images you want to use in corresponding namespace (they will also be used for sub-namespaces).
+Banner, site pattern, sidecard and widebanner images are meant to be namespace dependent: simply upload the images you want to use in corresponding namespace (they will also be used for sub-namespaces that don't have them). They can be of jpg, gif or png images but have to respect the names set by corresponding setting.
 
-Images uploaded to `wiki` namespace will be used as default for the whole wiki. 
+Images uploaded to `wiki` namespace will be used as default for the whole wiki.
+
+:memo: Note that all UI images are responsive and will shrink or grow with container 
 
 ### Namespace dependent CSS
 
