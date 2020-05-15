@@ -208,8 +208,7 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 #### Want more widgets ?
 
-* There's a single HTML hook for some easy to add content (see [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#html-hooks) below)
-* You can add an unlimited number of widgets based on html files inside Colormag folder or on pages from `wiki:` namespace. Simply copy `dokuwiki/lib/tpl/colormag/debug/footerwidgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#html-hooks) below).
+You can add your own widgets based on html files or on pages from `wiki:` namespace. Simply copy `dokuwiki/lib/tpl/colormag/debug/footerwidgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (this works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#include-hooks) below with the file `dokuwiki/lib/tpl/colormag/debug/samplewidget.html` as an example).
 
 ### HTML hooks
 
