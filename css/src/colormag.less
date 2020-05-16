@@ -1448,25 +1448,29 @@ label {
 
 /* Classic breadcrumbs */
 
-#colormag__pagenav .classic-look div div ul {
+#colormag__pagenav.classic-look .breadcrumbs span.label svg {
+    vertical-align: middle;
+}
+
+#colormag__pagenav.classic-look div div ul {
     display: inline;
 }
 
-#colormag__pagenav .classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
-#colormag__pagenav .classic-look .breadcrumbs.trace ul li:not(:last-child):after {
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
+#colormag__pagenav.classic-look .breadcrumbs.trace ul li:not(:last-child):after {
     content: "\00a0";
 }
 
-#colormag__pagenav .classic-look .breadcrumbs.youarehere ul > li + li:before {
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li + li:before {
     content: "»\00a0";
 }
 
-#colormag__pagenav .classic-look .breadcrumbs.trace ul > li + li:before {
+#colormag__pagenav.classic-look .breadcrumbs.trace ul > li + li:before {
     content: "/\00a0";
 }
 
-#colormag__pagenav .classic-look .breadcrumbs.youarehere ul > li:nth-child(1):before,
-#colormag__pagenav .classic-look .breadcrumbs.trace ul > li:nth-child(1):before {
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li:nth-child(1):before,
+#colormag__pagenav.classic-look .breadcrumbs.trace ul > li:nth-child(1):before {
     content: "";
 }
 
