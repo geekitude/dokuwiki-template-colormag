@@ -294,7 +294,7 @@ function colormag_init() {
                 $styleini['replacements'][$key] = $value;
             }
         }
-    } elseif ((tpl_getConf('autotheme')) and ((($colormag['translation']['helper']) and ($colormag['translation']['ishome'] == false)) and ($ID <> $conf['start']))) {
+    } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ((($colormag['translation']['helper']) and ($colormag['translation']['ishome'] == false)) and ($ID <> $conf['start']))) {
         $autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
         $styleini['replacements']['__color_theme__'] = $autotheme;
     }
