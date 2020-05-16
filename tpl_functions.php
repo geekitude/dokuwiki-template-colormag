@@ -972,11 +972,11 @@ function colormag_youarehere() {
 //        } else {
 //            $page = $part.$conf['start'];
 //        }
-            if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page != $ID)) {
-                $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
-            } else {
-                $listyle = null;
-            }
+        if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID)) {
+            $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
+        } else {
+            $listyle = null;
+        }
         print "<li".$listyle.">";
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
