@@ -14,6 +14,7 @@ $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 $conf['uicolorize']         = '';
 $conf['uicolor']            = 'neu';
+$conf['autotheme']          = 0;
 $conf['glyphcolors']        = '';
 $conf['topbar']             = 'date,newsticker,links';
 $conf['newsticker']         = 'skip_minors,pages,media,5';

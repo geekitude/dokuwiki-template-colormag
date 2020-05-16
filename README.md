@@ -85,7 +85,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 
 ## Main features
 
-* [x] Namespace dependent CSS (for colors and fonts)
+* [x] Namespace dependent CSS for colors and fonts (an automatic theme color is possible while quite experimental)
 * [x] Namespace dependent UI images (background pattern, banner, widebanner and a potential sidebar header image aka sidecard)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
@@ -135,7 +135,8 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `socket` : flip content
 * **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pagenav*, *sidebar*, *toc*, *docinfo*, *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color to keep contrast with main navigation)
-* **glypholors** (*[ ]*) : add some color to social and/or user tools glyphs
+* **autotheme** ([ ]) : generate a theme color based on current page namespace name if not at home page (translated or not) and if that namespace has [no custom theme](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) (there's no control of any kind on the result and it might not allways look nice, the whole process may need some more work) (*)
+* **glypholors** ([ ]) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
   * `newsticker` : dynamic list of last changes in current namespace and sub ones (elements listed depend on `newsTicker` setting)
@@ -169,6 +170,8 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `current-ns` : current namespace start page
   * `home` : wiki home
   * `none` : no link at all
+
+(*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors and headings
 
 ## About
 
