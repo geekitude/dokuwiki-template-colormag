@@ -156,7 +156,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `start` : to the top
   * `center`
   * `end` : to the bottom
-* **breadcrumbslook** (*classic*) : choose between *classic* or *pills* breadcrumbs :warning: TODO :warning:
+* **breadcrumbslook** (*classic*) : choose between *classic*, *underlined* or *pills* breadcrumbs :warning: "underlined" color is based on target namespace's name, custom theme is not taken into account :warning:
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing

@@ -972,7 +972,12 @@ function colormag_youarehere() {
 //        } else {
 //            $page = $part.$conf['start'];
 //        }
-        print "<li>";
+            if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page != $ID)) {
+                $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
+            } else {
+                $listyle = null;
+            }
+        print "<li".$listyle.">";
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
@@ -1012,8 +1017,12 @@ function colormag_trace() {
         $i    = 0;
         foreach($crumbs as $target => $name) {
             $i++;
-            $color = '#'.substr(md5(getNS($target)), 6, 6);
-            print '<li>';
+            if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
+                $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
+            } else {
+                $listyle = null;
+            }
+            print '<li'.$listyle.'>';
                 if (count(explode(":",$target)) == 1) { $target = ":".$target; }
                 if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
                     tpl_pagelink($target, p_get_metadata($target, 'plugin_croissant_bctitle'));

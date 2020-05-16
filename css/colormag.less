@@ -52,6 +52,7 @@
 * CONTENT
 * PAGE NAVIGATION
 * Classic breadcrumbs
+* underlined breadcrumbs
 * Pills breadcrumbs
 * SECTION HIGHLIGHTING
 * WIDGETS
@@ -1811,32 +1812,6 @@ li.default-menu {
     vertical-align: middle;
 }
 
-/* Classic breadcrumbs */
-
-/*
-#colormag__pagenav.classic-look div div ul {
-    display: inline;
-}
-*/
-
-#colormag__pagenav.classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
-#colormag__pagenav.classic-look .breadcrumbs.trace ul li:not(:last-child):after {
-    content: "\00a0";
-}
-
-#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li + li:before {
-    content: "»\00a0";
-}
-
-#colormag__pagenav.classic-look .breadcrumbs.trace ul > li + li:before {
-    content: "/\00a0";
-}
-
-#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li:nth-child(1):before,
-#colormag__pagenav.classic-look .breadcrumbs.trace ul > li:nth-child(1):before {
-    content: "";
-}
-
 body.pagenav-flip #colormag__pagenav .primary {
     order: 2;
     align-items: end;
@@ -1880,6 +1855,39 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
 [dir=rtl] body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label {
     margin-right: 0;
     margin-left: .4rem;
+}
+
+/* Classic breadcrumbs */
+
+/*
+#colormag__pagenav.classic-look div div ul {
+    display: inline;
+}
+*/
+
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
+#colormag__pagenav.classic-look .breadcrumbs.trace ul li:not(:last-child):after {
+    content: "\00a0";
+}
+
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li + li:before {
+    content: "»\00a0";
+}
+
+#colormag__pagenav.classic-look .breadcrumbs.trace ul > li + li:before {
+    content: "/\00a0";
+}
+
+#colormag__pagenav.classic-look .breadcrumbs.youarehere ul > li:nth-child(1):before,
+#colormag__pagenav.classic-look .breadcrumbs.trace ul > li:nth-child(1):before {
+    content: "";
+}
+
+/* underlined breadcrumbs */
+
+[dir] #colormag__pagenav.underlined-look .breadcrumbs ul li {
+    padding: .5rem;
+    margin: 0 .5rem .4rem .5rem;
 }
 
 /* Pills breadcrumbs */
@@ -3060,6 +3068,10 @@ div.plugin_translation {
 [dir] div.plugin_translation {
     margin: .4rem 0 0 0;
     padding: 0;
+}
+
+[dir] #colormag__pagenav.underlined-look div.plugin_translation {
+    margin: .8rem 0 0 0;
 }
 
 [dir] #colormag__pagenav .secondary div.plugin_translation {

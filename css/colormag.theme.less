@@ -42,6 +42,7 @@
 * PAGE HEADER TITLE
 * PAGE NAVIGATION
 * Classic breadcrumbs
+* underlined breadcrumbs
 * Pills breadcrumbs
 * SECTION HIGHLIGHTING
 * WIDGETS
@@ -550,6 +551,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 /* =PAGE HEADER TITLE
 ----------------------------------------------- */
+
 [dir] .page-header .page-title {
     border-bottom: 1px solid @ini_border;
 }
@@ -560,6 +562,12 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 #colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink1,
 #colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink2 {
     color: @ini_text_neu;
+}
+
+/* underlined breadcrumbs */
+
+[dir] #colormag__pagenav.underlined-look .breadcrumbs ul li {
+    border-bottom: 4px solid transparent;
 }
 
 /* Pills breadcrumbs */
