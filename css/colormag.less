@@ -2947,6 +2947,7 @@ PLUGINS
 /* KEYBOARD
 --------------------------------------------------------------*/
 
+/* I haven't been abble to get consistent results using color placeholders, hence the static colors */
 kbd.__keyboard {
     color: #333;
     display: inline-block;
@@ -2955,7 +2956,6 @@ kbd.__keyboard {
     line-height: 1;
     white-space: nowrap;
 }
-
 [dir] kbd.__keyboard {
     background-color: #eee;
     border-radius: 3px;
@@ -3110,6 +3110,17 @@ div.plugin_translation ul div.li.cur {
     padding: 0 .7rem .3rem .7rem;
     border-radius: 1.6rem;
     text-align: center
+}
+
+/* TWISTIENAV
+--------------------------------------------------------------*/
+
+#twistienav__popup {
+    z-index: 1000 !important;
+}
+
+#colormag__pagenav.pills-look span.twistienav_twistie {
+    display: none;
 }
 
 /* UPGRADE

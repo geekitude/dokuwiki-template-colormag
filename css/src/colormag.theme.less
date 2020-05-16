@@ -12,7 +12,6 @@
  */
 
 /**
-* Pagetools constants
 * RESET
 * GLOBAL
 * Ui colors
@@ -837,6 +836,26 @@ div.plugin_translation ul li a.wikilink2 {
 div.plugin_translation ul li a.wikilink1:hover,
 div.plugin_translation ul li a.wikilink2:hover {
     color: @ini_text !important;
+}
+
+/* TWISTIENAV
+--------------------------------------------------------------*/
+
+#twistienav__popup {
+}
+
+#twistienav__popup ul {
+    background: @ini_background;
+    border: 1px solid @ini_border;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#twistienav__popup ul li:hover a {
+    /*background-color: @ini_color_theme;*/
+    /*color: @ini_color_theme_text;*/
+    color: @ini_color_theme;
 }
 
 /* WRAP
