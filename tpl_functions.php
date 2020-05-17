@@ -972,7 +972,8 @@ function colormag_youarehere() {
 //        } else {
 //            $page = $part.$conf['start'];
 //        }
-        if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID)) {
+        //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID) and ($page != $ID)) {
+        if (tpl_getConf('breadcrumbslook') == 'underlined') {
             $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
         } else {
             $listyle = null;
@@ -1017,7 +1018,8 @@ function colormag_trace() {
         $i    = 0;
         foreach($crumbs as $target => $name) {
             $i++;
-            if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
+            //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
+            if (tpl_getConf('breadcrumbslook') == 'underlined') {
                 $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
             } else {
                 $listyle = null;
