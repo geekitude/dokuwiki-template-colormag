@@ -205,7 +205,7 @@ if (!defined('DOKU_INC')) die();
                                             $target = end($colormag['parents']);
                                         }
                                     ?>
-                                    <a href="<?php echo wl($target); ?>" title="<?php echo tpl_getLang($glyph) ?>" rel="prev"><span class="icon"><?php colormag_glyph($colormag['glyphs'][$glyph]); ?></span></a>
+                                    <a href="<?php echo wl($target); ?>" title="<?php echo tpl_getLang($glyph) ?>" rel="prev"><?php colormag_glyph($colormag['glyphs'][$glyph]); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php echo tpl_getLang($glyph) ?></span></a>
                                 </li>
                             <?php endif; ?>
                             <?php //if ((strpos(tpl_getConf('contools'), 'syntax') !== false) and ($ACT == "edit")) : ?>
