@@ -381,6 +381,9 @@ function colormag_init() {
         if ((tpl_getConf('breadcrumbslook') == "pills") and (!plugin_isdisabled('twistienav'))) {
             msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
         }
+        if ((tpl_getConf('breadcrumbslook') == "underlined") and (is_file($themeinifile['src']))) {
+            msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID. Tou may want to switch to another type of breadcrumbs.', 0);
+        }
     }
 }/* /colormag_init */
 
