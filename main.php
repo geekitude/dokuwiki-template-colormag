@@ -16,10 +16,12 @@ session_start();
 if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER["HTTP_REFERER"], 'admin') === false) and (strpos($_SERVER["HTTP_REFERER"], 'playground') === false)) {
     // get what's after "id="
     $tmp = explode("id=", $_SERVER["HTTP_REFERER"]);
+//dbg($tmp);
     // get what's before potential "&"
     $tmp = explode("&", $tmp[1]);
     // store in PHP session
     $_SESSION["origID"] = $tmp[0];
+//dbg($tmp[0]);
 }
 
 global $colormag, $showSidebar;

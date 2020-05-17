@@ -194,7 +194,7 @@ if (!defined('DOKU_INC')) die();
                             <?php if ((is_array($colormag['parents'])) and (count($colormag['parents']) > 1)) : ?>
                                 <li class="menu-item nav parent">
                                     <?php
-                                        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"]))) {
+                                        if ((($ACT == "edit") or ($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"]))) {
                                             $glyph = "back-to-article";
                                             $target = $_SESSION["origID"];
                                         } elseif (end($colormag['parents']) == getNS($ID).":".$conf['start']) {
@@ -207,6 +207,10 @@ if (!defined('DOKU_INC')) die();
                                     ?>
                                     <a href="<?php echo wl($target); ?>" title="<?php echo tpl_getLang($glyph) ?>" rel="prev"><span class="icon"><?php colormag_glyph($colormag['glyphs'][$glyph]); ?></span></a>
                                 </li>
+                            <?php endif; ?>
+                            <?php //if ((strpos(tpl_getConf('contools'), 'syntax') !== false) and ($ACT == "edit")) : ?>
+                            <?php if ($ACT == "edit") : ?>
+                                <li class="menu-item nav syntax"><a href="/doku.php?id=wiki:syntax" title="wiki:syntax"><?php colormag_glyph($colormag['glyphs']['help']); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('syntax'); ?></span></a></li>
                             <?php endif; ?>
                             <!-- NSINDEX DROPDOWN -->
                             <li id="colormag__nsindex-dropdown" class="menu-item nav nsindex menu-item-has-children sub-toggle"><a href="<?php print wl($ID) ?>&do=index" title="<?php print tpl_getLang('nscontent') ?>"><?php colormag_glyph($colormag['glyphs']['map']) ?></a></li>

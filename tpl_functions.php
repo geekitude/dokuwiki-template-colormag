@@ -271,7 +271,7 @@ function colormag_init() {
     if ($colormag['parents'][0] != $conf['start']) {
         array_unshift($colormag['parents'], $conf['start']);
     }
-dbg($colormag['parents']);
+//dbg($colormag['parents']);
 
     // NAMESPACE THEME
     // Load template default LESS placehodlers

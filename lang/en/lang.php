@@ -16,6 +16,7 @@ $lang['untranslated_wikihome']  = 'Untranslated Wiki Home';
 $lang['namespace-start']        = 'Namespace Home';
 $lang['parent-namespace']       = 'Parent Namespace';
 $lang['back-to-article']        = 'Back to Article';
+$lang['syntax']                 = 'Syntax';
 $lang['license']                = 'License';
 $lang['links']                  = 'Links';
 $lang['cache']                  = 'Cache';
