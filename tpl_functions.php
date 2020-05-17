@@ -25,6 +25,7 @@ function colormag_init() {
     global $ID, $JSINFO, $conf, $INFO;
     global $colormag;
 
+    // UI IMAGES
     $images= array('banner', 'pattern', 'sidecard', 'widebanner');
 //    if (true) { array_push($images, 'logo'); };
 //dbg($images);
@@ -194,6 +195,7 @@ function colormag_init() {
     // Preparing usefull plugins' helpers
     // Translation
     $colormag['translation'] = array();
+    $colormag['translation']['untranslatedhome'] = $conf['start'];
     //$colormag['translation']['parts'] = array();
     if (!plugin_isdisabled('translation')) {
         $colormag['translation']['helper'] = plugin_load('helper','translation');
@@ -202,23 +204,29 @@ function colormag_init() {
 //dbg($colormag['translation']['parts'][1]);
         if (strpos($conf['plugin']['translation']['translations'], $conf['lang']) !== false) {
             $colormag['translation']['untranslatedhome'] = $conf['lang'].":".$conf['start'];
-        } else {
-            $colormag['translation']['untranslatedhome'] = $conf['start'];
         }
-        $colormag['translation']['ishome'] = false;
-        if ($colormag['translation']['parts'][1] == $conf['start']) {
-//            if (($colormag['translation']['parts'][0] == null) or ($colormag['translation']['parts'][0] == $conf['lang'])) {
-            if ($ID == $colormag['translation']['untranslatedhome']) {
-                $colormag['translation']['ishome'] = "untranslated";
-            //} elseif (($colormag['translation']['parts'][1] == $conf['start']) and ($colormag['translation']['parts'][0] != $conf['lang']))) {
-            } elseif (($colormag['translation']['parts'][0] != "") and (strpos($conf['plugin']['translation']['translations'], $colormag['translation']['parts'][0]) !== false)) {
-                $colormag['translation']['ishome'] = "translated";
-            }
-        } elseif ($colormag['translation']['parts'][0] != $conf['lang']) {
+//        //$colormag['translation']['ishome'] = false;
+//        if ($colormag['translation']['parts'][1] == $conf['start']) {
+////            if (($colormag['translation']['parts'][0] == null) or ($colormag['translation']['parts'][0] == $conf['lang'])) {
+//            if ($ID == $colormag['translation']['untranslatedhome']) {
+//                //$colormag['translation']['ishome'] = "untranslated";
+//                $colormag['ishome'] = "untranslated";
+//            //} elseif (($colormag['translation']['parts'][1] == $conf['start']) and ($colormag['translation']['parts'][0] != $conf['lang']))) {
+//            } elseif (($colormag['translation']['parts'][0] != "") and (strpos($conf['plugin']['translation']['translations'], $colormag['translation']['parts'][0]) !== false)) {
+//                //$colormag['translation']['ishome'] = "translated";
+//                $colormag['ishome'] = "translated";
+//            }
+//        } elseif ($colormag['translation']['parts'][0] != $conf['lang']) {
+        if ($colormag['translation']['parts'][0] != $conf['lang']) {
             $colormag['translation']['istranslated'] = true;
         }
+        //}
     }
 //dbg($colormag['translation']['ishome']);
+
+    // IS HOME ?
+    $colormag['ishome'] = colormag_ishome($ID);
+//dbg($colormag['ishome']);
 
     // CURRENT NS AND PATH
     // Get current namespace and corresponding path (resulting path will correspond to namespace's pages, media or conf files)
@@ -280,6 +288,9 @@ function colormag_init() {
     }
 //dbg(tpl_incdir().'style.ini');
 //dbg($styleini);
+//dbg($styleini['replacements']['__color_theme__']);
+    $colormag['initial_theme_color'] = $styleini['replacements']['__color_theme__'];
+//dbg($colormag['initial_theme_color']);
     // Look for a "nstheme" page
     //$themelFile = page_findnearest("links", true);
     //$nsStyleIni = colormag_file("style", "inherit", "conf", $colormag['baseNs']);
@@ -294,7 +305,8 @@ function colormag_init() {
                 $styleini['replacements'][$key] = $value;
             }
         }
-    } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ((($colormag['translation']['helper']) and ($colormag['translation']['ishome'] == false)) and ($ID <> $conf['start']))) {
+    } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
+        dbg($colormag['ishome']);
         $autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
         $styleini['replacements']['__color_theme__'] = $autotheme;
     }
@@ -406,10 +418,10 @@ function colormag_bodyclasses() {
         $pattern = null;
     }
 
-    if (isset($colormag['translation']['ishome'])) {
-        if ($colormag['translation']['ishome'] == "untranslated") {
+    if (isset($colormag['ishome'])) {
+        if ($colormag['ishome'] == "untranslated") {
             $home = "untranslated-home";
-        } elseif ($colormag['translation']['ishome'] == "translated") {
+        } elseif ($colormag['ishome'] == "translated") {
             $home = "translated-home";
         } else {
             $home = "not-home";
@@ -974,7 +986,20 @@ function colormag_youarehere() {
 //        }
         //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID) and ($page != $ID)) {
         if (tpl_getConf('breadcrumbslook') == 'underlined') {
-            $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
+            //if (($colormag['translation']['ishome'] == false) or ($ID != $conf['start'])) {
+            //    $listyle = ' style="border-color:#'.$colormag['initial_theme_color'].'"';
+            //} else {
+            // We need a page ID to check if it's home, not a namespace ID like "wiki:"
+            if (substr($page, -1) == ":") {
+                $check = $page.$conf['start'];
+            } else {
+                $check = $page;
+            }
+            if (colormag_ishome($check)) {
+                $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+            } else {
+                $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
+            }
         } else {
             $listyle = null;
         }
@@ -996,6 +1021,7 @@ function colormag_youarehere() {
  */
 function colormag_trace() {
     global $lang, $conf, $ID;
+    global $colormag;
 
     //check if enabled
     if(!$conf['breadcrumbs']) return false;
@@ -1020,7 +1046,11 @@ function colormag_trace() {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
             if (tpl_getConf('breadcrumbslook') == 'underlined') {
-                $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
+                if (colormag_ishome($target)) {
+                    $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+                } else {
+                    $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
+                }
             } else {
                 $listyle = null;
             }
@@ -1244,4 +1274,32 @@ function colormag_css_applystyle($css, $replacements) {
     // now prepend the list of LESS variables as the very first thing
     $css = $less.$css;
     return $css;
+}
+
+/**
+ * Tell if given page is home (default, translated or untranslated) or not
+ *
+ * @param string $page
+ * @return string or false
+ */
+function colormag_ishome($page) {
+    global $conf;
+    global $colormag;
+
+//dbg($colormag['translation']['untranslatedhome']);
+//dbg($page);
+    // Default or untranslated wiki home ?
+    if ($page == $conf['start']) {
+        $ishome = "default";
+    } elseif ($page == $colormag['translation']['untranslatedhome']) {
+        $ishome = "untranslated";
+    } elseif ($colormag['translation']['helper']) {
+        $parts = $colormag['translation']['helper']->getTransParts($page);
+        if (($parts[1] == $conf['start']) and (($parts[0] != "") and (strpos($conf['plugin']['translation']['translations'], $parts[0]) !== false))) {
+            $ishome = "translated";
+        }
+    } else {
+        $ishome = false;
+    }
+    return $ishome;
 }
