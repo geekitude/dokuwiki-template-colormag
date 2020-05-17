@@ -111,6 +111,7 @@ function colormag_init() {
     // Search for default or custum default SVG glyphs
 //    $colormag['glyphs']['about'] = 'help';
     $colormag['glyphs']['acl'] = 'key-variant';
+    $colormag['glyphs']['back-to-article'] = 'skip-previous';
 //    $colormag['glyphs']['admin'] = 'settings';
     $colormag['glyphs']['config'] = 'tune';
     $colormag['glyphs']['date'] = 'calendar-month';
@@ -141,7 +142,6 @@ function colormag_init() {
     $colormag['glyphs']['parent-namespace'] = 'reply-all';
     $colormag['glyphs']['playground'] = 'shovel';
     $colormag['glyphs']['popularity'] = 'star-half';
-    $colormag['glyphs']['previous'] = 'skip-previous';
     $colormag['glyphs']['private-ns'] = 'folder-key';
     $colormag['glyphs']['profile'] = 'account-edit';
     $colormag['glyphs']['public-page'] = 'comment-account';
@@ -271,7 +271,7 @@ function colormag_init() {
     if ($colormag['parents'][0] != $conf['start']) {
         array_unshift($colormag['parents'], $conf['start']);
     }
-//dbg($colormag['parents']);
+dbg($colormag['parents']);
 
     // NAMESPACE THEME
     // Load template default LESS placehodlers
@@ -382,7 +382,7 @@ function colormag_init() {
             msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
         }
         if ((tpl_getConf('breadcrumbslook') == "underlined") and (is_file($themeinifile['src']))) {
-            msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID. Tou may want to switch to another type of breadcrumbs.', 0);
+            msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID. You may want to switch to another type of breadcrumbs.', 0);
         }
     }
 }/* /colormag_init */

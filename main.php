@@ -11,6 +11,17 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
 
+session_start();
+// Store ID from HTTP_REFERER (aka origin URL) into PHP Session if it contains current wiki URL and doesn't contain `admin` or `playground` 
+if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER["HTTP_REFERER"], 'admin') === false) and (strpos($_SERVER["HTTP_REFERER"], 'playground') === false)) {
+    // get what's after "id="
+    $tmp = explode("id=", $_SERVER["HTTP_REFERER"]);
+    // get what's before potential "&"
+    $tmp = explode("&", $tmp[1]);
+    // store in PHP session
+    $_SESSION["origID"] = $tmp[0];
+}
+
 global $colormag, $showSidebar;
 // Reset $colormag to make sure we don't inherit any value from previous page
 $colormag = array();
