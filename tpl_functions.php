@@ -982,11 +982,12 @@ function colormag_youarehere() {
             $part .= ':';
         }
 //dbg($part);
-//        if ($part == $ID) {
+        if ($part == $ID) {
             $page = $part;
-//        } else {
-//            $page = $part.$conf['start'];
-//        }
+        } else {
+            $page = $part.$conf['start'];
+        }
+//dbg($page);
         //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID) and ($page != $ID)) {
         if (tpl_getConf('breadcrumbslook') == 'underlined') {
             //if (($colormag['translation']['ishome'] == false) or ($ID != $conf['start'])) {
@@ -1010,7 +1011,7 @@ function colormag_youarehere() {
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
-        if (($page.$conf['start'] == $ID) or ($page."palyground")) {
+        if ($page == $ID) {
 //dbg("bingo: ".$page);
             break;
         }
