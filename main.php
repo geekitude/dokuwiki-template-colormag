@@ -127,7 +127,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                 <?php tpl_flush() ?>
                                 <?php colormag_include('pageheader') ?>
                                 <!-- wikipage start -->
+                            <div class="article group">
                                 <?php tpl_content() ?>
+                            </div><!-- /.page.group -->
                                 <!-- wikipage stop -->
                                 <?php colormag_include('pagefooter') ?>
                             </div><!-- /.page.group -->

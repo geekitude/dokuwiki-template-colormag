@@ -445,9 +445,17 @@ h6.aside-title,
 
 /* =LISTS
 ----------------------------------------------- */
-ul,
-ol {
-    list-style: none;
+.page ul {
+    list-style: disc;
+    padding: 0 0 0 2rem;
+}
+
+.page li > ul {
+    list-style: circle;
+}
+
+.page li li > ul {
+    list-style: square;
 }
 
 ol {
@@ -1833,6 +1841,11 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
     float: right;
     margin: 0 0 1.6rem 1.6rem;
     width: @ini_toc_width;
+}
+
+#dw__toc ul {
+    list-style: none;
+    padding: 0;
 }
 
 #dw__toc ul.toc:first-child {
