@@ -1011,7 +1011,7 @@ function colormag_youarehere() {
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
-        if ($page == $ID) {
+        if (($page == $ID) or ($page."palyground" == $ID)) {
 //dbg("bingo: ".$page);
             break;
         }
