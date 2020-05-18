@@ -306,7 +306,7 @@ function colormag_init() {
             }
         }
     } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
-        dbg($colormag['ishome']);
+        //dbg($colormag['ishome']);
         $autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
         $styleini['replacements']['__color_theme__'] = $autotheme;
     }
@@ -1010,7 +1010,7 @@ function colormag_youarehere() {
             tpl_pagelink($page, $parts[$i]);
         print "</li>";
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
-        if ($page.$conf['start'] == $ID) {
+        if (($page.$conf['start'] == $ID) or ($page."palyground")) {
 //dbg("bingo: ".$page);
             break;
         }
