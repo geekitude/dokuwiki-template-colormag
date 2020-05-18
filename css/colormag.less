@@ -2801,6 +2801,10 @@ DOKUWIKI MODES
     float: right;
 }
 
+[dir] .editBox #dw__editform #wiki__editbar .editButtons button {
+    margin: .3rem 0 0 0;
+}
+
 [dir=ltr] .editBox #dw__editform #wiki__editbar .summary {
     float: left;
 }
@@ -2810,19 +2814,25 @@ DOKUWIKI MODES
 }
 
 .editBox #dw__editform #wiki__editbar .summary label {
-    display: inline-block;
+    /*display: inline-block;*/
+    display: block;
+    /*margin: 1rem 0 0 .4rem;*/
 }
 
 [dir=ltr] .editBox #dw__editform #wiki__editbar .summary label {
-    margin: 1rem 0 0 .4rem;
+    margin: 0 0 0 .5rem;
 }
 
 [dir=rtl] .editBox #dw__editform #wiki__editbar .summary label {
-    margin: 1rem .4rem 0 0;
+    margin: 0 .5rem 0 0;
+}
+
+[dir] .editBox #dw__editform #wiki__editbar .summary label input {
+    margin: 0;
 }
 
 .editBox #dw__editform #wiki__editbar #edit__summary {
-    width: 350px;
+    width: 400px;
 }
 
 [dir=ltr] .editBox #dw__editform .license {
