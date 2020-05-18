@@ -984,6 +984,8 @@ function colormag_youarehere() {
 //dbg($part);
         if ($part == $ID) {
             $page = $part;
+        } elseif ($part == "playground:") {
+            $page = $part."playground";
         } else {
             $page = $part.$conf['start'];
         }
