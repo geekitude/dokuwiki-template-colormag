@@ -858,20 +858,36 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 /* TAGALERTS
 --------------------------------------------------------------*/
 
-[dir] div.tagerror, [dir] a.tagerror {
-    background-color: mix(#fff, @ini_color_red, 50%) !important;
+[dir] div.tagerror {
+    background-color: @ini_color_red !important;
 }
 
-[dir] div.taginfo, [dir] a.taginfo {
-    background-color: mix(#fff, @ini_color_blue, 50%) !important;
+[dir] a.tagerror {
+    background-color: mix(#fff, @ini_color_red, 45%) !important;
 }
 
-[dir] div.tagsuccess, [dir] a.tagsuccess {
-    background-color: mix(#fff, @ini_color_green, 40%) !important;
+[dir] div.taginfo {
+    background-color: @ini_color_blue !important;
 }
 
-[dir] div.tagnotify, [dir] a.tagnotify {
-    background-color: mix(#fff, @ini_color_yellow, 50%) !important;
+[dir] a.taginfo {
+    background-color: mix(#fff, @ini_color_blue, 40%) !important;
+}
+
+[dir] div.tagsuccess {
+    background-color: @ini_color_green !important;
+}
+
+[dir] a.tagsuccess {
+    background-color: mix(#fff, @ini_color_green, 35%) !important;
+}
+
+[dir] div.tagnotify {
+    background-color: @ini_color_yellow !important;
+}
+
+[dir] a.tagnotify {
+    background-color: mix(#fff, @ini_color_yellow, 40%) !important;
 }
 
 /* TRANSLATION
