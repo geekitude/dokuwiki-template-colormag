@@ -126,7 +126,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `box` wastes a little space around content on narrow screens
   * `wide` is incompatible with "scrollspy" ToC and will override that setting
   * `box2wide` switches from `box` on large screens to `wide` on smaller ones
-  * `mix` aesthically ressembles `wide` layout but site header and main content are still limited to **style.ini** file's `site-width` value
+  * `mix` most "UI elements" get a `wide` layout while site header and main content are still limited to **style.ini** file's `site-width` value
 * **flexflip** (*nothing*) : flip corresponding element's position
   * `banner` : will be moved under site tools
   * `pagenav` : switch PageID and Breadcrumbs positions
