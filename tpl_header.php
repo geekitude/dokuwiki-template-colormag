@@ -39,8 +39,8 @@ if (!defined('DOKU_INC')) die();
                                 if ($colormag['topbar-links']) {
                                     tpl_link(wl($colormag['topbar-links']), colormag_glyph($colormag['glyphs']['topbar-page'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang("links").'</span>',' title="'.$colormag['topbar-links'].'"');
                                     tpl_include_page($colormag['topbar-links'], true, true, true); /* includes the topbar links wiki page */
-                                } elseif (auth_quickaclcheck(getns($ID).':'.tpl_getConf('topbarlinkspage')) >= 4) {
-                                    tpl_link(wl(getns($ID).':'.tpl_getConf('topbarlinkspage')).'&do=edit', colormag_glyph($colormag['glyphs']['topbar-page-add'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang('addtopbarlinks').'</span>',' title="'.tpl_getLang('addtopbarlinks').'"');
+                                } elseif (auth_quickaclcheck(getns($ID).':'.tpl_getConf('topbarlinks')) >= 4) {
+                                    tpl_link(wl(getns($ID).':'.tpl_getConf('topbarlinks')).'&do=edit', colormag_glyph($colormag['glyphs']['topbar-page-add'], true).'<span'.((($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"').'>'.tpl_getLang('addtopbarlinks').'</span>',' title="'.tpl_getLang('addtopbarlinks').'"');
                                 //} else {
                                     //print colormag_glyph($colormag['glyphs']['topbar-page-denied'], true)." permission do add links is denied.";
                                 }
@@ -159,8 +159,8 @@ if (!defined('DOKU_INC')) die();
                     } else {
                         msg(tpl_getLang('playground_user'), 0);
                     }
-                //} elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinkspage') !== false))) {
-                } elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinkspage')) !== false)) {
+                //} elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinks') !== false))) {
+                } elseif (($ACT == 'edit') and (strpos($ID, tpl_getConf('topbarlinks')) !== false)) {
                 //} elseif ($ACT == 'edit') {
                     msg(tpl_getLang('edit_topbar'), 0);
                 }

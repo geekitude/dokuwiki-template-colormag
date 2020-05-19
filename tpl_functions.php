@@ -52,7 +52,7 @@ function colormag_init() {
 //dbg($colormag['images']);
 
     // COLLECT LINKS
-    $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinkspage'), true);
+    $colormag['topbar-links'] = page_findnearest(tpl_getConf('topbarlinks'), true);
 //dbg($colormag['topbar-links']);
 
     // GET SOCIAL LINKS

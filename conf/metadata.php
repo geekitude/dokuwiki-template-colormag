@@ -17,7 +17,7 @@ $meta['autotheme']          = array('onoff');
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
-$meta['topbarlinkspage']    = array('string');
+$meta['topbarlinks']        = array('string');
 $meta['datelocale']         = array('string');
 $meta['longdate']           = array('string');
 $meta['shortdate']          = array('string');

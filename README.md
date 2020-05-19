@@ -148,7 +148,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `pages` : show or ignore pages in list
   * `media` : show or ignore media files
   * the number in text field is the number of elements to show (starting from most recent)
-* **topbarlinkspage** (*topbar*) : page containing the list of links to show in topbar
+* **topbarlinks** (*topbar*) : page containing the list of links to show in topbar
 * **datelocale** (*fra*) : language used for dates
 * **longdate** (*%A %d %B %Y*) : how long date strings are built (typically with full day of week, ...), [see this page](https://www.php.net/manual/fr/function.strftime.php)
 * **shortdate** (*%d/%m/%Y*) : how short and typically fully numeric dates are built, [see this page](https://www.php.net/manual/fr/function.strftime.php) too
