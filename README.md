@@ -90,7 +90,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins ([Blockquote](https://www.dokuwiki.org/plugin:blockquote), [Captcha](https://www.dokuwiki.org/plugin:captcha), [Discussion](https://www.dokuwiki.org/plugin:discussion), [Move](https://www.dokuwiki.org/plugin:move), [SearchIndex](https://www.dokuwiki.org/plugin:searchindex), [SiteMapNavi](https://www.dokuwiki.org/plugin:sitemapnavi), [Styling](https://www.dokuwiki.org/plugin:styling), [Tag](https://www.dokuwiki.org/plugin:tag), [TagAlerts](https://www.dokuwiki.org/plugin:tagalerts), [Translation](https://www.dokuwiki.org/plugin:translation), [Wrap](https://www.dokuwiki.org/plugin:wrap))
-* [x] Dark color scheme
+* [x] Dark color scheme guidelines
 * [x] Topbar with date, newsticker (based on current namespace and sub content) and links
 * [x] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
@@ -268,9 +268,9 @@ These specific HTML hooks let you change some template elements with fancier HTM
 
 ### Cheatsheet
 
-You can create a "wiki:cheatsheet" page (or anothername if you change `cheatsheet` setting) that will be show as a sidebar in edit and preview modes.
+You can create a "wiki:cheatsheet" page (or another name if you change `cheatsheet` setting) that will be shown as a sidebar in edit and preview modes.
 
-This page should provide hints about syntax not allready provided by edit form buttons. You can copy `colormag/debug/cheatsheet.txt` to `dokuwiki/data/pages/wiki` to get started with an example.
+This page should provide hints about syntax not allready provided by edit form buttons or directions for users editing pages. You can copy `colormag/debug/cheatsheet.txt` to `dokuwiki/data/pages/wiki` to get started.
 
 :warning: It should be kept as short as possible to be efficient since there's not ToC :warning: 
 
