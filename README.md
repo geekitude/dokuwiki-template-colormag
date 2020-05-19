@@ -103,6 +103,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
 * [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
 * [x] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
+* [x] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [ ] Expanded debug mode to show some specific elements (sample code or images)
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
@@ -170,6 +171,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `current-ns` : current namespace start page
   * `home` : wiki home
   * `none` : no link at all
+* **cheatsheet** (*cheatsheet*) : page to look after in "wiki:" namespace to use as an edit and preview modes sidebar
 
 (*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors, UI colors and headings
 
@@ -264,7 +266,15 @@ These specific HTML hooks let you change some template elements with fancier HTM
 * *banner.html* : replaces potential banner image with HTML element
 * *widebanner.html* : replaces potential banner image with HTML element
 
-#### Dark skin
+### Cheatsheet
+
+You can create a "wiki:cheatsheet" page (or anothername if you change `cheatsheet` setting) that will be show as a sidebar in edit and preview modes.
+
+This page should provide hints about syntax not allready provided by edit form buttons. You can copy `colormag/debug/cheatsheet.txt` to `dokuwiki/data/pages/wiki` to get started with an example.
+
+:warning: It should be kept as short as possible to be efficient since there's not ToC :warning: 
+
+### Dark skin
 
 Here are a few suggested steps to get a nice consistent dark wiki with Colormag :
 * change the following values in `style.ini` file

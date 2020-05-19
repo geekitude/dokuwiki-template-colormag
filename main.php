@@ -29,9 +29,14 @@ global $colormag, $showSidebar;
 $colormag = array();
 colormag_init();
 
-$hasSidebar = page_findnearest($conf['sidebar']);
+if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getConf('cheatsheet')))) {
+    $hasSidebar = "wiki:".tpl_getConf('cheatsheet');
+    $showSidebar = 1;
+} else {
+    $hasSidebar = page_findnearest($conf['sidebar']);
+    $showSidebar = $hasSidebar && ($ACT=='show');
+}
 //dbg($hasSidebar);
-$showSidebar = $hasSidebar && ($ACT=='show');
 //dbg($showSidebar);
 //dbg($ACT);
 //dbg(getNS($ID));
@@ -163,7 +168,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                                         <div id="colormag__sidecard-wrap" class="group">
                                             <?php
-                                                if ($colormag['images']['sidecard']['src'] != null) {
+                                                if (($colormag['images']['sidecard']['src'] != null) and ($ACT != "edit") and ($ACT != "preview")) {
                                                     $title = null;
                                                     if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['sidecard']['ns'], 'wiki') !== false)) {
                                                         $target = $conf['start'];
@@ -190,7 +195,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                                         <?php tpl_flush() ?>
                                         <?php tpl_includeFile('sidebarheader.html') ?>
-                                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
+                                        <?php tpl_include_page($hasSidebar, true, true) ?>
                                         <?php tpl_includeFile('sidebarfooter.html') ?>
                                     </div><!-- /.group -->
 

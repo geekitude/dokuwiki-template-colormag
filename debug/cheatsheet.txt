@@ -1,0 +1,78 @@
+See [[wiki:syntax|Formatting Syntax]] page for more details
+
+== Interwiki ==
+
+<nowiki>[[doku>pagename|Wiki pagenames]]</nowiki> => [[doku>pagename|Wiki pagenames]]\\
+<nowiki>[[wp>Wiki|link to Wikipedia's page about Wikis]]</nowiki> => [[wp>Wiki|link to Wikipedia's page about Wikis]]\\
+<nowiki>[[wpfr>Wiki|link to french Wikipedia]]</nowiki> => [[wpfr>Wiki|link to french Wikipedia]]
+
+[[https://www.dokuwiki.org/interwiki|Read mor about InterWiki links]]
+
+== Windows Shares ==
+
+<nowiki>[[\\server\share|this]]</nowiki> => [[\\server\share|this]]
+
+:!: [[wiki:syntax|Read more (important notes)]]
+
+== Image Links ==
+
+<nowiki>[[http://php.net|{{wiki:dokuwiki-128.png}}]]</nowiki> =>
+
+[[http://php.net|{{wiki:dokuwiki-128.png}}]]
+
+== Footnotes ==
+
+<nowiki>You can add footnotes((This is a footnote))</nowiki> =>  You can add footnotes((This is a footnote)) by using double parentheses.
+
+== Basic Quoting ==
+
+<code>
+I think we should do it
+
+> No we shouldn't
+
+>> Well, I say we should
+
+> Really?
+</code>
+
+I think we should do it
+
+> No we shouldn't
+
+>> Well, I say we should
+
+> Really?
+
+== Tables ==
+
+^ Heading 1      ^ Heading 2       ^ Heading 3          ^
+| Row 1 Col 1    | Row 1 Col 2     | Row 1 Col 3        |
+| Row 2 Col 1    | some colspan (note the double pipe) ||
+| Row 3 Col 1    | Row 3 Col 2     | Row 3 Col 3        |
+
+[[wiki:syntax#tables|Many more possibilities]]
+
+== No Formatting ==
+
+<nowiki>
+This is some text which contains addresses like this: http://www.splitbrain.org and **formatting**, but nothing is done with it.
+</nowiki>
+The same is true for %%//__this__ text// with a smiley ;-)%%.
+
+  <nowiki>
+  This is some text which contains addresses like this: http://www.splitbrain.org and **formatting**, but nothing is done with it.
+  </nowiki>
+  The same is true for %%//__this__ text// with a smiley ;-)%%.
+
+== Code Blocks ==
+
+  This is text is indented by two spaces.
+
+<code>
+This is preformatted code all spaces are preserved: like              <-this
+</code>
+
+<file>
+This is pretty much the same, but you could use it to show that you quoted a file.
+</file>
