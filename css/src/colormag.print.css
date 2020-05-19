@@ -15,14 +15,13 @@
 }
 
 /* general */
-body {
-    /*background-color: transparent !important;*/
-    /*border: 2px black solid;*/
+body,
+#colormag__page {
     background-image: unset !important;
-    background-color: transparent !important;
+    background-color: #fff !important;
 }
 /** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
-* { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+* { background-color: #fff !important; background: #fff !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
 *:not(#colormage__pageheader) { box-shadow:none !important; }
 #colormag__page { margin: 0 !important; }
 h1,
@@ -44,12 +43,12 @@ legend {
     display: block;
 }
 #colormag__content p {
-    color: black;
+    color: #000;
 }
 #colormag__main-content {
     display: block;
 }
-#colormag__colophon .footer-widgets-wrapper { background-color: transparent !important; }
+#colormag__colophon .footer-widgets-wrapper { background-color: #fff !important; }
 #colormag__colophon .footer-widgets-area { padding: 0; color: #000 !important; }
 #colormag__colophon li { border: none !important; }
 #colormag__colophon a { color: #000 !important; }
@@ -63,7 +62,7 @@ h1, h2, h3, h4, h5, p, pre, table, figure, div.fn sup {
 
 /* remove borders */
 .footer-widgets-wrapper {
-    border: none;
+    border: none !important;
 }
 
 /* edit buttons */

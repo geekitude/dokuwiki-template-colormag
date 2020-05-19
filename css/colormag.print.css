@@ -15,17 +15,13 @@
 }
 
 /* general */
-body {
-    /*background-color: transparent !important;*/
-    /*border: 2px black solid;*/
-}
-[dir] body {
+[dir] body, [dir] #colormag__page {
     background-image: unset !important;
-    background-color: transparent !important;
+    background-color: #fff !important;
 }
 /** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
 * { -webkit-filter:none !important; filter:none !important; -ms-filter: none !important; }[dir] */
-* { background-color: #ffffff !important; background: transparent !important; text-shadow: none !important; }
+* { background-color: #fff !important; background: #fff !important; text-shadow: none !important; }
 [dir] *:not(#colormage__pageheader) { box-shadow:none !important; }
 [dir] #colormag__page { margin: 0 !important; }
 [dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] caption, [dir] legend {
@@ -39,12 +35,12 @@ body {
     display: block;
 }
 #colormag__content p {
-    color: black;
+    color: #000;
 }
 #colormag__main-content {
     display: block;
 }
-[dir] #colormag__colophon .footer-widgets-wrapper { background-color: transparent !important; }
+[dir] #colormag__colophon .footer-widgets-wrapper { background-color: #fff !important; }
 #colormag__colophon .footer-widgets-area { color: #000 !important; }
 [dir] #colormag__colophon .footer-widgets-area { padding: 0; }
 [dir] #colormag__colophon li { border: none !important; }
@@ -60,7 +56,7 @@ h1, h2, h3, h4, h5, p, pre, table, figure, div.fn sup {
 
 /* remove borders */
 [dir] .footer-widgets-wrapper {
-    border: none;
+    border: none !important;
 }
 
 /* edit buttons */
