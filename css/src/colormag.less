@@ -681,9 +681,9 @@ img {
     margin-bottom: 18px;
 }
 
-#colormag__primary .page img.icon {
-    margin-bottom: 0;
-    vertical-align: -2px;
+img.icon {
+    margin-bottom: 0 !important;
+    vertical-align: text-top;
 }
 
 .entry-content img, .comment-content img, .widget img {
@@ -2287,15 +2287,24 @@ DOKUWIKI MODES
     margin: 0;
 }
 
+/*
 .mode_recent #dw__recent ul img.icon {
     vertical-align: text-top;
 }
+*/
 
 .mode_recent #dw__recent ul li a.diff_link img {
     vertical-align: 0px;
 }
 
 .mode_recent #dw__recent ul li a.revisions_link img {
+    vertical-align: -1px;
+}
+
+/* Revisions */
+
+.mode_revisions #page__revisions ul li img {
+    margin-bottom: 0;
     vertical-align: -1px;
 }
 
