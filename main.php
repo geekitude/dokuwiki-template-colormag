@@ -206,7 +206,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <!-- PAGE ACTIONS -->
                 <div id="colormag__pagetools">
-                    <div class="tools">
+                    <div class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                         <ul>
                             <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>

@@ -133,7 +133,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `sidebar` : will be moved on the osther side of page
   * `pagetools` : just like `sidebar` above
   * `socket` : flip content
-* **uicolorize** (*nothing*) : choose UI elements to colorize between *topbar*, *pagenav*, *sidebar*, *toc*, *docinfo*, *footersocket*
+* **uicolorize** (*nothing*) : choose UI elements to colorize with `style.ini` file "UI" colors between *topbar*, *pagenav*, *sidebar*, *toc*, *pagetools*, *docinfo* and *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color to keep contrast with main navigation)
 * **autotheme** ([ ]) : generate a theme color based on current page namespace's name if not at home page (translated or not), not in at any admin page and if that namespace has no [custom theme](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) (there's no control of any kind on the result color and it might not allways look nice, the whole process may need some more work) (*)
 * **glypholors** ([ ]) : add some color to social and/or user tools glyphs
@@ -273,8 +273,8 @@ __background__          = "#333"
 __background_neu__      = "#eee"
 __border__              = "#aaa"
 __background_site__     = "#000"
-```
+__color_background_ui__ = "darken(@ini_color_theme_dark, 5%)"```
+
 *You may want to invert "alt" text and background colors.*
-* go to settings and change the following :
-  * enable all elements in **uicolorize**
-  * choose *dark* **uicolor**
+
+* go to settings and enable all elements in **uicolorize**

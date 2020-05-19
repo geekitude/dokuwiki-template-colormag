@@ -96,48 +96,52 @@ textarea {
 
 /* Ui colors */
 
-body.neu-ui .uicolor,
-body.neu-ui #colormag__main.uicolor-toc #dw__toc {
-    color: @ini_text_neu;
+.uicolor,
+#colormag__main.uicolor-toc #dw__toc,
+#colormag__pagetools .uicolor-pagetools ul:hover {
+    color: @ini_color_text_ui !important;
 }
 
-[dir] body.neu-ui .uicolor, [dir] body.neu-ui #colormag__main.uicolor-toc #dw__toc {
+[dir] .uicolor, [dir] #colormag__main.uicolor-toc #dw__toc, [dir] #colormag__pagetools .uicolor-pagetools ul:hover {
+    background-color: @ini_color_background_ui !important;
+}
+
+#colormag__main.uicolor-toc #dw__toc a {
+    color: @ini_color_text_ui !important;
+}
+
+/*
+body.neu-ui .uicolor,
+body.neu-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_neu;
+    color: @ini_text_neu;
 }
 
 body.alt-ui .uicolor,
 body.alt-ui #colormag__main.uicolor-toc #dw__toc {
-    color: @ini_text_alt;
-}
-
-[dir] body.alt-ui .uicolor, [dir] body.alt-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: @ini_background_alt;
+    color: @ini_text_alt;
 }
 
 body.theme-ui .uicolor,
 body.theme-ui #colormag__main.uicolor-toc #dw__toc {
+    background-color: @ini_color_theme;
     color: @ini_color_theme_light;
 }
 
-[dir] body.theme-ui .uicolor, [dir] body.theme-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_color_theme;
-}
-
-[dir] body.theme-ui .uicolor a {
+body.theme-ui .uicolor a {
     border-bottom-color: @ini_text_neu;
 }
 
 body.dark-ui .uicolor,
 body.dark-ui #colormag__main.uicolor-toc #dw__toc {
-    color: @ini_color_theme_light;
-}
-
-[dir] body.dark-ui .uicolor, [dir] body.dark-ui #colormag__main.uicolor-toc #dw__toc {
     background-color: lighten(@ini_color_theme_dark, 5%);
+    color: @ini_color_theme_light;
 }
 body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
     color: @ini_color_theme_light;
 }
+*/
 
 /* =TEXT ELEMENTS
 ----------------------------------------------- */
