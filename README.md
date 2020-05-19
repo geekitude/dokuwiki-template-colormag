@@ -135,7 +135,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `socket` : flip content
 * **uicolorize** (*nothing*) : choose UI elements to colorize with `style.ini` file "UI" colors between *topbar*, *pagenav*, *sidebar*, *toc*, *pagetools*, *docinfo* and *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __color_theme_dark__ background color to keep contrast with main navigation)
-* **autotheme** ([ ]) : generate a theme color based on current page namespace's name if not at home page (translated or not), not in at any admin page and if that namespace has no [custom theme](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) (there's no control of any kind on the result color and it might not allways look nice, the whole process may need some more work) (*)
+* **autotheme** ([ ]) : generate a theme color based on current page namespace's name if not at home page (translated or not) or at any admin page and isn't triggered either if that namespace has a [custom theme file](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) (there's no control of any kind on the result color and it might not allways look nice, the whole process may need some more work) (*)
 * **glypholors** ([ ]) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
@@ -171,7 +171,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `home` : wiki home
   * `none` : no link at all
 
-(*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors and headings
+(*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors, UI colors and headings
 
 ## About
 
