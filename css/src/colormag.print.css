@@ -83,6 +83,9 @@ a:visited {
     /*background-color: inherit;*/
     padding: 0 !important;
 }
+a {
+    background-image: none !important;
+}
 
 /* display href after link */
 /*body.printhrefs #spacious__article a.urlextern:after,
@@ -103,7 +106,6 @@ body.printhrefs a.mail:after {
 }
 body:not(.printhrefs) a {
     color: #000;
-    background-image: none !important;
 }
     
 /* code blocks */
