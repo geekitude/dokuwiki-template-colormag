@@ -180,6 +180,12 @@ div.footnotes div.fn div.content {
 div.tagerror, div.taginfo, div.tagsuccess, div.tagnotify {
     padding: .2rem .5rem !important;
 }
+.dokuwiki a.tagerror,
+.dokuwiki a.taginfo,
+.dokuwiki a.tagsuccess,
+.dokuwiki a.tagnotify {
+    padding: 0 .3rem !important;
+}
 
 /*--------------------------------------------------------------
 EXCLUDED

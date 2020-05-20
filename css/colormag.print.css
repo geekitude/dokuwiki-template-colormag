@@ -183,6 +183,9 @@ div.footnotes div.fn div.content {
 [dir] div.tagerror, [dir] div.taginfo, [dir] div.tagsuccess, [dir] div.tagnotify {
     padding: .2rem .5rem !important;
 }
+[dir] .dokuwiki a.tagerror, [dir] .dokuwiki a.taginfo, [dir] .dokuwiki a.tagsuccess, [dir] .dokuwiki a.tagnotify {
+    padding: 0 .3rem !important;
+}
 
 /*--------------------------------------------------------------
 EXCLUDED
