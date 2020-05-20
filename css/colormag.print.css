@@ -35,6 +35,12 @@
 .inner-wrap-left {
     display: block;
 }
+[dir] #colormag__main {
+    padding: 1.5rem 0;
+}
+[dir] #colormag__header-text-nav-wrap {
+    padding: 0;
+}
 #colormag__content p {
     color: #000;
 }

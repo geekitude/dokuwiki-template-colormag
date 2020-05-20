@@ -44,6 +44,12 @@ legend {
 .inner-wrap-left {
     display: block;
 }
+#colormag__main {
+    padding: 1.5rem 0;
+}
+#colormag__header-text-nav-wrap {
+    padding: 0;
+}
 #colormag__content p {
     color: #000;
 }
