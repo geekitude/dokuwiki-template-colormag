@@ -121,7 +121,7 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
 
         <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
 
-            <div class="inner-wrap-left narrow-mix group flex row stretch">
+            <div class="inner-wrap-left narrow-mix flex row stretch">
 
                 <div id="colormag__main-content" class="flex row stretch between">
 
