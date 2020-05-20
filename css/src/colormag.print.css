@@ -157,7 +157,7 @@ EXCLUDED
 #colormag__site-navigation-sticky-wrapper,
 #colormag__pagenav,
 #colormag__userwidget,
-#dw__toc,
+#colormag__main.noprint-toc #dw__toc,
 #colormag__pagetools,
 div.footer-socket-wrapper {
     display: none !important;

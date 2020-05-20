@@ -91,7 +91,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
                 <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
-                        <div id="colormag__banner-wrap" class="advertisement-content widget flex column end">
+                        <div id="colormag__banner-wrap" class="advertisement-content widget flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                             <?php
                                 colormag_include("bannerheader");
                                 if ($colormag['images']['banner']['src'] != null) {
@@ -266,7 +266,7 @@ if (!defined('DOKU_INC')) die();
     </div><!-- #colormag__header-text-nav-container -->
 
     <?php if($ACT == "show"): ?>
-        <div id="colormag__widebanner-wrap" class="group">
+        <div id="colormag__widebanner-wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
             <?php
                 if ($colormag['images']['widebanner']['src'] != null) {
                     $title = null;

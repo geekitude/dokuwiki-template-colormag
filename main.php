@@ -119,7 +119,7 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
 
         <?php colormag_include("mainheader"); ?>
 
-        <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?>">
+        <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?><?php print (strpos(tpl_getConf('print'), 'toc') !== false) ? '' : ' noprint-toc' ?>">
 
             <div class="inner-wrap-left narrow-mix flex row stretch">
 
@@ -156,7 +156,7 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
                         <div class="vr<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? " notvisibleifextracted" : " a11y" ?>"></div>
 
                         <!-- ********** ASIDE ********** -->
-                        <div id="colormag__secondary"<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " class='uicolor'" : "" ?>>
+                        <div id="colormag__secondary" class="<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? "uicolor" : "" ?><?php print (strpos(tpl_getConf('print'), 'sidebar') !== false) ? '' : ' noprint' ?>">
 
                             <div class="pad aside include group">
                                 <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>

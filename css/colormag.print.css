@@ -28,8 +28,9 @@
     clear: both;
 }
 
-[dir] #colormag__page, [dir] .inner-wrap, [dir] .inner-wrap-left {
-    margin: 0;
+/* elements */
+[dir] #colormag__page, [dir] .inner-wrap, [dir] .inner-wrap-left, [dir] #colormag__primary {
+    margin: 0 !important;
 }
 .inner-wrap-left {
     display: block;
@@ -98,7 +99,10 @@ body.printhrefs a.mail:after {
     vertical-align: baseline;
     top: .5ex;
 }
-
+body:not(.printhrefs) a {
+    color: #000;
+}
+    
 /* code blocks */
 pre {
     font-family: monospace;
@@ -149,13 +153,14 @@ div.footnotes div.fn div.content {
 /*--------------------------------------------------------------
 EXCLUDED
 --------------------------------------------------------------*/
+.noprint,
 #colormag__skip,
 #colormag__topbar-wrapper,
 #colormag__header-right-sidebar .tools,
 #colormag__site-navigation-sticky-wrapper,
 #colormag__pagenav,
 #colormag__userwidget,
-#dw__toc,
+#colormag__main.noprint-toc #dw__toc,
 #colormag__pagetools,
 div.footer-socket-wrapper {
     display: none !important;

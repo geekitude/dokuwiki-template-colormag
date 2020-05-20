@@ -26,7 +26,7 @@ $meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic'
 $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['links']              = array('string');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
-$meta['print']              = array('multicheckbox', '_choices' => array('siteheader','docinfo','sitefooter','hrefs'));
+$meta['print']              = array('multicheckbox', '_choices' => array('siteheader','siteheader-banner','widebanner','toc','sidebar','docinfo','sitefooter','hrefs'));
 $meta['banner']             = array('string');
 $meta['pattern']            = array('string');
 $meta['sidecard']           = array('string');
