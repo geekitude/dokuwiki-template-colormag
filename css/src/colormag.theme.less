@@ -95,15 +95,15 @@ div.vr {
 .uicolor,
 #colormag__main.uicolor-toc #dw__toc,
 #colormag__pagetools .uicolor-pagetools ul:hover {
-    background-color: @ini_color_background_ui;
-    color: @ini_color_text_ui;
+    background-color: @ini_background_ui_color;
+    color: @ini_text_ui_color;
 }
 .footer-socket-wrapper.uicolor {
-    background-color: @ini_color_background_ui !important;
+    background-color: @ini_background_ui_color !important;
 }
 
 #colormag__main.uicolor-toc #dw__toc a {
-    color: @ini_color_text_ui;
+    color: @ini_text_ui_color;
 }
 
 /*
@@ -121,8 +121,8 @@ body.alt-ui #colormag__main.uicolor-toc #dw__toc {
 
 body.theme-ui .uicolor,
 body.theme-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_light;
+    background-color: @ini_theme_color;
+    color: @ini_theme_light_color;
 }
 
 body.theme-ui .uicolor a {
@@ -131,11 +131,11 @@ body.theme-ui .uicolor a {
 
 body.dark-ui .uicolor,
 body.dark-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: lighten(@ini_color_theme_dark, 5%);
-    color: @ini_color_theme_light;
+    background-color: lighten(@ini_theme_dark_color, 5%);
+    color: @ini_theme_light_color;
 }
 body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
-    color: @ini_color_theme_light;
+    color: @ini_theme_light_color;
 }
 */
 
@@ -151,11 +151,11 @@ abbr, acronym, dfn {
 }
 
 del {
-    background-color: mix(#fff, @ini_color_red, 30%);
+    background-color: mix(#fff, @ini_red_color, 30%);
 }
 
 ins {
-    background-color: mix(#fff, @ini_color_green, 30%);
+    background-color: mix(#fff, @ini_green_color, 30%);
 }
 
 .footer-widgets-wrapper del,
@@ -170,42 +170,42 @@ span.curid {
 /* Headings */
 
 h1 {
-    color: @ini_color_h1;
+    color: @ini_h1_color;
 }
 
 h2 {
-    color: @ini_color_h2;
+    color: @ini_h2_color;
 }
 
 h3 {
-    color: @ini_color_h3;
+    color: @ini_h3_color;
 }
 
 h4 {
-    color: @ini_color_h4;
+    color: @ini_h4_color;
 }
 
 h5 {
-    color: @ini_color_h5;
+    color: @ini_h5_color;
 }
 
 h6 {
-    color: @ini_color_h6;
+    color: @ini_h6_color;
 }
 
 h6.widget-title {
-    border-bottom: 2px solid @ini_color_theme;
+    border-bottom: 2px solid @ini_theme_color;
 }
 
 h6.widget-title span {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 h6.aside-title,
 #dw__toc h3 {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 /* =SUPERCRIPT AND SUBSCRIPT
@@ -214,14 +214,14 @@ h6.aside-title,
 /* Footnotes */
 
 div.insitu-footnote {
-    background-color: @ini_color_blue;
+    background-color: @ini_blue_color;
 }
 
 /* =BLOCKQUOTE
 ----------------------------------------------- */
 
 blockquote {
-    border-color: @ini_border @ini_border @ini_border @ini_color_theme;
+    border-color: @ini_border @ini_border @ini_border @ini_theme_color;
 }
 
 /* =FORMS
@@ -261,8 +261,8 @@ input[type="reset"],
 input[type="button"],
 input[type="submit"],
 button {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 #media__manager #media__opts a:hover,
@@ -271,7 +271,7 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
 button:hover {
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 input[type="reset"]:active,
@@ -283,11 +283,11 @@ input[type="submit"]:active {
 }
 
 button.toolbutton {
-    background-color: @ini_color_theme_light;
+    background-color: @ini_theme_light_color;
 }
 
 button.toolbutton:hover {
-    background-color: @ini_color_theme;
+    background-color: @ini_theme_color;
 }
 
 /* =LINKS
@@ -322,7 +322,7 @@ a:hover svg {
 ----------------------------------------------- */
 
 svg {
-    fill: @ini_color_blue;
+    fill: @ini_blue_color;
 }
 
 /* =TABS
@@ -333,11 +333,11 @@ ul.tabs li:not(.active) a {
 }
 
 ul.tabs li:not(.active) a:hover {
-    background-color: @ini_color_theme;
+    background-color: @ini_theme_color;
 }
 
 ul.tabs li.active a {
-    border-top: 4px solid @ini_color_theme;
+    border-top: 4px solid @ini_theme_color;
 }
 
 /*****************************************************************/
@@ -370,7 +370,7 @@ div.skip a {
 ----------------------------------------------- */
 
 #colormag__site-title a {
-    color: @ini_color_theme;
+    color: @ini_theme_color;
 }
 
 #colormag__site-description {
@@ -386,23 +386,23 @@ div.skip a {
 /* Alerts */
 
 #colormag__alerts a:not(.wikilink1):not(.wikilink2) {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 div.info {
-    background-color: @ini_color_blue;
+    background-color: @ini_blue_color;
 }
 
 div.notify {
-    background-color: @ini_color_yellow;
+    background-color: @ini_yellow_color;
 }
 
 div.success {
-    background-color: @ini_color_green;
+    background-color: @ini_green_color;
 }
 
 div.error {
-    background-color: @ini_color_red;
+    background-color: @ini_red_color;
 }
 
 /* =INFO TEXT
@@ -418,7 +418,7 @@ div.error {
 ----------------------------------------------- */
 
 .search-wrap button {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .search-form-top {
@@ -431,42 +431,42 @@ div.error {
 
 #colormag__site-navigation {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
-    background-color: @ini_color_theme_dark;
-    border-top: 4px solid @ini_color_theme;
+    background-color: @ini_theme_dark_color;
+    border-top: 4px solid @ini_theme_color;
 }
 
 #colormag__site-navigation svg {
-    fill: @ini_color_theme_text;
+    fill: @ini_theme_text_color;
 }
 
 #colormag__usertools-menu.glyphcolors li.action.login svg,
 #colormag__usertools-menu.glyphcolors li.action.register svg {
-    fill: @ini_color_green;
+    fill: @ini_green_color;
 }
 
 #colormag__usertools-menu.glyphcolors li.action.profile svg {
-    fill: @ini_color_blue;
+    fill: @ini_blue_color;
 }
 
 #colormag__usertools-menu.glyphcolors li.action.logout svg {
-    fill: @ini_color_red;
+    fill: @ini_red_color;
 }
 
 #colormag__usertools-menu.glyphcolors li.action.admin svg {
-    fill: @ini_color_yellow;
+    fill: @ini_yellow_color;
 }
 
 .main-navigation li.dropdown-header {
-    color: @ini_color_theme_light;
+    color: @ini_theme_light_color;
 }
 
 .main-navigation a,
 .main-navigation label {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .main-navigation li.menu-item-has-children a:hover {
-    border-color: @ini_color_theme;
+    border-color: @ini_theme_color;
 }
 
 .main-navigation a:hover,
@@ -477,7 +477,7 @@ div.error {
 .main-navigation ul li.current_page_item a,
 .main-navigation ul li:hover > a,
 .main-navigation li.menu-item-has-children:hover > a:after {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .main-navigation a:hover,
@@ -492,21 +492,21 @@ body.translated-home #colormag__site-navigation li.nav.home,
 body.untranslated-home #colormag__site-navigation li.nav.home,
 body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home,
 .home-icon.front_page_on {
-    background-color: @ini_color_theme;
+    background-color: @ini_theme_color;
 }
 
 body.translated-home #colormag__site-navigation li.nav.home ul {
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 body.translated-home #colormag__site-navigation li.nav.home svg,
 body.untranslated-home #colormag__site-navigation li.nav.home svg,
 body:not(.not-home) #colormag__page.home #colormag__site-navigation li.nav.home svg {
-    fill: @ini_color_theme_dark;
+    fill: @ini_theme_dark_color;
 }
 
 body.translated-home #colormag__site-navigation li.nav.home ul li {
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 body.translated-home #colormag__site-navigation li.nav.home ul li svg {
@@ -518,7 +518,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 .main-navigation .sub-menu,
 .main-navigation .children {
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 .main-navigation ul li ul li a,
@@ -527,21 +527,21 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 .main-navigation ul li.current_page_ancestor ul li a,
 .main-navigation ul li.current-menu-ancestor ul li a,
 .main-navigation ul li.current_page_item ul li a {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .main-navigation ul li ul li a:hover,
 .main-navigation ul li ul li:hover > a,
 .main-navigation ul li.current-menu-item ul li a:hover {
-    color: @ini_color_theme_text;
-    background-color: @ini_color_theme;
+    color: @ini_theme_text_color;
+    background-color: @ini_theme_color;
 }
 
 /* =RESPONSIVE MENU
 ----------------------------------------------- */
 
 .site-header .menu-toggle {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .site-header .menu-toggle:hover {
@@ -554,18 +554,18 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 .main-small-navigation li {
-    background-color: @ini_color_theme_text;
+    background-color: @ini_theme_text_color;
 }
 
 .main-small-navigation li a:hover {
     background-color: @ini_link;
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .main-small-navigation .current_page_item > a,
 .main-small-navigation .current-menu-item > a {
     background: @ini_link;
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 */
 
@@ -587,11 +587,11 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* Pills breadcrumbs */
 
 #colormag__pagenav.pills-look .breadcrumbs ul a {
-    background: @ini_color_theme;
+    background: @ini_theme_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs ul a:hover {
-    background: @ini_color_theme_dark;
+    background: @ini_theme_dark_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:first-child a::before {
@@ -599,15 +599,15 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::before {
-    border-color: @ini_color_theme @ini_color_theme @ini_color_theme transparent;
+    border-color: @ini_theme_color @ini_theme_color @ini_theme_color transparent;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::before {
-    border-color: @ini_color_theme_dark @ini_color_theme_dark @ini_color_theme_dark transparent;
+    border-color: @ini_theme_dark_color @ini_theme_dark_color @ini_theme_dark_color transparent;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    border-left: 1.6rem solid @ini_color_theme;
+    border-left: 1.6rem solid @ini_theme_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a::after {
@@ -615,20 +615,20 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::after {
-    border-left-color: @ini_color_theme_dark;
+    border-left-color: @ini_theme_dark_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a::before,
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a::after {
-    background: @ini_color_theme;
+    background: @ini_theme_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::before {
-    background: @ini_color_theme_dark;
+    background: @ini_theme_dark_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::after {
-    background: @ini_color_theme_dark;
+    background: @ini_theme_dark_color;
 }
 
 /* Pills - Curid*/
@@ -668,18 +668,18 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__secondary .widget-title a.rsswidget {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
 .footer-widgets-wrapper {
     border-top: 1px solid @ini_border;
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 .footer-widgets-area {
-    color: @ini_color_theme_light;
+    color: @ini_theme_light_color;
 }
 
 .footer-widgets-area p {
@@ -687,7 +687,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 .footer-widgets-area a {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 .footer-widgets-area a:hover {
@@ -701,7 +701,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =FOOTER SOCKET AREA
 ----------------------------------------------- */
 .footer-socket-wrapper {
-    background-color: @ini_color_theme_dark;
+    background-color: @ini_theme_dark_color;
 }
 
 .footer-socket-wrapper .copyright {
@@ -714,7 +714,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 .footer-socket-wrapper .copyright a:hover {
-    color: @ini_color_theme_text;
+    color: @ini_theme_text_color;
 }
 
 /* =PRIMARY AND SECONDARY CONTENT AREA
@@ -725,7 +725,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 #colormag__secondary.uicolor h3,
 #colormag__secondary.uicolor h4,
 #colormag__secondary.uicolor h5 {
-    color: @ini_color_theme;
+    color: @ini_theme_color;
 }
 
 /* ToC container */
@@ -754,12 +754,12 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__pagetools ul li:hover a {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 #colormag__pagetools ul li:hover a svg {
-    fill: @ini_color_theme_text;
+    fill: @ini_theme_text_color;
 }
 
 /*--------------------------------------------------------------
@@ -797,20 +797,20 @@ DOKUWIKI MODES
 /* Media Manager */
 
 #mediamanager__page .panel h2 {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 #mediamanager__page .panel ul.tabs li strong {
-    border-top: 4px solid @ini_color_theme;
+    border-top: 4px solid @ini_theme_color;
     background-color: @ini_background_alt;
 }
 
 /* Media Popup */
 
 #media__manager #mediamgr__aside h1 {
-    background-color: @ini_color_theme;
-    color: @ini_color_theme_text;
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
 }
 
 /*--------------------------------------------------------------
@@ -832,52 +832,52 @@ PLUGINS
 --------------------------------------------------------------*/
 
 div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
-    background-color: @ini_color_theme !important;
+    background-color: @ini_theme_color !important;
     color: #fff;
 }
 
 div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button:hover {
-    background-color: @ini_color_theme_dark !important;
+    background-color: @ini_theme_dark_color !important;
 }
 
 div.plugin_move_dialog div.ui-dialog-titlebar {
     background-color: @ini_background;
-    border-top: 4px solid @ini_color_theme;
+    border-top: 4px solid @ini_theme_color;
 }
 
 /* TAGALERTS
 --------------------------------------------------------------*/
 
 div.tagerror {
-    background-color: @ini_color_red !important;
+    background-color: @ini_red_color !important;
 }
 
 a.tagerror {
-    background-color: mix(#fff, @ini_color_red, 45%) !important;
+    background-color: mix(#fff, @ini_red_color, 45%) !important;
 }
 
 div.taginfo {
-    background-color: @ini_color_blue !important;
+    background-color: @ini_blue_color !important;
 }
 
 a.taginfo {
-    background-color: mix(#fff, @ini_color_blue, 40%) !important;
+    background-color: mix(#fff, @ini_blue_color, 40%) !important;
 }
 
 div.tagsuccess {
-    background-color: @ini_color_green !important;
+    background-color: @ini_green_color !important;
 }
 
 a.tagsuccess {
-    background-color: mix(#fff, @ini_color_green, 35%) !important;
+    background-color: mix(#fff, @ini_green_color, 35%) !important;
 }
 
 div.tagnotify {
-    background-color: @ini_color_yellow !important;
+    background-color: @ini_yellow_color !important;
 }
 
 a.tagnotify {
-    background-color: mix(#fff, @ini_color_yellow, 40%) !important;
+    background-color: mix(#fff, @ini_yellow_color, 40%) !important;
 }
 
 /* TRANSLATION
@@ -921,9 +921,9 @@ div.plugin_translation ul li a.wikilink2:hover {
 }
 
 #twistienav__popup ul li:hover a {
-    /*background-color: @ini_color_theme;*/
-    /*color: @ini_color_theme_text;*/
-    color: @ini_color_theme;
+    /*background-color: @ini_theme_color;*/
+    /*color: @ini_theme_text_color;*/
+    color: @ini_theme_color;
 }
 
 /* WRAP
@@ -931,61 +931,61 @@ div.plugin_translation ul li a.wikilink2:hover {
 
 div.wrap_info,
 div.wrap_notice {
-    background-color: @ini_color_blue;
+    background-color: @ini_blue_color;
 }
 span.wrap_info,
 span.wrap_notice {
-    background-color: mix(#fff, @ini_color_blue, 40%);
+    background-color: mix(#fff, @ini_blue_color, 40%);
 }
 
 div.wrap_tip,
 div.wrap_caution {
-    background-color: @ini_color_yellow;
+    background-color: @ini_yellow_color;
 }
 span.wrap_tip,
 span.wrap_caution {
-    background-color: mix(#fff, @ini_color_yellow, 50%);
+    background-color: mix(#fff, @ini_yellow_color, 50%);
 }
 
 div.wrap_alert,
 div.wrap_danger {
-    background-color: @ini_color_red;
+    background-color: @ini_red_color;
 }
 span.wrap_alert,
 span.wrap_danger {
-    background-color: mix(#fff, @ini_color_red, 30%);
+    background-color: mix(#fff, @ini_red_color, 30%);
 }
 
 div.wrap_download,
 div.wrap_safety {
-    background-color: @ini_color_green;
+    background-color: @ini_green_color;
 }
 span.wrap_download,
 span.wrap_safety {
-    background-color: mix(#fff, @ini_color_green, 30%);
+    background-color: mix(#fff, @ini_green_color, 30%);
 }
 
 div.wrap_important,
 div.wrap_warning {
-    background-color: mix(@ini_color_red, @ini_color_yellow, 50%);
+    background-color: mix(@ini_red_color, @ini_yellow_color, 50%);
 }
 span.wrap_important,
 span.wrap_warning {
-    background-color: mix(#fff, mix(@ini_color_red, @ini_color_yellow, 50%), 50%);
+    background-color: mix(#fff, mix(@ini_red_color, @ini_yellow_color, 50%), 50%);
 }
 
 div.wrap_help {
-    background-color: mix(@ini_color_red, @ini_color_blue, 50%);
+    background-color: mix(@ini_red_color, @ini_blue_color, 50%);
 }
 span.wrap_help {
-    background-color: mix(#fff, mix(@ini_color_red, @ini_color_blue, 50%), 50%);
+    background-color: mix(#fff, mix(@ini_red_color, @ini_blue_color, 50%), 50%);
 }
 
 div.wrap_todo {
-    background-color: mix(@ini_color_green, @ini_color_blue, 50%);
+    background-color: mix(@ini_green_color, @ini_blue_color, 50%);
 }
 span.wrap_todo {
-    background-color: mix(#fff, mix(@ini_color_green, @ini_color_blue, 50%), 50%);
+    background-color: mix(#fff, mix(@ini_green_color, @ini_blue_color, 50%), 50%);
 }
 
 span.wrap_hi {
@@ -993,7 +993,7 @@ span.wrap_hi {
 }
 
 span.wrap_em {
-    color: @ini_color_red;
+    color: @ini_red_color;
 }
 
 /*--------------------------------------------------------------
@@ -1008,7 +1008,7 @@ RESPONSIVE STRUCTURE
         box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
     }
     #colormag__topbar-links ul li ul li:hover {
-        background-color: @ini_color_theme;
+        background-color: @ini_theme_color;
     }
     #colormag__topbar-links ul li ul li:hover a {
         color: #fff;
