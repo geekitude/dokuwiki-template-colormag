@@ -288,8 +288,8 @@ function colormag_init() {
     }
 //dbg(tpl_incdir().'style.ini');
 //dbg($styleini);
-//dbg($styleini['replacements']['__color_theme__']);
-    $colormag['initial_theme_color'] = $styleini['replacements']['__color_theme__'];
+//dbg($styleini['replacements']['__theme_color__']);
+    $colormag['initial_theme_color'] = $styleini['replacements']['__theme_color__'];
 //dbg($colormag['initial_theme_color']);
     // Look for a "nstheme" page
     //$themelFile = page_findnearest("links", true);
@@ -308,7 +308,7 @@ function colormag_init() {
     } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
         //dbg($colormag['ishome']);
         $autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
-        $styleini['replacements']['__color_theme__'] = $autotheme;
+        $styleini['replacements']['__theme_color__'] = $autotheme;
     }
 //dbg($styleini['replacements']);
     $css = io_readFile(tpl_incdir()."/css/colormag.theme.less");
