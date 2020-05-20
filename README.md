@@ -176,6 +176,7 @@ $meta['print']              = array('multicheckbox', '_choices' => array('sitehe
 * **cheatsheet** (*cheatsheet*) : page to look after in "wiki:" namespace to use as an edit and preview modes sidebar
 
 (*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors, UI colors and headings
+
 (**) Note that, so far, ToC and Sidebar can only be printed as full-width blocks
 
 ## About
