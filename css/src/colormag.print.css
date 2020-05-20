@@ -34,10 +34,12 @@ legend {
     clear: both;
 }
 
+/* elements */
 #colormag__page,
 .inner-wrap,
-.inner-wrap-left {
-    margin: 0;
+.inner-wrap-left,
+#colormag__primary {
+    margin: 0 !important;
 }
 .inner-wrap-left {
     display: block;
@@ -81,9 +83,6 @@ a:visited {
     /*background-color: inherit;*/
     padding: 0 !important;
 }
-a {
-    background-image: none !important;
-}
 
 /* display href after link */
 /*body.printhrefs #spacious__article a.urlextern:after,
@@ -102,7 +101,11 @@ body.printhrefs a.mail:after {
     vertical-align: baseline;
     top: .5ex;
 }
-
+body:not(.printhrefs) a {
+    color: #000;
+    background-image: none !important;
+}
+    
 /* code blocks */
 pre {
     font-family: monospace;
@@ -145,6 +148,7 @@ div.footnotes div.fn div.content {
 /*--------------------------------------------------------------
 EXCLUDED
 --------------------------------------------------------------*/
+.noprint,
 #colormag__skip,
 #colormag__topbar-wrapper,
 #colormag__header-right-sidebar .tools,
