@@ -61,6 +61,11 @@ h1, h2, h3, h4, h5, h6, p, pre, table, figure, div.fn sup, #colormag__secondary 
     border: none !important;
 }
 
+/* add border */
+[dir] .docInfo {
+    border: 1px solid @ini_border;
+}
+
 /* links */
 /*#spacious__article a:link,
 #spacious__article a:visited {*/
