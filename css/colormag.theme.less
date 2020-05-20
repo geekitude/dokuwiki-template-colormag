@@ -99,15 +99,18 @@ textarea {
 .uicolor,
 #colormag__main.uicolor-toc #dw__toc,
 #colormag__pagetools .uicolor-pagetools ul:hover {
-    color: @ini_color_text_ui !important;
+    color: @ini_color_text_ui;
 }
 
 [dir] .uicolor, [dir] #colormag__main.uicolor-toc #dw__toc, [dir] #colormag__pagetools .uicolor-pagetools ul:hover {
+    background-color: @ini_color_background_ui;
+}
+[dir] .footer-socket-wrapper.uicolor {
     background-color: @ini_color_background_ui !important;
 }
 
 #colormag__main.uicolor-toc #dw__toc a {
-    color: @ini_color_text_ui !important;
+    color: @ini_color_text_ui;
 }
 
 /*
@@ -733,8 +736,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 #colormag__secondary.uicolor h2,
 #colormag__secondary.uicolor h3,
 #colormag__secondary.uicolor h4,
-#colormag__secondary.uicolor h5,
-#colormag__secondary.uicolor h6 {
+#colormag__secondary.uicolor h5 {
     color: @ini_color_theme;
 }
 

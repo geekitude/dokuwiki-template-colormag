@@ -54,22 +54,17 @@ legend {
 #colormag__colophon .footer-widgets-area { padding: 0; color: #000 !important; }
 #colormag__colophon li { border: none !important; }
 #colormag__colophon a { color: #000 !important; }
-/* Black prints faster: h5bp.com/s */
 
-/* prevent breaks directly after ... */
-h1, h2, h3, h4, h5, p, pre, table, figure, div.fn sup {
+/* prevent breaks inside and directly after ... */
+h1, h2, h3, h4, h5, h6, p, pre, table, figure, div.fn sup, #colormag__secondary {
     /*page-break-inside: avoid !important;*/
     break-inside: avoid;
+    break-after: avoid;
 }
 
 /* remove borders */
 .footer-widgets-wrapper {
     border: none !important;
-}
-
-/* edit buttons */
-div.secedit.editbutton_section {
-    display: none;
 }
 
 /* links */
@@ -142,9 +137,34 @@ img.mediacenter {
     fill: black !important;
 }
 
+/* asides */
+#colormag__secondary,
+.docInfo.uicolor {
+    background-color: #fff;
+}
+#colormag__main.uicolor-toc #dw__toc {
+    background-color: #fff !important;
+}
+.docInfo.uicolor {
+    color: #000;
+}
+#colormag__main.uicolor-toc #dw__toc a {
+    color: #000 !important;
+}
+#colormag__secondary,
+#dw__toc,
+.docInfo.uicolor {
+    width: 100%;
+}
+
 /* footnotes */
 div.footnotes div.fn div.content {
     display: inline;
+}
+
+/* Tagalerts plugin messages */
+div.tagerror, div.taginfo, div.tagsuccess, div.tagnotify {
+    padding: .2rem .5rem !important;
 }
 
 /*--------------------------------------------------------------
@@ -157,10 +177,13 @@ EXCLUDED
 #colormag__site-navigation-sticky-wrapper,
 #colormag__pagenav,
 #colormag__userwidget,
+#colormag__secondary h6 strong,
 #colormag__main.noprint-toc #dw__toc,
+#dw__toc h3 strong,
 #colormag__pagetools,
-div.footer-socket-wrapper {
-    display: none !important;
+div.footer-socket-wrapper,
+div.secedit.editbutton_section {
+    display: none;
 }
 
 /*--------------------------------------------------------------
@@ -168,4 +191,7 @@ INCLUDED
 --------------------------------------------------------------*/
 #colormag__pageqrwidget {
     display: initial;
+}
+#colormag__secondary:not(.noprint) h6 {
+    display: block !important;
 }

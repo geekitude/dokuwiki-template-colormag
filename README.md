@@ -161,7 +161,9 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
-* **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links)
+* **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links) (**)
+$conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
+$meta['print']              = array('multicheckbox', '_choices' => array('siteheader','siteheader-banner','widebanner','toc','sidebar','docinfo','sitefooter','hrefs'));
 * **banner** (*banner*) : file name to look after for site banner
 * **pattern** (*pattern*) : file name to look after for site background pattern
 * **sidecard** (*sidecard*) : file name to look after to use as sidebar header
@@ -174,6 +176,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **cheatsheet** (*cheatsheet*) : page to look after in "wiki:" namespace to use as an edit and preview modes sidebar
 
 (*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors, UI colors and headings
+(**) Note that, so far, ToC and Sidebar can only be printed as full-width blocks
 
 ## About
 
