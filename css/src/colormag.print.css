@@ -45,10 +45,13 @@ legend {
     display: block;
 }
 #colormag__main {
-    padding: 1.5rem 0;
+    padding: 2rem 0;
 }
 #colormag__header-text-nav-wrap {
     padding: 0;
+}
+#colormag__widebanner-wrap {
+    margin-top: 1.5rem;
 }
 #colormag__content p {
     color: #000;
