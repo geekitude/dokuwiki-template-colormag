@@ -13,7 +13,7 @@
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 $conf['uicolorize']         = '';
-$conf['autotheme']          = 0;
+$conf['autotheme']          = 'disabled';
 $conf['glyphcolors']        = '';
 $conf['topbar']             = 'date,newsticker,links';
 $conf['newsticker']         = 'skip_minors,pages,media,5';

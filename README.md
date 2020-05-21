@@ -51,6 +51,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * SVG icons come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
 * Pills style breadcrumbs are based on [this page](https://catalin.red/css3-breadcrumbs/)
+* Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php)
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
 
 ## Conversion todo
@@ -136,7 +137,10 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `socket` : flip content
 * **uicolorize** (*nothing*) : choose UI elements to colorize with `style.ini` file "UI" colors between *topbar*, *pagenav*, *sidebar*, *toc*, *pagetools*, *docinfo* and *footersocket*
 * **uicolor** (*neu*) : color set from **style.ini** file to use for elements selected above (*neu*, *alt*, *theme* or *dark* wich uses a slightly lightened __theme_dark__color_ background color to keep contrast with main navigation)
-* **autotheme** ([ ]) : generate a theme color based on current page namespace's name if not at home page (translated or not) or at any admin page and isn't triggered either if that namespace has a [custom theme file](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) (there's no control of any kind on the result color and it might not allways look nice, the whole process may need some more work) (*)
+* **autotheme** (*disabled*) : generate a theme color based on this setting if not at home page (translated or not) or at any admin page ([namespace style](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) has priority over this setting)
+  * `disabled` : theme color will only be based on Colormag's `style.ini` or namespace's `theme.ini`
+  * `pageid` : color will be extracted from a *md5* hash of current namespace ID (this doesn't allways give nice results but it's a light and straight forward process)
+  * `banner`, `widebanner` or `sidecard` : Colormag will extrac main color of corresponding UI image (as this process might be heavy depending on environment, I added a notification showing time used for wiki admins)
 * **glypholors** ([ ]) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings

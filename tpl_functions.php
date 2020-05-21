@@ -305,10 +305,24 @@ function colormag_init() {
                 $styleini['replacements'][$key] = $value;
             }
         }
-    } elseif ((tpl_getConf('autotheme')) and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
-        //dbg($colormag['ishome']);
-        $autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
-        $styleini['replacements']['__theme_color__'] = $autotheme;
+    } elseif ((tpl_getConf('autotheme') != 'disabled') and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
+        // Autotheme timer start
+        $rustart = getrusage();
+
+        $autotheme = colormag_color($ID);
+
+        if ($autotheme) {
+            $styleini['replacements']['__theme_color__'] = $autotheme;
+            // Autotheme timer end
+            function rutime($ru, $rus, $index) {
+                return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
+                 -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
+            }
+
+            $ru = getrusage();
+            $autotheme_msg = "Autotheme color collection took ".rutime($ru, $rustart, "utime")."ms to get main color from ".tpl_getConf('autotheme').". It spent ".rutime($ru, $rustart, "stime")."ms in system calls.";
+        }
+
     }
 //dbg($styleini['replacements']);
     $css = io_readFile(tpl_incdir()."/css/colormag.theme.less");
@@ -378,11 +392,16 @@ function colormag_init() {
     // COLORMAG ALERTS
     // For Admins eyes only
     if ($INFO['isadmin']) {
+//dbg("ici?");
         if ((tpl_getConf('breadcrumbslook') == "pills") and (!plugin_isdisabled('twistienav'))) {
             msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
         }
         if ((tpl_getConf('breadcrumbslook') == "underlined") and (is_file($themeinifile['src']))) {
             msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID. You may want to switch to another type of breadcrumbs.', 0);
+        }
+        if ($autotheme_msg != null) {
+//dbg("pas là?");
+            msg($autotheme_msg, 2);
         }
     }
 }/* /colormag_init */
@@ -501,6 +520,7 @@ function colormag_inherit($target, $type = "media", $useacl = false){
     } elseif (isset($glob[0])) {
         $src = $glob[0];
         if ($type == "media") {
+            $result['path'] = $src;
             $result['src'] = '/lib/exe/fetch.php?media='.str_replace("/", ":", explode("media/", $src)[1]);
         } elseif ($type == "conf") {
             $result['src'] = $src;
@@ -1306,3 +1326,76 @@ function colormag_ishome($page) {
     }
     return $ishome;
 }
+
+function colormag_color($target) {
+    global $ID, $colormag, $INFO;
+//dbg(tpl_getConf('autotheme'));
+//dbg($target);
+        $result = false;
+        if (tpl_getConf('autotheme') == 'pageid') {
+//dbg("ici?");
+            //dbg($colormag['ishome']);
+            //$autotheme = '#'.substr(md5(getNS($ID)), 6, 6);
+            $result = substr(md5(getNS($target)), 6, 6);
+            //$styleini['replacements']['__theme_color__'] = '#'.substr(md5(getNS($ID)), 6, 6);
+        } elseif (isset($colormag['images'][tpl_getConf('autotheme')]['path'])) {
+//dbg("là?");
+//dbg($colormag['images'][tpl_getConf('autotheme')]['path']);
+//            $palette = colormag_palette($colormag['images'][tpl_getConf('autotheme')]['path'], $colormag['images'][tpl_getConf('autotheme')]['size'], 5, $granularity = 5);
+//dbg($palette);
+//            $autotheme = $palette[0];
+            $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
+            $thumb = imagecreatetruecolor(1,1);
+            imagecopyresampled($thumb,$image,0,0,0,0,1,1,imagesx($image),imagesy($image));
+            $result = strtoupper(dechex(imagecolorat($thumb,0,0)));
+            //$styleini['replacements']['__theme_color__'] = '#'.$palette[0];
+//dbg($palette);
+        }
+//dbg($autotheme);
+    return "#".$result;
+}
+
+//function colormag_palette($imageFile, $size, $numColors, $granularity = 5) 
+//{ 
+//   $granularity = max(1, abs((int)$granularity)); 
+//   $colors = array(); 
+//   ///$size = @getimagesize($imageFile); 
+//   if($size === false) 
+//   { 
+//      user_error("Unable to get image size data"); 
+//      return false; 
+//   } 
+//   //$img = @imagecreatefromjpeg($imageFile);
+//   $img = @imagecreatefromstring(file_get_contents($imageFile));
+//   // Andres mentioned in the comments the above line only loads jpegs, 
+//   // and suggests that to load any file type you can use this:
+//   // $img = @imagecreatefromstring(file_get_contents($imageFile));// 
+//   if(!$img) 
+//   { 
+//      user_error("Unable to open image file"); 
+//      return false; 
+//   } 
+//   for($x = 0; $x < $size[0]; $x += $granularity) 
+//   { 
+//      for($y = 0; $y < $size[1]; $y += $granularity) 
+//      { 
+//         $thisColor = imagecolorat($img, $x, $y); 
+//         $rgb = imagecolorsforindex($img, $thisColor); 
+//         $red = round(round(($rgb['red'] / 0x33)) * 0x33); 
+//         $green = round(round(($rgb['green'] / 0x33)) * 0x33); 
+//         $blue = round(round(($rgb['blue'] / 0x33)) * 0x33); 
+//         $thisRGB = sprintf('%02X%02X%02X', $red, $green, $blue); 
+//         if(array_key_exists($thisRGB, $colors)) 
+//         { 
+//            $colors[$thisRGB]++; 
+//         } 
+//         else 
+//         { 
+//            $colors[$thisRGB] = 1; 
+//         } 
+//      } 
+//   } 
+//   arsort($colors); 
+//dbg($colors);
+//   return array_slice(array_keys($colors), 0, $numColors); 
+//} 

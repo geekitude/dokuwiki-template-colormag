@@ -13,7 +13,7 @@
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidebar','pagetools','socket'));
 $meta['uicolorize']         = array('multicheckbox', '_choices' => array('topbar','pagenav','sidebar','toc','pagetools','docinfo','footersocket'));
-$meta['autotheme']          = array('onoff');
+$meta['autotheme']          = array('multichoice','_choices' => array('disabled','pageid','banner','widebanner','sidecard'));
 $meta['glyphcolors']        = array('multicheckbox', '_choices' => array('social','usertools'));
 $meta['topbar']             = array('multicheckbox','_choices' => array('date','newsticker','links'));
 $meta['newsticker']         = array('multicheckbox', '_choices' => array('skip_deleted','skip_minors','skip_subspaces','pages','media'));
