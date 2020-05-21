@@ -27,7 +27,6 @@ if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER[
 global $colormag, $showSidebar;
 // Reset $colormag to make sure we don't inherit any value from previous page
 $colormag = array();
-colormag_init();
 
 if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getConf('cheatsheet')))) {
     $hasSidebar = "wiki:".tpl_getConf('cheatsheet');
@@ -36,6 +35,8 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
     $hasSidebar = page_findnearest($conf['sidebar']);
     $showSidebar = $hasSidebar && ($ACT=='show');
 }
+
+colormag_init();
 //dbg($hasSidebar);
 //dbg($showSidebar);
 //dbg($ACT);

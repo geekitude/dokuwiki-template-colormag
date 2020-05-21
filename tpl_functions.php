@@ -22,7 +22,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function colormag_init() {
-    global $ID, $JSINFO, $conf, $INFO;
+    global $ID, $JSINFO, $conf, $INFO, $showSidebar;
     global $colormag;
 
     // UI IMAGES
@@ -45,7 +45,11 @@ function colormag_init() {
     //}
     foreach ($images as $type) {
 //dbg($type);
-        if (tpl_getConf($type) != null) {
+//dbg(tpl_getConf($type));
+//dbg($showSidebar);
+//        if (tpl_getConf($type) != null) {
+//        if ((($type == "sidecard") and ($showSidebar != null)) or (tpl_getConf($type) != null)) {
+        if ((tpl_getConf($type) != null) and ((($type == "sidecard") and ($showSidebar != null)) or ($type == "banner") or ($type == "widebanner"))) {
             $colormag['images'][$type] = colormag_inherit(tpl_getConf($type));
         }
     }
@@ -305,7 +309,7 @@ function colormag_init() {
                 $styleini['replacements'][$key] = $value;
             }
         }
-    } elseif ((tpl_getConf('autotheme') != 'disabled') and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
+    } elseif ((tpl_getConf('autotheme') != 'disabled') and ($colormag['images'][tpl_getConf('autotheme')]['path'] != null) and ($_GET['do'] != "admin") and ($colormag['ishome'] == false) and ($ID != $conf['start'])) {
         // Autotheme timer start
         $rustart = getrusage();
 
