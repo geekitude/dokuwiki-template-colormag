@@ -154,6 +154,7 @@ function colormag_init() {
     $colormag['glyphs']['revert'] = 'step-backward';
     $colormag['glyphs']['save'] = 'floppy';
     $colormag['glyphs']['search'] = 'magnify';
+    $colormag['glyphs']['searchindex'] = 'database-search';
 //    $colormag['glyphs']['separator'] = 'cards-diamond';
     $colormag['glyphs']['show'] = 'eye';
 //    $colormag['glyphs']['social'] = 'account-network';
