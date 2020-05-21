@@ -1350,7 +1350,11 @@ function colormag_color($target) {
 //            $autotheme = $palette[0];
             $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
             $thumb = imagecreatetruecolor(1,1);
-            imagecopyresampled($thumb,$image,0,0,0,0,1,1,imagesx($image),imagesy($image));
+            if (isset($colormag['images'][tpl_getConf('autotheme')]['size'])) {
+                imagecopyresampled($thumb,$image,0,0,0,0,1,1,$colormag['images'][tpl_getConf('autotheme')]['size'][0],$colormag['images'][tpl_getConf('autotheme')]['size'][1]);
+            } else {
+                imagecopyresampled($thumb,$image,0,0,0,0,1,1,imagesx($image),imagesy($image));
+            }
             $result = strtoupper(dechex(imagecolorat($thumb,0,0)));
             //$styleini['replacements']['__theme_color__'] = '#'.$palette[0];
 //dbg($palette);

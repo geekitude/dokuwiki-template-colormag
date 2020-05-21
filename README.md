@@ -140,7 +140,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * **autotheme** (*disabled*) : generate a theme color based on this setting if not at home page (translated or not) or at any admin page ([namespace style](https://github.com/geekitude/dokuwiki-template-colormag#namespace-dependent-css) has priority over this setting)
   * `disabled` : theme color will only be based on Colormag's `style.ini` or namespace's `theme.ini`
   * `pageid` : color will be extracted from a *md5* hash of current namespace ID (this doesn't allways give nice results but it's a light and straight forward process)
-  * `banner`, `widebanner` or `sidecard` : Colormag will extrac main color of corresponding UI image (as this process might be heavy depending on environment, I added a notification showing time used for wiki admins)
+  * `banner`, `widebanner` or `sidecard` : Colormag will collect main color of corresponding UI image (as this process might be heavy depending on environment, I added a notification showing time used for wiki admins), remember that `sidecard` is only available in namspaces with sidebar
 * **glypholors** ([ ]) : add some color to social and/or user tools glyphs
 * **topbar** (*date,newsticker,links*) : choose topbar elements
   * `date` : just the server's current date based on `datelocale` and `longdatestring` settings
