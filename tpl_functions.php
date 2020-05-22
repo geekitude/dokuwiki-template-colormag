@@ -1017,14 +1017,22 @@ function colormag_youarehere() {
             //if (($colormag['translation']['ishome'] == false) or ($ID != $conf['start'])) {
             //    $listyle = ' style="border-color:#'.$colormag['initial_theme_color'].'"';
             //} else {
-            // We need a page ID to check if it's home, not a namespace ID like "wiki:"
+            // We need a page ID for checks, not a namespace ID like "wiki:"
             if (substr($page, -1) == ":") {
                 $check = $page.$conf['start'];
             } else {
                 $check = $page;
             }
+
+            $themeinifile = colormag_inherit("theme.ini", "conf", $check);
+//dbg($themeinifile);
             if (colormag_ishome($check)) {
                 $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+            } elseif (is_file($themeinifile['src'])) {
+                $listyle = ' style="border-color:pink"';
+                $themeini = parse_ini_file($themeinifile['src'], true);
+                $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
+//dbg($themeini['replacements']['__theme_color__']);
             } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
                 $listyle = ' style="border-color:'.colormag_color($check, true).'"';
             } else {
@@ -1084,8 +1092,14 @@ function colormag_trace() {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
             if (tpl_getConf('breadcrumbslook') == 'underlined') {
+                $themeinifile = colormag_inherit("theme.ini", "conf", $target);
+//dbg($themeinifile);
                 if (colormag_ishome($target)) {
                     $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+                } elseif (is_file($themeinifile['src'])) {
+                    $themeini = parse_ini_file($themeinifile['src'], true);
+                    $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
+//dbg($themeini['replacements']['__theme_color__']);
                 } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
                     $listyle = ' style="border-color:'.colormag_color($target, true).'"';
                 } else {

@@ -161,13 +161,13 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `start` : to the top
   * `center`
   * `end` : to the bottom
-* **breadcrumbslook** (*classic*) : choose between *classic*, *underlined* or *pills* breadcrumbs :warning: "underlined" color is based on target namespace's name, custom theme is not taken into account :warning:
+* **breadcrumbslook** (*classic*) : choose between *classic*, *underlined* or *pills* breadcrumbs :warning: "underlined" color is based on `style.ini` file if target is home (translated or not) > `theme.ini` file > UI image from `autotheme` setting > target's $ID :warning:
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **links** (*links*) : name of wiki page to use to feed footer links widget
 * **licensevisual** (*badge*) : select license image between a small button, larger badge or nothing
-* **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (*hrefs* is about adding target url to as subscript to all external links) (**)
-$conf['print']              = 'siteheader,docinfo,sitefooter,hrefs';
-$meta['print']              = array('multicheckbox', '_choices' => array('siteheader','siteheader-banner','widebanner','toc','sidebar','docinfo','sitefooter','hrefs'));
+* **print** (*siteheader,docinfo,sitefooter,hrefs*) : a few elements you can choose to print or not (**)
+  * `siteheader`, `siteheader-banner`, `widebanner`, `toc`, `sidebar`, `docinfo` and `sitefooter` are quite self-explanatory
+  * `hrefs` consists in adding the complete target URL as subscript after each link
 * **banner** (*banner*) : file name to look after for site banner
 * **pattern** (*pattern*) : file name to look after for site background pattern
 * **sidecard** (*sidecard*) : file name to look after to use as sidebar header
@@ -179,17 +179,17 @@ $meta['print']              = array('multicheckbox', '_choices' => array('sitehe
   * `none` : no link at all
 * **cheatsheet** (*cheatsheet*) : page to look after in "wiki:" namespace to use as an edit and preview modes sidebar
 
-(*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, dark and light theme colors, UI colors and headings
+(*) *Autotheme* gives most consistent results if you keep LESS formulas based on theme color in `style.ini` file for alternate colors, UI colors, headings, dark and light theme colors
 
-(**) Note that, so far, ToC and Sidebar can only be printed as full-width blocks
+(**) Note that, so far, ToC and Sidebar can only be printed as pretty ugly full-width blocks
 
 ## About
 
 ### Breadccrumbs
 
-Both `youarehere` and `trace` code differs from core functions because original functions' outpout doesn't give the markup needed for "pills" look. While `trace` content is the same, `youarehere` is a bit specific and reflects current page ID parts (ie. current page, current page's namespace's start page if it's different, then other parents) and "home" link is not forced in since it's available in main nav just above.
+Both `youarehere` and `trace` code differs from core functions to bring the markup needed for "pills" look and the code for `underlined` colors. While `trace` content is the same, `youarehere` is a bit specific and reflects current page ID parts (ie. current page, current page's namespace's start page if it's different, then other parents) and "home" link is not forced in since it's available in main nav just above.
 
-:memo: Note that Colormag is designed to have both `youarehere` and `trace` enabled at same time (but if `youarehere` is disabled, it will be replaced by page ID string)
+:memo: Note that Colormag is designed to have both `youarehere` and `trace` enabled at same time (but if `youarehere` is disabled, it will be replaced by a simple page ID string)
 
 ### UI Images
 
