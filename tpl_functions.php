@@ -1038,12 +1038,14 @@ function colormag_youarehere() {
             if (colormag_ishome($check)) {
                 $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
             } elseif (is_file($themeinifile['src'])) {
-                $listyle = ' style="border-color:pink"';
                 $themeini = parse_ini_file($themeinifile['src'], true);
                 $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
 //dbg($themeini['replacements']['__theme_color__']);
             } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                $listyle = ' style="border-color:'.colormag_color($check, true).'"';
+                $color = colormag_color($check, true);
+                if ($color != "#") {
+                    $listyle = ' style="border-color:'.$color.'"';
+                }
             } else {
                 $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
             }
@@ -1126,7 +1128,10 @@ function colormag_trace() {
                     $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
 //dbg($themeini['replacements']['__theme_color__']);
                 } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                    $listyle = ' style="border-color:'.colormag_color($target, true).'"';
+                    $color = colormag_color($target, true);
+                    if ($color != "#") {
+                        $listyle = ' style="border-color:'.colormag_color($target, true).'"';
+                    }
                 } else {
                     $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
                 }
@@ -1422,11 +1427,14 @@ function colormag_color($target, $inherit = false) {
                 $targetimage = colormag_inherit(tpl_getConf('autotheme'), "media", $target);
                 if (isset($targetimage['path'])) {
                     $image = @imagecreatefromstring(file_get_contents($targetimage['path']));
+//dbg("hein?");
                 } else {
                     return false;
+//dbg("ben ouais");
                 }
             } else {
                 $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
+//dbg("ici alors?");
             }
             $thumb = imagecreatetruecolor(1,1);
             if (isset($colormag['images'][tpl_getConf('autotheme')]['size'])) {
@@ -1440,6 +1448,7 @@ function colormag_color($target, $inherit = false) {
 //            $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
 //dbg($autotheme);
         }
+//dbg($result);
     return "#".$result;
 }
 
