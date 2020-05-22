@@ -84,7 +84,9 @@ colormag_init();
                         <div class="breadcrumbs youarehere">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
                                 <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print rtrim($lang['youarehere'], ":") ?></span></h6>
-                                <div class="flex row center"><span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span><ul><?php colormag_youarehere() ?></ul></div>
+                                <div class="flex row center"><span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span>
+                                    <?php colormag_youarehere() ?>
+                                </div>
                             <?php else: ?>
                                 <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
                             <?php endif ?>
@@ -97,13 +99,19 @@ colormag_init();
                             <div class="breadcrumbs youarehere">
                                 <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['youarehere'] ?></span></h6>
-                                    <div class="flex row-reverse center"><span class="label"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span><ul class=""><?php colormag_youarehere() ?></ul></div>
+                                    <div class="flex row-reverse center">
+                                        <span class="label"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span>
+                                        <?php colormag_youarehere() ?>
+                                    </div>
                                 <?php endif ?>
                             </div><!-- .breacrumbs.youarehere -->
                             <div class="breadcrumbs trace">
                                 <?php if($conf['breadcrumbs']): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print rtrim($lang['breadcrumb'], ":") ?></span></h6>
-                                    <div class="flex row-reverse center"><span class="label" title="<?php print rtrim($lang['breadcrumb'], ':') ?>"><?php colormag_glyph($colormag['glyphs']['trace']) ?></span><ul class=""><?php colormag_trace() ?></ul></div>
+                                    <div class="flex row-reverse center">
+                                        <span class="label" title="<?php print rtrim($lang['breadcrumb'], ':') ?>"><?php colormag_glyph($colormag['glyphs']['trace']) ?></span>
+                                        <?php colormag_trace() ?>
+                                    </div>
                                 <?php endif ?>
                             </div><!-- .breacrumbs.trace -->
                             <?php if(($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs'])) print $colormag['translation']['helper']->showTranslations(false); ?>

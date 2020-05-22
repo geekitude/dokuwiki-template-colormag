@@ -997,6 +997,8 @@ function colormag_youarehere() {
     // print intermediate namespace links
     $part = '';
 
+    print '<ul>';
+
     for($i = 0; $i <= $count - 1; $i++) {
 //dbg($i);
         $part .= $parts[$i];
@@ -1051,6 +1053,8 @@ function colormag_youarehere() {
         }
     }
 
+    print '</ul>';
+
     $ru = getrusage();
     msg("Youarehere took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
 
@@ -1088,6 +1092,8 @@ function colormag_trace() {
         $last = count($crumbs);
         $i    = 0;
 
+        print '<ul>';
+
         foreach($crumbs as $target => $name) {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
@@ -1117,6 +1123,8 @@ function colormag_trace() {
                 }
             print '</li>';
         }
+
+        print '</ul>';
 
         $ru = getrusage();
         msg("Trace took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
