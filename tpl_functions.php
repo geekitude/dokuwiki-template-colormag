@@ -321,7 +321,17 @@ function colormag_init() {
             // Autotheme timer end
 
             $ru = getrusage();
-            $autotheme_msg = "Autotheme color collection took ".rutime($ru, $rustart, "utime")."ms to get main color from ".tpl_getConf('autotheme').". It spent ".rutime($ru, $rustart, "stime")."ms in system calls.";
+            $time = rutime($ru, $rustart, "utime");
+            if ($time > 100) {
+                $alert = -1;
+            } elseif ($time > 50) {
+                $alert = 2;
+            } elseif ($time > 20) {
+                $alert = 0;
+            } else {
+                $alert = 1;
+            }
+            $autotheme_msg = array("Autotheme color collection took ".$time."ms to get main color from ".tpl_getConf('autotheme').". It spent ".rutime($ru, $rustart, "stime")."ms in system calls.", $alert);
         }
 
     }
@@ -399,7 +409,7 @@ function colormag_init() {
         }
         if ($autotheme_msg != null) {
 //dbg("pas là?");
-            msg($autotheme_msg, 2);
+            msg($autotheme_msg[0], $autotheme_msg[1]);
         }
     }
 }/* /colormag_init */
@@ -1053,7 +1063,17 @@ function colormag_youarehere() {
     print '</ul>';
 
     $ru = getrusage();
-    msg("Youarehere took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
+    $time = rutime($ru, $rustart, "utime");
+    if ($time > 100) {
+        $alert = -1;
+    } elseif ($time > 50) {
+        $alert = 2;
+    } elseif ($time > 20) {
+        $alert = 0;
+    } else {
+        $alert = 1;
+    }
+    msg("Youarehere took ".$time."ms to build list and collect colors.", $alert);
 
 }/* /colormag_youarehere */
 
@@ -1124,7 +1144,17 @@ function colormag_trace() {
         print '</ul>';
 
         $ru = getrusage();
-        msg("Trace took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
+        $time = rutime($ru, $rustart, "utime");
+        if ($time > 100) {
+            $alert = -1;
+        } elseif ($time > 50) {
+            $alert = 2;
+        } elseif ($time > 20) {
+            $alert = 0;
+        } else {
+            $alert = 1;
+        }
+        msg("Trace took ".$time."ms to build list and collect colors.", $alert);
 
         return true;
     } else {
