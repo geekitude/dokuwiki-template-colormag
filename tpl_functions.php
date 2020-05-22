@@ -50,7 +50,7 @@ function colormag_init() {
 //        if (tpl_getConf($type) != null) {
 //        if ((($type == "sidecard") and ($showSidebar != null)) or (tpl_getConf($type) != null)) {
         if ((tpl_getConf($type) != null) and ((($type == "sidecard") and ($showSidebar != null)) or ($type == "banner") or ($type == "widebanner"))) {
-            $colormag['images'][$type] = colormag_inherit(tpl_getConf($type));
+            $colormag['images'][$type] = colormag_inherit(tpl_getConf($type), "media", $ID);
         }
     }
 //dbg($colormag['images']);
@@ -300,7 +300,7 @@ function colormag_init() {
     //$themelFile = page_findnearest("links", true);
     //$nsStyleIni = colormag_file("style", "inherit", "conf", $colormag['baseNs']);
     //$themeinifile = "./data/pages/test/test/theme.ini";
-    $themeinifile = colormag_inherit("theme.ini", "conf");
+    $themeinifile = colormag_inherit("theme.ini", "conf", $ID);
 //dbg($themeinifile);
     if (is_file($themeinifile['src'])) {
         $themeini = parse_ini_file($themeinifile['src'], true);
@@ -319,10 +319,6 @@ function colormag_init() {
         if ($autotheme) {
             $styleini['replacements']['__theme_color__'] = $autotheme;
             // Autotheme timer end
-            function rutime($ru, $rus, $index) {
-                return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
-                 -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
-            }
 
             $ru = getrusage();
             $autotheme_msg = "Autotheme color collection took ".rutime($ru, $rustart, "utime")."ms to get main color from ".tpl_getConf('autotheme').". It spent ".rutime($ru, $rustart, "stime")."ms in system calls.";
@@ -402,7 +398,7 @@ function colormag_init() {
             msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
         }
         if ((tpl_getConf('breadcrumbslook') == "underlined") and (is_file($themeinifile['src']))) {
-            msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID. You may want to switch to another type of breadcrumbs.', 0);
+            msg('Current namespace has a theme file but "Underlined" breadcrumbs still show a color based on it\'s ID or autotheme image. You may want to switch to another type of breadcrumbs.', 0);
         }
         if ($autotheme_msg != null) {
 //dbg("pas là?");
@@ -474,11 +470,11 @@ function colormag_bodyclasses() {
  * @param bool $useacl only return media if start page in same ns is readable by the current user, false to ignore ACLs
  * @return false|string the found media id, false if none
  */
-function colormag_inherit($target, $type = "media", $useacl = false){
+function colormag_inherit($target, $type = "media", $origin, $useacl = false){
     //if ((string) $target === '') return false;
-    global $ID, $conf;
+    global $conf;
 
-    $ns = $ID;
+    $ns = $origin;
     $result = array();
     $glob = array();
     $file = null;
@@ -989,6 +985,9 @@ function colormag_newsticker($context = null) {
 function colormag_youarehere() {
     global $conf, $ID, $lang, $colormag;
 
+    // Youarehere timer start
+    $rustart = getrusage();
+
     // check if enabled
     if(!$conf['youarehere']) return false;
 
@@ -997,6 +996,7 @@ function colormag_youarehere() {
 //dbg($parts);
     // print intermediate namespace links
     $part = '';
+
     for($i = 0; $i <= $count - 1; $i++) {
 //dbg($i);
         $part .= $parts[$i];
@@ -1023,7 +1023,9 @@ function colormag_youarehere() {
             } else {
                 $check = $page;
             }
-            if (colormag_ishome($check)) {
+            if ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
+                $listyle = ' style="border-color:'.colormag_color($check, true).'"';
+            } elseif (colormag_ishome($check)) {
                 $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
             } else {
                 $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
@@ -1040,6 +1042,10 @@ function colormag_youarehere() {
             break;
         }
     }
+
+    $ru = getrusage();
+    msg("Youarehere took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
+
 }/* /colormag_youarehere */
 
 /**
@@ -1050,6 +1056,9 @@ function colormag_youarehere() {
 function colormag_trace() {
     global $lang, $conf, $ID;
     global $colormag;
+
+    // Trace timer start
+    $rustart = getrusage();
 
     //check if enabled
     if(!$conf['breadcrumbs']) return false;
@@ -1070,11 +1079,14 @@ function colormag_trace() {
         //render crumbs, highlight the last one
         $last = count($crumbs);
         $i    = 0;
+
         foreach($crumbs as $target => $name) {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
             if (tpl_getConf('breadcrumbslook') == 'underlined') {
-                if (colormag_ishome($target)) {
+                if ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
+                    $listyle = ' style="border-color:'.colormag_color($target, true).'"';
+                } elseif (colormag_ishome($target)) {
                     $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
                 } else {
                     $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
@@ -1091,6 +1103,10 @@ function colormag_trace() {
                 }
             print '</li>';
         }
+
+        $ru = getrusage();
+        msg("Trace took ".rutime($ru, $rustart, "utime")."ms to build list and collect colors.", 2);
+
         return true;
     } else {
         return false;
@@ -1332,7 +1348,7 @@ function colormag_ishome($page) {
     return $ishome;
 }
 
-function colormag_color($target) {
+function colormag_color($target, $inherit = false) {
     global $ID, $colormag, $INFO;
 //dbg(tpl_getConf('autotheme'));
 //dbg($target);
@@ -1349,7 +1365,16 @@ function colormag_color($target) {
 //            $palette = colormag_palette($colormag['images'][tpl_getConf('autotheme')]['path'], $colormag['images'][tpl_getConf('autotheme')]['size'], 5, $granularity = 5);
 //dbg($palette);
 //            $autotheme = $palette[0];
-            $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
+            if ($inherit) {
+                $targetimage = colormag_inherit(tpl_getConf('autotheme'), "media", $target);
+                if (isset($targetimage['path'])) {
+                    $image = @imagecreatefromstring(file_get_contents($targetimage['path']));
+                } else {
+                    return false;
+                }
+            } else {
+                $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
+            }
             $thumb = imagecreatetruecolor(1,1);
             if (isset($colormag['images'][tpl_getConf('autotheme')]['size'])) {
                 imagecopyresampled($thumb,$image,0,0,0,0,1,1,$colormag['images'][tpl_getConf('autotheme')]['size'][0],$colormag['images'][tpl_getConf('autotheme')]['size'][1]);
@@ -1359,8 +1384,9 @@ function colormag_color($target) {
             $result = strtoupper(dechex(imagecolorat($thumb,0,0)));
             //$styleini['replacements']['__theme_color__'] = '#'.$palette[0];
 //dbg($palette);
-        }
+//            $image = @imagecreatefromstring(file_get_contents($colormag['images'][tpl_getConf('autotheme')]['path']));
 //dbg($autotheme);
+        }
     return "#".$result;
 }
 
@@ -1408,3 +1434,12 @@ function colormag_color($target) {
 //dbg($colors);
 //   return array_slice(array_keys($colors), 0, $numColors); 
 //} 
+
+/* TIMER FUNCTION
+ *
+ * See here : https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php
+ */
+function rutime($ru, $rus, $index) {
+    return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
+     -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
+}
