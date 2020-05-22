@@ -115,6 +115,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
+  * [x] *timers* (show alerts reporting time taken by a few functions, currently autotheme and underlined breadcrumbs)
   * [x] *widebanner*
   * [x] *widgets* (show dummy widgets set by `debug/footerwidgets.local.conf` file)
 

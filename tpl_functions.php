@@ -407,7 +407,7 @@ function colormag_init() {
         if ((tpl_getConf('breadcrumbslook') == "pills") and (!plugin_isdisabled('twistienav'))) {
             msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
         }
-        if ($autotheme_msg != null) {
+        if (($autotheme_msg != null) and (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers'))) {
 //dbg("pas là?");
             msg($autotheme_msg[0], $autotheme_msg[1]);
         }
@@ -1073,7 +1073,9 @@ function colormag_youarehere() {
     } else {
         $alert = 1;
     }
-    msg("Youarehere took ".$time."ms to build list and collect colors.", $alert);
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers')) {
+        msg("Youarehere took ".$time."ms to build list and collect colors.", $alert);
+    }
 
 }/* /colormag_youarehere */
 
@@ -1154,7 +1156,9 @@ function colormag_trace() {
         } else {
             $alert = 1;
         }
-        msg("Trace took ".$time."ms to build list and collect colors.", $alert);
+        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers')) {
+            msg("Trace took ".$time."ms to build list and collect colors.", $alert);
+        }
 
         return true;
     } else {
