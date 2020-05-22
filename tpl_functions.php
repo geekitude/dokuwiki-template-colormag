@@ -1023,10 +1023,10 @@ function colormag_youarehere() {
             } else {
                 $check = $page;
             }
-            if ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                $listyle = ' style="border-color:'.colormag_color($check, true).'"';
-            } elseif (colormag_ishome($check)) {
+            if (colormag_ishome($check)) {
                 $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+            } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
+                $listyle = ' style="border-color:'.colormag_color($check, true).'"';
             } else {
                 $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
             }
@@ -1084,10 +1084,10 @@ function colormag_trace() {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
             if (tpl_getConf('breadcrumbslook') == 'underlined') {
-                if ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                    $listyle = ' style="border-color:'.colormag_color($target, true).'"';
-                } elseif (colormag_ishome($target)) {
+                if (colormag_ishome($target)) {
                     $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
+                } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
+                    $listyle = ' style="border-color:'.colormag_color($target, true).'"';
                 } else {
                     $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
                 }
