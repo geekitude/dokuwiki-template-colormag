@@ -97,19 +97,24 @@ if (!defined('DOKU_INC')) die();
                                 if ($colormag['images']['banner']['src'] != null) {
                                     $target = null;
                                     if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['banner']['ns'], 'wiki') !== false)) {
-                                        $target = $conf['start'];
+                                        $target = wl($conf['start']);
                                         $title = tpl_getLang('wikihome');
                                     } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                                        $target = $colormag['images']['banner']['ns'];
+                                        $target = wl($colormag['images']['banner']['ns']);
+                                        $title = $colormag['images']['banner']['ns'];
                                     } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                                        $target = getNS($ID).":".$conf['start'];
+                                        $target = wl(getNS($ID).":".$conf['start']);
+                                        $title = getNS($ID).":".$conf['start'];
+                                    } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
+                                        $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images']['banner']['src'])[1];
+                                        $title = explode("php?", $colormag['images']['banner']['src'])[1];
                                     } else {
                                         $target = null;
                                     }
                                     if ($title == null) { $title = $target; }
                                     if (($colormag['images']['banner']['ns'] != null) and ($target != null)) {
                                         tpl_link(
-                                            wl($target),
+                                            $target,
                                             '<img src="'.$colormag['images']['banner']['src'].'" title="'.$title.'" alt="*banner*" '.$colormag['images']['banner']['size'][3].' />'
                                         );
                                     } else {
@@ -271,19 +276,24 @@ if (!defined('DOKU_INC')) die();
                 if ($colormag['images']['widebanner']['src'] != null) {
                     $title = null;
                     if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['widebanner']['ns'], 'wiki') !== false)) {
-                        $target = $conf['start'];
+                        $target = wl($conf['start']);
                         $title = tpl_getLang('wikihome');
                     } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                        $target = $colormag['images']['widebanner']['ns'];
+                        $target = wl($colormag['images']['widebanner']['ns']);
+                        $title = $colormag['images']['widebanner']['ns'];
                     } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                        $target = getNS($ID).":".$conf['start'];
+                        $target = wl(getNS($ID).":".$conf['start']);
+                        $title = getNS($ID).":".$conf['start'];
+                    } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
+                        $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images']['widebanner']['src'])[1];
+                        $title = explode("php?", $colormag['images']['widebanner']['src'])[1];
                     } else {
                         $target = null;
                     }
                     if ($title == null) { $title = $target; }
                     if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
                         tpl_link(
-                            wl($target),
+                            $target,
                             '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />'
                         );
                     } else {
