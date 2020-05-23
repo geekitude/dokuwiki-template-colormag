@@ -187,6 +187,8 @@ th {
 
 th, td {
     padding: 6px 10px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 caption, th, td {
@@ -318,6 +320,8 @@ pre {
     margin-bottom: 20px;
     overflow: auto;
     padding: 20px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 pre, code, kbd, var, samp, tt {
@@ -560,23 +564,28 @@ input[type="search"],
 input[type="password"],
 input[type="url"],
 textarea {
+    padding: 1%;
+    line-height: 20px;
+    width: 95%;
+    margin: 0 0 1rem;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     appearance: none !important;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="url"],
-textarea {
-    padding: 1%;
-    line-height: 20px;
-    width: 95%;
-    margin: 0 0 1rem;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-width: 1px;
+    border-style: solid;
 }
 
 input.s {
@@ -584,6 +593,8 @@ input.s {
     padding: 4px 54px 4px 10px;
     height: 46px;
     margin: 0;
+    border-width: 1px;
+    border-style: solid;
 }
 
 input.s:focus {
@@ -1026,6 +1037,8 @@ div.info, div.notify, div.success, div.error {
 }
 
 .search-form-top {
+    border-width: 1px;
+    border-style: solid;
     display: none;
     padding: 10px;
     position: absolute;
@@ -1615,6 +1628,8 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
     margin-top: -2.1rem;
     border-top: 2.1rem solid transparent;
     border-bottom: 2.1rem solid transparent;
+    border-left-width: 1.6rem;
+    border-left-style: solid;
     right: -1.6rem;
 }
 
@@ -1709,6 +1724,8 @@ div.secedit.editbutton_section button {
 .widget select {
     padding: 2px;
     width: 60%;
+    border-width: 1px;
+    border-style: solid;
 }
 
 #colormag__secondary .widget p {
@@ -1759,6 +1776,8 @@ div.secedit.editbutton_section button {
 
 #colormag__userwidget form fieldset {
     padding: 1rem;
+    border-width: 2px;
+    border-style: solid;
 }
 
 #colormag__userwidget form fieldset legend {
@@ -1968,6 +1987,10 @@ div.mobileTools {
     vertical-align: middle;
 }
 
+#colormag__pagetools ul:hover {
+    border: 1px solid @ini_border;
+}
+
 #colormag__pagetools ul:hover li a span,
 #colormag__pagetools ul:hover li button span,
 #colormag__pagetools ul:hover li p span {
@@ -2041,10 +2064,17 @@ DOKUWIKI MODES
 
 .mode_admin #config__manager fieldset {
     margin: 2rem auto;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .mode_admin #config__manager fieldset legend {
     padding: 0 3rem;
+}
+
+.mode_admin #config__manager tr {
+    border-width: 1px;
+    border-style: solid;
 }
 
 .mode_admin #config__manager td {
@@ -2144,6 +2174,8 @@ DOKUWIKI MODES
     width: max-content;
     margin: 0 auto;
     padding: 1rem;
+    border-width: 1px;
+    border-style: solid;
 }
 
 #user__manager .import_users form button[name="fn[import]"] {
@@ -2553,6 +2585,10 @@ div.plugin_translation ul div.li.cur {
 
 #twistienav__popup {
     z-index: 1000 !important;
+}
+#twistienav__popup ul {
+    border-width: 1px;
+    border-style: solid;
 }
 
 #colormag__pagenav.pills-look span.twistienav_twistie {

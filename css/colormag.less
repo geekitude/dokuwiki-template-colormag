@@ -195,6 +195,8 @@ th {
 
 [dir] th, [dir] td {
     padding: 6px 10px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 [dir=ltr] caption, [dir=ltr] th, [dir=ltr] td {
@@ -347,6 +349,8 @@ pre {
 [dir] pre {
     margin-bottom: 20px;
     padding: 20px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 pre, code, kbd, var, samp, tt {
@@ -661,24 +665,24 @@ input[type="search"],
 input[type="password"],
 input[type="url"],
 textarea {
+    line-height: 20px;
+    width: 95%;
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     appearance: none !important;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="url"],
-textarea {
-    line-height: 20px;
-    width: 95%;
-}
-
-[dir] input[type="text"], [dir] input[type="email"], [dir] input[type="password"], [dir] input[type="url"], [dir] textarea {
+[dir] input[type="text"], [dir] input[type="email"], [dir] input[type="search"], [dir] input[type="password"], [dir] input[type="url"], [dir] textarea {
     padding: 1%;
     margin: 0 0 1rem;
+    border-width: 1px;
+    border-style: solid;
     border-radius: 3px;
+}
+
+[dir] input[type="text"]:focus, [dir] input[type="email"]:focus, [dir] input[type="search"]:focus, [dir] input[type="password"]:focus, [dir] input[type="url"]:focus, [dir] textarea:focus {
+    border-width: 1px;
+    border-style: solid;
 }
 
 input.s {
@@ -688,6 +692,8 @@ input.s {
 
 [dir] input.s {
     margin: 0;
+    border-width: 1px;
+    border-style: solid;
 }
 
 [dir=ltr] input.s {
@@ -1270,6 +1276,8 @@ div.info, div.notify, div.success, div.error {
 }
 
 [dir] .search-form-top {
+    border-width: 1px;
+    border-style: solid;
     padding: 10px;
 }
 
@@ -2050,10 +2058,14 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
 }
 
 [dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
+    border-left-width: 1.6rem;
+    border-left-style: solid;
     right: -1.6rem;
 }
 
 [dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
+    border-right-width: 1.6rem;
+    border-right-style: solid;
     left: -1.6rem;
 }
 
@@ -2210,6 +2222,8 @@ div.secedit.editbutton_section {
 
 [dir] .widget select {
     padding: 2px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 #colormag__secondary .widget p {
@@ -2275,6 +2289,8 @@ div.secedit.editbutton_section {
 
 [dir] #colormag__userwidget form fieldset {
     padding: 1rem;
+    border-width: 2px;
+    border-style: solid;
 }
 
 [dir] #colormag__userwidget form fieldset legend {
@@ -2563,6 +2579,10 @@ div.mobileTools {
     margin: 0 @ico-margin;
 }
 
+[dir] #colormag__pagetools ul:hover {
+    border: 1px solid @ini_border;
+}
+
 #colormag__pagetools ul:hover li a span,
 #colormag__pagetools ul:hover li button span,
 #colormag__pagetools ul:hover li p span {
@@ -2661,10 +2681,17 @@ DOKUWIKI MODES
 
 [dir] .mode_admin #config__manager fieldset {
     margin: 2rem auto;
+    border-width: 1px;
+    border-style: solid;
 }
 
 [dir] .mode_admin #config__manager fieldset legend {
     padding: 0 3rem;
+}
+
+[dir] .mode_admin #config__manager tr {
+    border-width: 1px;
+    border-style: solid;
 }
 
 [dir] .mode_admin #config__manager td {
@@ -2775,6 +2802,8 @@ DOKUWIKI MODES
 [dir] #user__manager .import_users form {
     margin: 0 auto;
     padding: 1rem;
+    border-width: 1px;
+    border-style: solid;
 }
 
 [dir] #user__manager .import_users form button[name="fn[import]"] {
@@ -3301,6 +3330,10 @@ div.plugin_translation ul div.li.cur {
 
 #twistienav__popup {
     z-index: 1000 !important;
+}
+[dir] #twistienav__popup ul {
+    border-width: 1px;
+    border-style: solid;
 }
 
 #colormag__pagenav.pills-look span.twistienav_twistie {

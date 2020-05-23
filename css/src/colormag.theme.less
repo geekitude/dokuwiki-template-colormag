@@ -65,7 +65,7 @@
 -------------------------------------------------------------- */
 
 th, td {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
 }
 
 /* =GLOBAL
@@ -143,7 +143,7 @@ body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
 ----------------------------------------------- */
 
 pre {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
 }
 
 abbr, acronym, dfn {
@@ -229,10 +229,11 @@ blockquote {
 
 input[type="text"],
 input[type="email"],
+input[type="search"],
 input[type="password"],
 input[type="url"],
 textarea {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
     background-color: @ini_background_neu;
 }
 
@@ -242,13 +243,13 @@ input[type="search"]:focus,
 input[type="password"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
 }
 
 input.s {
     color: @ini_text_neu;
     background-color: @ini_background;
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
 }
 
 input.s:focus {
@@ -422,8 +423,8 @@ div.error {
 }
 
 .search-form-top {
-    border: 1px solid @ini_border;
     background-color: @ini_background;
+    border-color: @ini_border;
 }
 
 /* =NAVIGATION
@@ -613,7 +614,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    border-left: 1.6rem solid @ini_theme_color;
+    border-left-color: @ini_theme_color;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a::after {
@@ -669,7 +670,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 .widget select {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
     color: @ini_text_neu;
 }
 
@@ -701,7 +702,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 #colormag__userwidget form fieldset {
-    border: 2px solid @ini_border;
+    border-color: @ini_border;
 }
 
 /* =FOOTER SOCKET AREA
@@ -749,7 +750,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 #colormag__pagetools ul:hover {
     background-color: @ini_background;
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -778,15 +779,15 @@ DOKUWIKI MODES
 
 .mode_admin #config__manager fieldset {
     background-color: @ini_background;
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
     color: @ini_text;
 }
 
-#config__manager tr {
-    border: 1px solid @ini_border;
+.mode_admin #config__manager tr {
+    border-color: @ini_border;
 }
 
-#config__manager td.label span.outkey {
+.mode_admin #config__manager td.label span.outkey {
     background-color: @ini_background;
 }
 
@@ -797,7 +798,7 @@ DOKUWIKI MODES
 /* Admin - User Manager */
 
 #user__manager .import_users form {
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
 }
 
 
@@ -932,7 +933,7 @@ div.plugin_translation ul li a.wikilink2:hover {
 
 #twistienav__popup ul {
     background-color: @ini_background;
-    border: 1px solid @ini_border;
+    border-color: @ini_border;
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
