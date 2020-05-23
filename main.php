@@ -177,33 +177,7 @@ colormag_init();
 
                                         <div id="colormag__sidecard-wrap" class="group">
                                             <?php
-                                                if (($colormag['images']['sidecard']['src'] != null) and ($ACT != "edit") and ($ACT != "preview")) {
-                                                    $title = null;
-                                                    if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['sidecard']['ns'], 'wiki') !== false)) {
-                                                        $target = wl($conf['start']);
-                                                        $title = tpl_getLang('wikihome');
-                                                    } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                                                        $target = wl($colormag['images']['sidecard']['ns']);
-                                                        $title = $colormag['images']['sidecard']['ns'];
-                                                    } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                                                        $target = wl(getNS($ID).":".$conf['start']);
-                                                        $title = getNS($ID).":".$conf['start'];
-                                                    } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
-                                                        $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images']['sidecard']['src'])[1];
-                                                        $title = explode("php?", $colormag['images']['banner']['src'])[1];
-                                                    } else {
-                                                        $target = null;
-                                                    }
-                                                    if ($title == null) { $title = $target; }
-                                                    if (($colormag['images']['sidecard']['ns'] != null) and ($target != null)) {
-                                                        tpl_link(
-                                                            $target,
-                                                            '<img src="'.$colormag['images']['sidecard']['src'].'" title="'.$title.'" alt="*sidecard*" '.$colormag['images']['sidecard']['size'][3].' style="max-width:'.$colormag['images']['sidecard']['size'][0].'px"/>'
-                                                        );
-                                                    } else {
-                                                        print '<img src="'.$colormag['images']['sidecard']['src'].'" alt="*'.$title.'*" '.$colormag['images']['sidecard']['size'][3].' class="mediacenter" />';
-                                                    }
-                                                }
+                                                colormag_ui_image('sidecard');
                                             ?>
                                         </div><!-- #colormag__sidecard-wrap -->
 

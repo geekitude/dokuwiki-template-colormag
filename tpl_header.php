@@ -94,33 +94,7 @@ if (!defined('DOKU_INC')) die();
                         <div id="colormag__banner-wrap" class="advertisement-content widget flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                             <?php
                                 colormag_include("bannerheader");
-                                if ($colormag['images']['banner']['src'] != null) {
-                                    $target = null;
-                                    if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['banner']['ns'], 'wiki') !== false)) {
-                                        $target = wl($conf['start']);
-                                        $title = tpl_getLang('wikihome');
-                                    } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                                        $target = wl($colormag['images']['banner']['ns']);
-                                        $title = $colormag['images']['banner']['ns'];
-                                    } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                                        $target = wl(getNS($ID).":".$conf['start']);
-                                        $title = getNS($ID).":".$conf['start'];
-                                    } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
-                                        $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images']['banner']['src'])[1];
-                                        $title = explode("php?", $colormag['images']['banner']['src'])[1];
-                                    } else {
-                                        $target = null;
-                                    }
-                                    if ($title == null) { $title = $target; }
-                                    if (($colormag['images']['banner']['ns'] != null) and ($target != null)) {
-                                        tpl_link(
-                                            $target,
-                                            '<img src="'.$colormag['images']['banner']['src'].'" title="'.$title.'" alt="*banner*" '.$colormag['images']['banner']['size'][3].' />'
-                                        );
-                                    } else {
-                                        print '<img src="'.$colormag['images']['banner']['src'].'" alt="*banner*" '.$colormag['images']['banner']['size'][3].' />';
-                                    }
-                                }
+                                colormag_ui_image('banner');
                                 colormag_include("bannerfooter");
                             ?>
                         </div>
@@ -273,33 +247,7 @@ if (!defined('DOKU_INC')) die();
     <?php if($ACT == "show"): ?>
         <div id="colormag__widebanner-wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
             <?php
-                if ($colormag['images']['widebanner']['src'] != null) {
-                    $title = null;
-                    if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images']['widebanner']['ns'], 'wiki') !== false)) {
-                        $target = wl($conf['start']);
-                        $title = tpl_getLang('wikihome');
-                    } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
-                        $target = wl($colormag['images']['widebanner']['ns']);
-                        $title = $colormag['images']['widebanner']['ns'];
-                    } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
-                        $target = wl(getNS($ID).":".$conf['start']);
-                        $title = getNS($ID).":".$conf['start'];
-                    } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
-                        $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images']['widebanner']['src'])[1];
-                        $title = explode("php?", $colormag['images']['widebanner']['src'])[1];
-                    } else {
-                        $target = null;
-                    }
-                    if ($title == null) { $title = $target; }
-                    if (($colormag['images']['widebanner']['ns'] != null) and ($target != null)) {
-                        tpl_link(
-                            $target,
-                            '<img src="'.$colormag['images']['widebanner']['src'].'" title="'.$title.'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />'
-                        );
-                    } else {
-                        print '<img src="'.$colormag['images']['widebanner']['src'].'" alt="*widebanner*" '.$colormag['images']['widebanner']['size'][3].' />';
-                    }
-                }
+                colormag_ui_image('widebanner');
             ?>
         </div><!-- #colormag__widebanner-wrap -->
     <?php endif; ?>

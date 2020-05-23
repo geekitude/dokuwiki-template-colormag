@@ -1503,3 +1503,36 @@ function rutime($ru, $rus, $index) {
     return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
      -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
 }
+
+function colormag_ui_image($type) {
+    global $conf, $ID;
+    global $colormag;
+
+    if (($colormag['images'][$type]['src'] != null) and ($ACT != "edit") and ($ACT != "preview")) {
+        $title = null;
+        if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($colormag['images'][$type]['ns'], 'wiki') !== false)) {
+            $target = wl($conf['start']);
+            $title = tpl_getLang('wikihome');
+        } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
+            $target = wl($colormag['images'][$type]['ns']);
+            $title = $colormag['images'][$type]['ns'];
+        } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+            $target = wl(getNS($ID).":".$conf['start']);
+            $title = getNS($ID).":".$conf['start'];
+        } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
+            $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $colormag['images'][$type]['src'])[1];
+            $title = explode("php?", $colormag['images']['banner']['src'])[1];
+        } else {
+            $target = null;
+        }
+        if ($title == null) { $title = $target; }
+        if (($colormag['images'][$type]['ns'] != null) and ($target != null)) {
+            tpl_link(
+                $target,
+                '<img src="'.$colormag['images'][$type]['src'].'" title="'.$title.'" alt="*sidecard*" '.$colormag['images'][$type]['size'][3].' style="max-width:'.$colormag['images'][$type]['size'][0].'px"/>'
+            );
+        } else {
+            print '<img src="'.$colormag['images'][$type]['src'].'" alt="*'.$title.'*" '.$colormag['images'][$type]['size'][3].' class="mediacenter" />';
+        }
+    }
+}
