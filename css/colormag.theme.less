@@ -87,11 +87,11 @@ textarea {
 }
 
 [dir=ltr] div.vr {
-    border-left: 1px solid @ini_border;
+    border-left-color: @ini_border;
 }
 
 [dir=rtl] div.vr {
-    border-right: 1px solid @ini_border;
+    border-right-color: @ini_border;
 }
 
 /* Ui colors */
@@ -154,7 +154,7 @@ body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
 }
 
 [dir] abbr, [dir] acronym, [dir] dfn {
-    border-bottom: 1px dotted @ini_text_neu;
+    border-bottom-color: @ini_text_neu;
 }
 
 [dir] del {
@@ -201,7 +201,7 @@ h6 {
 }
 
 [dir] h6.widget-title {
-    border-bottom: 2px solid @ini_theme_color;
+    border-bottom-color: @ini_theme_color;
 }
 
 h6.widget-title span {
@@ -342,7 +342,7 @@ ul.tabs li:not(.active) a {
 }
 
 [dir] ul.tabs li.active a {
-    border-top: 4px solid @ini_theme_color;
+    border-top-color: @ini_theme_color;
 }
 
 /*****************************************************************/
@@ -435,7 +435,7 @@ div.skip a {
 [dir] #colormag__site-navigation {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
     background-color: @ini_theme_dark_color;
-    border-top: 4px solid @ini_theme_color;
+    border-top-color: @ini_theme_color;
 }
 
 #colormag__site-navigation svg {
@@ -566,9 +566,11 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =PAGE HEADER TITLE
 ----------------------------------------------- */
 
-[dir] .page-header .page-title {
-    border-bottom: 1px solid @ini_border;
+/*
+.page-header .page-title {
+    border-bottom-color: @ini_border;
 }
+*/
 
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
@@ -581,7 +583,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* Underlined breadcrumbs */
 
 [dir] #colormag__pagenav.underlined-look .breadcrumbs ul li {
-    border-bottom: 4px solid @ini_theme_color;
+    border-bottom-color: @ini_theme_color;
 }
 
 /* Pills breadcrumbs */
@@ -671,7 +673,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 ----------------------------------------------- */
 
 [dir] #colormag__colophon .widget ul li {
-    border-bottom: 1px solid @ini_text_neu;
+    border-bottom-color: @ini_text_neu;
 }
 
 .widget select {
@@ -689,7 +691,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
 [dir] .footer-widgets-wrapper {
-    border-top: 1px solid @ini_border;
+    border-top-color: @ini_border;
     background-color: @ini_theme_dark_color;
 }
 
@@ -728,7 +730,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 }
 
 [dir] .footer-socket-wrapper .copyright a {
-    border-bottom: 1px solid @ini_border;
+    border-bottom-color: @ini_border;
 }
 
 .footer-socket-wrapper .copyright a:hover {
@@ -842,7 +844,7 @@ DOKUWIKI MODES
 }
 
 [dir] #mediamanager__page .panel ul.tabs li strong {
-    border-top: 4px solid @ini_theme_color;
+    border-top-color: @ini_theme_color;
     background-color: @ini_background_alt;
 }
 
@@ -888,7 +890,7 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 
 [dir] div.plugin_move_dialog div.ui-dialog-titlebar {
     background-color: @ini_background;
-    border-top: 4px solid @ini_theme_color;
+    border-top-color: @ini_theme_color;
 }
 
 /* TAGALERTS

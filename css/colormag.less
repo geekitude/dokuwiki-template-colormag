@@ -275,6 +275,16 @@ hr {
     margin: 3rem 0;
 }
 
+[dir=ltr] div.vr {
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+[dir=rtl] div.vr {
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
 /* Flexbox */
 
 .flex {
@@ -362,6 +372,8 @@ pre, code, kbd, var, samp, tt {
 
 [dir] abbr, [dir] acronym, [dir] dfn {
     cursor: help;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
 }
 
 address {
@@ -443,6 +455,8 @@ h6.widget-title {
 }
 
 [dir] h6.widget-title {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
     margin-bottom: 15px;
     padding-bottom: 0;
 }
@@ -854,6 +868,8 @@ ul.tabs li {
 
 [dir] ul.tabs li.active a {
     padding: 1rem 1.5rem;
+    border-top-width: 4px;
+    border-top-style: solid;
 }
 
 /*****************************************************************/
@@ -1365,6 +1381,11 @@ div.info, div.notify, div.success, div.error {
     position: relative;
 }
 
+[dir] #colormag__site-navigation {
+    border-top-width: 4px;
+    border-top-style: solid;
+}
+
 nav li > ul,
 nav li > ol {
     list-style: none;
@@ -1786,6 +1807,8 @@ li.default-menu {
 ----------------------------------------------- */
 /*
 .page-header .page-title {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     margin-bottom: 30px;
 }
 */
@@ -1933,6 +1956,8 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
 [dir] #colormag__pagenav.underlined-look .breadcrumbs ul li {
     padding: .5rem;
     margin: 0 .5rem .4rem .5rem;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
 }
 
 [dir=ltr] #colormag__pagenav.underlined-look .primary .breadcrumbs ul li:first-child {
@@ -2205,7 +2230,8 @@ div.secedit.editbutton_section {
 }
 
 [dir] #colormag__secondary .widget ul li li, [dir] #colormag__colophon .widget ul li li {
-    border-bottom: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
 
 [dir=ltr] #colormag__secondary .widget ul ul, [dir=ltr] #colormag__colophon .widget ul ul {
@@ -2240,6 +2266,11 @@ div.secedit.editbutton_section {
 
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
+
+[dir] .footer-widgets-wrapper {
+    border-top-width: 1px;
+    border-top-style: solid;
+}
 
 [dir] .footer-widgets-area {
     padding-top: 45px;
@@ -2340,6 +2371,11 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 [dir=rtl] .footer-socket-wrapper .copyright {
     float: right;
     text-alignt: right;
+}
+
+[dir] .footer-socket-wrapper .copyright a {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
 
 [dir] .footer-socket-wrapper .buttons a {
@@ -2961,6 +2997,8 @@ DOKUWIKI MODES
 }
 
 [dir] #mediamanager__page .panel ul.tabs li strong {
+    border-top-width: 4px;
+    border-top-style: solid;
     border-radius: 5px 5px 0 0;
     padding: 1rem 1.5rem;
 }
@@ -3155,6 +3193,8 @@ div.plugin_move_dialog div.ui-dialog-buttonpane.ui-widget-content button {
 
 [dir] div.plugin_move_dialog div.ui-dialog-titlebar {
     background-image: none;
+    border-top-width: 4px;
+    border-top-style: solid;
     border-radius: 5px 5px 0 0;
 }
 
