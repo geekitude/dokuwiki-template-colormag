@@ -194,7 +194,7 @@ if (!defined('DOKU_INC')) die();
                             <?php if ((is_array($colormag['parents'])) and (count($colormag['parents']) > 1)) : ?>
                                 <li class="menu-item nav parent">
                                     <?php
-                                        if ((($ACT == "edit") or ($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"]))) {
+                                        if ((($ACT == "edit") or ($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or ($_GET['media'] != null)) and (isset($_SESSION["origID"]))) {
                                             $glyph = "back-to-article";
                                             $target = $_SESSION["origID"];
                                         } elseif (end($colormag['parents']) == getNS($ID).":".$conf['start']) {
