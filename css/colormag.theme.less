@@ -283,8 +283,16 @@ button {
     background-color: @ini_theme_dark_color;
 }
 
+input[type="reset"]:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+    /*-webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
+    /*-moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
+    /*box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
+}
+
 [dir] input[type="reset"]:active, [dir] input[type="button"]:active, [dir] input[type="submit"]:active {
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px fade(@ini_shadows_color, 30%);
 }
 
 [dir] button.toolbutton {
@@ -365,8 +373,14 @@ div.skip a {
 
 /* News bar */
 
+.news-bar {
+    /*-webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+    /*-moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+}
+
 [dir] .news-bar {
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%);
 }
 
 /* =HEADER
@@ -432,8 +446,12 @@ div.skip a {
 /* =NAVIGATION
 ----------------------------------------------- */
 
+#colormag__site-navigation {
+    /*box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;*/
+}
+
 [dir] #colormag__site-navigation {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%) inset;
     background-color: @ini_theme_dark_color;
     border-top-color: @ini_theme_color;
 }
@@ -761,10 +779,16 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =PAGETOOLS
 -------------------------------------------------------------- */
 
+#colormag__pagetools ul:hover {
+    /*-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+    /*-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+}
+
 [dir] #colormag__pagetools ul:hover {
     background-color: @ini_background;
     border-color: @ini_border;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 fade(@ini_shadows_color, 10%);
 }
 
 #colormag__pagetools ul:hover li a svg {
@@ -957,10 +981,16 @@ div.plugin_translation ul li a.wikilink2:hover {
 /* TWISTIENAV
 --------------------------------------------------------------*/
 
+#twistienav__popup ul {
+    /*-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+    /*-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+}
+
 [dir] #twistienav__popup ul {
     background-color: @ini_background;
     border-color: @ini_border;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 fade(@ini_shadows_color, 10%);
 }
 
 #twistienav__popup ul li:hover a {
@@ -1034,9 +1064,14 @@ RESPONSIVE STRUCTURE
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    #colormag__topbar-links ul li ul {
+        /*-webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+        /*-moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+        /*box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
+    }
     [dir] #colormag__topbar-links ul li ul {
         background-color: @ini_background;
-        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%);
     }
     [dir] #colormag__topbar-links ul li ul li:hover {
         background-color: @ini_theme_color;

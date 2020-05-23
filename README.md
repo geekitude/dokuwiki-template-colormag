@@ -292,7 +292,8 @@ __background__          = "#333"
 __background_neu__      = "#eee"
 __border__              = "#aaa"
 __background_site__     = "#000"
-__background_ui_color__ = "darken(@ini_theme_dark_color, 5%)"```
+__background_ui_color__ = "darken(@ini_theme_dark_color, 5%)"
+__shadows_color__       = "#fff"```
 
 *You may want to invert "alt" text and background colors.*
 
