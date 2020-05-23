@@ -34,12 +34,10 @@
 * Move tpl_indexerWebBug() out of the way
 * HEADER
 * Alerts
-* INFO TEXT
 * SEARCH WIDGET
 * NAVIGATION
 * DROP DOWN
 * RESPONSIVE MENU
-* PAGE HEADER TITLE
 * PAGE NAVIGATION
 * Underlined breadcrumbs
 * Pills breadcrumbs
@@ -112,39 +110,6 @@ textarea {
 #colormag__main.uicolor-toc #dw__toc a {
     color: @ini_text_ui_color;
 }
-
-/*
-body.neu-ui .uicolor,
-body.neu-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_background_neu;
-    color: @ini_text_neu;
-}
-
-body.alt-ui .uicolor,
-body.alt-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_background_alt;
-    color: @ini_text_alt;
-}
-
-body.theme-ui .uicolor,
-body.theme-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: @ini_theme_color;
-    color: @ini_theme_light_color;
-}
-
-body.theme-ui .uicolor a {
-    border-bottom-color: @ini_text_neu;
-}
-
-body.dark-ui .uicolor,
-body.dark-ui #colormag__main.uicolor-toc #dw__toc {
-    background-color: lighten(@ini_theme_dark_color, 5%);
-    color: @ini_theme_light_color;
-}
-body.dark-ui #colormag__main.uicolor-toc #dw__toc a {
-    color: @ini_theme_light_color;
-}
-*/
 
 /* =TEXT ELEMENTS
 ----------------------------------------------- */
@@ -283,14 +248,6 @@ button {
     background-color: @ini_theme_dark_color;
 }
 
-input[type="reset"]:active,
-input[type="button"]:active,
-input[type="submit"]:active {
-    /*-webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
-    /*-moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
-    /*box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);*/
-}
-
 [dir] input[type="reset"]:active, [dir] input[type="button"]:active, [dir] input[type="submit"]:active {
     box-shadow: inset 0 0 10px fade(@ini_shadows_color, 30%);
 }
@@ -373,12 +330,6 @@ div.skip a {
 
 /* News bar */
 
-.news-bar {
-    /*-webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-    /*-moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-    /*box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-}
-
 [dir] .news-bar {
     box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%);
 }
@@ -393,12 +344,6 @@ div.skip a {
 #colormag__site-description {
     color: @ini_text_neu;
 }
-
-/*
-#colormag__header-right-section .widget {
-    color: @ini_text;
-}
-*/
 
 /* Alerts */
 
@@ -422,15 +367,6 @@ div.skip a {
     background-color: @ini_red_color;
 }
 
-/* =INFO TEXT
------------------------------------------------ */
-
-/*
-.small-info-text p {
-    color: @ini_text_neu;
-}
-*/
-
 /* =SEARCH WIDGET
 ----------------------------------------------- */
 
@@ -445,10 +381,6 @@ div.skip a {
 
 /* =NAVIGATION
 ----------------------------------------------- */
-
-#colormag__site-navigation {
-    /*box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;*/
-}
 
 [dir] #colormag__site-navigation {
     box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%) inset;
@@ -559,36 +491,6 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 [dir] .site-header .menu-toggle:hover {
     background-color: @ini_link;
 }
-
-/*
-.main-small-navigation a {
-    color: @ini_text;
-}
-
-.main-small-navigation li {
-    background-color: @ini_theme_text_color;
-}
-
-.main-small-navigation li a:hover {
-    background-color: @ini_link;
-    color: @ini_theme_text_color;
-}
-
-.main-small-navigation .current_page_item > a,
-.main-small-navigation .current-menu-item > a {
-    background-color: @ini_link;
-    color: @ini_theme_text_color;
-}
-*/
-
-/* =PAGE HEADER TITLE
------------------------------------------------ */
-
-/*
-.page-header .page-title {
-    border-bottom-color: @ini_border;
-}
-*/
 
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
@@ -778,12 +680,6 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 /* =PAGETOOLS
 -------------------------------------------------------------- */
-
-#colormag__pagetools ul:hover {
-    /*-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-    /*-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-    /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-}
 
 [dir] #colormag__pagetools ul:hover {
     background-color: @ini_background;
@@ -981,12 +877,6 @@ div.plugin_translation ul li a.wikilink2:hover {
 /* TWISTIENAV
 --------------------------------------------------------------*/
 
-#twistienav__popup ul {
-    /*-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-    /*-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-    /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
-}
-
 [dir] #twistienav__popup ul {
     background-color: @ini_background;
     border-color: @ini_border;
@@ -994,8 +884,6 @@ div.plugin_translation ul li a.wikilink2:hover {
 }
 
 #twistienav__popup ul li:hover a {
-    /*background-color: @ini_theme_color;*/
-    /*color: @ini_theme_text_color;*/
     color: @ini_theme_color;
 }
 
@@ -1064,11 +952,6 @@ RESPONSIVE STRUCTURE
 --------------------------------------------------------------*/
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
-    #colormag__topbar-links ul li ul {
-        /*-webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-        /*-moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-        /*box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);*/
-    }
     [dir] #colormag__topbar-links ul li ul {
         background-color: @ini_background;
         box-shadow: 0 0 2px 0 fade(@ini_shadows_color, 10%);
