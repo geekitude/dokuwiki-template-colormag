@@ -519,41 +519,8 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     background-color: @ini_theme_dark_color;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:first-child a::before {
-    border-color: transparent transparent transparent transparent;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::before {
-    border-color: @ini_theme_color @ini_theme_color @ini_theme_color transparent;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::before {
-    border-color: @ini_theme_dark_color @ini_theme_dark_color @ini_theme_dark_color transparent;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    border-left-color: @ini_theme_color;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a::after {
-    border-color: transparent transparent transparent transparent;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::after {
-    border-left-color: @ini_theme_dark_color;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.trace ul a::before,
-#colormag__pagenav.pills-look .breadcrumbs.trace ul a::after {
-    background-color: @ini_theme_color;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::before {
-    background-color: @ini_theme_dark_color;
-}
-
-#colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::after {
-    background-color: @ini_theme_dark_color;
+#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+    box-shadow: 1px -1px fade(@ini_shadows_color, 50%);
 }
 
 /* Pills - Curid*/
@@ -570,7 +537,7 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::after,
 #colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::before {
-    background-color: @ini_background_neu;
+    /*background-color: @ini_background_neu;*/
 }
 
 /* =SECTION HIGHLIGHTING

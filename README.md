@@ -50,7 +50,6 @@ The copyright notice at the very bottom of page shouldn't be removed.
 * Default optional background pattern comes from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/)
 * SVG icons come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
-* Pills style breadcrumbs are based on [this page](https://catalin.red/css3-breadcrumbs/)
 * Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php)
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
 

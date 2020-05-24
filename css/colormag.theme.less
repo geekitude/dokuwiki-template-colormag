@@ -516,56 +516,12 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     background-color: @ini_theme_dark_color;
 }
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:first-child a::before {
-    border-color: transparent transparent transparent transparent;
+[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+    box-shadow: 1px -1px fade(@ini_shadows_color, 50%);
 }
 
-[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::before {
-    border-color: @ini_theme_color @ini_theme_color @ini_theme_color transparent;
-}
-
-[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::before {
-    border-color: @ini_theme_color transparent @ini_theme_color @ini_theme_color;
-}
-
-[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::before {
-    border-color: @ini_theme_dark_color @ini_theme_dark_color @ini_theme_dark_color transparent;
-}
-
-[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::before {
-    border-color: @ini_theme_dark_color transparent @ini_theme_dark_color @ini_theme_dark_color;
-}
-
-[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    border-left-color: @ini_theme_color;
-}
-
-[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    border-right-color: @ini_theme_color;
-}
-
-[dir] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a::after {
-    border-color: transparent transparent transparent transparent;
-}
-
-[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::after {
-    border-left-color: @ini_theme_dark_color;
-}
-
-[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:hover::after {
-    border-right-color: @ini_theme_dark_color;
-}
-
-[dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul a::before, [dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul a::after {
-    background-color: @ini_theme_color;
-}
-
-[dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::before {
-    background-color: @ini_theme_dark_color;
-}
-
-[dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul a:hover::after {
-    background-color: @ini_theme_dark_color;
+[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+    box-shadow: -1px -1px fade(@ini_shadows_color, 50%);
 }
 
 /* Pills - Curid*/
@@ -578,8 +534,9 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     border-color: @ini_background_neu transparent @ini_background_neu transparent;
 }
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::after, [dir] #colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::before {
-    background-color: @ini_background_neu;
+#colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::after,
+#colormag__pagenav.pills-look .breadcrumbs.trace ul .curid a::before {
+    /*background-color: @ini_background_neu;*/
 }
 
 /* =SECTION HIGHLIGHTING

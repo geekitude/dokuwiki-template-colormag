@@ -1535,12 +1535,6 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
 
 /* Classic breadcrumbs */
 
-/*
-#colormag__pagenav.classic-look div div ul {
-    display: inline;
-}
-*/
-
 #colormag__pagenav.classic-look .breadcrumbs.youarehere ul li:not(:last-child):after,
 #colormag__pagenav.classic-look .breadcrumbs.trace ul li:not(:last-child):after {
     content: "\00a0";
@@ -1559,7 +1553,7 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
     content: "";
 }
 
-/* underlined breadcrumbs */
+/* Underlined breadcrumbs */
 
 #colormag__pagenav.underlined-look .breadcrumbs ul li {
     padding: .5rem;
@@ -1578,22 +1572,10 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
 
 /* Pills breadcrumbs */
 
+@pills: 28px;
+
 #colormag__pagenav.pills-look .primary {
     flex-shrink: 0;
-}
-
-/*
-#colormag__pagenav.pills-look div div > span.label {
-    display: block;
-    text-align: center;
-}
-*/
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul,
-#colormag__pagenav.pills-look .breadcrumbs.trace ul {
-    overflow: hidden;
-    width: 100%;
-    margin: 0;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs ul li {
@@ -1602,63 +1584,53 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
 }
 
 #colormag__pagenav.pills-look .breadcrumbs ul li a {
-    padding: .7em 1em;
     float: left;
     text-decoration: none;
     position: relative;
+    padding-top: @pills * .35;
+    padding-bottom: @pills * .35;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li {
-    float: left;
-    margin-right: .9rem;
-    margin-left: 1.6rem;
-}
-
-/*
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul {
-    padding: 0 .5rem 0 0;
-}
-*/
-
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    margin-top: -2.1rem;
-    border-width: 2.1rem 0 2.1rem 1.6rem;
-    border-style: solid;
-    left: -1.6rem;
+#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li a {
+    padding-left: @pills * 1.2;
+    padding-right: @pills * .7;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:first-child a {
+    padding-left: @pills * .7;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    margin-top: -2.1rem;
-    border-top: 2.1rem solid transparent;
-    border-bottom: 2.1rem solid transparent;
-    border-left-width: 1.6rem;
-    border-left-style: solid;
-    right: -1.6rem;
-}
-
 #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a {
+    padding-right: @pills * .7;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child {
-    margin-left: 1.6rem;
-    margin-right: 0;
+#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: @pills * 1.5;
+    height: @pills * 1.5;
+    top: 0;
+    right: @pills / 1.35 * -1;
+    background-color: inherit;
+    border-top-right-radius: 5px;
+    transform: scale(0.707) rotate(45deg);
+    z-index: 1;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:first-child {
-    margin-left: 0;
+#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li:last-child a:after {
+    content: none;
+}
+
+#colormag__pagenav.pills-look .breadcrumbs.trace ul {
+    padding: 0 .1rem 0 0;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul li {
@@ -1667,8 +1639,9 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
     margin-left: 1.6rem;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.trace ul {
-    padding: 0 .1rem 0 0;
+#colormag__pagenav.pills-look .breadcrumbs.trace ul li a {
+    padding-left: @pills * .5;
+    padding-right: @pills * .5;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a::before,
@@ -1679,6 +1652,7 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex span.label
     bottom: 0;
     width: 2rem;
     transform: skew(-10deg);
+    background-color: inherit;
 }
 
 #colormag__pagenav.pills-look .breadcrumbs.trace ul a::before {
