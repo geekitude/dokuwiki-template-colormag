@@ -75,19 +75,9 @@ colormag_init();
 
         <?php include('tpl_header.php') ?>
 
-        <div class="wrapper group" id="dokuwiki__detail">
-
-                <nav id="colormag__pagenav" class="news-bar sticky-wrapper<?php print (strpos(tpl_getConf('uicolorize'), 'pagenav') !== false) ? " uicolor" : "" ?> <?php print tpl_getConf('breadcrumbslook').'-look' ?>">
-                    <?php if(!$ERROR): ?>
-                        <div class="pageId"><span><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG)); ?></span></div>
-                    <?php endif; ?>
-                </nav><!-- /#colormag__pagenav -->
-
-        </div><!-- /wrapper -->
-
         <?php colormag_include("mainheader"); ?>
 
-        <div id="colormag__main" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?><?php print (strpos(tpl_getConf('print'), 'toc') !== false) ? '' : ' noprint-toc' ?>">
+        <div id="colormag__detail" class="group<?php print (strpos(tpl_getConf('uicolorize'), 'toc') !== false) ? " uicolor-toc" : "" ?><?php print (strpos(tpl_getConf('print'), 'toc') !== false) ? '' : ' noprint-toc' ?>">
 
             <div class="inner-wrap-left narrow-mix flex row stretch">
 
@@ -105,7 +95,7 @@ colormag_init();
                                     echo '<h1>'.$ERROR.'</h1>';
                                 else: ?>
                                     <?php if($REV) echo p_locale_xhtml('showrev');?>
-                                    <h1><?php echo nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h1>
+                                    <h1><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG)); ?></h1>
 
                                     <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
 
