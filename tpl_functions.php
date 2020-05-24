@@ -1022,7 +1022,8 @@ function colormag_youarehere() {
         }
 //dbg($page);
         //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID) and ($page != $ID)) {
-        if (tpl_getConf('breadcrumbslook') == 'underlined') {
+        //if (tpl_getConf('breadcrumbslook') == 'underlined') {
+        if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
             //if (($colormag['translation']['ishome'] == false) or ($ID != $conf['start'])) {
             //    $listyle = ' style="border-color:#'.$colormag['initial_theme_color'].'"';
             //} else {
@@ -1045,18 +1046,27 @@ function colormag_youarehere() {
                 $color = colormag_color($check, true);
                 //if ($color != "#") {
                 if ($color) {
-                    $listyle = ' style="border-color:'.$color.'"';
+                    if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
+                        $listyle = ' style="border-color:'.$color.'"';
+                    } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
+                        $astyle = ' style="background-color:'.$color.'"';
+                    }
                 //} else {
                 //    $listyle = "";
                 }
 //            } else {
 //                $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
 //            }
-        } else {
-            $listyle = null;
+        //} else {
+        //    $listyle = null;
         }
         print "<li".$listyle.">";
-            tpl_pagelink($page, $parts[$i]);
+            if ($astyle) {
+                //dbg(tpl_pagelink($page, $parts[$i], true));
+                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
+            } else {
+                tpl_pagelink($page, $parts[$i]);
+            }
         print "</li>";
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
         if ($page == $ID) {
@@ -1121,7 +1131,8 @@ function colormag_trace() {
         foreach($crumbs as $target => $name) {
             $i++;
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
-            if (tpl_getConf('breadcrumbslook') == 'underlined') {
+//            if (tpl_getConf('breadcrumbslook') == 'underlined') {
+            if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
 //                $themeinifile = colormag_inherit("theme.ini", "conf", $target);
 //dbg($themeinifile);
 //                if (colormag_ishome($target)) {
@@ -1134,22 +1145,31 @@ function colormag_trace() {
                     $color = colormag_color($target, true);
                     //if ($color != "#") {
                     if ($color) {
-                        $listyle = ' style="border-color:'.$color.'"';
+                        if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
+                            $listyle = ' style="border-color:'.$color.'"';
+                        } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
+                            $astyle = ' style="background-color:'.$color.'"';
+                        }
                     //} else {
                     //    $listyle = "";
                     }
 //                } else {
 //                    $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
 //                }
-            } else {
-                $listyle = null;
+//            } else {
+//                $listyle = null;
             }
             print '<li'.$listyle.'>';
                 if (count(explode(":",$target)) == 1) { $target = ":".$target; }
                 if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
-                    tpl_pagelink($target, p_get_metadata($target, 'plugin_croissant_bctitle'));
+                    $bcstring = p_get_metadata($target, 'plugin_croissant_bctitle');
                 } else {
-                    tpl_pagelink($target);
+                    $bcstring = "";
+                }
+                if ($astyle) {
+                    print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($target, $bcstring, true));
+                } else {
+                    tpl_pagelink($target, $bcstring);
                 }
             print '</li>';
         }

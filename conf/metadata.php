@@ -22,7 +22,7 @@ $meta['datelocale']         = array('string');
 $meta['longdate']           = array('string');
 $meta['shortdate']          = array('string');
 $meta['headerflexalign']    = array('multichoice', '_choices' => array('start','center','end'));
-$meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','underlined','pills'));
+$meta['breadcrumbslook']    = array('multichoice', '_choices' => array('classic','underlined','pills','underlined-nscolored','pills-nscolored'));
 $meta['breadcrumbsglyphs']  = array('onoff');
 $meta['links']              = array('string');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
