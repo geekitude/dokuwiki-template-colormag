@@ -114,7 +114,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [x] *social* (load a dummy social networks list)
-  * [x] *timers* (show alerts reporting time taken by a few functions, currently autotheme and underlined breadcrumbs)
+  * [x] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
   * [x] *widebanner*
   * [x] *widgets* (show dummy widgets set by `debug/footerwidgets.local.conf` file)
 
@@ -190,6 +190,11 @@ The copyright notice at the very bottom of page shouldn't be removed.
 Both `youarehere` and `trace` code differs from core functions to bring the markup needed for "pills" look and the code for `underlined` colors. While `trace` content is the same, `youarehere` is a bit specific and reflects current page ID parts (ie. current page, current page's namespace's start page if it's different, then other parents) and "home" link is not forced in since it's available in main nav just above.
 
 :memo: Note that Colormag is designed to have both `youarehere` and `trace` enabled at same time (but if `youarehere` is disabled, it will be replaced by a simple page ID string)
+
+Some page links will get glyphs in breadcrumbs :
+* ![Wiki Home](/images/glyphs/home.svg) Wiki Home : "absolute" untranslated or default language wiki home
+* ![Translated Wiki Home](/images/glyphs/flag.svg) Translated Wiki Home : translated or secondary language wiki home
+* ![Translated page](/images/glyphs/flag-triangle.svg) Translated page : any none start page in a secondary language namespace
 
 ### UI Images
 
