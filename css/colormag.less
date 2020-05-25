@@ -1876,15 +1876,26 @@ li.default-menu {
     vertical-align: middle;
 }
 
+#colormag__pagenav .breadcrumbs div ul {
+    display: flex;
+    align-items: stretch;
+}
+
+#colormag__pagenav .breadcrumbs div ul,
+#colormag__pagenav .breadcrumbs div ul a {
+    display: flex;
+    height: 100%;
+}
+ 
 body.pagenav-flip #colormag__pagenav .primary {
     order: 2;
     align-items: end;
 }
-
+ 
 [dir=ltr] body.pagenav-flip #colormag__pagenav .primary {
     margin: 0 0 0 2rem;
 }
-
+ 
 [dir=rtl] body.pagenav-flip #colormag__pagenav .primary {
     margin: 0 2rem 0 0;
 }
@@ -2153,7 +2164,7 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
     background-color: transparent;
 }
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a, [dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover {
+[dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a, [dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover, [dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid, [dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid:hover {
     cursor: default;
 }
 

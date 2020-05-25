@@ -1209,9 +1209,19 @@ function colormag_pagelink($target, $style = null, $context = null, $return = fa
     global $colormag;
 
     if (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ) {
+
+        // LINK STYLE
+//dbg($style);
+        if ($style != null) {
+            $style = ' style="'.$style.'"';
+        }
+//dbg($style);
+
         // CLASSES
         if ($target == $ID) {
             $classes = "curid";
+            // prevent style color to enable LESS file color
+            $style = null;
         }
         if (page_exists($target)) {
             $classes .= " wikilink1";
@@ -1250,13 +1260,6 @@ function colormag_pagelink($target, $style = null, $context = null, $return = fa
         if ((($context == "breadcrumbs") || ($context == "lastchanges") || ($context == "pagenav")) && (p_get_metadata($target, 'plugin_croissant_bctitle') != null)) {
           $pagename = p_get_metadata($target, 'plugin_croissant_bctitle');
         }
-
-        // STYLE
-//dbg($style);
-        if ($style != null) {
-            $style = ' style="'.$style.'"';
-        }
-//dbg($style);
 
         $link = tpl_link(
             wl($target),
