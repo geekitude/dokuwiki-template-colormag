@@ -128,6 +128,7 @@ function colormag_init() {
     $colormag['glyphs']['help'] = 'lifebuoy';
     $colormag['glyphs']['hide'] = 'eye-off';
     $colormag['glyphs']['home'] = 'home';
+    $colormag['glyphs']['language-home'] = 'flag';
     $colormag['glyphs']['locked'] = 'lock';
 //    $colormag['glyphs']['login'] = 'login';
 //    $colormag['glyphs']['logout'] = 'logout';
@@ -163,7 +164,7 @@ function colormag_init() {
     $colormag['glyphs']['topbar-page-add'] = 'link-variant-plus';
 //    $colormag['glyphs']['topbar-page-denied'] = 'link-variant-off';
     $colormag['glyphs']['trace'] = 'timeline-clock';
-    $colormag['glyphs']['translated'] = 'flag';
+    $colormag['glyphs']['translated'] = 'flag-triangle';
     $colormag['glyphs']['translation'] = 'translate';
     $colormag['glyphs']['upgrade'] = 'cloud-download';
 //    $colormag['glyphs']['user'] = 'account';
@@ -1130,6 +1131,8 @@ function colormag_trace() {
 
         foreach($crumbs as $target => $name) {
             $i++;
+            $target = ltrim($target, ":");
+//dbg($target);
             //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
 //            if (tpl_getConf('breadcrumbslook') == 'underlined') {
             if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
@@ -1148,7 +1151,8 @@ function colormag_trace() {
                         if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
                             $listyle = ' style="border-color:'.$color.'"';
                         } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
-                            $astyle = ' style="background-color:'.$color.'"';
+                            //$astyle = ' style="background-color:'.$color.'"';
+                            $astyle = "background-color:".$color;
                         }
                     //} else {
                     //    $listyle = "";
@@ -1160,17 +1164,19 @@ function colormag_trace() {
 //                $listyle = null;
             }
             print '<li'.$listyle.'>';
-                if (count(explode(":",$target)) == 1) { $target = ":".$target; }
+                //if (count(explode(":",$target)) == 1) { $target = ":".$target; }
                 if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
                     $bcstring = p_get_metadata($target, 'plugin_croissant_bctitle');
                 } else {
                     $bcstring = "";
                 }
-                if ($astyle) {
-                    print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($target, $bcstring, true));
-                } else {
-                    tpl_pagelink($target, $bcstring);
-                }
+                //if ($astyle) {
+                //    print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($target, $bcstring, true));
+                //} else {
+                //    tpl_pagelink($target, $bcstring);
+                //}
+//dbg($target);
+                colormag_pagelink($target, $astyle, "breadcrumbs", false);
             print '</li>';
         }
 
@@ -1196,6 +1202,79 @@ function colormag_trace() {
         return false;
     }
 }/* /colormag_trace */
+
+
+function colormag_pagelink($target, $style = null, $context = null, $return = false) {
+    global $ID, $conf;
+    global $colormag;
+
+    if (!$useacl or auth_quickaclcheck($result['ns']) >= AUTH_READ) {
+        // CLASSES
+        if ($target == $ID) {
+            $classes = "curid";
+        }
+        if (page_exists($target)) {
+            $classes .= " wikilink1";
+        } else {
+            $classes = " wikilink2";
+        }
+
+        // GLYPH
+        $glyph = null;
+        if (colormag_ishome($target) == "untranslated") {
+            $glyph = colormag_glyph($colormag['glyphs']['home'], true);
+        } elseif (colormag_ishome($target) == "translated") {
+            $glyph = colormag_glyph($colormag['glyphs']['language-home'], true);
+        } elseif (colormag_istranslated($target)) {
+            $glyph = colormag_glyph($colormag['glyphs']['translated'], true);
+        }
+
+        // PAGENAME
+        // By default, page name will be equal to it's ID
+        //$pagename = $target;
+        if ($conf['useslash']) {
+            $nssep = '[:;/]';
+            $basename = explode("/".$conf['start'], $target)[0];
+        } else {
+            $nssep = '[:;]';
+            $basename = explode(":".$conf['start'], $target)[0];
+        }
+//dbg($pagename);
+        $pagename = preg_replace('!.*'.$nssep.'!', '', $basename);
+        // If `useheading` DW's setting is enabled for navigation links, try to get that first heading
+        if(useHeading('navigation')) {
+            $first_heading = p_get_first_heading($target);
+            if($first_heading) $pagename = $first_heading;
+        }
+        // Croissant plugin
+        if ((($context == "breadcrumbs") || ($context == "lastchanges") || ($context == "pagenav")) && (p_get_metadata($target, 'plugin_croissant_bctitle') != null)) {
+          $pagename = p_get_metadata($target, 'plugin_croissant_bctitle');
+        }
+
+        // STYLE
+//dbg($style);
+        if ($style != null) {
+            $style = ' style="'.$style.'"';
+        }
+//dbg($style);
+
+        $link = tpl_link(
+            wl($target),
+            $glyph.$pagename,
+            'class="'.ltrim($classes, " ").'" title="'.$target.'"'.$style,
+            true
+        );
+        
+        if ($return) {
+            return $link;
+        } else {
+            print $link;
+            return 1;
+        }
+    } else {
+        return false;
+    }
+}
 
 /**
  * adapted from core
@@ -1430,6 +1509,28 @@ function colormag_ishome($page) {
         $ishome = false;
     }
     return $ishome;
+}
+
+/**
+ * Tell if given page is translated or not (ie. is in translated ns)
+ *
+ * @param string $page
+ */
+function colormag_istranslated($page) {
+    global $conf;
+    global $colormag;
+
+//dbg($page);
+    // Default or untranslated wiki home ?
+    if ($colormag['translation']['helper']) {
+        $parts = $colormag['translation']['helper']->getTransParts($page);
+        if (($parts[0]) and ($parts[0] != $conf['lang']) and (strpos($conf['plugin']['translation']['translations'], $parts[0]) !== false)) {
+            return true;
+        }
+    } else {
+        return false;
+    }
+    return false;
 }
 
 function colormag_color($target, $inherit = false) {

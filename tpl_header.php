@@ -161,7 +161,7 @@ if (!defined('DOKU_INC')) die();
                             <?php //if(($colormag['translation']['ishome'] == "translated") or (($colormag['translation']['istranslated']) and ($conf['plugin']['translation']['redirectstart']))): ?>
                             <?php if(($colormag['ishome'] == "translated") or (($colormag['translation']['istranslated']) and ($conf['plugin']['translation']['redirectstart']))): ?>
                                 <li class="menu-item nav home menu-item-has-children">
-                                    <a href="<?php print wl() ?>" title="<?php print tpl_getLang('wikihome') ?>"><?php colormag_glyph($colormag['glyphs']['translated']); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('wikihome') ?></span></a>
+                                    <a href="<?php print wl() ?>" title="<?php print tpl_getLang('wikihome') ?>"><?php colormag_glyph($colormag['glyphs']['language-home']); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('wikihome') ?></span></a>
                                     <ul class="sub-menu">
                                         <li class="menu-item nav home"><a href="<?php print wl($colormag['translation']['untranslatedhome']) ?>" title="<?php print tpl_getLang('untranslated_wikihome') ?>"><?php colormag_glyph($colormag['glyphs']['home']); ?><span<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : " class='a11y'" ?>><?php print tpl_getLang('untranslated_wikihome') ?></span></a></li>
                                     </ul>
