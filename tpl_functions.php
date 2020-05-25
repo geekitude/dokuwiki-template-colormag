@@ -1235,6 +1235,8 @@ function colormag_pagelink($target, $style = null, $context = null, $return = fa
             $glyph = colormag_glyph($colormag['glyphs']['home'], true);
         } elseif (colormag_ishome($target) == "translated") {
             $glyph = colormag_glyph($colormag['glyphs']['language-home'], true);
+        } elseif (strpos($target, $conf['start']) !== false) {
+            $glyph = colormag_glyph($colormag['glyphs']['namespace-start'], true);
         } elseif (colormag_istranslated($target)) {
             $glyph = colormag_glyph($colormag['glyphs']['translated'], true);
         }

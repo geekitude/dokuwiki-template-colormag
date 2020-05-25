@@ -194,6 +194,7 @@ Both `youarehere` and `trace` code differs from core functions to bring the mark
 Some page links will get glyphs in breadcrumbs :
 * ![Wiki Home](/images/glyphs/home.svg) Wiki Home : "absolute" untranslated or default language wiki home
 * ![Translated Wiki Home](/images/glyphs/flag.svg) Translated Wiki Home : translated or secondary language wiki home
+* ![Namespace Start](/images/glyphs/folder-home.svg) Namespace Start : any none home namespace start page
 * ![Translated page](/images/glyphs/flag-triangle.svg) Translated page : any none start page in a secondary language namespace
 
 ### UI Images
