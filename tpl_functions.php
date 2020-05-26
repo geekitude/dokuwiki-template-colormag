@@ -936,61 +936,6 @@ function colormag_newsticker($context = null) {
  *
  * @return bool
  */
-//function colormag_youarehere() {
-//    global $conf, $ID, $lang, $colormag;
-//    // check if enabled
-//    if(!$conf['youarehere']) return false;
-//    $parts = explode(':', $ID);
-//    $count = count($parts);
-////dbg($parts);
-//    // print the startpage unless we're in translated namespace (in wich case trace will start with current language start page)
-////dbg($colormag['trans']);
-//    //if ((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) {
-//    if (((isset($colormag['trans']['parts'][0])) and (isset($colormag['trans']['defaultlang'])) and ($colormag['trans']['parts'][0] == $colormag['trans']['defaultlang'])) or ((!plugin_isdisabled('translation')) and (strpos($conf['plugin']['translation']['translations'], $colormag['trans']['defaultlang']) === false)) or (plugin_isdisabled('translation'))) {
-//        print '<li>'.tpl_pagelink(':'.$conf['start'], null, true).'</li>';
-//    }
-//    // print intermediate namespace links
-//    $part = '';
-//    for($i = 0; $i < $count - 1; $i++) {
-//        $part .= $parts[$i].':';
-////dbg($part);
-//        $page = $part;
-//        print "<li>";
-//            if (p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle') != null) {
-//                tpl_pagelink($page, p_get_metadata($page.$conf['start'], 'plugin_croissant_bctitle'));
-//            } else {
-////dbg("eh ben?".$page);
-//                tpl_pagelink($page);
-//            }
-//        print "</li>";
-//    }
-//    // print current page, skipping start page, skipping for namespace index
-//    resolve_pageid('', $page, $exists);
-//    if(isset($page) && $page == $part.$parts[$i]) {
-//        return true;
-//    }
-//    $page = $part.$parts[$i];
-//    if ($page == $conf['start']) {
-//        return true;
-//    }
-//    print "<li>";
-//        if (p_get_metadata($page, 'plugin_croissant_bctitle') != null) {
-//            tpl_pagelink($page, p_get_metadata($page, 'plugin_croissant_bctitle'));
-//        } else {
-//            tpl_pagelink($page);
-//        }
-//    print "</li>";
-//    return true;
-//}/* /colormag_youarehere */
-
-/**
- * PRINT HIERARCHICAL BREADCRUMBS, adapted from core (template.php) to use a CSS separator solution and respect existing/non-existing page link colors
- *
- * This code was suggested as replacement for the usual breadcrumbs.
- * It only makes sense with a deep site structure.
- *
- * @return bool
- */
 function colormag_youarehere() {
     global $conf, $ID, $lang, $colormag;
 
@@ -1023,12 +968,7 @@ function colormag_youarehere() {
             $page = $part.$conf['start'];
         }
 //dbg($page);
-        //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($page.end($parts) != $ID) and ($page != $ID)) {
-        //if (tpl_getConf('breadcrumbslook') == 'underlined') {
         if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
-            //if (($colormag['translation']['ishome'] == false) or ($ID != $conf['start'])) {
-            //    $listyle = ' style="border-color:#'.$colormag['initial_theme_color'].'"';
-            //} else {
             // We need a page ID for checks, not a namespace ID like "wiki:"
             if (substr($page, -1) == ":") {
                 $check = $page.$conf['start'];
@@ -1036,44 +976,17 @@ function colormag_youarehere() {
                 $check = $page;
             }
 
-//            $themeinifile = colormag_inherit("theme.ini", "conf", $check);
-//dbg($themeinifile);
-//            if (colormag_ishome($check)) {
-//                $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
-//            } elseif (is_file($themeinifile['src'])) {
-//                $themeini = parse_ini_file($themeinifile['src'], true);
-//                $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
-//dbg($themeini['replacements']['__theme_color__']);
-//            } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                $color = colormag_color($check, true);
-                //if ($color != "#") {
-                if ($color) {
-                    if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
-//                        $listyle = ' style="border-color:'.$color.'"';
-                        $listyle = 'border-color:'.$color;
-                    } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
-//                        $astyle = ' style="background-color:'.$color.'"';
-                        $astyle = 'background-color:'.$color;
-                    }
-                //} else {
-                //    $listyle = "";
+            $color = colormag_color($check, true);
+            //if ($color != "#") {
+            if ($color) {
+                if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
+                    $listyle = ' style="border-color:'.$color.'"';
+                } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
+                    $astyle = 'background-color:'.$color;
                 }
-//            } else {
-//                $listyle = ' style="border-color:#'.substr(md5(getNS($page)), 6, 6).'"';
-//            }
-        //} else {
-        //    $listyle = null;
+            }
         }
-//        print "<li".$listyle.">";
-//            if ($astyle) {
-                //dbg(tpl_pagelink($page, $parts[$i], true));
-//                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
-//            } else {
-//                tpl_pagelink($page, $parts[$i]);
-//            }
-//        print "</li>";
         print '<li'.$listyle.'>';
-//                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
             colormag_pagelink($page, $astyle, "breadcrumbs", false);
         print '</li>';
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
@@ -1086,17 +999,17 @@ function colormag_youarehere() {
     print '</ul>';
 
     $ru = getrusage();
-    $time = rutime($ru, $rustart, "utime");
-    if ($time > 100) {
-        $alert = -1;
-    } elseif ($time > 50) {
-        $alert = 2;
-    } elseif ($time > 20) {
-        $alert = 0;
-    } else {
-        $alert = 1;
-    }
     if (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers')) {
+        $time = rutime($ru, $rustart, "utime");
+        if ($time > 100) {
+            $alert = -1;
+        } elseif ($time > 50) {
+            $alert = 2;
+        } elseif ($time > 20) {
+            $alert = 0;
+        } else {
+            $alert = 1;
+        }
         msg("Youarehere took ".$time."ms to build list and collect colors.", $alert);
     }
 
@@ -1118,15 +1031,6 @@ function colormag_trace() {
     if(!$conf['breadcrumbs']) return false;
 
     $crumbs = breadcrumbs(); //setup crumb trace
-//dbg($crumbs);
-    // Make sure current page crumb is last in list (this also occurs with 'dokuwiki' template so it seems to be a core code minor bug)
-    // COULD BE FIXED WITH FOLLOWING LINE BUT THIS BREAKS TWISTIENAV AS IT IS BASED ON CORE BREADCRUMBS()
-    //$value = $crumbs[$ID];
-    //unset($crumbs[$ID]);
-    //$crumbs = array_merge($crumbs); 
-    //$crumbs[$ID] = $value;
-//dbg($crumbs);
-
 
     if (count($crumbs) > 0) {
 //dbg($crumbs);
@@ -1140,49 +1044,19 @@ function colormag_trace() {
             $i++;
             $target = ltrim($target, ":");
 //dbg($target);
-            //if ((tpl_getConf('breadcrumbslook') == 'underlined') and ($target != $ID)) {
-//            if (tpl_getConf('breadcrumbslook') == 'underlined') {
             if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
-//                $themeinifile = colormag_inherit("theme.ini", "conf", $target);
-//dbg($themeinifile);
-//                if (colormag_ishome($target)) {
-//                    $listyle = ' style="border-color:'.$colormag['initial_theme_color'].'"';
-//                } elseif (is_file($themeinifile['src'])) {
-//                    $themeini = parse_ini_file($themeinifile['src'], true);
-//                    $listyle = ' style="border-color:'.$themeini['replacements']['__theme_color__'].'"';
-//dbg($themeini['replacements']['__theme_color__']);
-//                } elseif ((tpl_getConf('autotheme') == "banner") or (tpl_getConf('autotheme') == "widebanner") or (tpl_getConf('autotheme') == "sidecard")) {
-                    $color = colormag_color($target, true);
-                    //if ($color != "#") {
-                    if ($color) {
-                        if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
-                            $listyle = ' style="border-color:'.$color.'"';
-                        } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
-                            //$astyle = ' style="background-color:'.$color.'"';
-                            $astyle = "background-color:".$color;
-                        }
-                    //} else {
-                    //    $listyle = "";
+                $color = colormag_color($target, true);
+                //if ($color != "#") {
+                if ($color) {
+                    if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
+                        $listyle = ' style="border-color:'.$color.'"';
+                    } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
+                        //$astyle = ' style="background-color:'.$color.'"';
+                        $astyle = "background-color:".$color;
                     }
-//                } else {
-//                    $listyle = ' style="border-color:#'.substr(md5(getNS($target)), 6, 6).'"';
-//                }
-//            } else {
-//                $listyle = null;
+                }
             }
             print '<li'.$listyle.'>';
-//                //if (count(explode(":",$target)) == 1) { $target = ":".$target; }
-//                if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
-//                    $bcstring = p_get_metadata($target, 'plugin_croissant_bctitle');
-//                } else {
-//                    $bcstring = "";
-//                }
-                //if ($astyle) {
-                //    print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($target, $bcstring, true));
-                //} else {
-                //    tpl_pagelink($target, $bcstring);
-                //}
-//dbg($target);
                 colormag_pagelink($target, $astyle, "breadcrumbs", false);
             print '</li>';
         }
@@ -1190,17 +1064,17 @@ function colormag_trace() {
         print '</ul>';
 
         $ru = getrusage();
-        $time = rutime($ru, $rustart, "utime");
-        if ($time > 100) {
-            $alert = -1;
-        } elseif ($time > 50) {
-            $alert = 2;
-        } elseif ($time > 20) {
-            $alert = 0;
-        } else {
-            $alert = 1;
-        }
         if (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers')) {
+            $time = rutime($ru, $rustart, "utime");
+            if ($time > 100) {
+                $alert = -1;
+            } elseif ($time > 50) {
+                $alert = 2;
+            } elseif ($time > 20) {
+                $alert = 0;
+            } else {
+                $alert = 1;
+            }
             msg("Trace took ".$time."ms to build list and collect colors.", $alert);
         }
 
