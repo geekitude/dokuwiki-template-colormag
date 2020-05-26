@@ -81,7 +81,7 @@ colormag_init();
                 <div class="inner-wrap flex row between">
                     <div class="primary">
                         <?php colormag_include("pagenavprimaryheader"); ?>
-                        <div class="breadcrumbs youarehere">
+                        <div class="breadcrumbs youarehere flex">
                             <?php if(($conf['youarehere']) and ($conf['breadcrumbs'])): ?>
                                 <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print rtrim($lang['youarehere'], ":") ?></span></h6>
                                 <div class="flex row center"><span class="label" title="<?php print rtrim($lang['youarehere'], ':') ?>"><?php colormag_glyph($colormag['glyphs']['youarehere']) ?></span>
@@ -96,7 +96,7 @@ colormag_init();
                     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) or (($colormag['translation']['helper']) and !($conf['youarehere']) and !($conf['breadcrumbs']))): ?>
                         <div class="secondary">
                             <?php colormag_include("pagenavsecondaryheader"); ?>
-                            <div class="breadcrumbs youarehere">
+                            <div class="breadcrumbs youarehere flex">
                                 <?php if(($conf['youarehere']) and !($conf['breadcrumbs'])): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print $lang['youarehere'] ?></span></h6>
                                     <div class="flex row-reverse center">
@@ -105,7 +105,7 @@ colormag_init();
                                     </div>
                                 <?php endif ?>
                             </div><!-- .breacrumbs.youarehere -->
-                            <div class="breadcrumbs trace">
+                            <div class="breadcrumbs trace flex">
                                 <?php if($conf['breadcrumbs']): ?>
                                     <h6 class="widget-title<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>"><span><?php print rtrim($lang['breadcrumb'], ":") ?></span></h6>
                                     <div class="flex row-reverse center">

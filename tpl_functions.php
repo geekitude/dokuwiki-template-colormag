@@ -1038,7 +1038,7 @@ function colormag_trace() {
         $last = count($crumbs);
         $i    = 0;
 
-        print '<ul>';
+        print '<ul class="flex end wrap">';
 
         foreach($crumbs as $target => $name) {
             $i++;
