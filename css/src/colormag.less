@@ -1468,7 +1468,7 @@ li.default-menu {
 */
 
 #colormag__pagenav ul li {
-    display: inline list-item;
+    /*display: inline list-item;*/
 }
 
 #colormag__pagenav svg {
@@ -1503,12 +1503,15 @@ li.default-menu {
 
 #colormag__pagenav .breadcrumbs div ul {
     display: flex;
-    align-items: stretch;
+    /*align-items: stretch;*/
 }
 
+#colormag__pagenav .breadcrumbs div ul li,
 #colormag__pagenav .breadcrumbs div ul a {
     display: flex;
-    height: 100%;
+    /*height: 100%;*/
+    flex-direction: row;
+    align-items: center;
 }
 
 #colormag__pagenav .breadcrumbs div ul a svg {
