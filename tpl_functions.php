@@ -968,13 +968,19 @@ function colormag_youarehere() {
             $page = $part.$conf['start'];
         }
 //dbg($page);
+
+        // We need a page ID for checks, not a namespace ID like "wiki:"
+        if (substr($page, -1) == ":") {
+            $check = $page.$conf['start'];
+        } else {
+            $check = $page;
+        }
+
+        if ((strpos(tpl_getConf('breadcrumbslook'), 'underlined') !== false) and ($check == $ID)) {
+            $liclasses = ' class="curid"';
+        }
+
         if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
-            // We need a page ID for checks, not a namespace ID like "wiki:"
-            if (substr($page, -1) == ":") {
-                $check = $page.$conf['start'];
-            } else {
-                $check = $page;
-            }
 
             $color = colormag_color($check, true);
             //if ($color != "#") {
@@ -986,7 +992,7 @@ function colormag_youarehere() {
                 }
             }
         }
-        print '<li'.$listyle.'>';
+        print '<li'.$liclasses.$listyle.'>';
             colormag_pagelink($page, $astyle, "breadcrumbs", false);
         print '</li>';
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
@@ -1044,6 +1050,9 @@ function colormag_trace() {
             $i++;
             $target = ltrim($target, ":");
 //dbg($target);
+            if ((strpos(tpl_getConf('breadcrumbslook'), 'underlined') !== false) and ($target == $ID)) {
+                $liclasses = ' class="curid"';
+            }
             if (strpos(tpl_getConf('breadcrumbslook'), 'nscolored') !== false) {
                 $color = colormag_color($target, true);
                 //if ($color != "#") {
@@ -1056,7 +1065,7 @@ function colormag_trace() {
                     }
                 }
             }
-            print '<li'.$listyle.'>';
+            print '<li'.$liclasses.$listyle.'>';
                 colormag_pagelink($target, $astyle, "breadcrumbs", false);
             print '</li>';
         }
