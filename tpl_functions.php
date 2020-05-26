@@ -405,8 +405,9 @@ function colormag_init() {
     // For Admins eyes only
     if ($INFO['isadmin']) {
 //dbg("ici?");
-        if ((tpl_getConf('breadcrumbslook') == "pills") and (!plugin_isdisabled('twistienav'))) {
-            msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/24' rel='nofollow'>issue #24</a>)", -1);
+        if ((strpos(tpl_getConf('breadcrumbslook'), 'pills') !== false) and (!plugin_isdisabled('twistienav'))) {
+//dbg("t'es où?");
+            msg("Colormag's pills breadcrumbs are currently not compatible with Twistienav (see <a href='https://github.com/geekitude/dokuwiki-template-colormag/issues/29' rel='nofollow'>issue #24</a>)", -1);
         }
         if (($autotheme_msg != null) and (($_GET['debug'] == 1) or ($_GET['debug'] == 'timers'))) {
 //dbg("pas là?");
@@ -1048,9 +1049,11 @@ function colormag_youarehere() {
                 //if ($color != "#") {
                 if ($color) {
                     if (tpl_getConf('breadcrumbslook') == 'underlined-nscolored') {
-                        $listyle = ' style="border-color:'.$color.'"';
+//                        $listyle = ' style="border-color:'.$color.'"';
+                        $listyle = 'border-color:'.$color;
                     } elseif (tpl_getConf('breadcrumbslook') == 'pills-nscolored') {
-                        $astyle = ' style="background-color:'.$color.'"';
+//                        $astyle = ' style="background-color:'.$color.'"';
+                        $astyle = 'background-color:'.$color;
                     }
                 //} else {
                 //    $listyle = "";
@@ -1061,14 +1064,18 @@ function colormag_youarehere() {
         //} else {
         //    $listyle = null;
         }
-        print "<li".$listyle.">";
-            if ($astyle) {
+//        print "<li".$listyle.">";
+//            if ($astyle) {
                 //dbg(tpl_pagelink($page, $parts[$i], true));
-                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
-            } else {
-                tpl_pagelink($page, $parts[$i]);
-            }
-        print "</li>";
+//                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
+//            } else {
+//                tpl_pagelink($page, $parts[$i]);
+//            }
+//        print "</li>";
+        print '<li'.$listyle.'>';
+//                print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($page, $parts[$i], true));
+            colormag_pagelink($page, $astyle, "breadcrumbs", false);
+        print '</li>';
         // stop if we reached current $ID (there's still one element left in $parts with NS start pages)
         if ($page == $ID) {
 //dbg("bingo: ".$page);
@@ -1164,12 +1171,12 @@ function colormag_trace() {
 //                $listyle = null;
             }
             print '<li'.$listyle.'>';
-                //if (count(explode(":",$target)) == 1) { $target = ":".$target; }
-                if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
-                    $bcstring = p_get_metadata($target, 'plugin_croissant_bctitle');
-                } else {
-                    $bcstring = "";
-                }
+//                //if (count(explode(":",$target)) == 1) { $target = ":".$target; }
+//                if (p_get_metadata($target, 'plugin_croissant_bctitle') != null) {
+//                    $bcstring = p_get_metadata($target, 'plugin_croissant_bctitle');
+//                } else {
+//                    $bcstring = "";
+//                }
                 //if ($astyle) {
                 //    print str_replace('class="wiki', $astyle.' class="wiki', tpl_pagelink($target, $bcstring, true));
                 //} else {

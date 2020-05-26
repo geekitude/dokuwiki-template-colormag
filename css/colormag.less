@@ -2011,8 +2011,8 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
 }
 
 [dir] #colormag__pagenav.pills-look .breadcrumbs ul li a {
-    padding-top: @pills * .35;
-    padding-bottom: @pills * .35;
+    padding-top: 9px;
+    padding-bottom: 9px;
 }
 
 [dir=ltr] #colormag__pagenav.pills-look .breadcrumbs ul li a {
@@ -2057,7 +2057,7 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
     border-bottom-left-radius: 5px;
 }
 
-#colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+#colormag__pagenav.pills-look .breadcrumbs.youarehere ul li a:after {
     content: "";
     position: absolute;
     display: inline-block;
@@ -2067,17 +2067,17 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
     z-index: 1;
 }
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+[dir] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li a:after {
     background-color: inherit;
 }
 
-[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+[dir=ltr] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li a:after {
     right: @pills / 1.35 * -1;
     border-top-right-radius: 5px;
     transform: scale(0.707) rotate(45deg);
 }
 
-[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul a:after {
+[dir=rtl] #colormag__pagenav.pills-look .breadcrumbs.youarehere ul li a:after {
     left: @pills / 1.35 * -1;
     border-top-left-radius: 5px;
     transform: scale(0.707) rotate(-45deg);
@@ -2171,7 +2171,11 @@ body.pagenav-flip #colormag__pagenav .secondary .breadcrumbs div.flex {
     background-color: transparent;
 }
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a, [dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover, [dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid, [dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid:hover {
+/*
+#colormag__pagenav.pills-look .breadcrumbs ul .curid a,
+#colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover,
+*/
+[dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid, [dir] #colormag__pagenav.pills-look .breadcrumbs ul a.curid:hover {
     cursor: default;
 }
 
