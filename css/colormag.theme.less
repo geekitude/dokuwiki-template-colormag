@@ -495,8 +495,8 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 /* =PAGE NAVIGATION
 ----------------------------------------------- */
 
-#colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink1,
-#colormag__pagenav .breadcrumbs li:last-child span.curid a.wikilink2 {
+#colormag__pagenav .breadcrumbs li:last-child a.curid.wikilink1,
+#colormag__pagenav .breadcrumbs li:last-child a.curid.wikilink2 {
     color: @ini_text_neu;
 }
 
@@ -508,6 +508,17 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 [dir] #colormag__pagenav.underlined-look .breadcrumbs ul li:hover {
     border-bottom-color: @ini_theme_dark_color !important;
+}
+
+/* Underlined - Curid*/
+
+#colormag__pagenav.underlined-look .breadcrumbs div ul li.curid,
+#colormag__pagenav.underlined-look .breadcrumbs div ul li > a.curid:hover {
+    color: @ini_text_neu;
+}
+
+[dir] #colormag__pagenav.underlined-look .breadcrumbs div ul li.curid, [dir] #colormag__pagenav.underlined-look .breadcrumbs div ul li > a.curid:hover {
+    border-color: @ini_background_neu !important;
 }
 
 /* Pills breadcrumbs */
@@ -530,7 +541,15 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
 
 /* Pills - Curid*/
 
-[dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a, [dir] #colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover, [dir] #colormag__pagenav.pills-look .breadcrumbs div ul a.curid, [dir] #colormag__pagenav.pills-look .breadcrumbs div ul a.curid:hover {
+/*
+#colormag__pagenav.pills-look .breadcrumbs ul .curid a,
+#colormag__pagenav.pills-look .breadcrumbs ul .curid a:hover,
+*/
+#colormag__pagenav.pills-look .breadcrumbs div ul a.curid,
+#colormag__pagenav.pills-look .breadcrumbs div ul a.curid:hover {
+    color: @ini_text_neu;
+}
+[dir] #colormag__pagenav.pills-look .breadcrumbs div ul a.curid, [dir] #colormag__pagenav.pills-look .breadcrumbs div ul a.curid:hover {
     background-color: @ini_background_neu !important;
 }
 
