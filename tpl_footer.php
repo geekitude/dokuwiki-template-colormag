@@ -88,6 +88,7 @@ dbg("vérifier ces liens");
                                 if (strpos($widget, '.html') !== false) {
                                     colormag_include($widget);
                                 } else {
+                                    //colormag_render('wiki:'.$widget);
                                     print p_wiki_xhtml('wiki:'.$widget, '', false);
                                 }
                             print '</aside>';

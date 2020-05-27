@@ -627,6 +627,20 @@ function colormag_include($file) {
     }
 }/* /colormag_include */
 
+
+/**
+ * Render a page without any wiki caching
+ */
+function colormag_render($id) {
+    global $conf;
+
+dbg(wikiFN('wiki:'.$widget));
+    $id = str_replace(":", "/", $id);
+    $fn = $conf['datadir'].'/'.utf8_encodeFN($id).'.txt';
+dbg($fn);
+}
+
+
 function colormag_replace($file, $string = null) {
     if (($_GET['debug'] == 'replace') && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
         include(tpl_incdir().'debug/'.$file.'.html');
