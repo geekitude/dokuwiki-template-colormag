@@ -96,11 +96,11 @@ function colormag_init() {
 
     // GET FOOTER WIDGETS
     $colormag['widgets'] = array();
-    // Load footer widgets list from DOKU_CONF/footerwidgets.local.conf to global conf
+    // Load footer widgets list from DOKU_CONF/footer.widgets.local.conf to global conf
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
-        $footerwidgetsFile = tpl_incdir().'debug/footerwidgets.local.conf';
+        $footerwidgetsFile = tpl_incdir().'debug/footer.widgets.local.conf';
     } else {
-        $footerwidgetsFile = DOKU_CONF.'footerwidgets.local.conf';
+        $footerwidgetsFile = DOKU_CONF.'footer.widgets.local.conf';
     }
 //dbg($footerwidgetsFile);
     // If file exists...

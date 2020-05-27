@@ -116,7 +116,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * [x] *social* (load a dummy social networks list)
   * [x] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
   * [x] *widebanner*
-  * [x] *widgets* (show dummy widgets set by `debug/footerwidgets.local.conf` file)
+  * [x] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` file)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
 
@@ -232,7 +232,7 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 #### Want more widgets ?
 
-You can add your own widgets based on html files or on pages from `wiki:` namespace (kind of site wide extra sidebars). Simply copy `dokuwiki/lib/tpl/colormag/debug/footerwidgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (this works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#include-hooks) below with the file `dokuwiki/lib/tpl/colormag/debug/samplewidget.html` as an example).
+You can add your own widgets based on html files or on pages from `wiki:` namespace (kind of site wide extra sidebars). Simply copy `dokuwiki/lib/tpl/colormag/debug/footer.widgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (this works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#include-hooks) below with the file `dokuwiki/lib/tpl/colormag/debug/samplewidget.html` as an example).
 
 ### HTML hooks
 
