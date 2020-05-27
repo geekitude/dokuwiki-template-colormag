@@ -38,8 +38,15 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
     $hasSidebar = page_findnearest($conf['sidebar']);
     $showSidebar = $hasSidebar && ($ACT=='show');
 }
-if (($ACT == "show") and (file_exists($colormag['images']['sidecard']['path']))) {
-    $showSidebar = 1;
+if ($ACT == "show") {
+    if (file_exists($colormag['images']['sidecard']['path'])) {
+        $hasSidecard = 1;
+        $showSidebar = 1;
+    }
+    if ((is_array($colormag['widgets']['side'])) and (count($colormag['widgets']['side']) > 0)) {
+        $hasSidewidgets = 1;
+        $showSidebar = 1;
+    }
 }
 //dbg($hasSidebar);
 //dbg($showSidebar);
@@ -171,11 +178,13 @@ if (($ACT == "show") and (file_exists($colormag['images']['sidecard']['path'])))
                         <!-- ********** ASIDE ********** -->
                         <div id="colormag__secondary" class="<?php print (strpos(tpl_getConf('print'), 'sidebar') !== false) ? '' : ' noprint' ?>">
 
-                            <aside id="colormag__sidecard-wrap" class="group">
-                                <?php
-                                    colormag_ui_image('sidecard');
-                                ?>
-                            </aside><!-- #colormag__sidecard-wrap -->
+                            <?php if($hasSidecard): ?>
+                                <aside id="colormag__sidecard-wrap" class="group">
+                                    <?php
+                                        colormag_ui_image('sidecard');
+                                    ?>
+                                </aside><!-- #colormag__sidecard-wrap -->
+                            <?php endif; ?>
 
                             <?php if($hasSidebar): ?>
                                 <aside class="pad aside widget include group<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " uicolor" : "" ?>">
@@ -196,6 +205,29 @@ if (($ACT == "show") and (file_exists($colormag['images']['sidecard']['path'])))
                                     </div><!-- /#colormag__content -->
                                 </aside><!-- /.pad.aside.include.group -->
                             <?php endif; ?>
+
+                            <?php
+                                if ($hasSidewidgets) {
+                                    $class = "widget";
+                                    if (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) {
+                                        $class .= " uicolor";
+                                    }
+                                    if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
+                                        $class .= " include-hook-sample";
+                                    }
+                                    foreach ($colormag['widgets']['side'] as $widget => $title) {
+                                        print '<aside id="colormag__'.explode(".", $widget)[0].'" class="'.$class.'">';
+                                            print '<h6 class="widget-title"><span class="label">'.$title.'</span></h6>';
+                                            if (strpos($widget, '.html') !== false) {
+                                                colormag_include($widget);
+                                            } else {
+                                                //colormag_render('wiki:'.$widget);
+                                                print p_wiki_xhtml('wiki:'.$widget, '', false);
+                                            }
+                                        print '</aside>';
+                                    }
+                                }
+                            ?>
 
                         </div><!-- /#colormag__secondary -->
                     <?php endif; ?>

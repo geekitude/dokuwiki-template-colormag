@@ -95,23 +95,25 @@ function colormag_init() {
     }
 
     // GET FOOTER WIDGETS
-    $colormag['widgets'] = array();
-    // Load footer widgets list from DOKU_CONF/footer.widgets.local.conf to global conf
-    if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
-        $footerwidgetsFile = tpl_incdir().'debug/footer.widgets.local.conf';
-    } else {
-        $footerwidgetsFile = DOKU_CONF.'footer.widgets.local.conf';
-    }
+    $widgets= array('footer','side');
+    foreach ($widgets as $type) {
+        $colormag['widgets'][$type] = array();
+        // Load footer widgets list from DOKU_CONF/$type.widgets.local.conf to global conf
+        if (($_GET['debug'] == 1) or ($_GET['debug'] == "widgets")) {
+            $widgetsFile = tpl_incdir().'debug/'.$type.'.widgets.local.conf';
+        } else {
+            $widgetsFile = DOKU_CONF.$type.'.widgets.local.conf';
+        }
 //dbg($footerwidgetsFile);
-    // If file exists...
-    if (@file_exists($footerwidgetsFile)) {
+        // If file exists...
+        if (@file_exists($widgetsFile)) {
 //dbg($footerwidgetsFile);
-        // ... read it's content
-        $colormag['widgets']['footer'] = confToHash($footerwidgetsFile);
-        $colormag['widgets']['footer'] = array_filter($colormag['widgets']['footer']);
+            // ... read it's content
+            $colormag['widgets'][$type] = confToHash($widgetsFile);
+            $colormag['widgets'][$type] = array_filter($colormag['widgets'][$type]);
+        }
+//dbg($colormag['widgets'][$type]);
     }
-//dbg($colormag['widgets']['footer']);
-
     // GLYPHS
     // Search for default or custum default SVG glyphs
 //    $colormag['glyphs']['about'] = 'help';
