@@ -203,7 +203,7 @@ Banner, site pattern, sidecard and widebanner images are meant to be namespace d
 
 Images uploaded to `wiki` namespace will be used as default for the whole wiki.
 
-:memo: Note that all UI images are responsive and will shrink or grow with container 
+:memo: Note that all UI images are responsive and will shrink or grow with container and sidecard is the only one that will be upscaled if needed to match sidebar width set through `style.ini`.
 
 ### Namespace dependent CSS
 

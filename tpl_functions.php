@@ -1560,9 +1560,12 @@ function colormag_ui_image($type) {
         }
         if ($title == null) { $title = $target; }
         if (($colormag['images'][$type]['ns'] != null) and ($target != null)) {
+            if ($type != 'sidecard') {
+                $style = ' style="max-width:'.$colormag['images'][$type]['size'][0].'px"';
+            }
             tpl_link(
                 $target,
-                '<img src="'.$colormag['images'][$type]['src'].'" title="'.$title.'" alt="*sidecard*" '.$colormag['images'][$type]['size'][3].' style="max-width:'.$colormag['images'][$type]['size'][0].'px"/>'
+                '<img src="'.$colormag['images'][$type]['src'].'" title="'.$title.'" alt="*'.$type.'*" '.$colormag['images'][$type]['size'][3].$style.'/>'
             );
         } else {
             print '<img src="'.$colormag['images'][$type]['src'].'" alt="*'.$title.'*" '.$colormag['images'][$type]['size'][3].' class="mediacenter" />';
