@@ -28,6 +28,9 @@ global $colormag, $showSidebar;
 // Reset $colormag to make sure we don't inherit any value from previous page
 $colormag = array();
 
+colormag_init();
+
+//dbg($colormag['images']['sidecard']);
 if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getConf('cheatsheet')))) {
     $hasSidebar = "wiki:".tpl_getConf('cheatsheet');
     $showSidebar = 1;
@@ -35,8 +38,9 @@ if ((($ACT == "edit") or ($ACT == "preview")) and (page_exists("wiki:".tpl_getCo
     $hasSidebar = page_findnearest($conf['sidebar']);
     $showSidebar = $hasSidebar && ($ACT=='show');
 }
-
-colormag_init();
+if (($ACT == "show") and (file_exists($colormag['images']['sidecard']['path']))) {
+    $showSidebar = 1;
+}
 //dbg($hasSidebar);
 //dbg($showSidebar);
 //dbg($ACT);
@@ -165,32 +169,33 @@ colormag_init();
                         <div class="vr<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? " notvisibleifextracted" : " a11y" ?>"></div>
 
                         <!-- ********** ASIDE ********** -->
-                        <div id="colormag__secondary" class="<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? "uicolor" : "" ?><?php print (strpos(tpl_getConf('print'), 'sidebar') !== false) ? '' : ' noprint' ?>">
+                        <div id="colormag__secondary" class="<?php print (strpos(tpl_getConf('print'), 'sidebar') !== false) ? '' : ' noprint' ?>">
 
-                            <div class="pad aside include group">
-                                <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
-                                <div class="group">
+                            <aside id="colormag__sidecard-wrap" class="group">
+                                <?php
+                                    colormag_ui_image('sidecard');
+                                ?>
+                            </aside><!-- #colormag__sidecard-wrap -->
 
-                                    <?php colormag_include("sidebarheader"); ?>
+                            <?php if($hasSidebar): ?>
+                                <aside class="pad aside widget include group<?php print (strpos(tpl_getConf('uicolorize'), 'sidebar') !== false) ? " uicolor" : "" ?>">
+                                    <h6 class="aside-title toggle"><?php echo $lang['sidebar'] ?></h6>
+                                    <div class="group">
 
-                                    <div class="content group">
+                                        <?php colormag_include("sidebarheader"); ?>
 
-                                        <div id="colormag__sidecard-wrap" class="group">
-                                            <?php
-                                                colormag_ui_image('sidecard');
-                                            ?>
-                                        </div><!-- #colormag__sidecard-wrap -->
+                                        <div class="content group">
+                                            <?php tpl_flush() ?>
+                                            <?php tpl_includeFile('sidebarheader.html') ?>
+                                            <?php tpl_include_page($hasSidebar, true, true) ?>
+                                            <?php tpl_includeFile('sidebarfooter.html') ?>
+                                        </div><!-- /.group -->
 
-                                        <?php tpl_flush() ?>
-                                        <?php tpl_includeFile('sidebarheader.html') ?>
-                                        <?php tpl_include_page($hasSidebar, true, true) ?>
-                                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                                    </div><!-- /.group -->
+                                        <?php colormag_include("sidebarfooter"); ?>
 
-                                    <?php colormag_include("sidebarfooter"); ?>
-
-                                </div><!-- /#colormag__content -->
-                            </div><!-- /.pad.aside.include.group -->
+                                    </div><!-- /#colormag__content -->
+                                </aside><!-- /.pad.aside.include.group -->
+                            <?php endif; ?>
 
                         </div><!-- /#colormag__secondary -->
                     <?php endif; ?>

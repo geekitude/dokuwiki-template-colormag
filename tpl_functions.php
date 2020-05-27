@@ -49,7 +49,8 @@ function colormag_init() {
 //dbg($showSidebar);
 //        if (tpl_getConf($type) != null) {
 //        if ((($type == "sidecard") and ($showSidebar != null)) or (tpl_getConf($type) != null)) {
-        if ((tpl_getConf($type) != null) and ((($type == "sidecard") and ($showSidebar != null)) or ($type == "banner") or ($type == "widebanner"))) {
+//        if ((tpl_getConf($type) != null) and ((($type == "sidecard") and ($showSidebar != null)) or ($type == "banner") or ($type == "widebanner"))) {
+        if (tpl_getConf($type) != null) {
             $colormag['images'][$type] = colormag_inherit(tpl_getConf($type), "media", $ID);
         }
     }

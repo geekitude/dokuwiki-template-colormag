@@ -2406,7 +2406,17 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
     width: @ini_sidebar_width;
 }
 
-[dir] #colormag__secondary div.content {
+[dir] #colormag__secondary aside:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+/*
+#colormag__secondary div.content {
+    padding: 1rem .5rem 0;
+}
+*/
+
+[dir] #colormag__secondary aside.widget {
     padding: 1rem .5rem 0;
 }
 
