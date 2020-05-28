@@ -161,6 +161,7 @@ The copyright notice at the very bottom of page shouldn't be removed.
   * `start` : to the top
   * `center`
   * `end` : to the bottom
+* **widgetslook** (*classic*) : choose between *classic* or *bordered* widgets
 * **breadcrumbslook** (*classic*) : choose between *classic*, *underlined*, *pills*, *underlined-nscolored*, *pills-nscolored* breadcrumbs :bulb: "-nscolored" is based on `style.ini` file if target is home (translated or not) > `theme.ini` file > UI image from `autotheme` setting > target's $ID
 * **breadcrumbsglyphs** ([x]) : add glyphs to distinguish specific pages in breadcrumbs (wiki home, user public page, user home private ns, translated pages)
 * **links** (*links*) : name of wiki page to use to feed footer links widget

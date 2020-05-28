@@ -158,13 +158,21 @@ h6 {
     color: @ini_h6_color;
 }
 
+h6.widget-title span {
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
+}
+
+body.bordered-widgets aside h6.widget-title span {
+    background-color: @ini_theme_dark_color;
+}
+
 h6.widget-title {
     border-bottom-color: @ini_theme_color;
 }
 
-h6.widget-title span {
-    background-color: @ini_theme_color;
-    color: @ini_theme_text_color;
+body.bordered-widgets aside h6.widget-title {
+    background-color: @ini_background;
 }
 
 h6.aside-title,
@@ -586,6 +594,11 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     color: @ini_theme_text_color;
 }
 
+body.bordered-widgets #colormag__sidecard-wrap,
+body.bordered-widgets aside.widget {
+    border-color: @ini_theme_dark_color;
+}
+
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
 .footer-widgets-wrapper {
@@ -593,19 +606,24 @@ body.translated-home #colormag__site-navigation li.nav.home ul li svg {
     background-color: @ini_theme_dark_color;
 }
 
-.footer-widgets-area {
+body.bordered-widgets .footer-widgets-wrapper,
+body.bordered-widgets .footer-widgets-wrapper h6.widget-title {
+    background-color: @ini_background_neu;
+}
+
+body.classic-widgets .footer-widgets-area {
     color: @ini_theme_light_color;
 }
 
-.footer-widgets-area p {
+body.classic-widgets .footer-widgets-area p {
     color: @ini_text_neu;
 }
 
-.footer-widgets-area a {
+body.classic-widgets .footer-widgets-area a {
     color: @ini_theme_text_color;
 }
 
-.footer-widgets-area a:hover {
+body.classic-widgets .footer-widgets-area a:hover {
     color: @ini_link;
 }
 

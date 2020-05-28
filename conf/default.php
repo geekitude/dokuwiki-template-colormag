@@ -22,6 +22,7 @@ $conf['datelocale']         = 'fra';
 $conf['longdate']           = '%A %d %B %Y';
 $conf['shortdate']          = '%d/%m/%Y';
 $conf['headerflexalign']    = 'start';
+$conf['widgetslook']        = 'classic';
 $conf['breadcrumbslook']    = 'classic';
 $conf['breadcrumbsglyphs']  = 1;
 $conf['links']              = 'links';

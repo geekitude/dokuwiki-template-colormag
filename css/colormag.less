@@ -285,6 +285,10 @@ hr {
     border-right-style: solid;
 }
 
+body.bordered-widgets div.vr {
+    display: none;
+}
+
 /* Flexbox */
 
 .flex {
@@ -455,10 +459,32 @@ h6.widget-title {
 }
 
 [dir] h6.widget-title {
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
     margin-bottom: 15px;
     padding-bottom: 0;
+}
+
+[dir] nav h6.widget-title, [dir] body.classic-widgets aside h6.widget-title {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+body.bordered-widgets aside h6.widget-title {
+    width: 80%;
+}
+
+[dir] body.bordered-widgets aside h6.widget-title {
+    text-align: center;
+    margin-top: -2.5rem;
+}
+
+[dir=ltr] body.bordered-widgets aside h6.widget-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[dir=rtl] body.bordered-widgets aside h6.widget-title {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 h6.widget-title span {
@@ -1830,6 +1856,11 @@ li.default-menu {
 }
 */
 
+[dir] #colormag__pagenav h6 {
+    margin: 0;
+    border-width: 0;
+}
+
 #colormag__pagenav ul li {
     /*display: inline list-item;*/
 }
@@ -2263,6 +2294,16 @@ div.secedit.editbutton_section {
     display: none;
 }
 
+[dir] body.bordered-widgets #colormag__sidecard-wrap, [dir] body.bordered-widgets aside.widget {
+    border-style: solid;
+    border-width: 2px;
+}
+
+[dir] body.bordered-widgets aside.widget {
+    margin-top: 3rem;
+    padding: 1rem 1rem 0;
+}
+
 /* =FOOTER WIDGET AREA
 ----------------------------------------------- */
 
@@ -2337,6 +2378,10 @@ div.secedit.editbutton_section {
 
 #colormag__licensewidget .license a {
     display: block;
+}
+
+[dir] #colormag__licensewidget .license {
+    margin-bottom: 2rem;
 }
 
 /* =FOOTER SOCKET AREA
@@ -2415,7 +2460,7 @@ body.socket-flip #colormag__colophon .footer-socket-right-section {
 }
 */
 
-[dir] #colormag__secondary aside.widget {
+[dir] body.classic-widgets #colormag__secondary aside.widget {
     padding: 1rem .5rem 0;
 }
 

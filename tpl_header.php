@@ -102,7 +102,7 @@ if (!defined('DOKU_INC')) die();
                             <div class="tools group">
                                 <?php colormag_include("toolsheader"); ?>
                                 <!-- SITE TOOLS -->
-                                <div id="colormag__sitetools">
+                                <nav id="colormag__sitetools">
                                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>widget-title"><span><?php print $lang['site_tools']; ?></span></h6>
                                     <ul class="flex row end wrap">
                                         <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true); ?>
@@ -110,7 +110,7 @@ if (!defined('DOKU_INC')) die();
                                     <div class="mobileTools">
                                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                                     </div><!-- /.mobiletools -->
-                                </div><!-- /#colormag__sitetools -->
+                                </nav><!-- /#colormag__sitetools -->
                                 <?php colormag_include("toolsfooter"); ?>
                             </div><!-- /.tools -->
                         </div>
