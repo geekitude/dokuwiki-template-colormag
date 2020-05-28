@@ -221,9 +221,9 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 :bulb: you can add `<title>` tag within your SVG files to add a custom tooltip on hover.
 
-### Footer widgets
+### Widgets
 
-#### Bundled widgets
+#### Bundled footer widgets
 
 * Login form or informations about current user as well as potentially usefull links like `register` and `update profile`
 * Links: will show the content of closest `links` wiki page (you can choose another page name in settings and can find an example of such page in `colormag/debug` folder)
@@ -232,7 +232,13 @@ As for other SVG glyphs, you can put your own SVG files in `conf/svg` folder as 
 
 #### Want more widgets ?
 
-You can add your own widgets based on html files or on pages from `wiki:` namespace (kind of site wide extra sidebars). Simply copy `dokuwiki/lib/tpl/colormag/debug/footer.widgets.local.conf` file to `dokuwiki/conf` folder and adapt it to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder (this works just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#include-hooks) below with the file `dokuwiki/lib/tpl/colormag/debug/samplewidget.html` as an example).
+You can add your own widgets based on html files or on pages from `wiki:` namespace (kind of site wide extra sidebars). Simply copy `dokuwiki/lib/tpl/colormag/debug/footer.widgets.local.conf` and/or  `dokuwiki/lib/tpl/colormag/debug/side.widgets.local.conf` file(s) to `dokuwiki/conf` folder and adapt it/them to your needs to include any page from `wiki:` namespace or any HTML file you created in `dokuwiki/lib/tpl/colormag` folder to add them as widgets to the side of main content or in site footer.
+
+Widgets based on HTML files work just like [HTML hooks](https://github.com/geekitude/dokuwiki-template-colormag#include-hooks and you can get started with `dokuwiki/lib/tpl/colormag/debug/samplewidget.html` file as an example).
+
+The main advantage of widgets over classic sidebar is that Dokuwiki's cache is not involved (you don't need to remember to add `~~NOCACHE~~`. The second advantage is that splitting content between sidebar and widgets can make things aesthically less bulky.
+
+The drawback of widgets against sidebar is that they do not depend on current namespace (except if based on Dokuwiki syntax that .
 
 ### HTML hooks
 
