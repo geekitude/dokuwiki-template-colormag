@@ -299,7 +299,7 @@ This page should provide hints about syntax not allready provided by edit form b
 
 Here are a few suggested steps to get a nice consistent dark wiki with Colormag :
 * change the following values in `style.ini` file
-```__text__                = "#aaa"
+```__text__                = "#ccc"
 __background__          = "#333"
 __background_neu__      = "#eee"
 __border__              = "#aaa"
