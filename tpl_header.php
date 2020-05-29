@@ -55,7 +55,7 @@ if (!defined('DOKU_INC')) die();
 
         <div class="inner-wrap narrow-mix group">
             <div id="colormag__header-text-nav-wrap" class="flex row stretch between">
-                <div id="colormag__header-left-section" class="flex column stretch">
+                <div id="colormag__header-left-section" class="flex column <?php print "justify".tpl_getConf('headerflexalign') ?>">
                     <div class="flex row <?php print tpl_getConf('headerflexalign') ?>">
                         <div id="colormag__site-logo">
                             <?php
@@ -89,7 +89,7 @@ if (!defined('DOKU_INC')) die();
                     </div>
                     <?php colormag_include("brandingfooter"); ?>
                 </div>
-                <div id="colormag__header-right-section" class="flex row <?php print tpl_getConf('headerflexalign') ?>">
+                <div id="colormag__header-right-section" class="flex column <?php print "justify".tpl_getConf('headerflexalign') ?>">
                     <div class="flex column end">
                         <div id="colormag__banner-wrap" class="advertisement-content widget flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                             <?php
